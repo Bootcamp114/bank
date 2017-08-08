@@ -8,7 +8,5 @@
 </head>
 <body>
 <h1>Joevanka</h1>
-right push
-
 </body>
 </html>
