@@ -8,9 +8,7 @@
 </head>
 <body>
 <h1>Joevanka</h1>
-lsadjfl asdlf la sdfljlasdf
-asdflkajsdlf lasdkf laskjdf
-asdfasldf lsakdfj laskdjf 
-asdflaskdfj lasdf lkfjas ldfk jsf
+right push
+
 </body>
 </html>
