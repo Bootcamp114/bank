@@ -24,4 +24,10 @@ public class LoginController {
 
 		return "Account";
 	}
+
+	@RequestMapping("/dana")
+	public String dana() {
+
+		return "PeminjamanDana";
+	}
 }
