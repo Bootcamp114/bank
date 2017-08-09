@@ -24,4 +24,10 @@ public class LoginController {
 
 		return "Account";
 	}
+	
+	@RequestMapping("/peminjamandana")
+	public String pinjam() {
+
+		return "PeminjamanDana";
+	}
 }
