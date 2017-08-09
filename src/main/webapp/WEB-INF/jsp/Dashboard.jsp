@@ -51,7 +51,7 @@
                             <a href="index"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-table fa-fw"></i> Health Insurance</a>
+                            <a href="asuransi"><i class="fa fa-table fa-fw"></i> Health Insurance</a>
                         </li>
                         <li>
                             <a href="peminjamandana"><i class="fa fa-edit fa-fw"></i> Loan Funds</a>

@@ -8,14 +8,5 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @RequestMapping("/asuransi")
 public class AsuransiController {
 	
-	@RequestMapping
-	public String index(){
-		return "Asuransi";
-	}
-	
-	@RequestMapping("/add")
-	public String index2(){
-		return "AsuransiAdd";
-	}
 
 }

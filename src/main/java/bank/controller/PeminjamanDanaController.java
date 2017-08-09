@@ -7,7 +7,5 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/peminjamandana")
 public class PeminjamanDanaController {
 
-	public String index() {
-		return "PeminjamanDana";
-	}
+
 }

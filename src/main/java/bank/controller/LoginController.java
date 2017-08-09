@@ -13,7 +13,7 @@ public class LoginController {
 		return "Login";
 	}
 
-	@RequestMapping("/index")
+	@RequestMapping
 	public String index() {
 
 		return "Dashboard";
@@ -29,5 +29,17 @@ public class LoginController {
 	public String pinjam() {
 
 		return "PeminjamanDana";
+	}
+
+	@RequestMapping("asuransi")
+	public String ansuransi() {
+
+		return "Asuransi";
+	}
+
+	@RequestMapping("asuransi/add")
+	public String addasuransi() {
+
+		return "AsuransiAdd";
 	}
 }
