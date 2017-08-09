@@ -84,7 +84,7 @@
                 		</div>
                 		<div class = "form-group">
                 			<label>Jenis Identitas : </label>
-                			<select class = "form-control">
+                			<select class = "form-control" name = "jenis_identitas">
                 				<option>KTP</option>
                 				<option>SIM</option>
                 				<option>Kartu Keluarga</option>
@@ -130,57 +130,62 @@
                 				</label>
                 			</div>
                 		</div>
-                	</form>
-                </div>
-                <div class = "col-lg-6">
+                		<div class="col-lg-12">
+							<h1 class="page-header">Jenis Rekening</h1>
+						</div>
                 		<div class = "form-group">
-                			<label>Pekerjaan : </label>
-                			<input class = "form-control" name = "pekerjaan">
+                			<label>Rekening : </label>
+                			<select class = "form-control" name = "rekening">
+                				<option>Tabungan</option>
+                			</select>
                 		</div>
-                		<label>Penghasilan</label>
-                		<div class="form-group input-group">
+               			<div class = "form-group">
+                			<label>Jenis Identitas : </label>
+                			<select class = "form-control" name = "produk">
+                				<option>Silver</option>
+                			</select>
+                		</div>
+						<label>Saldo : </label>
+              			<div class="form-group input-group">
 							<span class="input-group-addon">Rp</span>
-								<input type="text" class="form-control">
+								<input type="text" class="form-control" disabled>
 							<span class="input-group-addon">.00</span>
 						</div>
-						<div class = "form-group">
-                			<label>Alamat Rumah : </label>
-                			<textarea class="form-control" rows="3" name = "alamat"></textarea>
-                		</div>
-                		<div class = "form-group">
-                			<label>Nomor Peserta Wajib Pajak : </label>
-                			<input class = "form-control" name = "npwp">
-                		</div>
+              			<label>Total Pembayaran : </label>
+               			<div class="form-group input-group">
+							<span class="input-group-addon">Rp</span>
+								<input type="text" class="form-control" disabled>
+							<span class="input-group-addon">.00</span>
+						</div>
+							
+						<button type="submit" class="btn btn-success">Submit Button</button>
+						<button type="reset" class="btn btn-info">Reset Button</button>
+							
 				</div>
-				<div class = "row"><div class="col-lg-12">
-                    <h1 class="page-header">Jenis Rekening</h1>
-                </div></div>
-					<div class = "col-lg-6">
-                			<div class = "form-group">
-                				<label>Rekening : </label>
-                				<input class = "form-control" name = "rekening">
-                			</div>
-                			<div class = "form-group">
-                				<label>Produk : </label>
-                				<input class = "form-control" name = "produk">
-                			</div>
-							<label>Saldo : </label>
-                			<div class="form-group input-group">
+				<div class="col-lg-6">
+	                		<div class = "form-group">
+	                			<label>Pekerjaan : </label>
+	                			<input class = "form-control" name = "pekerjaan">
+	                		</div>
+	                		<label>Penghasilan</label>
+	                		<div class="form-group input-group">
 								<span class="input-group-addon">Rp</span>
-									<input type="text" class="form-control" disabled>
+									<input type="text" class="form-control">
 								<span class="input-group-addon">.00</span>
 							</div>
-                			<label>Total Pembayaran : </label>
-                			<div class="form-group input-group">
-								<span class="input-group-addon">Rp</span>
-									<input type="text" class="form-control" disabled>
-								<span class="input-group-addon">.00</span>
-							</div>
-							<button type="submit" class="btn btn-success">Submit Button</button>
-							<button type="reset" class="btn btn-info">Reset Button</button>
-                		</form>
-					</div>
-				</div>
+							<div class = "form-group">
+	                			<label>Alamat Rumah : </label>
+	                			<textarea class="form-control" rows="3" name = "alamat"></textarea>
+	                		</div>
+	                		<div class = "form-group">
+	                			<label>Nomor Peserta Wajib Pajak (NPWP) : </label>
+	                			<input class = "form-control" name = "npwp">
+	                		</div>
+                </div>
+				</form>
+			</div>
+		</div>
+	</div>
             <!-- /.row -->
     <!-- /#wrapper -->
 
