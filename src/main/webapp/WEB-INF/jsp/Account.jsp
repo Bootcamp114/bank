@@ -140,7 +140,7 @@
                 			</select>
                 		</div>
                			<div class = "form-group">
-                			<label>Jenis Identitas : </label>
+                			<label>Produk : </label>
                 			<select class = "form-control" name = "produk">
                 				<option>Silver</option>
                 			</select>

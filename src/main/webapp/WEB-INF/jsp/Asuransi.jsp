@@ -77,8 +77,8 @@
             </div>
             <!-- /.row -->
             <div class="row">
-                <-- Edit Dibawah Ini -->
-                <h3>Polis LIst</h3>
+                <!-- Edit Dibawah Ini -->
+                <h3>Polis List</h3>
                 <div class="panel-body">
                             <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
                                 <thead>
@@ -95,7 +95,7 @@
                                     
                                 </tbody>
                             </table>
-                            <a href="asuransiadd"><button type="button"  hre class="btn btn-primary">Add Polis</button></a>
+                            <a href="asuransi/add"><button type="button"  hre class="btn btn-primary">Add Polis</button></a>
             </div>
             </div>
             <!-- /.row -->

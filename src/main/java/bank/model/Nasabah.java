@@ -32,6 +32,8 @@ public class Nasabah {
 	private Double penghasilan;
 	@Column(unique = true)
 	private String npwp;
+	
+	// saudara (many to one)
 
 	public Nasabah() {
 		// TODO Auto-generated constructor stub
