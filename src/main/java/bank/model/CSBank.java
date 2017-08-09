@@ -24,14 +24,20 @@ public class CSBank {
 	private String telp;
 	@Column(unique = true)
 	private String email;
+	private String username;
+	private String password;
 
-	public CSBank(int id, String nama, String alamat, String telp, String email) {
+	
+
+	public CSBank(int id, String nama, String alamat, String telp, String email, String username, String password) {
 		super();
 		this.id = id;
 		this.nama = nama;
 		this.alamat = alamat;
 		this.telp = telp;
 		this.email = email;
+		this.username = username;
+		this.password = password;
 	}
 
 	public int getId() {
@@ -73,4 +79,21 @@ public class CSBank {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	
 }
