@@ -16,17 +16,27 @@ public class Angsuran {
 	private Double jumlah_pinjam;
 	private String lama_pinjam;
 	private String bunga_pinjam;
+	private String jenis_bunga_pinjam;
 	
 	public Angsuran() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Angsuran(int id, Double jumlah_pinjam, String lama_pinjam, String bunga_pinjam) {
+	public Angsuran(int id, Double jumlah_pinjam, String lama_pinjam, String bunga_pinjam, String jenis_bunga_pinjam) {
 		super();
 		this.id = id;
 		this.jumlah_pinjam = jumlah_pinjam;
 		this.lama_pinjam = lama_pinjam;
 		this.bunga_pinjam = bunga_pinjam;
+		this.jenis_bunga_pinjam = jenis_bunga_pinjam;
+	}
+
+	public String getJenis_bunga_pinjam() {
+		return jenis_bunga_pinjam;
+	}
+
+	public void setJenis_bunga_pinjam(String jenis_bunga_pinjam) {
+		this.jenis_bunga_pinjam = jenis_bunga_pinjam;
 	}
 
 	public int getId() {
