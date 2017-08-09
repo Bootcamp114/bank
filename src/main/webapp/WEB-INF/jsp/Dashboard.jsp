@@ -54,7 +54,7 @@
                             <a href="#"><i class="fa fa-table fa-fw"></i> Health Insurance</a>
                         </li>
                         <li>
-                            <a href="dana"><i class="fa fa-edit fa-fw"></i> Loan Funds</a>
+                            <a href="peminjamandana"><i class="fa fa-edit fa-fw"></i> Loan Funds</a>
                         </li>
                         <li>
                             <a href="account"><i class="fa fa-book fa-fw"></i> Create Nasabah Account</a>
