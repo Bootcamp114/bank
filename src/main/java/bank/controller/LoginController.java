@@ -18,4 +18,10 @@ public class LoginController {
 
 		return "Dashboard";
 	}
+
+	@RequestMapping("/account")
+	public String akun() {
+
+		return "Account";
+	}
 }

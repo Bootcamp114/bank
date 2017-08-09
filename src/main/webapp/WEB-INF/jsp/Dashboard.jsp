@@ -20,13 +20,11 @@
 		
 </head>
 <body>
-
     <div id="wrapper">
-
         <!-- Navigation -->
         <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
             <div class="navbar-header">
-                <a class="navbar-brand" href="index.html">Bank CBA</a>
+                <a class="navbar-brand" href="index">Bank CBA</a>
             </div>
             <!-- /.navbar-header -->
 
@@ -50,7 +48,7 @@
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
                         <li>
-                            <a href="#"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                            <a href="index"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-table fa-fw"></i> Health Insurance</a>
@@ -59,7 +57,7 @@
                             <a href="#"><i class="fa fa-edit fa-fw"></i> Loan Funds</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-book fa-fw"></i> Create Nasabah Account</a>
+                            <a href="account"><i class="fa fa-book fa-fw"></i> Create Nasabah Account</a>
                         </li>
                     </ul>
                 </div>
@@ -86,7 +84,7 @@
                                 </div>
                                 <div class="col-xs-9 text-right">
                                     <div class="huge">26</div>
-                                    <div>New Comments!</div>
+                                    <div>Customer</div>
                                 </div>
                             </div>
                         </div>
@@ -108,7 +106,7 @@
                                 </div>
                                 <div class="col-xs-9 text-right">
                                     <div class="huge">12</div>
-                                    <div>New Tasks!</div>
+                                    <div>Insurance Customer</div>
                                 </div>
                             </div>
                         </div>
@@ -130,7 +128,7 @@
                                 </div>
                                 <div class="col-xs-9 text-right">
                                     <div class="huge">124</div>
-                                    <div>New Orders!</div>
+                                    <div>Loan Customer</div>
                                 </div>
                             </div>
                         </div>
@@ -152,7 +150,7 @@
                                 </div>
                                 <div class="col-xs-9 text-right">
                                     <div class="huge">13</div>
-                                    <div>Support Tickets!</div>
+                                    <div>Customer Service</div>
                                 </div>
                             </div>
                         </div>
@@ -185,6 +183,5 @@
 
     <!-- Custom Theme JavaScript -->
     <script src="./../resources/assets/dist/js/sb-admin-2.js"></script>
-
 </body>
 </html>
