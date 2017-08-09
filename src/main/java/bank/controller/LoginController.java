@@ -25,8 +25,8 @@ public class LoginController {
 		return "Account";
 	}
 
-	@RequestMapping("/dana")
-	public String dana() {
+	@RequestMapping("/peminjamandana")
+	public String pinjam() {
 
 		return "PeminjamanDana";
 	}
