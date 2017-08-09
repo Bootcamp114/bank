@@ -11,10 +11,10 @@
 
 		<title>Login Form</title>
 	
-	<link href="./resources/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-	<link href="./resources/assets/vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
-	<link href="./resources/assets/css/sb-admin-2.css" rel="stylesheet">
-	<link href="./resources/assets/vendor/font-awesome/css/font-awesome.min.css"
+	<link href="./../resources/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link href="./../resources/assets/vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
+	<link href="./../resources/assets/css/sb-admin-2.css" rel="stylesheet">
+	<link href="./../resources/assets/vendor/font-awesome/css/font-awesome.min.css"
 		rel="stylesheet" type="text/css">
 </head>
 <body>
@@ -49,9 +49,9 @@
             </div>
         </div>
     </div>
-    <script src="./resources/assets/vendor/jquery/jquery.min.js"></script>
-    <script src="./resources/assets/vendor/bootstrap/js/bootstrap.min.js"></script>
-    <script src="./resources/assets/vendor/metisMenu/metisMenu.min.js"></script>
-    <script src="./resources/assets/js/sb-admin-2.js"></script>
+    <script src="./../resources/assets/vendor/jquery/jquery.min.js"></script>
+    <script src="./../resources/assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="./../resources/assets/vendor/metisMenu/metisMenu.min.js"></script>
+    <script src="./../resources/assets/js/sb-admin-2.js"></script>
 </body>
 </html>
