@@ -17,17 +17,20 @@ public class Nasabah {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private int id;
+	@Column(unique = true)
 	private String no_rek;
 	private String nama;
 	private String jenis_identitas;
 	@Column(unique = true)
 	private String no_identitas;
 	private String warga_negara;
+	private String alamat;
 	private String tempat_lahir;
 	private String tanggal_lahir;
 	private String jenis_kel;
 	private String pekerjaan;
 	private Double penghasilan;
+	@Column(unique = true)
 	private String npwp;
 
 	public Nasabah() {
@@ -35,8 +38,8 @@ public class Nasabah {
 	}
 
 	public Nasabah(int id, String no_rek, String nama, String jenis_identitas, String no_identitas, String warga_negara,
-			String tempat_lahir, String tanggal_lahir, String jenis_kel, String pekerjaan, Double penghasilan,
-			String npwp) {
+			String alamat, String tempat_lahir, String tanggal_lahir, String jenis_kel, String pekerjaan,
+			Double penghasilan, String npwp) {
 		super();
 		this.id = id;
 		this.no_rek = no_rek;
@@ -44,6 +47,7 @@ public class Nasabah {
 		this.jenis_identitas = jenis_identitas;
 		this.no_identitas = no_identitas;
 		this.warga_negara = warga_negara;
+		this.alamat = alamat;
 		this.tempat_lahir = tempat_lahir;
 		this.tanggal_lahir = tanggal_lahir;
 		this.jenis_kel = jenis_kel;
@@ -146,5 +150,13 @@ public class Nasabah {
 
 	public void setNpwp(String npwp) {
 		this.npwp = npwp;
+	}
+
+	public String getAlamat() {
+		return alamat;
+	}
+
+	public void setAlamat(String alamat) {
+		this.alamat = alamat;
 	}
 }

@@ -14,9 +14,59 @@ public class CSBank {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private int id;
-	private String name;
+	private String nama;
 	private String alamat;
-	private String nohp;
+	@Column(unique = true)
+	private String telp;
 	@Column(unique = true)
 	private String email;
+
+	public CSBank(int id, String nama, String alamat, String telp, String email) {
+		super();
+		this.id = id;
+		this.nama = nama;
+		this.alamat = alamat;
+		this.telp = telp;
+		this.email = email;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getNama() {
+		return nama;
+	}
+
+	public void setNama(String nama) {
+		this.nama = nama;
+	}
+
+	public String getAlamat() {
+		return alamat;
+	}
+
+	public void setAlamat(String alamat) {
+		this.alamat = alamat;
+	}
+
+	public String getTelp() {
+		return telp;
+	}
+
+	public void setTelp(String telp) {
+		this.telp = telp;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
 }
