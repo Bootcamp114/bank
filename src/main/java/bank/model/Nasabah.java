@@ -15,6 +15,8 @@ public class Nasabah {
 	private String alamat;
 	private String email;
 	private String tempatLahir;
-	private Date tanggalLahir;
-	
+	private String tanggalLahir;
+	private String telepon;
+	private String jenisKelamin;
+	private int nomorNpwp;
 }
