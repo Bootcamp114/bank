@@ -181,8 +181,14 @@
 							placeholder="Masukan Nama penanggung ">
 
 					</div>
+					<div class="form-group">
+						<label for="exampleInputEmail1">Ahli Waris</label> <input
+							type="text" class="form-control" id="NoPolis"
+							placeholder="Masukan Nama penanggung ">
+
+					</div>
 				</form>
-				<br/><br/><br/><br/>
+				
 				<div class="form-group"> 
 					<label for="exampleInputEmail1">Program Setroran / bulan</label> <select
 						class="form-control">
