@@ -77,7 +77,8 @@
             <div class="row">
                 <!-- Edit Dibawah -->
                 <div class = "col-lg-6">
-                	<form role = "form">
+                	<form role = "form" action = "../../nasabah/save" method = "POST">
+                		<input class = "form-control" name = "no_rek">
                 		<div class = "form-group">
                 			<label>Nama : </label>
                 			<input class = "form-control" name = "nama" required>
@@ -85,11 +86,11 @@
                 		<div class = "form-group">
                 			<label>Jenis Identitas : </label>
                 			<select class = "form-control" name = "jenis_identitas">
-                				<option>KTP</option>
-                				<option>SIM</option>
-                				<option>Kartu Keluarga</option>
-                				<option>Ijazah</option>
-                				<option>Passport</option>
+                				<option value = "KTP">KTP</option>
+                				<option value = "SIM">SIM</option>
+                				<option value = "Kartu Pelajar">Kartu Keluarga</option>
+                				<option value = "Ijazah">Ijazah</option>
+                				<option value = "Passport">Passport</option>
                 			</select>
                 		</div>
                 		<div class = "form-group">
@@ -100,12 +101,12 @@
                 			<label>Warga Negara : </label>
                 			<div class = "radio">
                 				<label>
-                					<input type="radio" name="warga_negara" id="wni" checked>WNI
+                					<input type="radio" name="warga_negara" id="wni" value = "WNI" checked>WNI
                 				</label>
                 			</div>
                 			<div class = "radio">
                 				<label>
-                					<input type="radio" name="warga_negara" id="wna" checked>WNA
+                					<input type="radio" name="warga_negara" id="wna" value = "WNA" checked>WNA
                 				</label>
                 			</div>
                 		</div>
@@ -115,18 +116,18 @@
                 		</div>
                 		<div class = "form-group">
                 			<label>Tanggal Lahir : </label>
-                			<input class = "form-control" name = "nama" type = "date">
+                			<input class = "form-control" name = "tanggal_lahir" type = "date">
                 		</div>
                 		<div class = "form-group">
                 			<label>Jenis Kelamin : </label>
                 			<div class = "radio">
                 				<label>
-                					<input type="radio" name="jenis_kel" id="laki" checked>Laki - Laki
+                					<input type="radio" name="jenis_kel" id="laki" value = "Laki - Laki" checked>Laki - Laki
                 				</label>
                 			</div>
                 			<div class = "radio">
                 				<label>
-                					<input type="radio" name="jenis_kel" id="perempuan" checked>Perempuan
+                					<input type="radio" name="jenis_kel" id="perempuan" value = "Perempuan" checked>Perempuan
                 				</label>
                 			</div>
                 		</div>
@@ -169,12 +170,12 @@
 	                		<label>Status Pernikahan : </label>
                 			<div class = "radio">
                 				<label>
-                					<input type="radio" name="status" id="sudah" checked>Sudah Menikah
+                					<input type="radio" name="status" id="sudah" value = "Sudah Menikah" checked>Sudah Menikah
                 				</label>
                 			</div>
                 			<div class = "radio">
                 				<label>
-                					<input type="radio" name="status" id="belum" checked>Belum Menikah
+                					<input type="radio" name="status" id="belum" value = "Belum Menikah" checked>Belum Menikah
                 				</label>
                 			</div>
 	                	</div>
@@ -188,7 +189,7 @@
 										<th class="text-center">Nama</th>
 										<th class="text-center">Hubungan Keluarga</th>
 										<th class="text-center">Pendidikan</th>
-										<th class="text-center">No Hp</th>
+										<th class="text-center">No Telp</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -223,7 +224,7 @@
 	              		<label>Penghasilan</label>
 	              		<div class="form-group input-group">
 						<span class="input-group-addon">Rp</span>
-							<input type="text" class="form-control">
+							<input class="form-control" name="penghasilan">
 						<span class="input-group-addon">.00</span>
 					</div>
 					<div class = "form-group">
