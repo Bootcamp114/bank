@@ -9,7 +9,7 @@
 	<meta name="description" content="">
 	<meta name="author" content="">
 
-	<title>Insert title here</title>
+		<title>Insert title here</title>
 
 	<link href="./../../resources/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 	<link href="./../../resources/assets/vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
@@ -18,6 +18,15 @@
 	<link href="./../../resources/assets/vendor/font-awesome/css/font-awesome.min.css"
 		rel="stylesheet" type="text/css">
 		
+	<script type="text/javascript"
+		src="/resources/assets/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("#submit").on("click", function(){
+				save();
+			});
+		});
+	</script>
 </head>
 <body>
     <div id="wrapper">
@@ -35,7 +44,7 @@
                         <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
-                        <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        <li><a href="../login"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->
@@ -69,7 +78,16 @@
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Create New Customer Account</h1>
+                    <h1 class="page-header">Create New Customer Account<table align = "right">
+                    	<tr>
+                    		<td><select class = "form-control" name = "cs">
+                    			<option>CS 1</option>
+                    			<option>CS 2</option>
+                    			<option>CS 3</option>
+                    			<option>CS 4</option>
+                    		</select></td>
+                    	</tr>
+                    </table></h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -77,7 +95,7 @@
             <div class="row">
                 <!-- Edit Dibawah -->
                 <div class = "col-lg-6">
-                	<form role = "form" action = "../../nasabah/save" method = "POST">
+                	<form role = "form" id = "myForm">
                 		<input class = "form-control" name = "no_rek">
                 		<div class = "form-group">
                 			<label>Nama : </label>
@@ -101,12 +119,12 @@
                 			<label>Warga Negara : </label>
                 			<div class = "radio">
                 				<label>
-                					<input type="radio" name="warga_negara" id="wni" value = "WNI" checked>WNI
+                					<input type="radio" name = "warga_negara" id="wni" value = "WNI">WNI
                 				</label>
                 			</div>
                 			<div class = "radio">
                 				<label>
-                					<input type="radio" name="warga_negara" id="wna" value = "WNA" checked>WNA
+                					<input type="radio" name = "warga_negara" id="wna" value = "WNA">WNA
                 				</label>
                 			</div>
                 		</div>
@@ -122,12 +140,12 @@
                 			<label>Jenis Kelamin : </label>
                 			<div class = "radio">
                 				<label>
-                					<input type="radio" name="jenis_kel" id="laki" value = "Laki - Laki" checked>Laki - Laki
+                					<input type="radio" name = "jenis_kel" id="laki" value = "Laki - Laki">Laki - Laki
                 				</label>
                 			</div>
                 			<div class = "radio">
                 				<label>
-                					<input type="radio" name="jenis_kel" id="perempuan" value = "Perempuan" checked>Perempuan
+                					<input type="radio" name = "jenis_kel" id="perempuan" value = "Perempuan">Perempuan
                 				</label>
                 			</div>
                 		</div>
@@ -170,12 +188,12 @@
 	                		<label>Status Pernikahan : </label>
                 			<div class = "radio">
                 				<label>
-                					<input type="radio" name="status" id="sudah" value = "Sudah Menikah" checked>Sudah Menikah
+                					<input type="radio" name = "status" id="sudah" value = "Sudah Menikah">Sudah Menikah
                 				</label>
                 			</div>
                 			<div class = "radio">
                 				<label>
-                					<input type="radio" name="status" id="belum" value = "Belum Menikah" checked>Belum Menikah
+                					<input type="radio" name = "status" id="belum" value = "Belum Menikah">Belum Menikah
                 				</label>
                 			</div>
 	                	</div>
@@ -208,7 +226,7 @@
 	               			<input class = "form-control" name = "ahli_waris">
 	             		</div>
 						
-						<button type="submit" class="btn btn-success">Submit Button</button>
+						<button type="submit" id = "submit" class="btn btn-success">Submit Button</button>
 						<button type="reset" class="btn btn-warning">Reset Button</button>
 							
 				</div>
@@ -252,12 +270,57 @@
     <!-- Metis Menu Plugin JavaScript -->
     <script src="./../../resources/assets/vendor/metisMenu/metisMenu.min.js"></script>
 
-    <!-- Morris Charts JavaScript -->
-    <script src="./../../resources/assets/vendor/raphael/raphael.min.js"></script>
-    <script src="./../../resources/assets/vendor/morrisjs/morris.min.js"></script>
-    <script src="./../../resources/assets/data/morris-data.js"></script>
-
     <!-- Custom Theme JavaScript -->
-    <script src="./../../resources/assets/dist/js/sb-admin-2.js"></script>
+    <script src="./../../resources/assets/js/sb-admin-2.js"></script>
 </body>
+	<script type = "text/javascript">
+		function save() {
+			var no_rek = $('input[name="no_rek"]').val();
+			var nama = $('input[name="nama"]').val();
+			var jenis_identitas = $('select[name="jenis_identitas"]').val();
+			var no_identitas = $('input[name="no_identitas"]').val();
+			var warga_negara = $('input[name="warga_negara"]').val();
+			var alamat = $('textarea[name="alamat"]').val();
+			var tempat_lahir = $('input[name="tempat_lahir"]').val();
+			var tanggal_lahir = $('input[name="tanggal_lahir"]').val();
+			var jenis_kel = $('input[name="jenis_kel"]').val();
+			var pekerjaan = $('input[name="pekerjaan"]').val();
+			var penghasilan = $('input[name="penghasilan"]').val();
+			var npwp = $('input[name="npwp"]').val();
+			var rekomendasi_perusahaan = $('input[name="rekomendasi_perusahaan"]').val();
+			var status = $('input[name="status"]').val();
+			var ahli_waris = $('input[name="ahli_waris"]').val();
+
+			var nasabah = {
+				no_rek : no_rek,
+				nama : nama,
+				jenis_identitas : jenis_identitas	,
+				no_identitas : no_identitas,
+				warga_negara : warga_negara,
+				alamat : alamat,
+				tempat_lahir : tempat_lahir,
+				tanggal_lahir : tanggal_lahir,
+				jenis_kel : jenis_kel,
+				pekerjaan : pekerjaan,
+				penghasilan : penghasilan,
+				npwp : npwp,
+				rekomendasi_perusahaan : rekomendasi_perusahaan,
+				status : status,
+				ahli_waris : ahli_waris
+			}
+
+			$.ajax({
+				url : '/nasabah/save',
+				type : 'POST',
+				contentType : 'application/json',
+				data : JSON.stringify(nasabah), // Convert object to string
+				success : function(data, a, xhr) {
+					console.log(xhr.status);
+					if (xhr.status == 201) {
+						alert("Success Add Data..");
+					}
+				}
+			});
+		}
+	</script>
 </html>

@@ -1,37 +1,33 @@
 package bank.model;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
-import org.springframework.stereotype.Controller;
-
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
-@Controller
-@Table(name = "BANK_REKENING")
+@Entity
+@Table(name = "BANK_PRODUK_NASABAH")
 @JsonIdentityInfo(generator = ObjectIdGenerators.IntSequenceGenerator.class, property = "@id")
-public class Rekening {
+public class ProdukNasabah {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private int id;
-	private String rekening;
-	private Double saldo;
+	private String nama_produk;
 	private Double harga;
 	// Nasabah (One To Many)
 
-	public Rekening() {
+	public ProdukNasabah() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Rekening(int id, String rekening, Double saldo, Double harga) {
+	public ProdukNasabah(int id, String nama_produk, Double harga) {
 		super();
 		this.id = id;
-		this.rekening = rekening;
-		this.saldo = saldo;
+		this.nama_produk = nama_produk;
 		this.harga = harga;
 	}
 
@@ -43,20 +39,12 @@ public class Rekening {
 		this.id = id;
 	}
 
-	public String getRekening() {
-		return rekening;
+	public String getNama_produk() {
+		return nama_produk;
 	}
 
-	public void setRekening(String rekening) {
-		this.rekening = rekening;
-	}
-
-	public Double getSaldo() {
-		return saldo;
-	}
-
-	public void setSaldo(Double saldo) {
-		this.saldo = saldo;
+	public void setNama_produk(String nama_produk) {
+		this.nama_produk = nama_produk;
 	}
 
 	public Double getHarga() {

@@ -35,9 +35,9 @@ public class Nasabah {
 	private String rekomendasi_perusahaan;
 	private String status;
 	private String ahli_waris;
-	// Rekening (One to Many)
-	// saudara (many to one)
-	// Produk (One To Many)
+	// Rekening (Many to One)
+	// saudara (One to one)
+	// Produk (Many To One)
 
 	public Nasabah() {
 		// TODO Auto-generated constructor stub
