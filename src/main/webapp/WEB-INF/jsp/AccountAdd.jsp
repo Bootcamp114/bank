@@ -166,15 +166,15 @@
 							<h1 class="page-header">Keluarga</h1>
 						</div>
 						<div class = "form-group">
-	                		<label>Status : </label>
+	                		<label>Status Pernikahan : </label>
                 			<div class = "radio">
                 				<label>
-                					<input type="radio" name="status" id="sudah" checked>Sudah
+                					<input type="radio" name="status" id="sudah" checked>Sudah Menikah
                 				</label>
                 			</div>
                 			<div class = "radio">
                 				<label>
-                					<input type="radio" name="status" id="belum" checked>Belum
+                					<input type="radio" name="status" id="belum" checked>Belum Menikah
                 				</label>
                 			</div>
 	                	</div>
@@ -214,11 +214,7 @@
 				<div class="col-lg-6">
 					<div class = "form-group">
 	                	<label>Rekomendasi Perusahaan : </label>
-	               		<select class = "form-control" name = "rekomendasi_perusahaan">
-                				<option>A</option>
-                				<option>B</option>
-                				<option>C</option>
-                			</select>
+	               		<input class = "form-control" name = "rekomendasi_perusahaan">
 	             	</div>
 	                <div class = "form-group">
 	                	<label>Pekerjaan : </label>

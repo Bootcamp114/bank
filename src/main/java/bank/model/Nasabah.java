@@ -32,8 +32,12 @@ public class Nasabah {
 	private Double penghasilan;
 	@Column(unique = true)
 	private String npwp;
-	
+	private String rekomendasi_perusahaan;
+	private String status;
+	private String ahli_waris;
+	// Rekening (One to Many)
 	// saudara (many to one)
+	// Produk (One To Many)
 
 	public Nasabah() {
 		// TODO Auto-generated constructor stub
@@ -41,7 +45,7 @@ public class Nasabah {
 
 	public Nasabah(int id, String no_rek, String nama, String jenis_identitas, String no_identitas, String warga_negara,
 			String alamat, String tempat_lahir, String tanggal_lahir, String jenis_kel, String pekerjaan,
-			Double penghasilan, String npwp) {
+			Double penghasilan, String npwp, String rekomendasi_perusahaan, String status, String ahli_waris) {
 		super();
 		this.id = id;
 		this.no_rek = no_rek;
@@ -56,6 +60,9 @@ public class Nasabah {
 		this.pekerjaan = pekerjaan;
 		this.penghasilan = penghasilan;
 		this.npwp = npwp;
+		this.rekomendasi_perusahaan = rekomendasi_perusahaan;
+		this.status = status;
+		this.ahli_waris = ahli_waris;
 	}
 
 	public int getId() {
@@ -160,5 +167,29 @@ public class Nasabah {
 
 	public void setAlamat(String alamat) {
 		this.alamat = alamat;
+	}
+
+	public String getRekomendasi_perusahaan() {
+		return rekomendasi_perusahaan;
+	}
+
+	public void setRekomendasi_perusahaan(String rekomendasi_perusahaan) {
+		this.rekomendasi_perusahaan = rekomendasi_perusahaan;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+	public String getAhli_waris() {
+		return ahli_waris;
+	}
+
+	public void setAhli_waris(String ahli_waris) {
+		this.ahli_waris = ahli_waris;
 	}
 }
