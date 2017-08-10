@@ -19,19 +19,17 @@ public class Jaminan {
 	private int id;
 	private String jenis_jaminan;
 	private String dokumen_jaminan;
-	private String no_dokumen;
 	private String file_dokumen;
 	
 	public Jaminan() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Jaminan(int id, String jenis_jaminan, String dokumen_jaminan, String no_dokumen, String file_dokumen) {
+	public Jaminan(int id, String jenis_jaminan, String dokumen_jaminan, String file_dokumen) {
 		super();
 		this.id = id;
 		this.jenis_jaminan = jenis_jaminan;
 		this.dokumen_jaminan = dokumen_jaminan;
-		this.no_dokumen = no_dokumen;
 		this.file_dokumen = file_dokumen;
 	}
 
@@ -57,14 +55,6 @@ public class Jaminan {
 
 	public void setDokumen_jaminan(String dokumen_jaminan) {
 		this.dokumen_jaminan = dokumen_jaminan;
-	}
-
-	public String getNo_dokumen() {
-		return no_dokumen;
-	}
-
-	public void setNo_dokumen(String no_dokumen) {
-		this.no_dokumen = no_dokumen;
 	}
 
 	public String getFile_dokumen() {

@@ -11,17 +11,11 @@
 
 <title>Insert title here</title>
 
-<link
-	href="./../resources/assets/vendor/bootstrap/css/bootstrap.min.css"
-	rel="stylesheet">
-<link href="./../resources/assets/vendor/metisMenu/metisMenu.min.css"
-	rel="stylesheet">
+<link href="./../resources/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="./../resources/assets/vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
 <link href="./../resources/assets/css/sb-admin-2.css" rel="stylesheet">
-<link href="./../resources/assets/vendor/morrisjs/morris.css"
-	rel="stylesheet">
-<link
-	href="./../resources/assets/vendor/font-awesome/css/font-awesome.min.css"
-	rel="stylesheet" type="text/css">
+<link href="./../resources/assets/vendor/morrisjs/morris.css" rel="stylesheet">
+<link href="./../resources/assets/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
 </head>
 <body>
@@ -161,7 +155,7 @@
 								</div>
 								<div class="col-lg-6">
 									<div class="form-group">
-										<label>Nomor Peserta Wajib Pajak (NPWP) : </label> <input
+										<label>Nomor Peserta Wajib Pajak : </label> <input
 											class="form-control" name="npwp" disabled="disabled">
 									</div>
 								</div>
@@ -176,23 +170,49 @@
 						<div class="col-lg-6">
 							<h4 class="page-header">Fasilitas Peminjaman</h4>
 							<div class="col-lg-12">
-								<div class="col-lg-5">
+								<div class="col-lg-12">
 									<div class="form-group">
-										<label>Tujuan Penggunaan : </label> <input
-											class="form-control" name="nama">
+										<label>Tujuan Penggunaan : </label> <select class="form-control"
+											name="tujuan_penggunaan">
+											<option>Kredit Komsumtif</option>
+											<option>Kredit Komersil</option>
+										</select>
 									</div>
 								</div>
-								<div class="col-lg-7">
+								<div class="col-lg-6">
+									<div class="form-group">
+										<label>Jenis Kredit Komsumtif : </label> <select class="form-control"
+											name="jenis_kredit">
+											<option>Kredit Tanpa Agunan</option>
+											<option>Kredit Kepemilikan Rumah</option>
+											<option>Kredit Multiguna Berjaminan</option>
+											<option>Kredit Kendaraan</option>
+										</select>
+									</div>
+								</div>
+								<div class="col-lg-6">
+									<div class="form-group">
+										<label>Jenis Kredit Komersil : </label> <select class="form-control"
+											name="jenis_kredit">
+											<option>Kredit Mikro</option>
+											<option>Kredit Usaha Kecil</option>
+											<option>Kredit Usaha Menengah</option>
+											<option>Kredit Koperasi</option>
+										</select>
+									</div>
+								</div>
+								<div class="col-lg-6">
 									<label>Jumlah Pinjam</label>
 									<div class="form-group input-group">
 										<span class="input-group-addon">Rp</span> <input type="text"
-											class="form-control"> <span class="input-group-addon">.00</span>
+											class="form-control" name="jumlah_pinjam"> <span class="input-group-addon">.00</span>
 									</div>
 								</div>
 								<div class="col-lg-6">
 									<div class="form-group">
 										<label>Lama Pinjam : </label> <select class="form-control"
-											name="jenis_identitas">
+											name="lama_pinjam">
+											<option>- </option>
 											<option>12 Bulan</option>
 											<option>24 Bulan</option>
 											<option>36 Bulan</option>
@@ -204,14 +224,15 @@
 								<div class="col-lg-6">
 									<label>Bunga Bank (/thn)</label>
 									<div class="form-group input-group">
-										<input type="text" class="form-control"> <span
+										<input type="text" class="form-control" name="bunga_bank"> <span
 											class="input-group-addon">%</span>
 									</div>
 								</div>
 								<div class="col-lg-6">
 									<div class="form-group">
 										<label>Jenis Suku Bunga : </label> <select
-											class="form-control" name="jenis_identitas">
+											class="form-control" name="jenis_suku_bunga">
+											<option>- </option>
 											<option>Flat</option>
 											<option>Efektif</option>
 											<option>Anuitas</option>
@@ -219,7 +240,7 @@
 									</div>
 								</div>
 								<div class="col-lg-12">
-									<button type="submit" class="btn btn-danger">Kalkulasi</button>
+									<button type="submit" class="btn btn-danger">Hitung Angsuran</button>
 								</div>
 							</div>
 						</div>
@@ -229,7 +250,8 @@
 								<div class="col-lg-6">
 									<div class="form-group">
 										<label>Jenis Jaminan : </label> <select class="form-control"
-											name="jenis_identitas">
+											name="jenis_jaminan">
+											<option>- </option>
 											<option>Tanah atau Bagunan</option>
 											<option>Kendaraan</option>
 											<option>Deposito</option>
@@ -242,13 +264,13 @@
 								<div class="col-lg-12">
 									<div class="form-group">
                                             <label>Dokumen Yang Harus Dilengkapi : </label>
-                                            <textarea class="form-control" rows="3" disabled="disabled"></textarea>
+                                            <textarea class="form-control" rows="3" disabled="disabled" name="jenis_dokumen"></textarea>
                                         </div>
 								</div>
 								<div class="col-lg-12">
 									<div class="form-group">
 										<label>Masukkan Dokumen : </label> 
-										<input type="file">
+										<input type="file" name="file_dokumen">
 									</div>
 								</div>
 							</div>

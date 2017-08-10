@@ -14,18 +14,30 @@ public class Angsuran {
 	@GeneratedValue(strategy=GenerationType.SEQUENCE)
 	private int id;
 	private Double jumlah_pinjam;
+	private String tanggal_pinjam;
 	private String lama_pinjam;
 	private String bunga_pinjam;
 	private String jenis_bunga_pinjam;
 	
 	public Angsuran() {
 		// TODO Auto-generated constructor stub
+		
 	}
 
-	public Angsuran(int id, Double jumlah_pinjam, String lama_pinjam, String bunga_pinjam, String jenis_bunga_pinjam) {
+	public String getTanggal_pinjam() {
+		return tanggal_pinjam;
+	}
+
+	public void setTanggal_pinjam(String tanggal_pinjam) {
+		this.tanggal_pinjam = tanggal_pinjam;
+	}
+
+	public Angsuran(int id, Double jumlah_pinjam, String tanggal_pinjam, String lama_pinjam, String bunga_pinjam,
+			String jenis_bunga_pinjam) {
 		super();
 		this.id = id;
 		this.jumlah_pinjam = jumlah_pinjam;
+		this.tanggal_pinjam = tanggal_pinjam;
 		this.lama_pinjam = lama_pinjam;
 		this.bunga_pinjam = bunga_pinjam;
 		this.jenis_bunga_pinjam = jenis_bunga_pinjam;
