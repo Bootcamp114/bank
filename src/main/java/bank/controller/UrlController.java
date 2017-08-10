@@ -13,7 +13,7 @@ public class UrlController {
 		return "Login";
 	}
 
-	@RequestMapping
+	@RequestMapping("/index")
 	public String index() {
 
 		return "Dashboard";
