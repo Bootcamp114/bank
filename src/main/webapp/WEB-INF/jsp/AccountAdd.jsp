@@ -158,29 +158,82 @@
 							<span class="input-group-addon">.00</span>
 						</div>
 							
+						<div class = "col-lg-12">
+							<h1 class="page-header">Keluarga</h1>
+						</div>
+						<div class = "form-group">
+	                		<label>Menikah : </label>
+                			<div class = "radio">
+                				<label>
+                					<input type="radio" name="menikah" id="sudah" checked>Sudah
+                				</label>
+                			</div>
+                			<div class = "radio">
+                				<label>
+                					<input type="radio" name="menikah" id="belum" checked>Belum
+                				</label>
+                			</div>
+	                	</div>
+	                	<a class = "btn btn-success btn-sm"><span class = "fa fa-fw fa-plus"></span></a>
+	                	<br>
+		                <div class = "from-group">
+		                	<table class = "table table-stripeed table-bordered table-hover dataTable no-footer dtr-inline" id = "dataTables-example" role = "grid" aria-describedby="dataTables-example_info">
+								<thead class = "kolom">
+									<tr>
+										<th class="text-center">No</th>
+										<th class="text-center">Nama</th>
+										<th class="text-center">Hubungan Keluarga</th>
+										<th class="text-center">Pendidikan</th>
+										<th class="text-center">No Hp</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td class="text-center">1</td>
+										<td class="text-center"> </td>
+										<td class="text-center"> </td>
+										<td class="text-center"> </td>
+										<td class="text-center"> </td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<div class = "form-group">
+	                		<label>Ahli Waris : </label>
+	               			<input class = "form-control" name = "ahli_waris">
+	             		</div>
+						
 						<button type="submit" class="btn btn-success">Submit Button</button>
 						<button type="reset" class="btn btn-info">Reset Button</button>
 							
 				</div>
 				<div class="col-lg-6">
-	                		<div class = "form-group">
-	                			<label>Pekerjaan : </label>
-	                			<input class = "form-control" name = "pekerjaan">
-	                		</div>
-	                		<label>Penghasilan</label>
-	                		<div class="form-group input-group">
-								<span class="input-group-addon">Rp</span>
-									<input type="text" class="form-control">
-								<span class="input-group-addon">.00</span>
-							</div>
-							<div class = "form-group">
-	                			<label>Alamat Rumah : </label>
-	                			<textarea class="form-control" rows="3" name = "alamat"></textarea>
-	                		</div>
-	                		<div class = "form-group">
-	                			<label>Nomor Peserta Wajib Pajak (NPWP) : </label>
-	                			<input class = "form-control" name = "npwp">
-	                		</div>
+					<div class = "form-group">
+	                	<label>Rekomendasi Perusahaan : </label>
+	               		<select class = "form-control" name = "rekomendasi_perusahaan">
+                				<option>A</option>
+                				<option>B</option>
+                				<option>C</option>
+                			</select>
+	             	</div>
+	                <div class = "form-group">
+	                	<label>Pekerjaan : </label>
+	               		<input class = "form-control" name = "pekerjaan">
+	             	</div>
+	              		<label>Penghasilan</label>
+	              		<div class="form-group input-group">
+						<span class="input-group-addon">Rp</span>
+							<input type="text" class="form-control">
+						<span class="input-group-addon">.00</span>
+					</div>
+					<div class = "form-group">
+						<label>Alamat Rumah : </label>
+						<textarea class="form-control" rows="3" name = "alamat"></textarea>
+					</div>
+					<div class = "form-group">
+						<label>Nomor Peserta Wajib Pajak (NPWP) : </label>
+						<input class = "form-control" name = "npwp">
+					</div>
                 </div>
 				</form>
 			</div>
