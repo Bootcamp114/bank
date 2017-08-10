@@ -78,9 +78,13 @@
             <!-- /.row -->
             <div class="row">
                 <!-- Edit Dibawah Ini -->
-                <a href="asuransi/add" class = "btn btn-success btn-md"><span class = "fa fa-fw fa-plus"></span>Add Polis</a>
-                <h3>Polis List</h3>
+                
                 <div class="panel-body">
+                <div><h3>Polis List</h3></div>
+                <div> 
+                <a href="asuransi/add" class = "btn btn-success btn-md"><span class = "fa fa-fw fa-plus"></span>Add Polis</a>
+                <a href="asuransi" class = "btn btn-primary btn-md"><span class = "fa fa-fw fa-refresh fa-spin"></span>Refresh</a>
+                </div><br/>
                             <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
                                 <thead>
                                     <tr>

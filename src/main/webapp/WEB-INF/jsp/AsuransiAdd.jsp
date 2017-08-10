@@ -82,7 +82,7 @@
 						<div class="form-group" class="col-lg-6">
 							<label for="exampleInputEmail1">No Polis</label> <input
 								type="text" class="form-control" id="NoPolis"
-								placeholder="Masukan No Polis">
+								placeholder="Masukan No Polis" disabled="disabled">
 						</div>
 
 						<div class="form-group">
@@ -117,6 +117,14 @@
                 				<option>Adik/Kakak</option>
                 				<option>Lain-Lain</option>
                 			</select>
+                		</div>
+                <div class = "form-group">
+                			<label>No Hp : </label>
+                			<input class = "form-control" name = "no_identitas" required>
+                		</div>
+                <div class = "form-group">
+                			<label>Email : </label>
+                			<input class = "form-control" name = "no_identitas" required>
                 		</div>
 				<div class="form-group">
 						<label for="exampleInputEmail1">Tanggal Lahir</label> <input
@@ -174,7 +182,13 @@
 						<label for="exampleInputEmail1">Pekerjaan</label> <input
 							type="text" class="form-control" id="NoPolis"
 							placeholder="Masukan Nama penanggung ">
+				
 
+					</div>
+					
+				<div class = "form-group">
+						<label>Alamat Rumah : </label>
+						<textarea class="form-control" rows="3" name = "alamat"></textarea>
 					</div>
 				
 				<div class = "form-group">
@@ -218,11 +232,8 @@
                 				</label>
                 			</div>
                 		</div>
-					
-				
-				
-				
-				
+                		
+
 		</div>
 		</div>
 </div>
