@@ -53,13 +53,13 @@
 		<div class="navbar-default sidebar" role="navigation">
 			<div class="sidebar-nav navbar-collapse">
 				<ul class="nav" id="side-menu">
-					<li><a href="index"><i class="fa fa-dashboard fa-fw"></i>
+					<li><a href="../index"><i class="fa fa-dashboard fa-fw"></i>
 							Dashboard</a></li>
-					<li><a href="asuransi"><i class="fa fa-table fa-fw"></i> Health
+					<li><a href="../asuransi"><i class="fa fa-table fa-fw"></i> Health
 							Insurance</a></li>
-					<li><a href="peminjamandana"><i class="fa fa-edit fa-fw"></i> Loan
+					<li><a href="../peminjamandana"><i class="fa fa-edit fa-fw"></i> Loan
 							Funds</a></li>
-					<li><a href="account"><i class="fa fa-book fa-fw"></i> Create
+					<li><a href="../account"><i class="fa fa-book fa-fw"></i> Create
 							Nasabah Account</a></li>
 				</ul>
 			</div>
@@ -196,12 +196,12 @@
                 			<label>Status : </label>
                 			<div class = "radio">
                 				<label>
-                					<input type="radio" name="jenis_kel" id="laki" checked>Menikah
+                					<input type="radio" name="status" id="sudah" checked>Menikah
                 				</label>
                 			</div>
                 			<div class = "radio">
                 				<label>
-                					<input type="radio" name="jenis_kel" id="perempuan" checked>Belum Menikah
+                					<input type="radio" name="status" id="belum" checked>Belum Menikah
                 				</label>
                 			</div>
                 			
