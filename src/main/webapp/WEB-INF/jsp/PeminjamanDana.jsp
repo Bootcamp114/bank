@@ -53,8 +53,8 @@
 				<ul class="nav" id="side-menu">
 					<li><a href="index"><i class="fa fa-dashboard fa-fw"></i>
 							Dashboard</a></li>
-					<li><a href="asuransi"><i class="fa fa-table fa-fw"></i> Health
-							Insurance</a></li>
+					<li><a href="asuransi"><i class="fa fa-table fa-fw"></i>
+							Health Insurance</a></li>
 					<li><a href="peminjamandana"><i class="fa fa-edit fa-fw"></i>
 							Loan Funds</a></li>
 					<li><a href="account"><i class="fa fa-book fa-fw"></i>
@@ -68,198 +68,202 @@
 		<div id="page-wrapper">
 			<div class="row">
 				<div class="col-lg-12">
-					<h2 class="page-header">Form Kredit Tanpa Agunan</h2>
-				</div>
-				<div class="col-lg-6">
-					<h4 class="page-header">Data Diri</h4>
-					<div class="col-lg-12">
+					<h2 class="page-header">Form Peminjaman Dana</h2>
 					<form role="form">
 						<div class="col-lg-6">
-							<div class="form-group">
-								<label>Nama : </label> <input class="form-control" name="nama">
-							</div>
-						</div>
-						<div class="col-lg-6">
-							<div class="form-group">
-								<label>Jenis Identitas : </label> <select class="form-control"
-									name="jenis_identitas" disabled="disabled">
-									<option>KTP</option>
-									<option>SIM</option>
-									<option>Kartu Keluarga</option>
-									<option>Ijazah</option>
-									<option>Passport</option>
-								</select>
-							</div>
-						</div>
-						<div class="col-lg-6">
-							<div class="form-group">
-								<label>Nomor Identitas : </label> <input class="form-control"
-									name="no_identitas" disabled="disabled">
-							</div>
-						</div>
-						<div class="col-lg-6">
-							<div class="form-group">
-								<label>Warga Negara : </label>
-								<div class="radio">
-									<label> <input type="radio" name="warga_negara"
-										id="wni" disabled="disabled">WNI
-									</label>
+							<h4 class="page-header">Data Diri</h4>
+							<div class="col-lg-12">
+								<div class="col-lg-6">
+									<div class="form-group">
+										<label>Nama : </label> <input class="form-control" name="nama">
+									</div>
 								</div>
-								<div class="radio">
-									<label> <input type="radio" name="warga_negara"
-										id="wna" disabled="disabled">WNA
-									</label>
+								<div class="col-lg-6">
+									<div class="form-group">
+										<label>Jenis Identitas : </label> <select class="form-control"
+											name="jenis_identitas" disabled="disabled">
+											<option>KTP</option>
+											<option>SIM</option>
+											<option>Kartu Keluarga</option>
+											<option>Ijazah</option>
+											<option>Passport</option>
+										</select>
+									</div>
+								</div>
+								<div class="col-lg-6">
+									<div class="form-group">
+										<label>Nomor Identitas : </label> <input class="form-control"
+											name="no_identitas" disabled="disabled">
+									</div>
+								</div>
+								<div class="col-lg-6">
+									<div class="form-group">
+										<label>Warga Negara : </label>
+										<div class="radio">
+											<label> <input type="radio" name="warga_negara"
+												id="wni" disabled="disabled">WNI
+											</label>
+										</div>
+										<div class="radio">
+											<label> <input type="radio" name="warga_negara"
+												id="wna" disabled="disabled">WNA
+											</label>
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-6">
+									<div class="form-group">
+										<label>Alamat Rumah : </label>
+										<textarea class="form-control" rows="1" name="alamat"
+											disabled="disabled"></textarea>
+									</div>
+								</div>
+								<div class="col-lg-6">
+									<div class="form-group">
+										<label>Tempat Lahir : </label> <input class="form-control"
+											name="tempat_lahir" disabled="disabled">
+									</div>
+								</div>
+								<div class="col-lg-6">
+									<div class="form-group">
+										<label>Tanggal Lahir : </label> <input class="form-control"
+											name="tanggal_lahir" type="date" disabled="disabled" />
+									</div>
+								</div>
+								<div class="col-lg-6">
+									<div class="form-group">
+										<label>Jenis Kelamin : </label>
+										<div class="radio">
+											<label> <input type="radio" name="jenis_kel"
+												id="laki" disabled="disabled">Laki - Laki
+											</label>
+										</div>
+										<div class="radio">
+											<label> <input type="radio" name="jenis_kel"
+												id="perempuan" disabled="disabled">Perempuan
+											</label>
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-6">
+									<div class="form-group">
+										<label>Pekerjaan : </label> <input class="form-control"
+											name="pekerjaan" disabled="disabled">
+									</div>
+								</div>
+								<div class="col-lg-6">
+									<label>Penghasilan (/bln)</label>
+									<div class="form-group input-group">
+										<span class="input-group-addon">Rp</span> <input type="text"
+											class="form-control" disabled="disabled" name="penghasilan"> <span
+											class="input-group-addon">.00</span>
+									</div>
+								</div>
+								<div class="col-lg-6">
+									<div class="form-group">
+										<label>Nomor Peserta Wajib Pajak (NPWP) : </label> <input
+											class="form-control" name="npwp" disabled="disabled">
+									</div>
+								</div>
+								<div class="col-lg-6">
+									<div class="form-group">
+										<label>Rekening : </label> <input type="text"
+											class="form-control" disabled="disabled" name="no_rek">
+									</div>
 								</div>
 							</div>
 						</div>
 						<div class="col-lg-6">
-							<div class="form-group">
-								<label>Alamat Rumah : </label>
-								<textarea class="form-control" rows="1" name="alamat" disabled="disabled"></textarea>
-							</div>
-						</div>
-						<div class="col-lg-6">
-							<div class="form-group">
-								<label>Tempat Lahir : </label> <input class="form-control"
-									name="tempat_lahir" disabled="disabled">
-							</div>
-						</div>
-						<div class="col-lg-6">
-							<div class="form-group">
-								<label>Tanggal Lahir : </label> <input class="form-control"
-									name="tanggal_lahir" type="date" disabled="disabled"/>
-							</div>
-						</div>
-						<div class="col-lg-6">
-							<div class="form-group">
-								<label>Jenis Kelamin : </label>
-								<div class="radio">
-									<label> <input type="radio" name="jenis_kel" id="laki" disabled="disabled">Laki
-										- Laki
-									</label>
+							<h4 class="page-header">Fasilitas Peminjaman</h4>
+							<div class="col-lg-12">
+								<div class="col-lg-5">
+									<div class="form-group">
+										<label>Tujuan Penggunaan : </label> <input
+											class="form-control" name="nama">
+									</div>
 								</div>
-								<div class="radio">
-									<label> <input type="radio" name="jenis_kel"
-										id="perempuan" disabled="disabled">Perempuan
-									</label>
+								<div class="col-lg-7">
+									<label>Jumlah Pinjam</label>
+									<div class="form-group input-group">
+										<span class="input-group-addon">Rp</span> <input type="text"
+											class="form-control"> <span class="input-group-addon">.00</span>
+									</div>
+								</div>
+								<div class="col-lg-6">
+									<div class="form-group">
+										<label>Lama Pinjam : </label> <select class="form-control"
+											name="jenis_identitas">
+											<option>12 Bulan</option>
+											<option>24 Bulan</option>
+											<option>36 Bulan</option>
+											<option>48 Bulan</option>
+											<option>60 Bulan</option>
+										</select>
+									</div>
+								</div>
+								<div class="col-lg-6">
+									<label>Bunga Bank (/thn)</label>
+									<div class="form-group input-group">
+										<input type="text" class="form-control"> <span
+											class="input-group-addon">%</span>
+									</div>
+								</div>
+								<div class="col-lg-6">
+									<div class="form-group">
+										<label>Jenis Suku Bunga : </label> <select
+											class="form-control" name="jenis_identitas">
+											<option>Flat</option>
+											<option>Efektif</option>
+											<option>Anuitas</option>
+										</select>
+									</div>
+								</div>
+								<div class="col-lg-12">
+									<button type="submit" class="btn btn-danger">Kalkulasi</button>
 								</div>
 							</div>
 						</div>
 						<div class="col-lg-6">
-							<div class="form-group">
-								<label>Pekerjaan : </label> <input class="form-control"
-									name="pekerjaan" disabled="disabled">
-							</div>
-						</div>
-						<div class="col-lg-6">
-							<label>Penghasilan (/bln)</label>
-							<div class="form-group input-group">
-								<span class="input-group-addon">Rp</span> <input type="text"
-									class="form-control" disabled="disabled"> <span class="input-group-addon">.00</span>
-							</div>
-						</div>
-						<div class="col-lg-6">
-							<div class="form-group">
-								<label>Nomor Peserta Wajib Pajak (NPWP) : </label> <input
-									class="form-control" name="npwp" disabled="disabled">
-							</div>
-						</div>
-						<div class="col-lg-6">
-							<div class="form-group">
-								<label>Rekening : </label> <input type="text"
-									class="form-control" disabled="disabled">
-							</div>
-						</div>
-					</form>
-				</div>
-				
-				</div>
-				<div class="col-lg-6">
-					<h4 class="page-header">Fasilitas Peminjaman</h4>
-					
-					<div class="col-lg-12">
-					<form role="form">
-						<div class="col-lg-5">
-							<div class="form-group">
-								<label>Tujuan Penggunaan : </label> <input class="form-control"
-									name="nama">
-							</div>
-						</div>
-						<div class="col-lg-7">
-							<label>Jumlah Pinjam</label>
-							<div class="form-group input-group">
-								<span class="input-group-addon">Rp</span> <input type="text"
-									class="form-control"> <span class="input-group-addon">.00</span>
-							</div>
-						</div>
-						<div class="col-lg-6">
-							<div class="form-group">
-								<label>Lama Pinjam : </label> <select class="form-control"
-									name="jenis_identitas">
-									<option>12 Bulan</option>
-									<option>24 Bulan</option>
-									<option>36 Bulan</option>
-									<option>48 Bulan</option>
-									<option>60 Bulan</option>
-								</select>
-							</div>
-						</div>
-						<div class="col-lg-6">
-							<label>Bunga Bank (/thn)</label>
-							<div class="form-group input-group">
-								<input type="text" class="form-control"> <span
-									class="input-group-addon">%</span>
-							</div>
-						</div>
-						<div class="col-lg-6">
-							<div class="form-group">
-								<label>Jenis Suku Bunga : </label> <select class="form-control"
-									name="jenis_identitas">
-									<option>Flat</option>
-									<option>Efektif</option>
-									<option>Anuitas</option>
-								</select>
+							<h4 class="page-header">Jaminan</h4>
+							<div class="col-lg-12">
+								<div class="col-lg-6">
+									<div class="form-group">
+										<label>Jenis Jaminan : </label> <select class="form-control"
+											name="jenis_identitas">
+											<option>Tanah atau Bagunan</option>
+											<option>Kendaraan</option>
+											<option>Deposito</option>
+											<option>Mesin</option>
+											<option>Inventory</option>
+											<option>Account Receivable</option>
+										</select>
+									</div>
+								</div>
+								<div class="col-lg-12">
+									<div class="form-group">
+                                            <label>Dokumen Yang Harus Dilengkapi : </label>
+                                            <textarea class="form-control" rows="3" disabled="disabled"></textarea>
+                                        </div>
+								</div>
+								<div class="col-lg-12">
+									<div class="form-group">
+										<label>Masukkan Dokumen : </label> 
+										<input type="file">
+									</div>
+								</div>
 							</div>
 						</div>
 						<div class="col-lg-12">
-							<button type="submit" class="btn btn-danger" >Kalkulasi</button>
+							<button type="submit" class="btn btn-success">Submit
+								Button</button>
+							<button type="reset" class="btn btn-info">Reset Button</button>
 						</div>
 					</form>
-				</div>
-				</div>
-				<div class="col-lg-6">
-					<h4 class="page-header">Jaminan</h4>
-					<div class="col-lg-12">
-					<form role="form">
-					<div class="col-lg-6">
-							<div class="form-group">
-								<label>Jenis Jaminan : </label> <select class="form-control"
-									name="jenis_identitas">
-									<option>Tanah atau Bagunan</option>
-									<option>Kendaraan</option>
-									<option>Deposito</option>
-									<option>Mesin</option>
-									<option>Inventory</option>
-									<option>Account Receivable</option>
-								</select>
-							</div>
-						</div>
-					</form>
-				</div>
 				</div>
 				<!-- /.col-lg-12 -->
 			</div>
 			<!-- /.row -->
-			<div class="row">
-				
-				
-				
-
-				<button type="submit" class="btn btn-success">Submit Button</button>
-				<button type="reset" class="btn btn-info">Reset Button</button>
-
-
-			</div>
+			<div class="row"></div>
 			<!-- /.row -->
 			<!-- /#wrapper -->
 
