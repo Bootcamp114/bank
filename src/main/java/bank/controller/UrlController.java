@@ -25,6 +25,12 @@ public class UrlController {
 		return "Account";
 	}
 
+	@RequestMapping("/account/add")
+	public String addakun() {
+
+		return "AccountAdd";
+	}
+
 	@RequestMapping("/peminjamandana")
 	public String pinjam() {
 

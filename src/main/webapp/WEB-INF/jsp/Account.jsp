@@ -51,7 +51,7 @@
                             <a href="index"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-table fa-fw"></i> Health Insurance</a>
+                            <a href="asuransi"><i class="fa fa-table fa-fw"></i> Health Insurance</a>
                         </li>
                         <li>
                             <a href="peminjamandana"><i class="fa fa-edit fa-fw"></i> Loan Funds</a>
@@ -69,123 +69,38 @@
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Create New Customer Account</h1>
+                    <h1 class="page-header">Customer Account</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
             <!-- /.row -->
             <div class="row">
-                <!-- Edit Dibawah -->
-                <div class = "col-lg-6">
-                	<form role = "form">
-                		<div class = "form-group">
-                			<label>Nama : </label>
-                			<input class = "form-control" name = "nama">
-                		</div>
-                		<div class = "form-group">
-                			<label>Jenis Identitas : </label>
-                			<select class = "form-control" name = "jenis_identitas">
-                				<option>KTP</option>
-                				<option>SIM</option>
-                				<option>Kartu Keluarga</option>
-                				<option>Ijazah</option>
-                				<option>Passport</option>
-                			</select>
-                		</div>
-                		<div class = "form-group">
-                			<label>Nomor Identitas : </label>
-                			<input class = "form-control" name = "no_identitas">
-                		</div>
-                		<div class = "form-group">
-                			<label>Warga Negara : </label>
-                			<div class = "radio">
-                				<label>
-                					<input type="radio" name="warga_negara" id="wni" checked>WNI
-                				</label>
-                			</div>
-                			<div class = "radio">
-                				<label>
-                					<input type="radio" name="warga_negara" id="wna" checked>WNA
-                				</label>
-                			</div>
-                		</div>
-                		<div class = "form-group">
-                			<label>Tempat Lahir : </label>
-                			<input class = "form-control" name = "tempat_lahir">
-                		</div>
-                		<div class = "form-group">
-                			<label>Tanggal Lahir : </label>
-                			<input class = "form-control" name = "nama" type = "date">
-                		</div>
-                		<div class = "form-group">
-                			<label>Jenis Kelamin : </label>
-                			<div class = "radio">
-                				<label>
-                					<input type="radio" name="jenis_kel" id="laki" checked>Laki - Laki
-                				</label>
-                			</div>
-                			<div class = "radio">
-                				<label>
-                					<input type="radio" name="jenis_kel" id="perempuan" checked>Perempuan
-                				</label>
-                			</div>
-                		</div>
-                		<div class="col-lg-12">
-							<h1 class="page-header">Jenis Rekening</h1>
-						</div>
-                		<div class = "form-group">
-                			<label>Rekening : </label>
-                			<select class = "form-control" name = "rekening">
-                				<option>Tabungan</option>
-                			</select>
-                		</div>
-               			<div class = "form-group">
-                			<label>Produk : </label>
-                			<select class = "form-control" name = "produk">
-                				<option>Silver</option>
-                			</select>
-                		</div>
-						<label>Saldo : </label>
-              			<div class="form-group input-group">
-							<span class="input-group-addon">Rp</span>
-								<input type="text" class="form-control" disabled>
-							<span class="input-group-addon">.00</span>
-						</div>
-              			<label>Total Pembayaran : </label>
-               			<div class="form-group input-group">
-							<span class="input-group-addon">Rp</span>
-								<input type="text" class="form-control" disabled>
-							<span class="input-group-addon">.00</span>
-						</div>
-							
-						<button type="submit" class="btn btn-success">Submit Button</button>
-						<button type="reset" class="btn btn-info">Reset Button</button>
-							
+				<div class = "col-lg-12">
+					<div class = "col-lg-4">
+						<a href="account/add" class = "btn btn-success btn-md"><span class = "fa fa-fw fa-plus"></span>Add Account</a>
+						<a href="account" class = "btn btn-primary btn-md"><span class = "fa fa-fw fa-refresh fa-spin"></span>Refresh</a>
+					</div>
+					<br><br>
+					<table class = "table table-stripeed table-bordered table-hover dataTable no-footer dtr-inline" id = "dataTables-example" role = "grid" aria-describedby="dataTables-example_info">
+						<thead class = "kolom">
+							<tr>
+								<th class="text-center">No</th>
+								<th class="text-center">Nama</th>
+								<th class="text-center">Alamat</th>
+								<th class="text-center">Email</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td class="text-center">1</td>
+								<td class="text-center">2</td>
+								<td class="text-center">3</td>
+								<td class="text-center">4</td>
+							</tr>
+						</tbody>
+					</table>
 				</div>
-				<div class="col-lg-6">
-	                		<div class = "form-group">
-	                			<label>Pekerjaan : </label>
-	                			<input class = "form-control" name = "pekerjaan">
-	                		</div>
-	                		<label>Penghasilan</label>
-	                		<div class="form-group input-group">
-								<span class="input-group-addon">Rp</span>
-									<input type="text" class="form-control">
-								<span class="input-group-addon">.00</span>
-							</div>
-							<div class = "form-group">
-	                			<label>Alamat Rumah : </label>
-	                			<textarea class="form-control" rows="3" name = "alamat"></textarea>
-	                		</div>
-	                		<div class = "form-group">
-	                			<label>Nomor Peserta Wajib Pajak (NPWP) : </label>
-	                			<input class = "form-control" name = "npwp">
-	                		</div>
-                </div>
-				</form>
-			</div>
-		</div>
-	</div>
+            </div>
             <!-- /.row -->
     <!-- /#wrapper -->
 
