@@ -166,15 +166,15 @@
 							<h1 class="page-header">Keluarga</h1>
 						</div>
 						<div class = "form-group">
-	                		<label>Menikah : </label>
+	                		<label>Status : </label>
                 			<div class = "radio">
                 				<label>
-                					<input type="radio" name="menikah" id="sudah" checked>Sudah
+                					<input type="radio" name="status" id="sudah" checked>Sudah
                 				</label>
                 			</div>
                 			<div class = "radio">
                 				<label>
-                					<input type="radio" name="menikah" id="belum" checked>Belum
+                					<input type="radio" name="status" id="belum" checked>Belum
                 				</label>
                 			</div>
 	                	</div>
