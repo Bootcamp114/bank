@@ -161,7 +161,7 @@
 					</div>
 				</form>
 
-				<div class="form-group">
+				<div class="form-group"> 
 					<label for="exampleInputEmail1">Program Stroran / bulan</label> <select
 						class="form-control">
 						<option>Rp.100.000</option>

@@ -60,7 +60,7 @@
                         </li>
                         <li>
                             <a href="account"><i class="fa fa-book fa-fw"></i> Create Nasabah Account</a>
-                        </li>
+                        </li> 
                     </ul>
                 </div>
                 <!-- /.sidebar-collapse -->
