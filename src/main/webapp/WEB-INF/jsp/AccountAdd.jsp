@@ -137,12 +137,16 @@
                 			<label>Rekening : </label>
                 			<select class = "form-control" name = "rekening">
                 				<option>Tabungan</option>
+                				<option>Kredit</option>
+                				<option>Giro</option>
                 			</select>
                 		</div>
                			<div class = "form-group">
                 			<label>Produk : </label>
                 			<select class = "form-control" name = "produk">
                 				<option>Silver</option>
+                				<option>Gold</option>
+                				<option>Platinum</option>
                 			</select>
                 		</div>
 						<label>Saldo : </label>
@@ -174,7 +178,7 @@
                 				</label>
                 			</div>
 	                	</div>
-	                	<a class = "btn btn-success btn-sm"><span class = "fa fa-fw fa-plus"></span></a>
+	                	<a class = "btn btn-info btn-sm"><span class = "fa fa-fw fa-plus"></span></a>
 	                	<br>
 		                <div class = "from-group">
 		                	<table class = "table table-stripeed table-bordered table-hover dataTable no-footer dtr-inline" id = "dataTables-example" role = "grid" aria-describedby="dataTables-example_info">
@@ -204,7 +208,7 @@
 	             		</div>
 						
 						<button type="submit" class="btn btn-success">Submit Button</button>
-						<button type="reset" class="btn btn-info">Reset Button</button>
+						<button type="reset" class="btn btn-warning">Reset Button</button>
 							
 				</div>
 				<div class="col-lg-6">
