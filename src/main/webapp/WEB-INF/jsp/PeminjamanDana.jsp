@@ -68,67 +68,132 @@
 		<div id="page-wrapper">
 			<div class="row">
 				<div class="col-lg-12">
-					<h1 class="page-header">Form Peminjaman Dana</h1>
+					<h1 class="page-header">Form Kredit Tanpa Agunan</h1>
 				</div>
 				<!-- /.col-lg-12 -->
 			</div>
 			<!-- /.row -->
 			<div class="row">
-				<!-- Edit Dibawah -->
-				<div class="col-lg-6">
-					<form role="form">
-						<div class="form-group">
-							<label>Nama Nasabah : </label> <select class="form-control">
-								<option>Unknown</option>
-								<option>Unknown</option>
-								<option>Unknown</option>
-								<option>Unknown</option>
-								<option>Unknown</option>
-							</select>
+                <!-- Edit Dibawah -->
+                <div class = "col-lg-12">
+                	<form role = "form">
+                	<div class = "col-lg-3">
+                		<div class = "form-group">
+                			<label>Nama : </label>
+                			<input class = "form-control" name = "nama">
+                		</div>
+                	</div>
+                	<div class = "col-lg-3">
+                		<div class = "form-group">
+                			<label>Jenis Identitas : </label>
+                			<select class = "form-control" name = "jenis_identitas">
+                				<option>KTP</option>
+                				<option>SIM</option>
+                				<option>Kartu Keluarga</option>
+                				<option>Ijazah</option>
+                				<option>Passport</option>
+                			</select>
+                		</div>
+                	</div>
+                	<div class = "col-lg-3">
+                		<div class = "form-group">
+                			<label>Nomor Identitas : </label>
+                			<input class = "form-control" name = "no_identitas">
+                		</div>
+                	</div>
+                	<div class = "col-lg-3">
+                		<div class = "form-group">
+                			<label>Warga Negara : </label>
+                			<div class = "radio">
+                				<label>
+                					<input type="radio" name="warga_negara" id="wni" >WNI
+                				</label>
+                			</div>
+                			<div class = "radio">
+                				<label>
+                					<input type="radio" name="warga_negara" id="wna" >WNA
+                				</label>
+                			</div>
+                		</div>
+                	</div>
+                	<div class = "col-lg-2">
+                		<div class = "form-group">
+                			<label>Tempat Lahir : </label>
+                			<input class = "form-control" name="tempat_lahir" >
+                		</div>
+                	</div>
+                	<div class = "col-lg-3">
+                		<div class = "form-group">
+                			<label>Tanggal Lahir : </label>
+                			<input class = "form-control" name = "tanggal_lahir" type = "date" />
+                		</div>
+                	</div>	
+                		<div class = "form-group">
+                			<label>Jenis Kelamin : </label>
+                			<div class = "radio">
+                				<label>
+                					<input type="radio" name="jenis_kel" id="laki" checked>Laki - Laki
+                				</label>
+                			</div>
+                			<div class = "radio">
+                				<label>
+                					<input type="radio" name="jenis_kel" id="perempuan" checked>Perempuan
+                				</label>
+                			</div>
+                		</div>
+                		<div class="col-lg-12">
+							<h1 class="page-header">Jenis Rekening</h1>
 						</div>
-					</form>
-				</div>
-				<div class="row">
-					<div class="col-lg-12">
-						<h1 class="page-header">Peminjaman Dana</h1>
-					</div>
-				</div>
-				<div class="col-lg-6">
-					<div class="form-group">
-						<label>Jumlah Pinjam : </label> <input type="text"
-							class="form-control"> </select>
-					</div>
-				</div>
-				<div class="col-lg-6">
-					<div class="form-group">
-						<label>Lama Pinjam : </label> <input type="text"
-							class="form-control"> </select>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-lg-12">
-						<h1 class="page-header">Jaminan</h1>
-					</div>
-				</div>
-				<div class="col-lg-6">
-					<div class="form-group">
-						<label>Jenis Jaminan : </label> <select class="form-control">
-							<option>Tanah atau Tanah dan Bangunan</option>
-							<option>Kendaraan</option>
-							<option>Deposito</option>
-							<option>Mesin</option>
-							<option>Inventory</option>
-							<option>Account Receivable</option>
-						</select>
-					</div>
-					<div class="form-group">
-						<label>Upload Jaminan : </label> <input type="file">
-					</div>
-					<button type="submit" class="btn btn-success">Submit
-						Button</button>
-					<button type="reset" class="btn btn-info">Reset Button</button>
-					</form>
-				</div>
+                		<div class = "form-group">
+                			<label>Rekening : </label>
+                			<select class = "form-control" name = "rekening">
+                				<option>Tabungan</option>
+                			</select>
+                		</div>
+               			<div class = "form-group">
+                			<label>Produk : </label>
+                			<select class = "form-control" name = "produk">
+                				<option>Silver</option>
+                			</select>
+                		</div>
+						<label>Saldo : </label>
+              			<div class="form-group input-group">
+							<span class="input-group-addon">Rp</span>
+								<input type="text" class="form-control" disabled>
+							<span class="input-group-addon">.00</span>
+						</div>
+              			<label>Total Pembayaran : </label>
+               			<div class="form-group input-group">
+							<span class="input-group-addon">Rp</span>
+								<input type="text" class="form-control" disabled>
+							<span class="input-group-addon">.00</span>
+						</div>
+							
+						<button type="submit" class="btn btn-success">Submit Button</button>
+						<button type="reset" class="btn btn-info">Reset Button</button>
+							
+				<!-- </div>
+				<div class="col-lg-6"> -->
+	                		<div class = "form-group">
+	                			<label>Pekerjaan : </label>
+	                			<input class = "form-control" name = "pekerjaan">
+	                		</div>
+	                		<label>Penghasilan</label>
+	                		<div class="form-group input-group">
+								<span class="input-group-addon">Rp</span>
+									<input type="text" class="form-control">
+								<span class="input-group-addon">.00</span>
+							</div>
+							<div class = "form-group">
+	                			<label>Alamat Rumah : </label>
+	                			<textarea class="form-control" rows="3" name = "alamat"></textarea>
+	                		</div>
+	                		<div class = "form-group">
+	                			<label>Nomor Peserta Wajib Pajak (NPWP) : </label>
+	                			<input class = "form-control" name = "npwp">
+	                		</div>
+                </div>
+				</form>
 			</div>
 			<!-- /.row -->
 			<!-- /#wrapper -->
