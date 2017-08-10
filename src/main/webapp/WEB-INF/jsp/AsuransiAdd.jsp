@@ -84,6 +84,12 @@
 								type="text" class="form-control" id="NoPolis"
 								placeholder="Masukan No Polis" disabled="disabled">
 						</div>
+						
+						<div class="form-group">
+						<label for="exampleInputEmail1">Tanggal Dibuat</label> <input
+							type="date" class="form-control"  id="NoPolis"
+							placeholder="Masukan Nama penanggung ">
+				</div>
 
 						<div class="form-group">
 							<label for="exampleInputEmail1">Produk Asuransi</label> <select
@@ -93,6 +99,20 @@
 								<option>asuraansi kesehatan</option>
 								<option>asuraansi pendidikan</option>
 								<option>asuraansi kecelakaan</option>
+							</select>
+						</div>
+						<a href="asuransiadd"><button type="button" hre
+								class="btn btn-primary">Rincian</button></a><br/><br/>
+					
+					<div class = "form-group">
+	                			<textarea class="form-control" rows="10" name = "alamat" disabled="disabled"></textarea>
+	                		</div>
+	                <div class="form-group">
+							<label for="exampleInputEmail1">Class Asuransi</label> <select
+								class="form-control">
+								<option>Silver</option>
+								<option>Gold</option>
+								<option>Platinum</option>
 							</select>
 						</div>
 						<a href="asuransiadd"><button type="button" hre
@@ -112,9 +132,9 @@
                 			<label>Hubungan : </label>
                 			<select class = "form-control" name = "jenis_identitas">
                 				<option>Anak</option>
-                				<option>Istri/Suami</option>
-                				<option>Ayah/Ibu</option>
-                				<option>Adik/Kakak</option>
+                				<option>Istri / Suami</option>
+                				<option>Ayah / Ibu</option>
+                				<option>Adik / Kakak</option>
                 				<option>Lain-Lain</option>
                 			</select>
                 		</div>
@@ -146,6 +166,8 @@
                 			<label>Nomor Identitas : </label>
                 			<input class = "form-control" name = "no_identitas" required>
                 		</div>
+                			
+                
                 
                 <button type="button" class="btn btn-success">Save</button>
                 <button type="button" class="btn btn-danger">Cencel</button>
@@ -160,9 +182,9 @@
 
 					</div>
 				</form>
-
+				<br/><br/><br/><br/>
 				<div class="form-group"> 
-					<label for="exampleInputEmail1">Program Stroran / bulan</label> <select
+					<label for="exampleInputEmail1">Program Setroran / bulan</label> <select
 						class="form-control">
 						<option>Rp.100.000</option>
 						<option>Rp.300.00</option>
@@ -174,8 +196,7 @@
 				<div class = "form-group">
 	                			<textarea class="form-control" rows="10" name = "alamat" disabled="disabled"></textarea>
 	                		</div>
-				<br/>
-				
+				<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>				
 				<h1 class="page-header">  </h1>
 				
 				<div class="form-group">
