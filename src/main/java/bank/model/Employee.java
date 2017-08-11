@@ -20,8 +20,8 @@ public class Employee {
 	private int id;
 	private String nama;
 	private String alamat;
-	@Column(unique = true)
-	private String telepon;
+	@Column(name="no_hp", unique = true)
+	private String noHp;
 	@Column(unique = true)
 	private String email;
 	private String username;
@@ -33,12 +33,12 @@ public class Employee {
 		
 	}
 
-	public Employee(int id,String role, String nama, String alamat, String telepon, String email, String username, String password) {
+	public Employee(int id,String role, String nama, String alamat, String noHp, String email, String username, String password) {
 		super();
 		this.id = id;
 		this.nama = nama;
 		this.alamat = alamat;
-		this.telepon = telepon;
+		this.noHp = noHp;
 		this.email = email;
 		this.username = username;
 		this.password = password;
@@ -69,12 +69,12 @@ public class Employee {
 		this.alamat = alamat;
 	}
 
-	public String getTelepon() {
-		return telepon;
+	public String getNoHp() {
+		return noHp;
 	}
 
-	public void setTelepon(String telepon) {
-		this.telepon = telepon;
+	public void setNoHp(String noHp) {
+		this.noHp = noHp;
 	}
 
 	public String getEmail() {
