@@ -21,20 +21,22 @@ public class JenisStoran {
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE)
 	private int id;
-	private Double jumlah_storan;
-	private Double besar_tunjangan;
+	private Double jumlahStoran;
+	private Double besarTunjangan;
 	@OneToMany(fetch=FetchType.LAZY,mappedBy="jenisStoran")
 	private List<Polis> listPolis;
 	
-	public JenisStoran(int id, Double jumlah_storan, Double besar_tunjangan, List<Polis> listPolis) {
+	public JenisStoran(){
+		
+	}
+
+	public JenisStoran(int id, Double jumlahStoran, Double besarTunjangan, List<Polis> listPolis) {
 		super();
 		this.id = id;
-		this.jumlah_storan = jumlah_storan;
-		this.besar_tunjangan = besar_tunjangan;
+		this.jumlahStoran = jumlahStoran;
+		this.besarTunjangan = besarTunjangan;
 		this.listPolis = listPolis;
 	}
-	
-	public JenisStoran(){}
 
 	public int getId() {
 		return id;
@@ -44,20 +46,20 @@ public class JenisStoran {
 		this.id = id;
 	}
 
-	public Double getJumlah_storan() {
-		return jumlah_storan;
+	public Double getJumlahStoran() {
+		return jumlahStoran;
 	}
 
-	public void setJumlah_storan(Double jumlah_storan) {
-		this.jumlah_storan = jumlah_storan;
+	public void setJumlahStoran(Double jumlahStoran) {
+		this.jumlahStoran = jumlahStoran;
 	}
 
-	public Double getBesar_tunjangan() {
-		return besar_tunjangan;
+	public Double getBesarTunjangan() {
+		return besarTunjangan;
 	}
 
-	public void setBesar_tunjangan(Double besar_tunjangan) {
-		this.besar_tunjangan = besar_tunjangan;
+	public void setBesarTunjangan(Double besarTunjangan) {
+		this.besarTunjangan = besarTunjangan;
 	}
 
 	public List<Polis> getListPolis() {
@@ -67,6 +69,8 @@ public class JenisStoran {
 	public void setListPolis(List<Polis> listPolis) {
 		this.listPolis = listPolis;
 	}
+	
+	
 	
 	
 	

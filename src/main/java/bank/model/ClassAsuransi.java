@@ -24,83 +24,91 @@ public class ClassAsuransi {
 	private int id;
 	@Column(name="type" , nullable=false)
 	private String type;
-	@Column(name="jenis_pelayanan" , nullable=false)
-	private String jenis_pelayanan;
-	@Column(name="jumlah_dana" , nullable=false)
-	private Double jumlah_dana;
-	@Column(name="harga_kartu" , nullable=false)
-	private Double harga_kartu;
+	@Column(name="jenisPelayanan" , nullable=false)
+	private String jenisPelayanan;
+	@Column(name="jumlahDana" , nullable=false)
+	private Double jumlahDana;
+	@Column(name="hargaKartu" , nullable=false)
+	private Double hargaKartu;
 	@OneToMany(fetch=FetchType.LAZY,mappedBy="classAsuransi")
 	private List<Polis> listPolis;
 	
-	public ClassAsuransi(int id, String type, String jenis_pelayanan, Double jumlah_dana, Double harga_kartu,
+
+	public ClassAsuransi(){
+		
+	}
+
+
+	public ClassAsuransi(int id, String type, String jenisPelayanan, Double jumlahDana, Double hargaKartu,
 			List<Polis> listPolis) {
 		super();
 		this.id = id;
 		this.type = type;
-		this.jenis_pelayanan = jenis_pelayanan;
-		this.jumlah_dana = jumlah_dana;
-		this.harga_kartu = harga_kartu;
+		this.jenisPelayanan = jenisPelayanan;
+		this.jumlahDana = jumlahDana;
+		this.hargaKartu = hargaKartu;
 		this.listPolis = listPolis;
 	}
-	
-	public ClassAsuransi(){}
+
 
 	public int getId() {
 		return id;
 	}
 
+
 	public void setId(int id) {
 		this.id = id;
 	}
+
 
 	public String getType() {
 		return type;
 	}
 
+
 	public void setType(String type) {
 		this.type = type;
 	}
 
-	public String getJenis_pelayanan() {
-		return jenis_pelayanan;
+
+	public String getJenisPelayanan() {
+		return jenisPelayanan;
 	}
 
-	public void setJenis_pelayanan(String jenis_pelayanan) {
-		this.jenis_pelayanan = jenis_pelayanan;
+
+	public void setJenisPelayanan(String jenisPelayanan) {
+		this.jenisPelayanan = jenisPelayanan;
 	}
 
-	public Double getJumlah_dana() {
-		return jumlah_dana;
+
+	public Double getJumlahDana() {
+		return jumlahDana;
 	}
 
-	public void setJumlah_dana(Double jumlah_dana) {
-		this.jumlah_dana = jumlah_dana;
+
+	public void setJumlahDana(Double jumlahDana) {
+		this.jumlahDana = jumlahDana;
 	}
 
-	public Double getHarga_kartu() {
-		return harga_kartu;
+
+	public Double getHargaKartu() {
+		return hargaKartu;
 	}
 
-	public void setHarga_kartu(Double harga_kartu) {
-		this.harga_kartu = harga_kartu;
+
+	public void setHargaKartu(Double hargaKartu) {
+		this.hargaKartu = hargaKartu;
 	}
+
 
 	public List<Polis> getListPolis() {
 		return listPolis;
 	}
+
 
 	public void setListPolis(List<Polis> listPolis) {
 		this.listPolis = listPolis;
 	}
 	
 	
-	
-	
-	
-	
-	
-	
-	
-
 }
