@@ -18,66 +18,75 @@ public class PeminjamanDana {
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE)
 	private int id;
-	private String no_rek;
+	@Column(name="no_rek")
+	private String noRek;
 	private String nama;
-	private String jenis_identitas;
-	@Column(unique = true)
-	private String no_identitas;
-	private String warga_negara;
+	@Column(name="jenis_identitas")
+	private String jenisIdentitas;
+	@Column(name="no_identitas", unique = true)
+	private String noIdentitas;
+	@Column(name="warga_negara")
+	private String wargaNegara;
 	private String alamat;
-	private String tempat_lahir;
-	private String tanggal_lahir;
-	private String jenis_kel;
+	@Column(name="tempat_lahir")
+	private String tempatLahir;
+	@Column(name="tanggal_lahir")
+	private String tanggalLahir;
+	@Column(name="jenis_kel")
+	private String jenisKel;
 	private String pekerjaan;
 	private Double penghasilan;
 	@Column(unique = true)
 	private String npwp;
-	private String rekomendasi_perusahaan;
+	@Column(name="rekomendasi_perusahaan")
+	private String rekomendasiPerusahaan;
 	private String status;
-	private String ahli_waris;
-	private String tujuan_penggunaan;
-	private String jenis_kredit;
-	private Double jumlah_pinjam;
-	private String lama_pinjam;
-	private String jenis_suku_bunga;
-	private String jenis_jaminan;
-	private String jenis_dokumen;
-	private String file_dokumen;
+	@Column(name="ahli_waris")
+	private String ahliWaris;
+	@Column(name="tujuan_penggunaan")
+	private String tujuanPenggunaan;
+	@Column(name="jumlah_pinjam")
+	private Double jumlahPinjam;
+	@Column(name="lama_pinjam")
+	private String lamaPinjam;
+	@Column(name="jenis_suku_bunga")
+	private String jenisSukuBunga;
+	@Column(name="nama_jaminan")
+	private String namaJaminan;
+	@Column(name="deskripsi_jaminan")
+	private String deskripsiJaminan;
+	@Column(name="file_bukti_jaminan")
+	private String fileBuktiJaminan;
 	
-	public PeminjamanDana(int id, String no_rek, String nama, String jenis_identitas, String no_identitas,
-			String warga_negara, String alamat, String tempat_lahir, String tanggal_lahir, String jenis_kel,
-			String pekerjaan, Double penghasilan, String npwp, String rekomendasi_perusahaan, String status,
-			String ahli_waris, String tujuan_penggunaan, String jenis_kredit, Double jumlah_pinjam, String lama_pinjam,
-			String jenis_suku_bunga, String jenis_jaminan, String jenis_dokumen, String file_dokumen) {
+	public PeminjamanDana(int id, String noRek, String nama, String jenisIdentitas, String noIdentitas,
+			String wargaNegara, String alamat, String tempatLahir, String tanggalLahir, String jenisKel,
+			String pekerjaan, Double penghasilan, String npwp, String rekomendasiPerusahaan, String status,
+			String ahliWaris, String tujuanPenggunaan, Double jumlahPinjam, String lamaPinjam, String jenisSukuBunga,
+			String namaJaminan, String deskripsiJaminan, String fileBuktiJaminan) {
 		super();
 		this.id = id;
-		this.no_rek = no_rek;
+		this.noRek = noRek;
 		this.nama = nama;
-		this.jenis_identitas = jenis_identitas;
-		this.no_identitas = no_identitas;
-		this.warga_negara = warga_negara;
+		this.jenisIdentitas = jenisIdentitas;
+		this.noIdentitas = noIdentitas;
+		this.wargaNegara = wargaNegara;
 		this.alamat = alamat;
-		this.tempat_lahir = tempat_lahir;
-		this.tanggal_lahir = tanggal_lahir;
-		this.jenis_kel = jenis_kel;
+		this.tempatLahir = tempatLahir;
+		this.tanggalLahir = tanggalLahir;
+		this.jenisKel = jenisKel;
 		this.pekerjaan = pekerjaan;
 		this.penghasilan = penghasilan;
 		this.npwp = npwp;
-		this.rekomendasi_perusahaan = rekomendasi_perusahaan;
+		this.rekomendasiPerusahaan = rekomendasiPerusahaan;
 		this.status = status;
-		this.ahli_waris = ahli_waris;
-		this.tujuan_penggunaan = tujuan_penggunaan;
-		this.jenis_kredit = jenis_kredit;
-		this.jumlah_pinjam = jumlah_pinjam;
-		this.lama_pinjam = lama_pinjam;
-		this.jenis_suku_bunga = jenis_suku_bunga;
-		this.jenis_jaminan = jenis_jaminan;
-		this.jenis_dokumen = jenis_dokumen;
-		this.file_dokumen = file_dokumen;
-	}
-	
-	public PeminjamanDana() {
-		// TODO Auto-generated constructor stub
+		this.ahliWaris = ahliWaris;
+		this.tujuanPenggunaan = tujuanPenggunaan;
+		this.jumlahPinjam = jumlahPinjam;
+		this.lamaPinjam = lamaPinjam;
+		this.jenisSukuBunga = jenisSukuBunga;
+		this.namaJaminan = namaJaminan;
+		this.deskripsiJaminan = deskripsiJaminan;
+		this.fileBuktiJaminan = fileBuktiJaminan;
 	}
 
 	public int getId() {
@@ -88,12 +97,12 @@ public class PeminjamanDana {
 		this.id = id;
 	}
 
-	public String getNo_rek() {
-		return no_rek;
+	public String getNoRek() {
+		return noRek;
 	}
 
-	public void setNo_rek(String no_rek) {
-		this.no_rek = no_rek;
+	public void setNoRek(String noRek) {
+		this.noRek = noRek;
 	}
 
 	public String getNama() {
@@ -104,28 +113,28 @@ public class PeminjamanDana {
 		this.nama = nama;
 	}
 
-	public String getJenis_identitas() {
-		return jenis_identitas;
+	public String getJenisIdentitas() {
+		return jenisIdentitas;
 	}
 
-	public void setJenis_identitas(String jenis_identitas) {
-		this.jenis_identitas = jenis_identitas;
+	public void setJenisIdentitas(String jenisIdentitas) {
+		this.jenisIdentitas = jenisIdentitas;
 	}
 
-	public String getNo_identitas() {
-		return no_identitas;
+	public String getNoIdentitas() {
+		return noIdentitas;
 	}
 
-	public void setNo_identitas(String no_identitas) {
-		this.no_identitas = no_identitas;
+	public void setNoIdentitas(String noIdentitas) {
+		this.noIdentitas = noIdentitas;
 	}
 
-	public String getWarga_negara() {
-		return warga_negara;
+	public String getWargaNegara() {
+		return wargaNegara;
 	}
 
-	public void setWarga_negara(String warga_negara) {
-		this.warga_negara = warga_negara;
+	public void setWargaNegara(String wargaNegara) {
+		this.wargaNegara = wargaNegara;
 	}
 
 	public String getAlamat() {
@@ -136,28 +145,28 @@ public class PeminjamanDana {
 		this.alamat = alamat;
 	}
 
-	public String getTempat_lahir() {
-		return tempat_lahir;
+	public String getTempatLahir() {
+		return tempatLahir;
 	}
 
-	public void setTempat_lahir(String tempat_lahir) {
-		this.tempat_lahir = tempat_lahir;
+	public void setTempatLahir(String tempatLahir) {
+		this.tempatLahir = tempatLahir;
 	}
 
-	public String getTanggal_lahir() {
-		return tanggal_lahir;
+	public String getTanggalLahir() {
+		return tanggalLahir;
 	}
 
-	public void setTanggal_lahir(String tanggal_lahir) {
-		this.tanggal_lahir = tanggal_lahir;
+	public void setTanggalLahir(String tanggalLahir) {
+		this.tanggalLahir = tanggalLahir;
 	}
 
-	public String getJenis_kel() {
-		return jenis_kel;
+	public String getJenisKel() {
+		return jenisKel;
 	}
 
-	public void setJenis_kel(String jenis_kel) {
-		this.jenis_kel = jenis_kel;
+	public void setJenisKel(String jenisKel) {
+		this.jenisKel = jenisKel;
 	}
 
 	public String getPekerjaan() {
@@ -184,12 +193,12 @@ public class PeminjamanDana {
 		this.npwp = npwp;
 	}
 
-	public String getRekomendasi_perusahaan() {
-		return rekomendasi_perusahaan;
+	public String getRekomendasiPerusahaan() {
+		return rekomendasiPerusahaan;
 	}
 
-	public void setRekomendasi_perusahaan(String rekomendasi_perusahaan) {
-		this.rekomendasi_perusahaan = rekomendasi_perusahaan;
+	public void setRekomendasiPerusahaan(String rekomendasiPerusahaan) {
+		this.rekomendasiPerusahaan = rekomendasiPerusahaan;
 	}
 
 	public String getStatus() {
@@ -200,76 +209,71 @@ public class PeminjamanDana {
 		this.status = status;
 	}
 
-	public String getAhli_waris() {
-		return ahli_waris;
+	public String getAhliWaris() {
+		return ahliWaris;
 	}
 
-	public void setAhli_waris(String ahli_waris) {
-		this.ahli_waris = ahli_waris;
+	public void setAhliWaris(String ahliWaris) {
+		this.ahliWaris = ahliWaris;
 	}
 
-	public String getTujuan_penggunaan() {
-		return tujuan_penggunaan;
+	public String getTujuanPenggunaan() {
+		return tujuanPenggunaan;
 	}
 
-	public void setTujuan_penggunaan(String tujuan_penggunaan) {
-		this.tujuan_penggunaan = tujuan_penggunaan;
+	public void setTujuanPenggunaan(String tujuanPenggunaan) {
+		this.tujuanPenggunaan = tujuanPenggunaan;
 	}
 
-	public String getJenis_kredit() {
-		return jenis_kredit;
+	public Double getJumlahPinjam() {
+		return jumlahPinjam;
 	}
 
-	public void setJenis_kredit(String jenis_kredit) {
-		this.jenis_kredit = jenis_kredit;
+	public void setJumlahPinjam(Double jumlahPinjam) {
+		this.jumlahPinjam = jumlahPinjam;
 	}
 
-	public Double getJumlah_pinjam() {
-		return jumlah_pinjam;
+	public String getLamaPinjam() {
+		return lamaPinjam;
 	}
 
-	public void setJumlah_pinjam(Double jumlah_pinjam) {
-		this.jumlah_pinjam = jumlah_pinjam;
+	public void setLamaPinjam(String lamaPinjam) {
+		this.lamaPinjam = lamaPinjam;
 	}
 
-	public String getLama_pinjam() {
-		return lama_pinjam;
+	public String getJenisSukuBunga() {
+		return jenisSukuBunga;
 	}
 
-	public void setLama_pinjam(String lama_pinjam) {
-		this.lama_pinjam = lama_pinjam;
+	public void setJenisSukuBunga(String jenisSukuBunga) {
+		this.jenisSukuBunga = jenisSukuBunga;
 	}
 
-	public String getJenis_suku_bunga() {
-		return jenis_suku_bunga;
+	public String getNamaJaminan() {
+		return namaJaminan;
 	}
 
-	public void setJenis_suku_bunga(String jenis_suku_bunga) {
-		this.jenis_suku_bunga = jenis_suku_bunga;
+	public void setNamaJaminan(String namaJaminan) {
+		this.namaJaminan = namaJaminan;
 	}
 
-	public String getJenis_jaminan() {
-		return jenis_jaminan;
+	public String getDeskripsiJaminan() {
+		return deskripsiJaminan;
 	}
 
-	public void setJenis_jaminan(String jenis_jaminan) {
-		this.jenis_jaminan = jenis_jaminan;
+	public void setDeskripsiJaminan(String deskripsiJaminan) {
+		this.deskripsiJaminan = deskripsiJaminan;
 	}
 
-	public String getJenis_dokumen() {
-		return jenis_dokumen;
+	public String getFileBuktiJaminan() {
+		return fileBuktiJaminan;
 	}
 
-	public void setJenis_dokumen(String jenis_dokumen) {
-		this.jenis_dokumen = jenis_dokumen;
-	}
-
-	public String getFile_dokumen() {
-		return file_dokumen;
-	}
-
-	public void setFile_dokumen(String file_dokumen) {
-		this.file_dokumen = file_dokumen;
+	public void setFileBuktiJaminan(String fileBuktiJaminan) {
+		this.fileBuktiJaminan = fileBuktiJaminan;
 	}
 	
+	public PeminjamanDana() {
+		// TODO Auto-generated constructor stub
+	}
 }

@@ -1,5 +1,6 @@
 package bank.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,20 +18,23 @@ public class Jaminan {
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE)
 	private int id;
-	private String jenis_jaminan;
-	private String dokumen_jaminan;
-	private String file_dokumen;
+	@Column(name="nama_jaminan")
+	private String namaJaminan;
+	@Column(name="deskripsi_jaminan")
+	private String deskripsiJaminan;
+	@Column(name="file_bukti_dokumen")
+	private String fileBuktiDokumen;
 	
 	public Jaminan() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Jaminan(int id, String jenis_jaminan, String dokumen_jaminan, String file_dokumen) {
+	public Jaminan(int id, String namaJaminan, String deskripsiJaminan, String fileBuktiDokumen) {
 		super();
 		this.id = id;
-		this.jenis_jaminan = jenis_jaminan;
-		this.dokumen_jaminan = dokumen_jaminan;
-		this.file_dokumen = file_dokumen;
+		this.namaJaminan = namaJaminan;
+		this.deskripsiJaminan = deskripsiJaminan;
+		this.fileBuktiDokumen = fileBuktiDokumen;
 	}
 
 	public int getId() {
@@ -41,28 +45,28 @@ public class Jaminan {
 		this.id = id;
 	}
 
-	public String getJenis_jaminan() {
-		return jenis_jaminan;
+	public String getNamaJaminan() {
+		return namaJaminan;
 	}
 
-	public void setJenis_jaminan(String jenis_jaminan) {
-		this.jenis_jaminan = jenis_jaminan;
+	public void setNamaJaminan(String namaJaminan) {
+		this.namaJaminan = namaJaminan;
 	}
 
-	public String getDokumen_jaminan() {
-		return dokumen_jaminan;
+	public String getDeskripsiJaminan() {
+		return deskripsiJaminan;
 	}
 
-	public void setDokumen_jaminan(String dokumen_jaminan) {
-		this.dokumen_jaminan = dokumen_jaminan;
+	public void setDeskripsiJaminan(String deskripsiJaminan) {
+		this.deskripsiJaminan = deskripsiJaminan;
 	}
 
-	public String getFile_dokumen() {
-		return file_dokumen;
+	public String getFileBuktiDokumen() {
+		return fileBuktiDokumen;
 	}
 
-	public void setFile_dokumen(String file_dokumen) {
-		this.file_dokumen = file_dokumen;
+	public void setFileBuktiDokumen(String fileBuktiDokumen) {
+		this.fileBuktiDokumen = fileBuktiDokumen;
 	}
 	
 }

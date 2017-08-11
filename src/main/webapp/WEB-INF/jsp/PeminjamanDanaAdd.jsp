@@ -83,6 +83,7 @@
 								<div class="form-group">
 									<label>Jenis Identitas : </label> <select class="form-control"
 										name="jenis_identitas">
+										<option>- </option>
 										<option>KTP</option>
 										<option>SIM</option>
 										<option>Kartu Keluarga</option>
@@ -207,26 +208,11 @@
 								<div class="form-group">
 									<label>Tujuan Penggunaan : </label> <select
 										class="form-control" name="tujuan_penggunaan">
-										<option>Kredit Komsumtif</option>
-										<option>Kredit Komersil</option>
-									</select>
-								</div>
-							</div>
-							<div class="col-lg-6">
-								<div class="form-group">
-									<label>Jenis Kredit Komsumtif : </label> <select
-										class="form-control" name="jenis_kredit">
+										<option>-</option>
 										<option>Kredit Tanpa Agunan</option>
 										<option>Kredit Kepemilikan Rumah</option>
 										<option>Kredit Multiguna Berjaminan</option>
 										<option>Kredit Kendaraan</option>
-									</select>
-								</div>
-							</div>
-							<div class="col-lg-6">
-								<div class="form-group">
-									<label>Jenis Kredit Komersil : </label> <select
-										class="form-control" name="jenis_kredit">
 										<option>Kredit Mikro</option>
 										<option>Kredit Usaha Kecil</option>
 										<option>Kredit Usaha Menengah</option>

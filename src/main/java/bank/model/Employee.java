@@ -11,9 +11,9 @@ import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 @Entity
-@Table(name = "BANK_CS")
+@Table(name = "BANK_EMPLOYEE")
 @JsonIdentityInfo(generator = ObjectIdGenerators.IntSequenceGenerator.class, property = "@id")
-public class CSBank {
+public class Employee {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
@@ -21,23 +21,28 @@ public class CSBank {
 	private String nama;
 	private String alamat;
 	@Column(unique = true)
-	private String telp;
+	private String telepon;
 	@Column(unique = true)
 	private String email;
 	private String username;
 	private String password;
+	private String role;
 
-	
+	public Employee() {
+		// TODO Auto-generated constructor stub
+		
+	}
 
-	public CSBank(int id, String nama, String alamat, String telp, String email, String username, String password) {
+	public Employee(int id,String role, String nama, String alamat, String telepon, String email, String username, String password) {
 		super();
 		this.id = id;
 		this.nama = nama;
 		this.alamat = alamat;
-		this.telp = telp;
+		this.telepon = telepon;
 		this.email = email;
 		this.username = username;
 		this.password = password;
+		this.role = role;
 	}
 
 	public int getId() {
@@ -64,12 +69,12 @@ public class CSBank {
 		this.alamat = alamat;
 	}
 
-	public String getTelp() {
-		return telp;
+	public String getTelepon() {
+		return telepon;
 	}
 
-	public void setTelp(String telp) {
-		this.telp = telp;
+	public void setTelepon(String telepon) {
+		this.telepon = telepon;
 	}
 
 	public String getEmail() {
@@ -95,5 +100,14 @@ public class CSBank {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+
+	public String getRole() {
+		return role;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
+	}
+	
 	
 }
