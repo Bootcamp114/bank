@@ -6,6 +6,7 @@ import bank.model.ClassAsuransi;
 
 public interface ClassAsuransiDao {
 	
+	
 	public void save(ClassAsuransi classAsuransi);
 	
 	public void delete(int id);

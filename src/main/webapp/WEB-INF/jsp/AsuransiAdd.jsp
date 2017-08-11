@@ -175,12 +175,16 @@
 				</div>
 
 				<div class="col-lg-6">
-					<div class="form-group">
-						<label for="exampleInputEmail1">Nama Penanggung</label> <input
-							type="text" class="form-control" id="NoPolis"
-							placeholder="Masukan Nama penanggung ">
-
-					</div>
+					<div class = "form-group">
+                			<label>Nama Penanggung : </label>
+                			<select class = "form-control" name = "jenis_identitas">
+                				<option>unknow</option>
+                				<option>unknow</option>
+                				<option>unknow</option>
+                				<option>unknow</option>
+                				<option>unknow</option>
+                			</select>
+                		</div>
 					<div class="form-group">
 						<label for="exampleInputEmail1">Ahli Waris</label> <input
 							type="text" class="form-control" id="NoPolis"

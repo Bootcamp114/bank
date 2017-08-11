@@ -24,6 +24,7 @@ public class ClassAsuransiServiceImpl implements ClassAsuransiService {
 		
 	}
 
+	
 	@Override
 	public void delete(int id) {
 		// TODO Auto-generated method stub

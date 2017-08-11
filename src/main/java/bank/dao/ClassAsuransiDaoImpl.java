@@ -14,6 +14,7 @@ public class ClassAsuransiDaoImpl implements ClassAsuransiDao {
 	
 	@Autowired
 	private SessionFactory sessionFactory; 
+	
 
 	@Override
 	public void save(ClassAsuransi classAsuransi) {
