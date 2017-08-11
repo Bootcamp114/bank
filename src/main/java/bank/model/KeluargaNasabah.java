@@ -1,5 +1,6 @@
 package bank.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,6 +18,7 @@ public class KeluargaNasabah {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private int id;
 	private String nama;
+	@Column(name = "hub_kel")
 	private String hubKel;
 	private int umur;
 	private String pendidikan;

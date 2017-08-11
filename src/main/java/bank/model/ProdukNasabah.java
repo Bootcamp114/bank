@@ -2,6 +2,7 @@ package bank.model;
 
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -20,6 +21,7 @@ public class ProdukNasabah {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private int id;
+	@Column(name = "nama_produk")
 	private String namaProduk;
 	private Double harga;
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "produkNasabah")

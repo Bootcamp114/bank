@@ -18,27 +18,35 @@ public class Nasabah {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private int id;
-	@Column(unique = true)
+	@Column(name = "no_rek", unique = true)
 	private String noRek;
 	private String nama;
+	@Column(name = "jenis_identitas")
 	private String jenisIdentitas;
-	@Column(unique = true)
-	private String no_identitas;
+	@Column(name = "no_identitas", unique = true)
+	private String noIdentitas;
+	@Column(name = "warga_negara")
 	private String wargaNegara;
 	private String alamat;
+	@Column(name = "tempat_lahir")
 	private String tempatLahir;
+	@Column(name = "tanggal_lahir")
 	private String tanggalLahir;
+	@Column(name = "jenis_kel")
 	private String jenisKel;
 	private String pekerjaan;
 	private Double penghasilan;
 	@Column(unique = true)
 	private String npwp;
+	@Column(name = "rekomendasi_perusahaan")
 	private String rekomendasiPerusahaan;
 	private String status;
+	@Column(name = "ahli_waris")
 	private String ahliWaris;
 	@ManyToOne
 	private Rekening rekening;
 	@ManyToOne
+	@Column(name = "produk_nasabah")
 	private ProdukNasabah produkNasabah;
 	// Rekening (Many to One)
 	// Keluarga (One to Many)
