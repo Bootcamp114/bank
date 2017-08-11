@@ -29,13 +29,9 @@
 				<value>bank.model.Angsuran</value>
 				<value>bank.model.Rekening</value>
 				<value>bank.model.ProdukNasabah</value>
-				<value>bank.model.BungaBank</value>
 				<value>bank.model.ClassAsuransi</value>
 				<value>bank.model.InfoTertanggung</value>
-				<value>bank.model.JenisJaminan</value>
-				<value>bank.model.JenisKegunaan</value>
 				<value>bank.model.JenisStoran</value>
-				<value>bank.model.JenisSukuBunga</value>
 				<value>bank.model.KeluargaNasabah</value>
 				<value>bank.model.PeminjamanDana</value>
 				<value>bank.model.Polis</value>
@@ -51,8 +47,7 @@
 				</prop>
 			</props>            
 		</property>
-	</bean>
-	
+	</bean>	
 	<bean id="transactionManager"
 		class="org.springframework.orm.hibernate5.HibernateTransactionManager">
 		<property name="sessionFactory" ref="sessionFactory" />
@@ -66,5 +61,4 @@
 	
 	<tx:annotation-driven/>
 	<mvc:annotation-driven></mvc:annotation-driven>
-	
 </beans>

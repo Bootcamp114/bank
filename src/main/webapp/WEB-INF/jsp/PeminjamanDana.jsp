@@ -88,7 +88,7 @@
 								<th class="text-center">Nama Nasabah</th>
 								<th class="text-center">Tujuan Penggunaan</th>
 								<th class="text-center">Jumlah Pinjam</th>
-								<th class="text-center" colspan="3">Action</th>
+								<th class="text-center">Action</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -97,14 +97,14 @@
 								<td class="text-center">Joevanka</td>
 								<td class="text-center">Kredit Kepemilikan Rumah</td>
 								<td class="text-center">9999999999000000.0</td>
-								<td class="text-center"><a href="#"><button type="submit" class="btn btn-sm btn-info">EDIT</button></a></td>
-								<td class="text-center"><a href="#"><button type="submit" class="btn btn-sm btn-danger">DELETE</button></a></td>
-								<td class="text-center"><a href="#"><button type="submit" class="btn btn-sm btn-success">DETAILS</button></a></td>
+								<td class="text-center"><a href="#"><button type="submit" class="btn btn-sm btn-danger">DETAILS</button></a></td>
 							</tr>
 						</tbody>
 					</table>
 				</div>
             </div>
+		</div>
+	</div>
             <!-- /.row -->
     <!-- /#wrapper -->
 
