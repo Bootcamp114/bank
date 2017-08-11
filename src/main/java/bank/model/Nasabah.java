@@ -28,6 +28,9 @@ public class Nasabah {
 	@Column(name = "warga_negara")
 	private String wargaNegara;
 	private String alamat;
+	@Column(name = "no_hp")
+	private String noHp;
+	private String email;
 	@Column(name = "tempat_lahir")
 	private String tempatLahir;
 	@Column(name = "tanggal_lahir")
@@ -57,9 +60,9 @@ public class Nasabah {
 	}
 
 	public Nasabah(int id, String noRek, String nama, String jenisIdentitas, String noIdentitas, String wargaNegara,
-			String alamat, String tempatLahir, String tanggalLahir, String jenisKel, String pekerjaan,
-			Double penghasilan, String npwp, String rekomendasiPerusahaan, String status, String ahliWaris,
-			Rekening rekening, ProdukNasabah produkNasabah) {
+			String alamat, String noHp, String email, String tempatLahir, String tanggalLahir, String jenisKel,
+			String pekerjaan, Double penghasilan, String npwp, String rekomendasiPerusahaan, String status,
+			String ahliWaris, Rekening rekening, ProdukNasabah produkNasabah) {
 		super();
 		this.id = id;
 		this.noRek = noRek;
@@ -68,6 +71,8 @@ public class Nasabah {
 		this.noIdentitas = noIdentitas;
 		this.wargaNegara = wargaNegara;
 		this.alamat = alamat;
+		this.noHp = noHp;
+		this.email = email;
 		this.tempatLahir = tempatLahir;
 		this.tanggalLahir = tanggalLahir;
 		this.jenisKel = jenisKel;
@@ -135,6 +140,22 @@ public class Nasabah {
 
 	public void setAlamat(String alamat) {
 		this.alamat = alamat;
+	}
+
+	public String getNoHp() {
+		return noHp;
+	}
+
+	public void setNoHp(String noHp) {
+		this.noHp = noHp;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public String getTempatLahir() {

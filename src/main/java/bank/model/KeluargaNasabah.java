@@ -22,19 +22,22 @@ public class KeluargaNasabah {
 	private String hubKel;
 	private int umur;
 	private String pendidikan;
+	@Column(name = "no_hp")
+	private String noHp;
 	// Nasabah (Many To One)
 
 	public KeluargaNasabah() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public KeluargaNasabah(int id, String nama, String hubKel, int umur, String pendidikan) {
+	public KeluargaNasabah(int id, String nama, String hubKel, int umur, String pendidikan, String noHp) {
 		super();
 		this.id = id;
 		this.nama = nama;
 		this.hubKel = hubKel;
 		this.umur = umur;
 		this.pendidikan = pendidikan;
+		this.noHp = noHp;
 	}
 
 	public int getId() {
@@ -75,5 +78,13 @@ public class KeluargaNasabah {
 
 	public void setPendidikan(String pendidikan) {
 		this.pendidikan = pendidikan;
+	}
+
+	public String getNoHp() {
+		return noHp;
+	}
+
+	public void setNoHp(String noHp) {
+		this.noHp = noHp;
 	}
 }
