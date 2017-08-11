@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
@@ -28,6 +29,9 @@ public class PeminjamanDana {
 	@Column(name="warga_negara")
 	private String wargaNegara;
 	private String alamat;
+	@Column(name="no_hp")
+	private String noHp;
+	private String email;
 	@Column(name="tempat_lahir")
 	private String tempatLahir;
 	@Column(name="tanggal_lahir")
@@ -49,6 +53,8 @@ public class PeminjamanDana {
 	private Double jumlahPinjam;
 	@Column(name="lama_pinjam")
 	private String lamaPinjam;
+	@Column(name="bunga_bank")
+	private String bungaBank;
 	@Column(name="jenis_suku_bunga")
 	private String jenisSukuBunga;
 	@Column(name="nama_jaminan")
@@ -57,6 +63,8 @@ public class PeminjamanDana {
 	private String deskripsiJaminan;
 	@Column(name="file_bukti_jaminan")
 	private String fileBuktiJaminan;
+	@ManyToOne
+	private Nasabah nasabah;
 	
 	public PeminjamanDana(int id, String noRek, String nama, String jenisIdentitas, String noIdentitas,
 			String wargaNegara, String alamat, String tempatLahir, String tanggalLahir, String jenisKel,

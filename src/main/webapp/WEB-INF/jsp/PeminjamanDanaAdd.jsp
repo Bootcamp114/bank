@@ -69,6 +69,16 @@
 		<div class="row">
 			<div class="col-lg-12">
 				<h2 class="page-header">Form Peminjaman Dana</h2>
+				<table align = "right">
+                    	<tr>
+                    		<td><select class = "form-control" name = "role">
+                    			<option>CS 1</option>
+                    			<option>CS 2</option>
+                    			<option>CS 3</option>
+                    			<option>CS 4</option>
+                    		</select></td>
+                    	</tr>
+                    </table>
 				<form role="form">
 					<div class="col-lg-6">
 						<h4 class="page-header">Data Diri</h4>
@@ -108,12 +118,12 @@
 								<div class="form-group">
 									<label>Warga Negara : </label>
 									<div class="radio">
-										<label> <input type="radio" name="warga_negara"
+										<label> <input type="radio" class="warga_negara"
 											id="wni" />WNI
 										</label>
 									</div>
 									<div class="radio">
-										<label> <input type="radio" name="warga_negara"
+										<label> <input type="radio" class="warga_negara"
 											id="wna" />WNA
 										</label>
 									</div>
@@ -123,6 +133,17 @@
 								<div class="form-group">
 									<label>Alamat Rumah : </label>
 									<textarea class="form-control" rows="1" name="alamat"></textarea>
+								</div>
+							</div><div class="col-lg-6">
+								<div class="form-group">
+									<label>Nomor Handphone : </label> <input class="form-control"
+										name="no_hp" />
+								</div>
+							</div>
+							<div class="col-lg-6">
+								<div class="form-group">
+									<label>Email : </label> <input type="email" class="form-control"
+										name="email" />
 								</div>
 							</div>
 							<div class="col-lg-6">
@@ -141,12 +162,12 @@
 								<div class="form-group">
 									<label>Jenis Kelamin : </label>
 									<div class="radio">
-										<label> <input type="radio" name="jenis_kel" id="laki" />Laki
+										<label> <input type="radio" class="jenis_kel" id="laki" />Laki
 											- Laki
 										</label>
 									</div>
 									<div class="radio">
-										<label> <input type="radio" name="jenis_kel"
+										<label> <input type="radio" class="jenis_kel"
 											id="perempuan" />Perempuan
 										</label>
 									</div>
@@ -182,12 +203,12 @@
 								<div class="form-group">
 									<label>Status Pernikahan : </label>
 									<div class="radio">
-										<label> <input type="radio" name="status" id="sudah"
+										<label> <input type="radio" class="status" id="sudah"
 											value="Sudah Menikah" />Sudah Menikah
 										</label>
 									</div>
 									<div class="radio">
-										<label> <input type="radio" name="status" id="belum"
+										<label> <input type="radio" class="status" id="belum"
 											value="Belum Menikah" />Belum Menikah
 										</label>
 									</div>
@@ -206,18 +227,8 @@
 						<div class="col-lg-12">
 							<div class="col-lg-12">
 								<div class="form-group">
-									<label>Tujuan Penggunaan : </label> <select
-										class="form-control" name="tujuan_penggunaan">
-										<option>-</option>
-										<option>Kredit Tanpa Agunan</option>
-										<option>Kredit Kepemilikan Rumah</option>
-										<option>Kredit Multiguna Berjaminan</option>
-										<option>Kredit Kendaraan</option>
-										<option>Kredit Mikro</option>
-										<option>Kredit Usaha Kecil</option>
-										<option>Kredit Usaha Menengah</option>
-										<option>Kredit Koperasi</option>
-									</select>
+									<label>Tujuan Penggunaan : </label> <input type="text"
+									class="form-control" name="tujuan_penggunaan">
 								</div>
 							</div>
 							<div class="col-lg-6">
@@ -270,9 +281,9 @@
 						<div class="col-lg-12">
 							<div class="col-lg-6">
 								<div class="form-group">
-									<label>Jenis Jaminan : </label> <select class="form-control"
-										name="jenis_jaminan">
-										<option>- </option>
+									<label>Jaminan : </label> <select class="form-control"
+										name="nama_jaminan">
+										<option>-</option>
 										<option>Tanah atau Bagunan</option>
 										<option>Kendaraan</option>
 										<option>Deposito</option>
@@ -284,14 +295,14 @@
 							</div>
 							<div class="col-lg-12">
 								<div class="form-group">
-									<label>Dokumen Yang Harus Dilengkapi : </label>
-									<textarea class="form-control" rows="3" name="jenis_dokumen"></textarea>
+									<label>Deskripsi Jaminan : </label>
+									<textarea class="form-control" rows="3" name="deskripsi_jaminan"></textarea>
 								</div>
 							</div>
 							<div class="col-lg-12">
 								<div class="form-group">
 									<label>Masukkan Dokumen : </label> <input type="file"
-										name="file_dokumen">
+										name="file_bukti_jaminan">
 								</div>
 							</div>
 						</div>
@@ -335,25 +346,27 @@
 		var no_rek = $('input[name="no_rek"]').val();
 		var jenis_identitas = $('input[name="jenis_identitas"]').val();
 		var no_identitas = $('input[name="no_identitas"]').val();
-		var warga_negara = $('input[name="warga_negara"]').val();
+		var warga_negara = $('input[class="warga_negara"]').val();
 		var alamat = $('input[name="alamat"]').val();
+		var no_hp = $('input[name="no_hp"]').val();
+		var email = $('input[name="email"]').val();
 		var tempat_lahir = $('input[name="tempat_lahir"]').val();
 		var tangal_lahir = $('input[name="tanggal_lahir"]').val();
-		var jenis_kel = $('input[name="jenis_kel"]').val();
+		var jenis_kel = $('input[class="jenis_kel"]').val();
 		var pekerjaan = $('input[name="pekerjaan"]').val();
 		var penghasilan = $('input[name="penghasilan"]').val();
 		var npwp = $('input[name="npwp"]').val();
 		var rekomendasi_perusahaan = $('input[name="rekomendasi_perusahaan"]').val();
-		var status = $('input[name="status"]').val();
+		var status = $('input[class="status"]').val();
 		var ahli_waris = $('input[name="ahli_waris"]').val();
 		var tujuan_penggunaan = $('input[name="tujuan_penggunaan"]').val();
-		var jenis_kredit = $('input[name="jenis_kredit"]').val();
 		var jumlah_pinjam = $('input[name="jumlah_pinjam"]').val();
 		var lama_pinjam = $('input[name="lama_pinjam"]').val();
+		var bunga_bank = $('input[name="bunga_bank"]').val();
 		var jenis_suku_bunga = $('input[name="jenis_suku_bunga"]').val();
-		var jenis_jaminan = $('input[name="jenis_jaminan"]').val();
-		var jenis_dokumen = $('input[name="jenis_dokumen"]').val();
-		var file_dokumen = $('input[name="file_dokumen"]').val();
+		var nama_jaminan = $('input[name="nama_jaminan"]').val();
+		var deskripsi_jaminan = $('input[name="deskripsi_jaminan"]').val();
+		var file_bukti_jaminan = $('input[name="file_bukti_jaminan"]').val();
 
 		var pinjamdn = {
 			    no_rek: no_rek,
@@ -362,6 +375,8 @@
 			    no_identitas: no_identitas,
 			    warga_negara: warga_negara,
 			    alamat: alamat,
+			    no_hp : no_hp,
+			    email : email,
 			    tempat_lahir: tempat_lahir,
 			    tanggal_lahir: tanggal_lahir,
 			    jenis_kel: jenis_kel,
@@ -372,13 +387,13 @@
 			    status: status,
 			    ahli_waris: ahli_waris,
 			    tujuan_penggunaan: tujuan_penggunaan,
-			    jenis_kredit: jenis_kredit,
 			    jumlah_pinjam: jumlah_pinjam,
 			    lama_pinjam: lama_pinjam,
+			    bunga_bank : bunga_bank,
 			    jenis_suku_bunga: jenis_suku_bunga,
-			    jenis_jaminan: jenis_jaminan,
-			    jenis_dokumen: jenis_dokumen,
-			    file_dokumen: file_dokumen
+			    nama_jaminan: nama_jaminan,
+			    deskripsi_jaminan: deskripsi_jaminan,
+			    file_bukti_jaminan: file_bukti_jaminan
 		}
 
 		$.ajax({
