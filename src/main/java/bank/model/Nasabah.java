@@ -56,7 +56,7 @@ public class Nasabah {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Nasabah(int id, String noRek, String nama, String jenisIdentitas, String no_identitas, String wargaNegara,
+	public Nasabah(int id, String noRek, String nama, String jenisIdentitas, String noIdentitas, String wargaNegara,
 			String alamat, String tempatLahir, String tanggalLahir, String jenisKel, String pekerjaan,
 			Double penghasilan, String npwp, String rekomendasiPerusahaan, String status, String ahliWaris,
 			Rekening rekening, ProdukNasabah produkNasabah) {
@@ -65,7 +65,7 @@ public class Nasabah {
 		this.noRek = noRek;
 		this.nama = nama;
 		this.jenisIdentitas = jenisIdentitas;
-		this.no_identitas = no_identitas;
+		this.noIdentitas = noIdentitas;
 		this.wargaNegara = wargaNegara;
 		this.alamat = alamat;
 		this.tempatLahir = tempatLahir;
@@ -113,12 +113,12 @@ public class Nasabah {
 		this.jenisIdentitas = jenisIdentitas;
 	}
 
-	public String getNo_identitas() {
-		return no_identitas;
+	public String getNoIdentitas() {
+		return noIdentitas;
 	}
 
-	public void setNo_identitas(String no_identitas) {
-		this.no_identitas = no_identitas;
+	public void setNoIdentitas(String noIdentitas) {
+		this.noIdentitas = noIdentitas;
 	}
 
 	public String getWargaNegara() {
