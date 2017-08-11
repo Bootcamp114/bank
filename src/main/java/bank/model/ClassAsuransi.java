@@ -24,11 +24,11 @@ public class ClassAsuransi {
 	private int id;
 	@Column(name="type" , nullable=false)
 	private String type;
-	@Column(name="jenisPelayanan" , nullable=false)
+	@Column(name="jenis_elayanan" , nullable=false)
 	private String jenisPelayanan;
-	@Column(name="jumlahDana" , nullable=false)
+	@Column(name="jumlah_dana" , nullable=false)
 	private Double jumlahDana;
-	@Column(name="hargaKartu" , nullable=false)
+	@Column(name="harga_kartu" , nullable=false)
 	private Double hargaKartu;
 	@OneToMany(fetch=FetchType.LAZY,mappedBy="classAsuransi")
 	private List<Polis> listPolis;

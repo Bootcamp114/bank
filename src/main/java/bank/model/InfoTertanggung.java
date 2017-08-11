@@ -1,5 +1,6 @@
 package bank.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -19,14 +20,23 @@ public class InfoTertanggung {
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE)
 	private int id;
+	@Column(name="nama", nullable = false)
 	private String nama;
+	@Column(name="no_hp", nullable = false)
 	private int noHp;
+	@Column(name="email", nullable = false, unique=true)
 	private String email;
+	@Column(name="tanggal_lahir", nullable = false)
 	private String tanggalLahir;
+	@Column(name="pekerjaan", nullable = false)
 	private String pekerjaan;
+	@Column(name="alamat", nullable = false)
 	private String alamat;
+	@Column(name="jenis_kelamin", nullable = false)
 	private String jenisKelamin;
+	@Column(name="status", nullable = false)
 	private String status;
+	@Column(name="kewarganagaraan", nullable = false)
 	private String kewarganegaraan;
 	@OneToOne(fetch=FetchType.LAZY,mappedBy="infoTertanggung")
 	private Polis polis;

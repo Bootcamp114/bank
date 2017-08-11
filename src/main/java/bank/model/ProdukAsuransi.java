@@ -25,15 +25,25 @@ public class ProdukAsuransi {
 	private int id;
 	@Column(name="produk", unique=true)
 	private String produk;
+	@Column(name="kondisi_tunjungan_1")
 	private String kondisiTunjangan1;
+	@Column(name="kondisi_tunjungan_2")
 	private String kondisiTunjangan2;
+	@Column(name="kondisi_tunjungan_3")
 	private String kondisiTunjangan3;
+	@Column(name="kondisi_tunjungan_4")
 	private String kondisiTunjangan4;
+	@Column(name="kondisi_tunjungan_5")
 	private String kondisiTunjangan5;
+	@Column(name="kondisi_tunjungan_6")
 	private String kondisiTunjangan6;
+	@Column(name="kondisi_tunjungan_7")
 	private String kondisiTunjangan7;
+	@Column(name="kondisi_tunjungan_8")
 	private String kondisiTunjangan8;
+	@Column(name="kondisi_tunjungan_9")
 	private String kondisiTunjangan9;
+	@Column(name="kondisi_tunjungan_10")
 	private String kondisiTunjangan10;
 	@OneToMany(fetch=FetchType.LAZY,mappedBy="produkAsuransi")
 	private List<Polis>listPolis;
