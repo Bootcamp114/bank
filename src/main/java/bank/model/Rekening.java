@@ -1,8 +1,12 @@
 package bank.model;
 
+import java.util.List;
+
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.springframework.stereotype.Controller;
@@ -21,6 +25,8 @@ public class Rekening {
 	private String rekening;
 	private Double saldo;
 	private Double harga;
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "rekening")
+	private List<Nasabah> nasabah;
 	// Nasabah (One To Many)
 
 	public Rekening() {

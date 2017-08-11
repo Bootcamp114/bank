@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
@@ -35,8 +36,12 @@ public class Nasabah {
 	private String rekomendasi_perusahaan;
 	private String status;
 	private String ahli_waris;
+	@ManyToOne
+	private Rekening rekening;
+	@ManyToOne
+	private ProdukNasabah produkNasabah;
 	// Rekening (Many to One)
-	// saudara (One to one)
+	// Keluarga (One to Many)
 	// Produk (Many To One)
 
 	public Nasabah() {

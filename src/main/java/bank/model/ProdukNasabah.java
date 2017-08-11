@@ -1,9 +1,13 @@
 package bank.model;
 
+import java.util.List;
+
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
@@ -18,6 +22,8 @@ public class ProdukNasabah {
 	private int id;
 	private String nama_produk;
 	private Double harga;
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "produkNasabah")
+	private List<Nasabah> nasabah;
 	// Nasabah (One To Many)
 
 	public ProdukNasabah() {

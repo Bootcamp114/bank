@@ -9,7 +9,7 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.2.xsd">
 
-		<context:component-scan base-package="com.xsis.traininig.smkjavaweb"></context:component-scan>
+		<context:component-scan base-package="bank"></context:component-scan>
 		
 		<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
 		    <property name="driverClassName" value="${spring.datasource.driverClassName.oracle}" />
@@ -23,18 +23,28 @@
 	 <property name="dataSource" ref="dataSource"></property>
 	 <property name="annotatedClasses">
 			<list>
-			<!-- <value>com.xsis.training.smkjavaweb.model.Department</value>
-				<value>com.xsis.training.smkjavaweb.model.Employee</value> -->
-				<value>com.xsis.training.smkjavaweb.model.Customer</value>
-				<value>com.xsis.training.smkjavaweb.model.Barang</value>
-				<value>com.xsis.training.smkjavaweb.model.Penjualan</value>
-				<value>com.xsis.training.smkjavaweb.model.DetailPenjualan</value>
-				<value>com.xsis.training.smkjavaweb.model.Suplier</value>
+				<value>bank.model.Nasabah</value>
+				<value>bank.model.CSBank</value>
+				<value>bank.model.Jaminan</value>
+				<value>bank.model.Angsuran</value>
+				<value>bank.model.Rekening</value>
+				<value>bank.model.ProdukNasabah</value>
+				<value>bank.model.BungaBank</value>
+				<value>bank.model.ClassAsuransi</value>
+				<value>bank.model.InfoTertanggung</value>
+				<value>bank.model.JenisJaminan</value>
+				<value>bank.model.JenisKegunaan</value>
+				<value>bank.model.JenisStoran</value>
+				<value>bank.model.JenisSukuBunga</value>
+				<value>bank.model.KeluargaNasabah</value>
+				<value>bank.model.PeminjamanDana</value>
+				<value>bank.model.Polis</value>
+				<value>bank.model.ProdukAsuransi</value>
 			</list>
 		</property>
 		<property name="hibernateProperties">
 			<props>
-				<prop key="hibernate.hbm2ddl.auto">update</prop>
+				<prop key="hibernate.hbm2ddl.auto">create</prop>
 				<prop key="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</prop>
 				<prop key="hibernate.show_sql">true</prop>
 				<prop key="hibernate.current_session_context_class">org.springframework.orm.hibernate5.SpringSessionContext
