@@ -23,6 +23,7 @@
 	 <property name="dataSource" ref="dataSource"></property>
 	 <property name="annotatedClasses">
 			<list>
+			
 				<value>bank.model.Nasabah</value>
 				<value>bank.model.CSBank</value>
 				<value>bank.model.Jaminan</value>
