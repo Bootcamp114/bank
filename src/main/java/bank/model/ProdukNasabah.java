@@ -20,7 +20,7 @@ public class ProdukNasabah {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private int id;
-	private String nama_produk;
+	private String namaProduk;
 	private Double harga;
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "produkNasabah")
 	private List<Nasabah> nasabah;
@@ -30,10 +30,10 @@ public class ProdukNasabah {
 		// TODO Auto-generated constructor stub
 	}
 
-	public ProdukNasabah(int id, String nama_produk, Double harga) {
+	public ProdukNasabah(int id, String namaProduk, Double harga) {
 		super();
 		this.id = id;
-		this.nama_produk = nama_produk;
+		this.namaProduk = namaProduk;
 		this.harga = harga;
 	}
 
@@ -45,12 +45,12 @@ public class ProdukNasabah {
 		this.id = id;
 	}
 
-	public String getNama_produk() {
-		return nama_produk;
+	public String getNamaProduk() {
+		return namaProduk;
 	}
 
-	public void setNama_produk(String nama_produk) {
-		this.nama_produk = nama_produk;
+	public void setNamaProduk(String namaProduk) {
+		this.namaProduk = namaProduk;
 	}
 
 	public Double getHarga() {

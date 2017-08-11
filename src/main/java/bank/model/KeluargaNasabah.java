@@ -14,10 +14,10 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 public class KeluargaNasabah {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private int id;
 	private String nama;
-	private String hub_kel;
+	private String hubKel;
 	private int umur;
 	private String pendidikan;
 	// Nasabah (Many To One)
@@ -26,11 +26,11 @@ public class KeluargaNasabah {
 		// TODO Auto-generated constructor stub
 	}
 
-	public KeluargaNasabah(int id, String nama, String hub_kel, int umur, String pendidikan) {
+	public KeluargaNasabah(int id, String nama, String hubKel, int umur, String pendidikan) {
 		super();
 		this.id = id;
 		this.nama = nama;
-		this.hub_kel = hub_kel;
+		this.hubKel = hubKel;
 		this.umur = umur;
 		this.pendidikan = pendidikan;
 	}
@@ -51,12 +51,12 @@ public class KeluargaNasabah {
 		this.nama = nama;
 	}
 
-	public String getHub_kel() {
-		return hub_kel;
+	public String getHubKel() {
+		return hubKel;
 	}
 
-	public void setHub_kel(String hub_kel) {
-		this.hub_kel = hub_kel;
+	public void setHubKel(String hubKel) {
+		this.hubKel = hubKel;
 	}
 
 	public int getUmur() {

@@ -19,23 +19,23 @@ public class Nasabah {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private int id;
 	@Column(unique = true)
-	private String no_rek;
+	private String noRek;
 	private String nama;
-	private String jenis_identitas;
+	private String jenisIdentitas;
 	@Column(unique = true)
 	private String no_identitas;
-	private String warga_negara;
+	private String wargaNegara;
 	private String alamat;
-	private String tempat_lahir;
-	private String tanggal_lahir;
-	private String jenis_kel;
+	private String tempatLahir;
+	private String tanggalLahir;
+	private String jenisKel;
 	private String pekerjaan;
 	private Double penghasilan;
 	@Column(unique = true)
 	private String npwp;
-	private String rekomendasi_perusahaan;
+	private String rekomendasiPerusahaan;
 	private String status;
-	private String ahli_waris;
+	private String ahliWaris;
 	@ManyToOne
 	private Rekening rekening;
 	@ManyToOne
@@ -48,26 +48,29 @@ public class Nasabah {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Nasabah(int id, String no_rek, String nama, String jenis_identitas, String no_identitas, String warga_negara,
-			String alamat, String tempat_lahir, String tanggal_lahir, String jenis_kel, String pekerjaan,
-			Double penghasilan, String npwp, String rekomendasi_perusahaan, String status, String ahli_waris) {
+	public Nasabah(int id, String noRek, String nama, String jenisIdentitas, String no_identitas, String wargaNegara,
+			String alamat, String tempatLahir, String tanggalLahir, String jenisKel, String pekerjaan,
+			Double penghasilan, String npwp, String rekomendasiPerusahaan, String status, String ahliWaris,
+			Rekening rekening, ProdukNasabah produkNasabah) {
 		super();
 		this.id = id;
-		this.no_rek = no_rek;
+		this.noRek = noRek;
 		this.nama = nama;
-		this.jenis_identitas = jenis_identitas;
+		this.jenisIdentitas = jenisIdentitas;
 		this.no_identitas = no_identitas;
-		this.warga_negara = warga_negara;
+		this.wargaNegara = wargaNegara;
 		this.alamat = alamat;
-		this.tempat_lahir = tempat_lahir;
-		this.tanggal_lahir = tanggal_lahir;
-		this.jenis_kel = jenis_kel;
+		this.tempatLahir = tempatLahir;
+		this.tanggalLahir = tanggalLahir;
+		this.jenisKel = jenisKel;
 		this.pekerjaan = pekerjaan;
 		this.penghasilan = penghasilan;
 		this.npwp = npwp;
-		this.rekomendasi_perusahaan = rekomendasi_perusahaan;
+		this.rekomendasiPerusahaan = rekomendasiPerusahaan;
 		this.status = status;
-		this.ahli_waris = ahli_waris;
+		this.ahliWaris = ahliWaris;
+		this.rekening = rekening;
+		this.produkNasabah = produkNasabah;
 	}
 
 	public int getId() {
@@ -78,12 +81,12 @@ public class Nasabah {
 		this.id = id;
 	}
 
-	public String getNo_rek() {
-		return no_rek;
+	public String getNoRek() {
+		return noRek;
 	}
 
-	public void setNo_rek(String no_rek) {
-		this.no_rek = no_rek;
+	public void setNoRek(String noRek) {
+		this.noRek = noRek;
 	}
 
 	public String getNama() {
@@ -94,12 +97,12 @@ public class Nasabah {
 		this.nama = nama;
 	}
 
-	public String getJenis_identitas() {
-		return jenis_identitas;
+	public String getJenisIdentitas() {
+		return jenisIdentitas;
 	}
 
-	public void setJenis_identitas(String jenis_identitas) {
-		this.jenis_identitas = jenis_identitas;
+	public void setJenisIdentitas(String jenisIdentitas) {
+		this.jenisIdentitas = jenisIdentitas;
 	}
 
 	public String getNo_identitas() {
@@ -110,36 +113,44 @@ public class Nasabah {
 		this.no_identitas = no_identitas;
 	}
 
-	public String getWarga_negara() {
-		return warga_negara;
+	public String getWargaNegara() {
+		return wargaNegara;
 	}
 
-	public void setWarga_negara(String warga_negara) {
-		this.warga_negara = warga_negara;
+	public void setWargaNegara(String wargaNegara) {
+		this.wargaNegara = wargaNegara;
 	}
 
-	public String getTempat_lahir() {
-		return tempat_lahir;
+	public String getAlamat() {
+		return alamat;
 	}
 
-	public void setTempat_lahir(String tempat_lahir) {
-		this.tempat_lahir = tempat_lahir;
+	public void setAlamat(String alamat) {
+		this.alamat = alamat;
 	}
 
-	public String getTanggal_lahir() {
-		return tanggal_lahir;
+	public String getTempatLahir() {
+		return tempatLahir;
 	}
 
-	public void setTanggal_lahir(String tanggal_lahir) {
-		this.tanggal_lahir = tanggal_lahir;
+	public void setTempatLahir(String tempatLahir) {
+		this.tempatLahir = tempatLahir;
 	}
 
-	public String getJenis_kel() {
-		return jenis_kel;
+	public String getTanggalLahir() {
+		return tanggalLahir;
 	}
 
-	public void setJenis_kel(String jenis_kel) {
-		this.jenis_kel = jenis_kel;
+	public void setTanggalLahir(String tanggalLahir) {
+		this.tanggalLahir = tanggalLahir;
+	}
+
+	public String getJenisKel() {
+		return jenisKel;
+	}
+
+	public void setJenisKel(String jenisKel) {
+		this.jenisKel = jenisKel;
 	}
 
 	public String getPekerjaan() {
@@ -166,20 +177,12 @@ public class Nasabah {
 		this.npwp = npwp;
 	}
 
-	public String getAlamat() {
-		return alamat;
+	public String getRekomendasiPerusahaan() {
+		return rekomendasiPerusahaan;
 	}
 
-	public void setAlamat(String alamat) {
-		this.alamat = alamat;
-	}
-
-	public String getRekomendasi_perusahaan() {
-		return rekomendasi_perusahaan;
-	}
-
-	public void setRekomendasi_perusahaan(String rekomendasi_perusahaan) {
-		this.rekomendasi_perusahaan = rekomendasi_perusahaan;
+	public void setRekomendasiPerusahaan(String rekomendasiPerusahaan) {
+		this.rekomendasiPerusahaan = rekomendasiPerusahaan;
 	}
 
 	public String getStatus() {
@@ -190,11 +193,27 @@ public class Nasabah {
 		this.status = status;
 	}
 
-	public String getAhli_waris() {
-		return ahli_waris;
+	public String getAhliWaris() {
+		return ahliWaris;
 	}
 
-	public void setAhli_waris(String ahli_waris) {
-		this.ahli_waris = ahli_waris;
+	public void setAhliWaris(String ahliWaris) {
+		this.ahliWaris = ahliWaris;
+	}
+
+	public Rekening getRekening() {
+		return rekening;
+	}
+
+	public void setRekening(Rekening rekening) {
+		this.rekening = rekening;
+	}
+
+	public ProdukNasabah getProdukNasabah() {
+		return produkNasabah;
+	}
+
+	public void setProdukNasabah(ProdukNasabah produkNasabah) {
+		this.produkNasabah = produkNasabah;
 	}
 }
