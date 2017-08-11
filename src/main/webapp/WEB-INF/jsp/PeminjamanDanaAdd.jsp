@@ -75,6 +75,12 @@
 						<div class="col-lg-12">
 							<div class="col-lg-6">
 								<div class="form-group">
+									<label>Rekening : </label> <input type="text"
+										class="form-control" name="no_rek" />
+								</div>
+							</div>
+							<div class="col-lg-6">
+								<div class="form-group">
 									<label>Nama Nasabah: </label> <input class="form-control"
 										name="nama">
 								</div>
@@ -164,12 +170,6 @@
 								<div class="form-group">
 									<label>Nomor Peserta Wajib Pajak : </label> <input
 										class="form-control" name="npwp" />
-								</div>
-							</div>
-							<div class="col-lg-6">
-								<div class="form-group">
-									<label>Rekening : </label> <input type="text"
-										class="form-control" name="no_rek" />
 								</div>
 							</div>
 							<div class="col-lg-6">
