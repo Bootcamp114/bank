@@ -49,7 +49,6 @@ public class Nasabah {
 	@ManyToOne
 	private Rekening rekening;
 	@ManyToOne
-	@Column(name = "produk_nasabah")
 	private ProdukNasabah produkNasabah;
 	// Rekening (Many to One)
 	// Keluarga (One to Many)
