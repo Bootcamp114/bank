@@ -2,6 +2,7 @@ package bank.model;
 
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -21,7 +22,9 @@ public class JenisStoran {
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE)
 	private int id;
+	@Column(name="jumlah_storan")
 	private Double jumlahStoran;
+	@Column(name="besar_tunjangan")
 	private Double besarTunjangan;
 	@OneToMany(fetch=FetchType.LAZY,mappedBy="jenisStoran")
 	private List<Polis> listPolis;

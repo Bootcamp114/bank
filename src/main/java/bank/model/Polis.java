@@ -22,12 +22,13 @@ public class Polis {
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE)
 	private int id;
+	@Column(name="no_polis")
 	private int noPolis;
-	@Column(name="namaPemegang", nullable = false)
-	private String nama_pemegang;
-	@Column(name="ahliWaris", nullable = false)
+	@Column(name="nama_pemegang", nullable = false)
+	private String namaPemegang;
+	@Column(name="ahli_waris", nullable = false)
 	private String ahliWaris;
-	@Column(name="tanggalDibuat", nullable = false)
+	@Column(name="tanggal_dibuat", nullable = false)
 	private String tanggalDibuat;
 	@ManyToOne
 	private ProdukAsuransi produkAsuransi;
@@ -42,13 +43,13 @@ public class Polis {
 		
 	}
 
-	public Polis(int id, int noPolis, String nama_pemegang, String ahliWaris, String tanggalDibuat,
+	public Polis(int id, int noPolis, String namaPemegang, String ahliWaris, String tanggalDibuat,
 			ProdukAsuransi produkAsuransi, ClassAsuransi classAsuransi, JenisStoran jenisStoran,
 			InfoTertanggung infoTertanggung) {
 		super();
 		this.id = id;
 		this.noPolis = noPolis;
-		this.nama_pemegang = nama_pemegang;
+		this.namaPemegang = namaPemegang;
 		this.ahliWaris = ahliWaris;
 		this.tanggalDibuat = tanggalDibuat;
 		this.produkAsuransi = produkAsuransi;
@@ -73,12 +74,12 @@ public class Polis {
 		this.noPolis = noPolis;
 	}
 
-	public String getNama_pemegang() {
-		return nama_pemegang;
+	public String getNamaPemegang() {
+		return namaPemegang;
 	}
 
-	public void setNama_pemegang(String nama_pemegang) {
-		this.nama_pemegang = nama_pemegang;
+	public void setNamaPemegang(String namaPemegang) {
+		this.namaPemegang = namaPemegang;
 	}
 
 	public String getAhliWaris() {
