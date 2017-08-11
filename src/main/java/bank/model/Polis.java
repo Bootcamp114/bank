@@ -6,6 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -38,14 +39,20 @@ public class Polis {
 	private JenisStoran jenisStoran;
 	@OneToOne
 	private InfoTertanggung infoTertanggung;
+	@ManyToOne
+	private Nasabah nasabah;
 	
 	public Polis(){
 		
 	}
+	
+
+		
+	
 
 	public Polis(int id, int noPolis, String namaPemegang, String ahliWaris, String tanggalDibuat,
 			ProdukAsuransi produkAsuransi, ClassAsuransi classAsuransi, JenisStoran jenisStoran,
-			InfoTertanggung infoTertanggung) {
+			InfoTertanggung infoTertanggung,Nasabah nasabah) {
 		super();
 		this.id = id;
 		this.noPolis = noPolis;
@@ -56,6 +63,7 @@ public class Polis {
 		this.classAsuransi = classAsuransi;
 		this.jenisStoran = jenisStoran;
 		this.infoTertanggung = infoTertanggung;
+		this.nasabah = nasabah;
 	}
 
 	public int getId() {
@@ -128,6 +136,16 @@ public class Polis {
 
 	public void setInfoTertanggung(InfoTertanggung infoTertanggung) {
 		this.infoTertanggung = infoTertanggung;
+	}
+	
+
+	public Nasabah getNasabah() {
+		return nasabah;
+	}
+
+
+	public void setNasabah(Nasabah nasabah) {
+		this.nasabah = nasabah;
 	}
 	
 	
