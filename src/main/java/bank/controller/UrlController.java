@@ -36,6 +36,12 @@ public class UrlController {
 
 		return "PeminjamanDana";
 	}
+	
+	@RequestMapping("/peminjamandana/add")
+	public String addpinjam() {
+
+		return "PeminjamanDanaAdd";
+	}
 
 	@RequestMapping("asuransi")
 	public String ansuransi() {
