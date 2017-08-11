@@ -23,20 +23,19 @@
 	 <property name="dataSource" ref="dataSource"></property>
 	 <property name="annotatedClasses">
 			<list>
-			
-				<value>bank.model.Nasabah</value>
-				<value>bank.model.CSBank</value>
-				<value>bank.model.Jaminan</value>
-				<value>bank.model.Angsuran</value>
-				<value>bank.model.Rekening</value>
-				<value>bank.model.ProdukNasabah</value>
 				<value>bank.model.ClassAsuransi</value>
+				<value>bank.model.Employee</value>
 				<value>bank.model.InfoTertanggung</value>
+				<value>bank.model.Jaminan</value>
 				<value>bank.model.JenisStoran</value>
 				<value>bank.model.KeluargaNasabah</value>
+				<value>bank.model.Nasabah</value>
 				<value>bank.model.PeminjamanDana</value>
 				<value>bank.model.Polis</value>
 				<value>bank.model.ProdukAsuransi</value>
+				<value>bank.model.ProdukNasabah</value>
+				<value>bank.model.RekamPinjam</value>
+				<value>bank.model.Rekening</value>
 			</list>
 		</property>
 		<property name="hibernateProperties">
