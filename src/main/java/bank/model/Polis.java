@@ -36,23 +36,22 @@ public class Polis {
 	@ManyToOne
 	private ClassAsuransi classAsuransi;
 	@ManyToOne
-	private JenisStoran jenisStoran;
+	private JumlahStoran jenisStoran;
 	@OneToOne
 	private InfoTertanggung infoTertanggung;
 	@ManyToOne
 	private Nasabah nasabah;
+	@ManyToOne
+	private Employee employee;
 	
 	public Polis(){
 		
 	}
 	
 
-		
-	
-
 	public Polis(int id, int noPolis, String namaPemegang, String ahliWaris, String tanggalDibuat,
-			ProdukAsuransi produkAsuransi, ClassAsuransi classAsuransi, JenisStoran jenisStoran,
-			InfoTertanggung infoTertanggung,Nasabah nasabah) {
+			ProdukAsuransi produkAsuransi, ClassAsuransi classAsuransi, JumlahStoran jenisStoran,
+			InfoTertanggung infoTertanggung,Nasabah nasabah, Employee employee) {
 		super();
 		this.id = id;
 		this.noPolis = noPolis;
@@ -64,6 +63,8 @@ public class Polis {
 		this.jenisStoran = jenisStoran;
 		this.infoTertanggung = infoTertanggung;
 		this.nasabah = nasabah;
+		this.employee = employee;
+		
 	}
 
 	public int getId() {
@@ -122,11 +123,11 @@ public class Polis {
 		this.classAsuransi = classAsuransi;
 	}
 
-	public JenisStoran getJenisStoran() {
+	public JumlahStoran getJenisStoran() {
 		return jenisStoran;
 	}
 
-	public void setJenisStoran(JenisStoran jenisStoran) {
+	public void setJenisStoran(JumlahStoran jenisStoran) {
 		this.jenisStoran = jenisStoran;
 	}
 
@@ -147,15 +148,14 @@ public class Polis {
 	public void setNasabah(Nasabah nasabah) {
 		this.nasabah = nasabah;
 	}
+	public Employee getEmployee() {
+		return employee;
+	}
+
+	public void setEmployee(Employee employee) {
+		this.employee = employee;
+	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 
 }

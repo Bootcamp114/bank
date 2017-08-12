@@ -15,9 +15,9 @@ import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 @Entity
-@Table(name="BANK_JENIS_SETORAN")
+@Table(name="BANK_JUMLAH_SETORAN")
 @JsonIdentityInfo(generator=ObjectIdGenerators.IntSequenceGenerator.class,property="@id")
-public class JenisStoran {
+public class JumlahStoran {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE)
@@ -29,11 +29,11 @@ public class JenisStoran {
 	@OneToMany(fetch=FetchType.LAZY,mappedBy="jenisStoran")
 	private List<Polis> listPolis;
 	
-	public JenisStoran(){
+	public JumlahStoran(){
 		
 	}
 
-	public JenisStoran(int id, Double jumlahStoran, Double besarTunjangan, List<Polis> listPolis) {
+	public JumlahStoran(int id, Double jumlahStoran, Double besarTunjangan, List<Polis> listPolis) {
 		super();
 		this.id = id;
 		this.jumlahStoran = jumlahStoran;
