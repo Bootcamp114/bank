@@ -24,7 +24,7 @@ public class ClassAsuransi {
 	private int id;
 	@Column(name="type" , nullable=false)
 	private String type;
-	@Column(name="jenis_elayanan" , nullable=false)
+	@Column(name="jenis_pelayanan" , nullable=false)
 	private String jenisPelayanan;
 	@Column(name="jumlah_dana" , nullable=false)
 	private Double jumlahDana;
