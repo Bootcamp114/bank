@@ -26,7 +26,7 @@ public class JumlahStoran {
 	private Double jumlahStoran;
 	@Column(name="besar_tunjangan")
 	private Double besarTunjangan;
-	@OneToMany(fetch=FetchType.LAZY,mappedBy="jenisStoran")
+	@OneToMany(fetch=FetchType.LAZY,mappedBy="jumlahStoran")
 	private List<Polis> listPolis;
 	
 	public JumlahStoran(){

@@ -36,7 +36,7 @@ public class Polis {
 	@ManyToOne
 	private ClassAsuransi classAsuransi;
 	@ManyToOne
-	private JumlahStoran jenisStoran;
+	private JumlahStoran jumlahStoran;
 	@OneToOne
 	private InfoTertanggung infoTertanggung;
 	@ManyToOne
@@ -50,7 +50,7 @@ public class Polis {
 	
 
 	public Polis(int id, int noPolis, String namaPemegang, String ahliWaris, String tanggalDibuat,
-			ProdukAsuransi produkAsuransi, ClassAsuransi classAsuransi, JumlahStoran jenisStoran,
+			ProdukAsuransi produkAsuransi, ClassAsuransi classAsuransi, JumlahStoran jumlahStoran,
 			InfoTertanggung infoTertanggung,Nasabah nasabah, Employee employee) {
 		super();
 		this.id = id;
@@ -60,7 +60,7 @@ public class Polis {
 		this.tanggalDibuat = tanggalDibuat;
 		this.produkAsuransi = produkAsuransi;
 		this.classAsuransi = classAsuransi;
-		this.jenisStoran = jenisStoran;
+		this.jumlahStoran = jumlahStoran;
 		this.infoTertanggung = infoTertanggung;
 		this.nasabah = nasabah;
 		this.employee = employee;
@@ -123,12 +123,12 @@ public class Polis {
 		this.classAsuransi = classAsuransi;
 	}
 
-	public JumlahStoran getJenisStoran() {
-		return jenisStoran;
+	public JumlahStoran getJumlahStoran() {
+		return jumlahStoran;
 	}
 
-	public void setJenisStoran(JumlahStoran jenisStoran) {
-		this.jenisStoran = jenisStoran;
+	public void setJumlahStoran(JumlahStoran jumlahStoran) {
+		this.jumlahStoran = jumlahStoran;
 	}
 
 	public InfoTertanggung getInfoTertanggung() {
