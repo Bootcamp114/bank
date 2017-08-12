@@ -55,7 +55,7 @@ public class ClassAsuransiController {
 		return classAsuransiService.getAllClassAsuransi();
 		
 	}
-	@RequestMapping(value="/getclassasuransibyid",method=RequestMethod.GET)
+	@RequestMapping(value="/getbyid",method=RequestMethod.GET)
 	@ResponseStatus(value=HttpStatus.OK)
 	public ClassAsuransi getClassAsuransiById(@PathVariable int id){
 		return classAsuransiService.getClassAsuransiById(id);
