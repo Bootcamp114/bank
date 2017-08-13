@@ -35,7 +35,7 @@
                         <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
-                        <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        <li><a href="#"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->
@@ -49,6 +49,30 @@
                     <ul class="nav" id="side-menu">
                         <li>
                             <a href="index"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-wrench fa-fw"></i> Component Bank<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="#">Employee</a>
+                                </li>
+                                <li>
+                                    <a href="#">Product Nasabah</a>
+                                </li>
+                                <li>
+                                    <a href="#">Product Asuransi</a>
+                                </li>
+                                <li>
+                                    <a href="#">Info Rekening</a>
+                                </li>
+                                <li>
+                                    <a href="#">Info Setoran Asuransi</a>
+                                </li>
+                                <li>
+                                    <a href="#"> Class Asuransi</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
                         </li>
                         <li>
                             <a href="asuransi"><i class="fa fa-table fa-fw"></i> Health Insurance</a>

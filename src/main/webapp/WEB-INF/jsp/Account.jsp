@@ -11,11 +11,11 @@
 
 	<title>Insert title here</title>
 
-	<link href="./../resources/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-	<link href="./../resources/assets/vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
-	<link href="./../resources/assets/css/sb-admin-2.css" rel="stylesheet">
-	<link href="./../resources/assets/vendor/morrisjs/morris.css" rel="stylesheet">
-	<link href="./../resources/assets/vendor/font-awesome/css/font-awesome.min.css"
+	<link href="./../../resources/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link href="./../../resources/assets/vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
+	<link href="./../../resources/assets/css/sb-admin-2.css" rel="stylesheet">
+	<link href="./../../resources/assets/vendor/morrisjs/morris.css" rel="stylesheet">
+	<link href="./../../resources/assets/vendor/font-awesome/css/font-awesome.min.css"
 		rel="stylesheet" type="text/css">
 		
 </head>
@@ -35,7 +35,7 @@
                         <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
-                        <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        <li><a href="#"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->
@@ -49,6 +49,30 @@
                     <ul class="nav" id="side-menu">
                         <li>
                             <a href="index"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-wrench fa-fw"></i> Component Bank<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="#">Employee</a>
+                                </li>
+                                <li>
+                                    <a href="#">Product Nasabah</a>
+                                </li>
+                                <li>
+                                    <a href="#">Product Asuransi</a>
+                                </li>
+                                <li>
+                                    <a href="#">Info Rekening</a>
+                                </li>
+                                <li>
+                                    <a href="#">Info Setoran Asuransi</a>
+                                </li>
+                                <li>
+                                    <a href="#"> Class Asuransi</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
                         </li>
                         <li>
                             <a href="asuransi"><i class="fa fa-table fa-fw"></i> Health Insurance</a>
@@ -105,20 +129,20 @@
     <!-- /#wrapper -->
 
     <!-- jQuery -->
-    <script src="./../resources/assets/vendor/jquery/jquery.min.js"></script>
+    <script src="./../../resources/assets/vendor/jquery/jquery.min.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="./../resources/assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="./../../resources/assets/vendor/bootstrap/js/bootstrap.min.js"></script>
 
     <!-- Metis Menu Plugin JavaScript -->
-    <script src="./../resources/assets/vendor/metisMenu/metisMenu.min.js"></script>
+    <script src="./../../resources/assets/vendor/metisMenu/metisMenu.min.js"></script>
 
     <!-- Morris Charts JavaScript -->
-    <script src="./../resources/assets/vendor/raphael/raphael.min.js"></script>
-    <script src="./../resources/assets/vendor/morrisjs/morris.min.js"></script>
-    <script src="./../resources/assets/data/morris-data.js"></script>
+    <script src="./../../resources/assets/vendor/raphael/raphael.min.js"></script>
+    <script src="./../../resources/assets/vendor/morrisjs/morris.min.js"></script>
+    <script src="./../../resources/assets/data/morris-data.js"></script>
 
     <!-- Custom Theme JavaScript -->
-    <script src="./../resources/assets/dist/js/sb-admin-2.js"></script>
+    <script src="./../../resources/assets/dist/js/sb-admin-2.js"></script>
 </body>
 </html>
