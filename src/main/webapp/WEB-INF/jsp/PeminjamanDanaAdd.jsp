@@ -118,13 +118,13 @@
 								<div class="form-group">
 									<label>Warga Negara : </label>
 									<div class="radio">
-										<label> <input type="radio" class="warga_negara"
-											id="wni" />WNI
+										<label> <input type="radio" name="warga_negara"
+											value="WNI" />WNI
 										</label>
 									</div>
 									<div class="radio">
-										<label> <input type="radio" class="warga_negara"
-											id="wna" />WNA
+										<label> <input type="radio" name="warga_negara"
+											value="WNA" />WNA
 										</label>
 									</div>
 								</div>
@@ -162,13 +162,13 @@
 								<div class="form-group">
 									<label>Jenis Kelamin : </label>
 									<div class="radio">
-										<label> <input type="radio" class="jenis_kel" id="laki" />Laki
+										<label> <input type="radio" name="jenis_kel" value="Laki Laki" />Laki
 											- Laki
 										</label>
 									</div>
 									<div class="radio">
-										<label> <input type="radio" class="jenis_kel"
-											id="perempuan" />Perempuan
+										<label> <input type="radio" name="jenis_kel"
+											value="Perempuan" />Perempuan
 										</label>
 									</div>
 								</div>
@@ -203,12 +203,12 @@
 								<div class="form-group">
 									<label>Status Pernikahan : </label>
 									<div class="radio">
-										<label> <input type="radio" class="status" id="sudah"
+										<label> <input type="radio" name="status"
 											value="Sudah Menikah" />Sudah Menikah
 										</label>
 									</div>
 									<div class="radio">
-										<label> <input type="radio" class="status" id="belum"
+										<label> <input type="radio" name="status"
 											value="Belum Menikah" />Belum Menikah
 										</label>
 									</div>
@@ -308,8 +308,8 @@
 						</div>
 					</div>
 					<div class="col-lg-12">
-						<button type="submit" class="btn btn-success" name="save">Fix Pinjam</button>
-						<button type="reset" class="btn btn-info">Reset Form</button>
+						<input type="submit" class="btn btn-success" name="save" value="Fix Loan" />
+						<input type="reset" class="btn btn-info" value="Reset Form"/>
 					</div>
 				</form>
 			</div>
@@ -343,61 +343,61 @@
 <script type="text/javascript">
 	function save() {
 		var nama = $('input[name="nama"]').val();
-		var no_rek = $('input[name="no_rek"]').val();
-		var jenis_identitas = $('input[name="jenis_identitas"]').val();
-		var no_identitas = $('input[name="no_identitas"]').val();
-		var warga_negara = $('input[class="warga_negara"]').val();
+		var noRek = $('input[name="no_rek"]').val();
+		var jenisIdentitas = $('input[name="jenis_identitas"]').val();
+		var noIdentitas = $('input[name="no_identitas"]').val();
+		var wargaNegara = $('input[name="warga_negara"]').val();
 		var alamat = $('input[name="alamat"]').val();
-		var no_hp = $('input[name="no_hp"]').val();
+		var noHp = $('input[name="no_hp"]').val();
 		var email = $('input[name="email"]').val();
-		var tempat_lahir = $('input[name="tempat_lahir"]').val();
-		var tangal_lahir = $('input[name="tanggal_lahir"]').val();
-		var jenis_kel = $('input[class="jenis_kel"]').val();
+		var tempatLahir = $('input[name="tempat_lahir"]').val();
+		var tangalLahir = $('input[name="tanggal_lahir"]').val();
+		var jenisKel = $('input[name="jenis_kel"]').val();
 		var pekerjaan = $('input[name="pekerjaan"]').val();
 		var penghasilan = $('input[name="penghasilan"]').val();
 		var npwp = $('input[name="npwp"]').val();
-		var rekomendasi_perusahaan = $('input[name="rekomendasi_perusahaan"]').val();
-		var status = $('input[class="status"]').val();
-		var ahli_waris = $('input[name="ahli_waris"]').val();
-		var tujuan_penggunaan = $('input[name="tujuan_penggunaan"]').val();
-		var jumlah_pinjam = $('input[name="jumlah_pinjam"]').val();
-		var lama_pinjam = $('input[name="lama_pinjam"]').val();
-		var bunga_bank = $('input[name="bunga_bank"]').val();
-		var jenis_suku_bunga = $('input[name="jenis_suku_bunga"]').val();
-		var nama_jaminan = $('input[name="nama_jaminan"]').val();
-		var deskripsi_jaminan = $('input[name="deskripsi_jaminan"]').val();
-		var file_bukti_jaminan = $('input[name="file_bukti_jaminan"]').val();
+		var rekomendasiPerusahaan = $('input[name="rekomendasi_perusahaan"]').val();
+		var status = $('input[name="status"]').val();
+		var ahliWaris = $('input[name="ahli_waris"]').val();
+		var tujuanPenggunaan = $('input[name="tujuan_penggunaan"]').val();
+		var jumlahPinjam = $('input[name="jumlah_pinjam"]').val();
+		var lamaPinjam = $('input[name="lama_pinjam"]').val();
+		var bungaBank = $('input[name="bunga_bank"]').val();
+		var jenisSukuBunga = $('input[name="jenis_suku_bunga"]').val();
+		var namaJaminan = $('input[name="nama_jaminan"]').val();
+		var deskripsiJaminan = $('input[name="deskripsi_jaminan"]').val();
+		var fileBuktiJaminan = $('input[name="file_bukti_jaminan"]').val();
 
 		var pinjamdn = {
-			    no_rek: no_rek,
+			    no_rek: noRek,
 			    nama: nama,
-			    jenis_identitas: jenis_identitas,
-			    no_identitas: no_identitas,
-			    warga_negara: warga_negara,
+			    jenis_identitas: jenisIdentitas,
+			    no_identitas: noIdentitas,
+			    warga_negara: wargaNegara,
 			    alamat: alamat,
-			    no_hp : no_hp,
+			    no_hp : noHp,
 			    email : email,
-			    tempat_lahir: tempat_lahir,
-			    tanggal_lahir: tanggal_lahir,
-			    jenis_kel: jenis_kel,
+			    tempat_lahir: tempatLahir,
+			    tanggal_lahir: tanggalLahir,
+			    jenis_kel: jenisKel,
 			    pekerjaan: pekerjaan,
 			    penghasilan: penghasilan,
 			    npwp: npwp,
-			    rekomendasi_perusahaan: rekomendasi_perusahaan,
+			    rekomendasi_perusahaan: rekomendasiPerusahaan,
 			    status: status,
-			    ahli_waris: ahli_waris,
-			    tujuan_penggunaan: tujuan_penggunaan,
-			    jumlah_pinjam: jumlah_pinjam,
-			    lama_pinjam: lama_pinjam,
-			    bunga_bank : bunga_bank,
-			    jenis_suku_bunga: jenis_suku_bunga,
-			    nama_jaminan: nama_jaminan,
-			    deskripsi_jaminan: deskripsi_jaminan,
-			    file_bukti_jaminan: file_bukti_jaminan
+			    ahli_waris: ahliWaris,
+			    tujuan_penggunaan: tujuanPenggunaan,
+			    jumlah_pinjam: jumlahPinjam,
+			    lama_pinjam: lamaPinjam,
+			    bunga_bank : bungaBank,
+			    jenis_suku_bunga: jenisSukuBunga,
+			    nama_jaminan: namaJaminan,
+			    deskripsi_jaminan: deskripsiJaminan,
+			    file_bukti_jaminan: fileBuktiJaminan
 		}
 
 		$.ajax({
-			url : '/peminjamandana/save',
+			url : './../pinjamdana/save',
 			type : 'POST',
 			contentType : 'application/json', 
 			data : JSON.stringify(pinjamdn), 

@@ -18,7 +18,7 @@ public class UrlController {
 
 		return "Dashboard";
 	}
-
+	
 	@RequestMapping("/account")
 	public String akun() {
 
@@ -41,6 +41,12 @@ public class UrlController {
 	public String addpinjam() {
 
 		return "PeminjamanDanaAdd";
+	}
+	
+	@RequestMapping("/peminjamandana/detail")
+	public String detailpinjam() {
+
+		return "PeminjamanDanaDetail";
 	}
 
 	@RequestMapping("asuransi")

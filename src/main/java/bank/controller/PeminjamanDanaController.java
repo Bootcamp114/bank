@@ -13,7 +13,7 @@ import bank.model.PeminjamanDana;
 import bank.service.PeminjamanDanaService;
 
 @Controller
-@RequestMapping("/peminjamandana")
+@RequestMapping("/pinjamdana")
 public class PeminjamanDanaController {
 	
 	@Autowired

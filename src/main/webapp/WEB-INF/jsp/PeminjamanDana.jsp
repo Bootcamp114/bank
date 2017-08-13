@@ -97,7 +97,7 @@
 								<td class="text-center">Joevanka</td>
 								<td class="text-center">Kredit Kepemilikan Rumah</td>
 								<td class="text-center">9999999999000000.0</td>
-								<td class="text-center"><a href="#"><button type="submit" class="btn btn-sm btn-danger">DETAILS</button></a></td>
+								<td class="text-center"><a href="peminjamandana/detail"><button type="submit" class="btn btn-sm btn-danger">DETAILS</button></a></td>
 							</tr>
 						</tbody>
 					</table>
