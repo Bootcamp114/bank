@@ -15,7 +15,7 @@ import bank.model.JumlahStoran;
 import bank.service.JumlahStoranService;
 
 @Controller
-@RequestMapping(value="jumlahstoran")
+@RequestMapping(value="/jumlahstoran")
 public class JumlahStoranController {
 	
 	@Autowired
@@ -32,7 +32,7 @@ public class JumlahStoranController {
 		jumlahStoranService.save(jumlahStoran);
 	}
 	
-	@RequestMapping(value="/delete",method=RequestMethod.DELETE)
+	@RequestMapping(value="/delete/{id}",method=RequestMethod.DELETE)
 	@ResponseStatus(value=HttpStatus.OK)
 	public void delete(@PathVariable int id){
 		jumlahStoranService.delete(id);
@@ -47,7 +47,7 @@ public class JumlahStoranController {
 	public List<JumlahStoran> getAllJumlahStoran(){
 		return jumlahStoranService.getAllJumlahStoran();
 	}
-	@RequestMapping(value="/getbyid",method=RequestMethod.GET)
+	@RequestMapping(value="/getbyid/{id}",method=RequestMethod.GET)
 	@ResponseStatus(value=HttpStatus.OK)
 	public JumlahStoran getJumlahStoranById(@PathVariable int id){
 		return jumlahStoranService.getJumlahStoranById(id);

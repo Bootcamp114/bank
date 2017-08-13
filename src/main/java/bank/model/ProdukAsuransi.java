@@ -8,7 +8,6 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -20,11 +19,14 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 @JsonIdentityInfo(generator=ObjectIdGenerators.IntSequenceGenerator.class,property="@id")
 public class ProdukAsuransi {
 	
+	
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE)
 	private int id;
 	@Column(name="produk", unique=true)
 	private String produk;
+	@Column(name="jumlah_dana")
+	private Double jumlahDana;
 	@Column(name="kondisi_tunjungan_1")
 	private String kondisiTunjangan1;
 	@Column(name="kondisi_tunjungan_2")
@@ -51,14 +53,16 @@ public class ProdukAsuransi {
 	public ProdukAsuransi(){
 		
 	}
+	
 
 	public ProdukAsuransi(int id, String produk, String kondisiTunjangan1, String kondisiTunjangan2,
 			String kondisiTunjangan3, String kondisiTunjangan4, String kondisiTunjangan5, String kondisiTunjangan6,
 			String kondisiTunjangan7, String kondisiTunjangan8, String kondisiTunjangan9, String kondisiTunjangan10,
-			List<Polis> listPolis) {
+			List<Polis> listPolis, Double jumlahDana) {
 		super();
 		this.id = id;
 		this.produk = produk;
+		this.jumlahDana = jumlahDana;
 		this.kondisiTunjangan1 = kondisiTunjangan1;
 		this.kondisiTunjangan2 = kondisiTunjangan2;
 		this.kondisiTunjangan3 = kondisiTunjangan3;
@@ -175,6 +179,15 @@ public class ProdukAsuransi {
 	public void setListPolis(List<Polis> listPolis) {
 		this.listPolis = listPolis;
 	}
+	
+	public Double getJumlahDana() {
+		return jumlahDana;
+	}
+
+	public void setJumlahDana(Double jumlahDana) {
+		this.jumlahDana = jumlahDana;
+	}
+
 
 
 	

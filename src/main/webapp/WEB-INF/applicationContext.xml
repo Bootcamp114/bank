@@ -27,7 +27,7 @@
 				<value>bank.model.Employee</value>
 				<value>bank.model.InfoTertanggung</value>
 				<value>bank.model.Jaminan</value>
-				<value>bank.model.JenisStoran</value>
+				<value>bank.model.JumlahStoran</value>
 				<value>bank.model.KeluargaNasabah</value>
 				<value>bank.model.Nasabah</value>
 				<value>bank.model.PeminjamanDana</value>

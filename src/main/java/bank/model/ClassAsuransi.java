@@ -19,6 +19,7 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 @JsonIdentityInfo(generator=ObjectIdGenerators.IntSequenceGenerator.class,property="@id")
 public class ClassAsuransi {
 	
+	
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE)
 	private int id;
@@ -26,8 +27,8 @@ public class ClassAsuransi {
 	private String type;
 	@Column(name="jenis_pelayanan" , nullable=false)
 	private String jenisPelayanan;
-	@Column(name="jumlah_dana" , nullable=false)
-	private Double jumlahDana;
+	@Column(name="jenis_obat" , nullable=false)
+	private String jenisObat;
 	@Column(name="harga_kartu" , nullable=false)
 	private Double hargaKartu;
 	@OneToMany(fetch=FetchType.LAZY,mappedBy="classAsuransi")
@@ -39,13 +40,13 @@ public class ClassAsuransi {
 	}
 
 
-	public ClassAsuransi(int id, String type, String jenisPelayanan, Double jumlahDana, Double hargaKartu,
+	public ClassAsuransi(int id, String type, String jenisPelayanan, String jenisObat, Double hargaKartu,
 			List<Polis> listPolis) {
 		super();
 		this.id = id;
 		this.type = type;
 		this.jenisPelayanan = jenisPelayanan;
-		this.jumlahDana = jumlahDana;
+		this.jenisObat = jenisObat;
 		this.hargaKartu = hargaKartu;
 		this.listPolis = listPolis;
 	}
@@ -81,13 +82,13 @@ public class ClassAsuransi {
 	}
 
 
-	public Double getJumlahDana() {
-		return jumlahDana;
+	public String getJenisObat() {
+		return jenisObat;
 	}
 
 
-	public void setJumlahDana(Double jumlahDana) {
-		this.jumlahDana = jumlahDana;
+	public void setJenisObat(String jenisObat) {
+		this.jenisObat = jenisObat;
 	}
 
 

@@ -14,10 +14,9 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 
 import bank.model.ClassAsuransi;
 import bank.service.ClassAsuransiService;
-import bank.service.ClassAsuransiServiceImpl;
 
 @Controller
-@RequestMapping("classasuransi")
+@RequestMapping("/classasuransi")
 public class ClassAsuransiController {
 
 	@Autowired
@@ -55,7 +54,7 @@ public class ClassAsuransiController {
 		return classAsuransiService.getAllClassAsuransi();
 		
 	}
-	@RequestMapping(value="/getbyid",method=RequestMethod.GET)
+	@RequestMapping(value="/getbyid/{id}",method=RequestMethod.GET)
 	@ResponseStatus(value=HttpStatus.OK)
 	public ClassAsuransi getClassAsuransiById(@PathVariable int id){
 		return classAsuransiService.getClassAsuransiById(id);
