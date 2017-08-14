@@ -105,7 +105,7 @@
 						<a href="peminjamandana" class = "btn btn-primary btn-md"><span class = "fa fa-fw fa-refresh fa-spin"></span>Refresh</a>
 					</div>
 					<br><br>
-					<table class = "table table-stripeed table-bordered table-hover dataTable no-footer dtr-inline" id = "dataTables-example" role = "grid" aria-describedby="dataTables-example_info">
+					<table id="dt-table-pinjamdn"class = "table table-stripeed table-bordered table-hover dataTable no-footer dtr-inline" id = "dataTables-example" role = "grid" aria-describedby="dataTables-example_info">
 						<thead class = "kolom">
 							<tr>
 								<th class="text-center">No</th>
@@ -117,14 +117,6 @@
 							</tr>
 						</thead>
 						<tbody>
-							<tr>
-								<td class="text-center">1</td>
-								<td class="text-center">Joevanka</td>
-								<td class="text-center">Kredit Kepemilikan Rumah</td>
-								<td class="text-center">9999999999000000.0</td>
-								<td class="text-center">12-08-2017</td>
-								<td class="text-center"><a href="peminjamandana/detail"><button type="submit" class="btn btn-sm btn-danger">DETAILS</button></a></td>
-							</tr>
 						</tbody>
 					</table>
 				</div>
@@ -145,4 +137,6 @@
     
     <script src="./../../resources/assets/js/sb-admin-2.js"></script>
 </body>
+<script type="text/javascript">
+</script>
 </html>

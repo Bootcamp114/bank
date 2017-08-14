@@ -125,17 +125,16 @@
 					<div class="col-lg-6">
 						<h4 class="page-header">Jaminan</h4>
 						<div class="col-lg-12">
-							<div class="col-lg-6">
+							<div class="col-lg-12">
 								<div class="form-group">
-									<label>Jaminan : </label> <select class="form-control"
-										name="nama_jaminan">
+									<label>Jaminan : </label> <select class="form-control" name="nama_jaminan">
 										<option>-</option>
-										<option>Tanah atau Bagunan</option>
-										<option>Kendaraan</option>
-										<option>Deposito</option>
-										<option>Mesin</option>
-										<option>Inventory</option>
-										<option>Account Receivable</option>
+										<option value="Tanah atau Bangunan">Tanah atau Bagunan</option>
+										<option value="Kendaraan">Kendaraan</option>
+										<option value="Deposito">Deposito</option>
+										<option value="Mesin">Mesin</option>
+										<option value="Inventory">Inventory</option>
+										<option value="Account Receivable">Account Receivable</option>
 									</select>
 								</div>
 							</div>
@@ -146,9 +145,9 @@
 								</div>
 							</div>
 							<div class="col-lg-12">
-								<div class="form-group">
+								<div class="form-group" id="filesContainer">
 									<label>Masukkan Dokumen : </label> <input type="file"
-										name="file_bukti_jaminan">
+										name="file_bukti_jaminan" />
 								</div>
 							</div>
 						</div>
@@ -175,11 +174,11 @@
 									<label>Lama Pinjam : </label> <select class="form-control"
 										name="lama_pinjam">
 										<option>- </option>
-										<option>12 Bulan</option>
-										<option>24 Bulan</option>
-										<option>36 Bulan</option>
-										<option>48 Bulan</option>
-										<option>60 Bulan</option>
+										<option value="12 Bulan">12 Bulan</option>
+										<option value="24 Bulan">24 Bulan</option>
+										<option value="36 Bulan">36 Bulan</option>
+										<option value="48 Bulan">48 Bulan</option>
+										<option value="60 Bulan">60 Bulan</option>
 									</select>
 								</div>
 							</div>
@@ -239,17 +238,17 @@
 	
 	<script src="./../../resources/assets/js/sb-admin-2.js"></script>
 </body>
-<script type="text/javascript">
+<script type="text/javascript">	
 	function save() {
 		var nama = $('input[name="nama"]').val();
 		var tujuanPenggunaan = $('input[name="tujuan_penggunaan"]').val();
 		var jumlahPinjam = $('input[name="jumlah_pinjam"]').val();
-		var lamaPinjam = $('input[name="lama_pinjam"]').val();
+		var lamaPinjam = $('select[name="lama_pinjam"]').val();
 		var bungaBank = $('input[name="bunga_bank"]').val();
 		var tanggalPinjam = $('input[name="tanggal_pinjam"]').val();
-		var jatuhTempo = $('input[name="jatuhTempo"]').val();
-		var namaJaminan = $('input[name="nama_jaminan"]').val();
-		var deskripsiJaminan = $('input[name="deskripsi_jaminan"]').val();
+		var jatuhTempo = $('input[name="jatuh_tempo"]').val();
+		var namaJaminan = $('select[name="nama_jaminan"]').val();
+		var deskripsiJaminan = $("textarea[name='deskripsi_jaminan']").val();
 		var fileBuktiJaminan = $('input[name="file_bukti_jaminan"]').val();
 
 		var pinjamdn = {
@@ -259,7 +258,7 @@
 			    lamaPinjam: lamaPinjam,
 			    bungaBank : bungaBank,
 			    tanggalPinjam: tanggalPinjam,
-			    jatuhTtempo: jatuhTempo,
+			    jatuhTempo: jatuhTempo,
 			    namaJaminan: namaJaminan,
 			    deskripsiJaminan: deskripsiJaminan,
 			    fileBuktiJaminan: fileBuktiJaminan
