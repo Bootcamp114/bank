@@ -42,6 +42,18 @@ public class UrlController {
 		return "AccountAdd";
 	}
 
+	@RequestMapping("/produknasabah")
+	public String produknasabah() {
+
+		return "ProdukNasabah";
+	}
+
+	@RequestMapping("/produknasabah/add")
+	public String addproduknasabah() {
+
+		return "ProdukNasabahAdd";
+	}
+
 	@RequestMapping("/peminjamandana")
 	public String pinjam() {
 

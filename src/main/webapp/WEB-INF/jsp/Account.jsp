@@ -21,6 +21,17 @@
 		rel="stylesheet" type="text/css">
 		
 </head>
+	<script type="text/javascript" src="/resources/assets/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$(document).on("click", ".delete", function(){
+				var conf = confirm("Apakah anda yakin menghapus data ini ?");
+				if (conf == true){
+					doDelete(this);
+				}
+			});
+		});
+	</script>
 <body>
     <div id="wrapper">
         <!-- Navigation -->
@@ -59,7 +70,7 @@
                                     <a href="#">Employee</a>
                                 </li>
                                 <li>
-                                    <a href="#">Product Nasabah</a>
+                                    <a href="produknasabah">Product Nasabah</a>
                                 </li>
                                 <li>
                                     <a href="#">Product Asuransi</a>
@@ -107,12 +118,16 @@
 						<a href="account" class = "btn btn-primary btn-md"><span class = "fa fa-fw fa-refresh fa-spin"></span>Refresh</a>
 					</div>
 					<br><br>
-					<table class = "table table-stripeed table-bordered table-hover dataTable no-footer dtr-inline" id = "dataTables-example" role = "grid" aria-describedby="dataTables-example_info">
+					<table class = "table table-striped table-bordered table-hover dataTable no-footer dtr-inline" id = "dataTables-example" role = "grid" aria-describedby="dataTables-example_info">
 						<thead class = "kolom">
 							<tr>
 								<th class="text-center">Nama</th>
 								<th class="text-center">Alamat</th>
+								<th class="text-center">Jenis Kelamin</th>
 								<th class="text-center">Email</th>
+								<th class="text-center">Tanggal Lahir</th>
+								<th class="text-center">Pekerjaan</th>
+								<th class="text-center" colspan="3">Action</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -120,7 +135,13 @@
 							<tr>
 								<td class="text-center">${nasabah.nama}</td>
 								<td class="text-center">${nasabah.alamat}</td>
+								<td class="text-center">${nasabah.jenisKel}</td>
 								<td class="text-center">${nasabah.email}</td>
+								<td class="text-center">${nasabah.tanggalLahir}</td>
+								<td class="text-center">${nasabah.pekerjaan}</td>
+								<td class="text-center"><a href="#" class = "btn btn-primary btn-sm"><span class = "fa fa-fw fa-edit"></span>Edit</a></td>
+								<td class="text-center"><a href="#" id_delete="${nasabah.id}" class = "delete btn btn-danger btn-sm"><span class = "fa fa-fw fa-times"></span>Delete</a></td>
+								<td class="text-center"><a href="#" class = "btn btn-info btn-sm"><span class = "fa fa-fw fa-info"></span>Detail</a></td>	
 							</tr>
 						</c:forEach>
 						</tbody>
@@ -145,6 +166,16 @@
     <script src="./../../resources/assets/js/sb-admin-2.js"></script>
 </body>
 <script>
-
+	function doDelete(del){
+		var id = $(del).attr("id_delete");
+		$.ajax({
+			url : "/nasabah/delete/"+id,
+			type : "DELETE",
+			success : function(data){
+				console.log(data);
+				window.location = "account";
+			}
+		});
+	}
 </script>
 </html>
