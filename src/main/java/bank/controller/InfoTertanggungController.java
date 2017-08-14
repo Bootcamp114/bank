@@ -15,16 +15,12 @@ import bank.model.InfoTertanggung;
 import bank.service.InfoTertanggungService;
 
 @Controller
-@RequestMapping("/infotertanggung")
+@RequestMapping("/infotertanggungcontroller")
 public class InfoTertanggungController {
 	
 	@Autowired
 	InfoTertanggungService infoTertanggungService;
 
-	@RequestMapping
-	public String index(){
-		return "";
-	}
 	
 	@RequestMapping(value="/save",method=RequestMethod.POST)
 	@ResponseStatus(value=HttpStatus.CREATED)

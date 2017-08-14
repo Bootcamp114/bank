@@ -15,16 +15,11 @@ import bank.model.JumlahStoran;
 import bank.service.JumlahStoranService;
 
 @Controller
-@RequestMapping(value="/jumlahstoran")
+@RequestMapping(value="/jumlahstorancontroller")
 public class JumlahStoranController {
 	
 	@Autowired
 	JumlahStoranService jumlahStoranService;
-	
-	public String index(){
-		return "JumlahStoran";
-	}
-	
 	
 	@RequestMapping(value="/save", method=RequestMethod.POST)
 	@ResponseStatus(value=HttpStatus.CREATED)

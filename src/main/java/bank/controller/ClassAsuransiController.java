@@ -1,3 +1,5 @@
+
+
 package bank.controller;
 
 import java.util.List;
@@ -16,16 +18,11 @@ import bank.model.ClassAsuransi;
 import bank.service.ClassAsuransiService;
 
 @Controller
-@RequestMapping("/classasuransi")
+@RequestMapping("/classasuransicontroller")
 public class ClassAsuransiController {
 
 	@Autowired
 	ClassAsuransiService classAsuransiService;
-	
-	@RequestMapping
-	public String index(){
-		return "ClassAsuransi";
-	}
 	
 	@RequestMapping(value="/save", method=RequestMethod.POST)
 	@ResponseStatus(value=HttpStatus.CREATED)

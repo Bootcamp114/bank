@@ -15,16 +15,11 @@ import bank.model.Polis;
 import bank.service.PolisService;
 
 @Controller
-@RequestMapping("/polis")
+@RequestMapping("/poliscontroller")
 public class PolisController {
 	
 	@Autowired
 	PolisService polisService;
-	
-	@RequestMapping
-	public String index(){
-		return "";
-	}
 
 	@RequestMapping(value="/save",method= RequestMethod.POST)
 	@ResponseStatus(value=HttpStatus.CREATED)

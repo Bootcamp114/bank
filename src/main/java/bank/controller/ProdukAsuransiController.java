@@ -15,16 +15,11 @@ import bank.model.ProdukAsuransi;
 import bank.service.ProdukAsuransiService;
 
 @Controller
-@RequestMapping(value="/produkasuransi")
+@RequestMapping(value="/produkasuransicontroller")
 public class ProdukAsuransiController {
 	
 	@Autowired
 	ProdukAsuransiService produkAsuransiService;
-	
-	@RequestMapping
-	public String index(){
-		return "ProdukAsuransi";
-	}
 	
 	@RequestMapping(value="/save", method=RequestMethod.POST)
 	@ResponseStatus(value=HttpStatus.CREATED)
