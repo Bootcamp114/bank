@@ -15,7 +15,7 @@ import bank.model.Polis;
 import bank.service.PolisService;
 
 @Controller
-@RequestMapping("/")
+@RequestMapping("/polis")
 public class PolisController {
 	
 	@Autowired

@@ -15,7 +15,7 @@ import bank.model.InfoTertanggung;
 import bank.service.InfoTertanggungService;
 
 @Controller
-@RequestMapping("/")
+@RequestMapping("/infotertanggung")
 public class InfoTertanggungController {
 	
 	@Autowired
