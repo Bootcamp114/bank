@@ -60,15 +60,21 @@ public class UrlController {
 		return "PeminjamanDanaDetail";
 	}
 
-	@RequestMapping("asuransi")
+	@RequestMapping("/asuransi")
 	public String ansuransi() {
 
 		return "Asuransi";
 	}
 
-	@RequestMapping("asuransi/add")
+	@RequestMapping("/asuransi/add")
 	public String addasuransi() {
 
 		return "AsuransiAdd";
+	}
+
+	@RequestMapping("/classasuransi")
+	public String classasuransi(){
+		
+		return "ClassAsuransi";
 	}
 }
