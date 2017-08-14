@@ -76,7 +76,7 @@
                                     <a href="#">Product Asuransi</a>
                                 </li>
                                 <li>
-                                    <a href="#">Info Rekening</a>
+                                    <a href="rekening">Info Rekening</a>
                                 </li>
                                 <li>
                                     <a href="#">Info Setoran Asuransi</a>

@@ -8,7 +8,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import bank.model.Nasabah;
+import bank.model.ProdukNasabah;
+import bank.model.Rekening;
 import bank.service.NasabahService;
+import bank.service.ProdukNasabahService;
+import bank.service.RekeningService;
 
 @Controller
 @RequestMapping("/bank")
@@ -16,6 +20,10 @@ public class UrlController {
 
 	@Autowired
 	NasabahService nasabahService;
+	@Autowired
+	ProdukNasabahService produkNasabahService;
+	@Autowired
+	RekeningService rekeningService;
 
 	@RequestMapping("/login")
 	public String login() {
@@ -28,7 +36,7 @@ public class UrlController {
 
 		return "Dashboard";
 	}
-	
+
 	@RequestMapping("/account")
 	public String akun(Model model) {
 		List<Nasabah> nasabah = nasabahService.getAllNasabah();
@@ -37,14 +45,16 @@ public class UrlController {
 	}
 
 	@RequestMapping("/account/add")
-	public String addakun() {
-
+	public String addakun(Model model) {
+		List<ProdukNasabah> produkNasabah = produkNasabahService.getAllProdukNasabah();
+		model.addAttribute("produkNasabah", produkNasabah);
 		return "AccountAdd";
 	}
 
 	@RequestMapping("/produknasabah")
-	public String produknasabah() {
-
+	public String produknasabah(Model model) {
+		List<ProdukNasabah> produkNasabah = produkNasabahService.getAllProdukNasabah();
+		model.addAttribute("produkNasabah", produkNasabah);
 		return "ProdukNasabah";
 	}
 
@@ -54,18 +64,31 @@ public class UrlController {
 		return "ProdukNasabahAdd";
 	}
 
+	@RequestMapping("/rekening")
+	public String rekening(Model model) {
+		List<Rekening> rekening = rekeningService.getAllRekening();
+		model.addAttribute("rekening", rekening);
+		return "Rekening";
+	}
+
+	@RequestMapping("/rekening/add")
+	public String addrekening() {
+
+		return "RekeningAdd";
+	}
+
 	@RequestMapping("/peminjamandana")
 	public String pinjam() {
 
 		return "PeminjamanDana";
 	}
-	
+
 	@RequestMapping("/peminjamandana/add")
 	public String addpinjam() {
 
 		return "PeminjamanDanaAdd";
 	}
-	
+
 	@RequestMapping("/peminjamandana/detail")
 	public String detailpinjam() {
 
@@ -85,8 +108,8 @@ public class UrlController {
 	}
 
 	@RequestMapping("/classasuransi")
-	public String classasuransi(){
-		
+	public String classasuransi() {
+
 		return "ClassAsuransi";
 	}
 }

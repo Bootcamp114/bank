@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page isELIgnored="false" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -67,13 +69,13 @@
                                     <a href="#">Employee</a>
                                 </li>
                                 <li>
-                                    <a href="#">Product Nasabah</a>
+                                    <a href="../produknasabah">Product Nasabah</a>
                                 </li>
                                 <li>
                                     <a href="#">Product Asuransi</a>
                                 </li>
                                 <li>
-                                    <a href="#">Info Rekening</a>
+                                    <a href="rekening">Info Rekening</a>
                                 </li>
                                 <li>
                                     <a href="#">Info Setoran Asuransi</a>
@@ -187,10 +189,10 @@
                 		</div>
                			<div class = "form-group">
                 			<label>Produk : </label>
-                			<select class = "form-control" name = "produk">
-                				<option>Silver</option>
-                				<option>Gold</option>
-                				<option>Platinum</option>
+                			<select class = "form-control" name = "produk" id="produk">
+                				<c:forEach var = "produkNasabah" items = "${produkNasabah}">
+                					<option value="${produkNasabah.id}">${produkNasabah.namaProduk}</option>
+                				</c:forEach>
                 			</select>
                 		</div>
 						<label>Saldo : </label>
@@ -199,10 +201,10 @@
 								<input type="text" class="form-control" disabled>
 							<span class="input-group-addon">.00</span>
 						</div>
-              			<label>Total Pembayaran : </label>
+              			<label>Pembayaran : </label>
                			<div class="form-group input-group">
 							<span class="input-group-addon">Rp</span>
-								<input type="text" class="form-control" disabled>
+                				<input type="text" class="form-control" id="pembayaran" value = "--" disabled>
 							<span class="input-group-addon">.00</span>
 						</div>
 							
@@ -317,6 +319,11 @@
 		$("input[name='status']").on("change", function(){
 			status = $(this).val();
 		});
+
+		$("#produk").on("change", function(){
+			/* Pake Function Edit Masukin Harga Pembayaran */
+			$("#pembayaran").val("12312");
+		});
 	});
 		function save() {
 			var no_rek = $('input[name="no_rek"]').val();
@@ -333,6 +340,7 @@
 			var npwp = $('input[name="npwp"]').val();
 			var rekomendasi_perusahaan = $('input[name="rekomendasi_perusahaan"]').val();
 			var ahli_waris = $('input[name="ahli_waris"]').val();
+			var produk = $('#produk').val();
 
 			var nasabah = {
 				noRek : no_rek,
@@ -351,7 +359,10 @@
 				npwp : npwp,
 				rekomendasiPerusahaan : rekomendasi_perusahaan,
 				status : status,
-				ahliWaris : ahli_waris
+				ahliWaris : ahli_waris,
+				produkNasabah : {
+					id : produk
+				}
 			}
 
 			$.ajax({
