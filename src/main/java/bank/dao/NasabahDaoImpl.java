@@ -1,5 +1,6 @@
 package bank.dao;
 
+import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,5 +38,21 @@ public class NasabahDaoImpl implements NasabahDao {
 		nasabah.setNama("~");
 		session.delete(nasabah);
 		session.flush();
+	}
+
+	@Override
+	public List<Nasabah> getAllNasabah() {
+		// TODO Auto-generated method stub
+		Session session = sessionFactory.getCurrentSession();
+		List<Nasabah> listNasabah = session.createCriteria(Nasabah.class).list();
+		return listNasabah;
+	}
+
+	@Override
+	public Nasabah getNasabahById(int id) {
+		// TODO Auto-generated method stub
+		Session session = sessionFactory.getCurrentSession();
+		Nasabah nasabah = session.get(Nasabah.class, id);
+		return nasabah;
 	}
 }

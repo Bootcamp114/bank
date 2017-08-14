@@ -1,5 +1,7 @@
 package bank.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -29,5 +31,17 @@ public class NasabahServiceImpl implements NasabahService {
 	public void delete(int id) {
 		// TODO Auto-generated method stub
 		nasabahDao.delete(id);
+	}
+
+	@Override
+	public List<Nasabah> getAllNasabah() {
+		// TODO Auto-generated method stub
+		return nasabahDao.getAllNasabah();
+	}
+
+	@Override
+	public Nasabah getNasbahById(int id) {
+		// TODO Auto-generated method stub
+		return nasabahDao.getNasabahById(id);
 	}
 }
