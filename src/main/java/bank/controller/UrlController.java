@@ -1,11 +1,21 @@
 package bank.controller;
 
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import bank.model.Nasabah;
+import bank.service.NasabahService;
 
 @Controller
 @RequestMapping("/bank")
 public class UrlController {
+
+	@Autowired
+	NasabahService nasabahService;
 
 	@RequestMapping("/login")
 	public String login() {
@@ -20,8 +30,9 @@ public class UrlController {
 	}
 	
 	@RequestMapping("/account")
-	public String akun() {
-
+	public String akun(Model model) {
+		List<Nasabah> nasabah = nasabahService.getAllNasabah();
+		model.addAttribute("nasabah", nasabah);
 		return "Account";
 	}
 

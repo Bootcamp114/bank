@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page isELIgnored="false" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -108,19 +110,19 @@
 					<table class = "table table-stripeed table-bordered table-hover dataTable no-footer dtr-inline" id = "dataTables-example" role = "grid" aria-describedby="dataTables-example_info">
 						<thead class = "kolom">
 							<tr>
-								<th class="text-center">No</th>
 								<th class="text-center">Nama</th>
 								<th class="text-center">Alamat</th>
 								<th class="text-center">Email</th>
 							</tr>
 						</thead>
 						<tbody>
+						<c:forEach var = "nasabah" items = "${nasabah}">
 							<tr>
-								<td class="text-center">1</td>
-								<td class="text-center">2</td>
-								<td class="text-center">3</td>
-								<td class="text-center">4</td>
+								<td class="text-center">${nasabah.nama}</td>
+								<td class="text-center">${nasabah.alamat}</td>
+								<td class="text-center">${nasabah.email}</td>
 							</tr>
+						</c:forEach>
 						</tbody>
 					</table>
 				</div>
@@ -142,4 +144,7 @@
     
     <script src="./../../resources/assets/js/sb-admin-2.js"></script>
 </body>
+<script>
+
+</script>
 </html>
