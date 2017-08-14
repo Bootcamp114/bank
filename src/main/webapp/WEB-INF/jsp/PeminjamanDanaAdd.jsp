@@ -16,9 +16,10 @@
 <link href="./../../resources/assets/css/sb-admin-2.css" rel="stylesheet">
 <link href="./../../resources/assets/vendor/morrisjs/morris.css" rel="stylesheet">
 <link href="./../../resources/assets/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="/resources/assets/jquery-3.2.1.min.js"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
-		$("input[name='save']").on("click", function() {
+		$("input[name='submit']").on("click", function() {
 			save();
 		});
 	});
@@ -110,144 +111,44 @@
                     	</tr>
                     </table>
 				<form role="form">
-					<div class="col-lg-6">
+					<div class="col-lg-12">
 						<h4 class="page-header">Data Diri</h4>
 						<div class="col-lg-12">
-							<div class="col-lg-6">
-								<div class="form-group">
-									<label>Rekening : </label> <input type="text"
-										class="form-control" name="no_rek" />
-								</div>
-							</div>
-							<div class="col-lg-6">
+							<div class="col-lg-12">
 								<div class="form-group">
 									<label>Nama Nasabah: </label> <input class="form-control"
 										name="nama">
 								</div>
 							</div>
+						</div>
+					</div>
+					<div class="col-lg-6">
+						<h4 class="page-header">Jaminan</h4>
+						<div class="col-lg-12">
 							<div class="col-lg-6">
 								<div class="form-group">
-									<label>Jenis Identitas : </label> <select class="form-control"
-										name="jenis_identitas">
-										<option>- </option>
-										<option>KTP</option>
-										<option>SIM</option>
-										<option>Kartu Keluarga</option>
-										<option>Ijazah</option>
-										<option>Passport</option>
+									<label>Jaminan : </label> <select class="form-control"
+										name="nama_jaminan">
+										<option>-</option>
+										<option>Tanah atau Bagunan</option>
+										<option>Kendaraan</option>
+										<option>Deposito</option>
+										<option>Mesin</option>
+										<option>Inventory</option>
+										<option>Account Receivable</option>
 									</select>
 								</div>
 							</div>
-							<div class="col-lg-6">
+							<div class="col-lg-12">
 								<div class="form-group">
-									<label>Nomor Identitas : </label> <input class="form-control"
-										name="no_identitas">
+									<label>Deskripsi Jaminan : </label>
+									<textarea class="form-control" rows="3" name="deskripsi_jaminan"></textarea>
 								</div>
 							</div>
-							<div class="col-lg-6">
+							<div class="col-lg-12">
 								<div class="form-group">
-									<label>Warga Negara : </label>
-									<div class="radio">
-										<label> <input type="radio" name="warga_negara"
-											value="WNI" />WNI
-										</label>
-									</div>
-									<div class="radio">
-										<label> <input type="radio" name="warga_negara"
-											value="WNA" />WNA
-										</label>
-									</div>
-								</div>
-							</div>
-							<div class="col-lg-6">
-								<div class="form-group">
-									<label>Alamat Rumah : </label>
-									<textarea class="form-control" rows="1" name="alamat"></textarea>
-								</div>
-							</div><div class="col-lg-6">
-								<div class="form-group">
-									<label>Nomor Handphone : </label> <input class="form-control"
-										name="no_hp" />
-								</div>
-							</div>
-							<div class="col-lg-6">
-								<div class="form-group">
-									<label>Email : </label> <input type="email" class="form-control"
-										name="email" />
-								</div>
-							</div>
-							<div class="col-lg-6">
-								<div class="form-group">
-									<label>Tempat Lahir : </label> <input class="form-control"
-										name="tempat_lahir" />
-								</div>
-							</div>
-							<div class="col-lg-6">
-								<div class="form-group">
-									<label>Tanggal Lahir : </label> <input class="form-control"
-										name="tanggal_lahir" type="date" />
-								</div>
-							</div>
-							<div class="col-lg-6">
-								<div class="form-group">
-									<label>Jenis Kelamin : </label>
-									<div class="radio">
-										<label> <input type="radio" name="jenis_kel" value="Laki Laki" />Laki
-											- Laki
-										</label>
-									</div>
-									<div class="radio">
-										<label> <input type="radio" name="jenis_kel"
-											value="Perempuan" />Perempuan
-										</label>
-									</div>
-								</div>
-							</div>
-							<div class="col-lg-6">
-								<div class="form-group">
-									<label>Pekerjaan : </label> <input class="form-control"
-										name="pekerjaan" />
-								</div>
-							</div>
-							<div class="col-lg-6">
-								<label>Penghasilan (/bln)</label>
-								<div class="form-group input-group">
-									<span class="input-group-addon">Rp</span> <input type="text"
-										class="form-control" name="penghasilan" /> <span
-										class="input-group-addon">.00</span>
-								</div>
-							</div>
-							<div class="col-lg-6">
-								<div class="form-group">
-									<label>Nomor Peserta Wajib Pajak : </label> <input
-										class="form-control" name="npwp" />
-								</div>
-							</div>
-							<div class="col-lg-6">
-								<div class="form-group">
-									<label>Rekomendasi Perusahaan : </label> <input type="text"
-										class="form-control" name="rekomendasi_perusahaan" />
-								</div>
-							</div>
-							<div class="col-lg-6">
-								<div class="form-group">
-									<label>Status Pernikahan : </label>
-									<div class="radio">
-										<label> <input type="radio" name="status"
-											value="Sudah Menikah" />Sudah Menikah
-										</label>
-									</div>
-									<div class="radio">
-										<label> <input type="radio" name="status"
-											value="Belum Menikah" />Belum Menikah
-										</label>
-									</div>
-								</div>
-							</div>
-							<div class="col-lg-6">
-								<div class="form-group">
-									<label>Ahli Waris : </label> <input class="form-control"
-										name="ahli_waris">
+									<label>Masukkan Dokumen : </label> <input type="file"
+										name="file_bukti_jaminan">
 								</div>
 							</div>
 						</div>
@@ -306,39 +207,8 @@
 							</div>
 						</div>
 					</div>
-					<div class="col-lg-6">
-						<h4 class="page-header">Jaminan</h4>
-						<div class="col-lg-12">
-							<div class="col-lg-6">
-								<div class="form-group">
-									<label>Jaminan : </label> <select class="form-control"
-										name="nama_jaminan">
-										<option>-</option>
-										<option>Tanah atau Bagunan</option>
-										<option>Kendaraan</option>
-										<option>Deposito</option>
-										<option>Mesin</option>
-										<option>Inventory</option>
-										<option>Account Receivable</option>
-									</select>
-								</div>
-							</div>
-							<div class="col-lg-12">
-								<div class="form-group">
-									<label>Deskripsi Jaminan : </label>
-									<textarea class="form-control" rows="3" name="deskripsi_jaminan"></textarea>
-								</div>
-							</div>
-							<div class="col-lg-12">
-								<div class="form-group">
-									<label>Masukkan Dokumen : </label> <input type="file"
-										name="file_bukti_jaminan">
-								</div>
-							</div>
-						</div>
-					</div>
 					<div class="col-lg-12">
-						<input type="submit" class="btn btn-success" name="save" value="Fix Loan" />
+						<input type="submit" class="btn btn-success" name="submit" value="Fix Loan" />
 						<input type="reset" class="btn btn-info" value="Reset Form"/>
 					</div>
 				</form>
@@ -365,30 +235,10 @@
 	<!-- Morris Charts JavaScript -->
 	<script src="./../../resources/assets/vendor/raphael/raphael.min.js"></script>
 	<script src="./../../resources/assets/vendor/morrisjs/morris.min.js"></script>
-	<script src="./../../resources/assets/data/morris-data.js"></script>
-
-	<!-- Custom Theme JavaScript -->
-	<script src="./../../resources/assets/dist/js/sb-admin-2.js"></script>
 </body>
 <script type="text/javascript">
 	function save() {
 		var nama = $('input[name="nama"]').val();
-		var noRek = $('input[name="no_rek"]').val();
-		var jenisIdentitas = $('input[name="jenis_identitas"]').val();
-		var noIdentitas = $('input[name="no_identitas"]').val();
-		var wargaNegara = $('input[name="warga_negara"]').val();
-		var alamat = $('input[name="alamat"]').val();
-		var noHp = $('input[name="no_hp"]').val();
-		var email = $('input[name="email"]').val();
-		var tempatLahir = $('input[name="tempat_lahir"]').val();
-		var tangalLahir = $('input[name="tanggal_lahir"]').val();
-		var jenisKel = $('input[name="jenis_kel"]').val();
-		var pekerjaan = $('input[name="pekerjaan"]').val();
-		var penghasilan = $('input[name="penghasilan"]').val();
-		var npwp = $('input[name="npwp"]').val();
-		var rekomendasiPerusahaan = $('input[name="rekomendasi_perusahaan"]').val();
-		var status = $('input[name="status"]').val();
-		var ahliWaris = $('input[name="ahli_waris"]').val();
 		var tujuanPenggunaan = $('input[name="tujuan_penggunaan"]').val();
 		var jumlahPinjam = $('input[name="jumlah_pinjam"]').val();
 		var lamaPinjam = $('input[name="lama_pinjam"]').val();
@@ -399,42 +249,25 @@
 		var fileBuktiJaminan = $('input[name="file_bukti_jaminan"]').val();
 
 		var pinjamdn = {
-			    no_rek: noRek,
 			    nama: nama,
-			    jenis_identitas: jenisIdentitas,
-			    no_identitas: noIdentitas,
-			    warga_negara: wargaNegara,
-			    alamat: alamat,
-			    no_hp : noHp,
-			    email : email,
-			    tempat_lahir: tempatLahir,
-			    tanggal_lahir: tanggalLahir,
-			    jenis_kel: jenisKel,
-			    pekerjaan: pekerjaan,
-			    penghasilan: penghasilan,
-			    npwp: npwp,
-			    rekomendasi_perusahaan: rekomendasiPerusahaan,
-			    status: status,
-			    ahli_waris: ahliWaris,
-			    tujuan_penggunaan: tujuanPenggunaan,
-			    jumlah_pinjam: jumlahPinjam,
-			    lama_pinjam: lamaPinjam,
-			    bunga_bank : bungaBank,
-			    jenis_suku_bunga: jenisSukuBunga,
-			    nama_jaminan: namaJaminan,
-			    deskripsi_jaminan: deskripsiJaminan,
-			    file_bukti_jaminan: fileBuktiJaminan
+			    tujuanPenggunaan: tujuanPenggunaan,
+			    jumlahPinjam: jumlahPinjam,
+			    lamaPinjam: lamaPinjam,
+			    bungaBank : bungaBank,
+			    jenisSukuBunga: jenisSukuBunga,
+			    namaJaminan: namaJaminan,
+			    deskripsiJaminan: deskripsiJaminan,
+			    fileBuktiJaminan: fileBuktiJaminan
 		}
 
 		$.ajax({
-			url : './../pinjamdana/save',
+			url : './../../../pinjamdana/save',
 			type : 'POST',
 			contentType : 'application/json', 
 			data : JSON.stringify(pinjamdn), 
 			success : function(data, a, xhr) { 
 				if (xhr.status == 201) {
 					console.log("data berhasil dimasukkan");
-				//	showData();
 				}
 			}
 		});
