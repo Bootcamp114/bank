@@ -26,20 +26,13 @@ public class RekamPinjam {
 	private String lamaPinjam;
 	@Column(name="bunga_pinjam")
 	private String bungaPinjam;
-	@Column(name="jenis_bunga_pinjam")
-	private String jenisBungaPinjam;
+	@Column(name="tanggal_pinjam")
+	private String tanggalPinjam;
+	@Column(name="jatuh_tempo")
+	private String jatuhTempo;
 	
 	public RekamPinjam() {
 		// TODO Auto-generated constructor stub
-	}
-	
-	public RekamPinjam(int id, Double jumlahPinjam, String lamaPinjam, String bungaPinjam, String jenisBungaPinjam) {
-		super();
-		this.id = id;
-		this.jumlahPinjam = jumlahPinjam;
-		this.lamaPinjam = lamaPinjam;
-		this.bungaPinjam = bungaPinjam;
-		this.jenisBungaPinjam = jenisBungaPinjam;
 	}
 
 	public int getId() {
@@ -48,6 +41,14 @@ public class RekamPinjam {
 
 	public void setId(int id) {
 		this.id = id;
+	}
+
+	public String getTujuanPenggunaan() {
+		return tujuanPenggunaan;
+	}
+
+	public void setTujuanPenggunaan(String tujuanPenggunaan) {
+		this.tujuanPenggunaan = tujuanPenggunaan;
 	}
 
 	public Double getJumlahPinjam() {
@@ -74,12 +75,33 @@ public class RekamPinjam {
 		this.bungaPinjam = bungaPinjam;
 	}
 
-	public String getJenisBungaPinjam() {
-		return jenisBungaPinjam;
+	public String getTanggalPinjam() {
+		return tanggalPinjam;
 	}
 
-	public void setJenisBungaPinjam(String jenisBungaPinjam) {
-		this.jenisBungaPinjam = jenisBungaPinjam;
+	public void setTanggalPinjam(String tanggalPinjam) {
+		this.tanggalPinjam = tanggalPinjam;
 	}
+
+	public String getJatuhTempo() {
+		return jatuhTempo;
+	}
+
+	public void setJatuhTempo(String jatuhTempo) {
+		this.jatuhTempo = jatuhTempo;
+	}
+
+	public RekamPinjam(int id, String tujuanPenggunaan, Double jumlahPinjam, String lamaPinjam, String bungaPinjam,
+			String tanggalPinjam, String jatuhTempo) {
+		super();
+		this.id = id;
+		this.tujuanPenggunaan = tujuanPenggunaan;
+		this.jumlahPinjam = jumlahPinjam;
+		this.lamaPinjam = lamaPinjam;
+		this.bungaPinjam = bungaPinjam;
+		this.tanggalPinjam = tanggalPinjam;
+		this.jatuhTempo = jatuhTempo;
+	}
+	
 	
 }

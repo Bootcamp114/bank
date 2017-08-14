@@ -192,13 +192,8 @@
 							</div>
 							<div class="col-lg-6">
 								<div class="form-group">
-									<label>Jenis Suku Bunga : </label> <select class="form-control"
-										name="jenis_suku_bunga">
-										<option>- </option>
-										<option>Flat</option>
-										<option>Efektif</option>
-										<option>Anuitas</option>
-									</select>
+									<label>Tanggal Pinjam : </label> <input type="date"
+									class="form-control" name="tanggal_pinjam" />
 								</div>
 							</div>
 							<div class="col-lg-12">
@@ -243,7 +238,7 @@
 		var jumlahPinjam = $('input[name="jumlah_pinjam"]').val();
 		var lamaPinjam = $('input[name="lama_pinjam"]').val();
 		var bungaBank = $('input[name="bunga_bank"]').val();
-		var jenisSukuBunga = $('input[name="jenis_suku_bunga"]').val();
+		var tanggalPinjam = $('input[name="tanggal_pinjam"]').val();
 		var namaJaminan = $('input[name="nama_jaminan"]').val();
 		var deskripsiJaminan = $('input[name="deskripsi_jaminan"]').val();
 		var fileBuktiJaminan = $('input[name="file_bukti_jaminan"]').val();
@@ -254,14 +249,14 @@
 			    jumlahPinjam: jumlahPinjam,
 			    lamaPinjam: lamaPinjam,
 			    bungaBank : bungaBank,
-			    jenisSukuBunga: jenisSukuBunga,
+			    tanggalPinjam: tanggalPinjam,
 			    namaJaminan: namaJaminan,
 			    deskripsiJaminan: deskripsiJaminan,
 			    fileBuktiJaminan: fileBuktiJaminan
 		}
 
 		$.ajax({
-			url : './../../../pinjamdana/save',
+			url : './../../pinjamdana/save',
 			type : 'POST',
 			contentType : 'application/json', 
 			data : JSON.stringify(pinjamdn), 

@@ -28,8 +28,10 @@ public class PeminjamanDana {
 	private String lamaPinjam;
 	@Column(name="bunga_bank")
 	private String bungaBank;
-	@Column(name="jenis_suku_bunga")
-	private String jenisSukuBunga;
+	@Column(name="tanggal_pinjam")
+	private String tanggalPinjam;
+	@Column(name="jatuh_tempo")
+	private String jatuhTempo;
 	@Column(name="nama_jaminan")
 	private String namaJaminan;
 	@Column(name="deskripsi_jaminan")
@@ -38,9 +40,9 @@ public class PeminjamanDana {
 	private String fileBuktiJaminan;
 	@ManyToOne
 	private Nasabah nasabah;
-	
+
 	public PeminjamanDana(int id, String nama, String tujuanPenggunaan, Double jumlahPinjam, String lamaPinjam,
-			String bungaBank, String jenisSukuBunga, String namaJaminan, String deskripsiJaminan,
+			String bungaBank, String tanggalPinjam, String jatuhTempo, String namaJaminan, String deskripsiJaminan,
 			String fileBuktiJaminan, Nasabah nasabah) {
 		super();
 		this.id = id;
@@ -49,13 +51,14 @@ public class PeminjamanDana {
 		this.jumlahPinjam = jumlahPinjam;
 		this.lamaPinjam = lamaPinjam;
 		this.bungaBank = bungaBank;
-		this.jenisSukuBunga = jenisSukuBunga;
+		this.tanggalPinjam = tanggalPinjam;
+		this.jatuhTempo = jatuhTempo;
 		this.namaJaminan = namaJaminan;
 		this.deskripsiJaminan = deskripsiJaminan;
 		this.fileBuktiJaminan = fileBuktiJaminan;
 		this.nasabah = nasabah;
 	}
-
+	
 	public int getId() {
 		return id;
 	}
@@ -104,12 +107,20 @@ public class PeminjamanDana {
 		this.bungaBank = bungaBank;
 	}
 
-	public String getJenisSukuBunga() {
-		return jenisSukuBunga;
+	public String getTanggalPinjam() {
+		return tanggalPinjam;
 	}
 
-	public void setJenisSukuBunga(String jenisSukuBunga) {
-		this.jenisSukuBunga = jenisSukuBunga;
+	public void setTanggalPinjam(String tanggalPinjam) {
+		this.tanggalPinjam = tanggalPinjam;
+	}
+
+	public String getJatuhTempo() {
+		return jatuhTempo;
+	}
+
+	public void setJatuhTempo(String jatuhTempo) {
+		this.jatuhTempo = jatuhTempo;
 	}
 
 	public String getNamaJaminan() {
@@ -135,7 +146,7 @@ public class PeminjamanDana {
 	public void setFileBuktiJaminan(String fileBuktiJaminan) {
 		this.fileBuktiJaminan = fileBuktiJaminan;
 	}
-	
+
 	public Nasabah getNasabah() {
 		return nasabah;
 	}
