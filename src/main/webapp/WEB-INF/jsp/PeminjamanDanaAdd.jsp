@@ -236,6 +236,8 @@
 	<!-- Morris Charts JavaScript -->
 	<script src="./../../resources/assets/vendor/raphael/raphael.min.js"></script>
 	<script src="./../../resources/assets/vendor/morrisjs/morris.min.js"></script>
+	
+	<script src="./../../resources/assets/js/sb-admin-2.js"></script>
 </body>
 <script type="text/javascript">
 	function save() {
@@ -264,13 +266,14 @@
 		}
 
 		$.ajax({
-			url : './../../pinjamdana/save',
+			url : '/pinjamdana/save',
 			type : 'POST',
 			contentType : 'application/json', 
 			data : JSON.stringify(pinjamdn), 
 			success : function(data, a, xhr) { 
 				if (xhr.status == 201) {
 					console.log("data berhasil dimasukkan");
+					window.location("./../../add");
 				}
 			}
 		});
