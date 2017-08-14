@@ -102,7 +102,7 @@
 				<h2 class="page-header">Form Peminjaman Dana</h2>
 				<table align = "right">
                     	<tr>
-                    		<td><select class = "form-control" name = "role">
+                    		<td><select class = "form-control" name="role">
                     			<option>CS 1</option>
                     			<option>CS 2</option>
                     			<option>CS 3</option>
@@ -197,6 +197,12 @@
 								</div>
 							</div>
 							<div class="col-lg-12">
+								<div class="form-group">
+									<label>Jatuh Tempo : </label> <input type="text"
+									class="form-control" name="jatuh_tempo" />
+								</div>
+							</div>
+							<div class="col-lg-12">
 								<button type="submit" class="btn btn-danger" name="htg-angsuran">Hitung
 									Angsuran</button>
 							</div>
@@ -239,6 +245,7 @@
 		var lamaPinjam = $('input[name="lama_pinjam"]').val();
 		var bungaBank = $('input[name="bunga_bank"]').val();
 		var tanggalPinjam = $('input[name="tanggal_pinjam"]').val();
+		var jatuhTempo = $('input[name="jatuhTempo"]').val();
 		var namaJaminan = $('input[name="nama_jaminan"]').val();
 		var deskripsiJaminan = $('input[name="deskripsi_jaminan"]').val();
 		var fileBuktiJaminan = $('input[name="file_bukti_jaminan"]').val();
@@ -250,6 +257,7 @@
 			    lamaPinjam: lamaPinjam,
 			    bungaBank : bungaBank,
 			    tanggalPinjam: tanggalPinjam,
+			    jatuhTtempo: jatuhTempo,
 			    namaJaminan: namaJaminan,
 			    deskripsiJaminan: deskripsiJaminan,
 			    fileBuktiJaminan: fileBuktiJaminan
