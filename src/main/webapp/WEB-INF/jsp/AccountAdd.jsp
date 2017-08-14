@@ -22,7 +22,8 @@
 		src="/resources/assets/jquery-3.2.1.min.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function(){
-			$("#submit").on("click", function(){
+			$("#submit").on("click", function(e){
+				e.preventDefault();
 				save();
 			});
 		});
@@ -90,7 +91,7 @@
                             <a href="./../peminjamandana"><i class="fa fa-edit fa-fw"></i> Loan Funds</a>
                         </li>
                         <li>
-                            <a href="./../account"><i class="fa fa-book fa-fw"></i> Create Nasabah Account</a>
+                            <a href="./../account"><i class="fa fa-book fa-fw"></i> Nasabah</a>
                         </li>
                     </ul>
                 </div>
@@ -143,12 +144,10 @@
                 			<label>Warga Negara : </label>
                 			<div class = "radio">
                 				<label>
-                					<input type="radio" name = "warga_negara" id="wni" value = "WNI">WNI
+                					<input type="radio" name="warga_negara" value="WNI"/>WNI
                 				</label>
-                			</div>
-                			<div class = "radio">
                 				<label>
-                					<input type="radio" name = "warga_negara" id="wna" value = "WNA">WNA
+                					<input type="radio" name="warga_negara" value="WNA"/>WNA
                 				</label>
                 			</div>
                 		</div>
@@ -161,15 +160,17 @@
                 			<input class = "form-control" name = "tanggal_lahir" type = "date">
                 		</div>
                 		<div class = "form-group">
+                			<label>No Hp : </label>
+                			<input class = "form-control" name = "no_hp">
+                		</div>
+                		<div class = "form-group">
                 			<label>Jenis Kelamin : </label>
                 			<div class = "radio">
                 				<label>
-                					<input type="radio" name = "jenis_kel" id="laki" value = "Laki - Laki">Laki - Laki
+                					<input type="radio" name="jenis_kel" value="Laki-Laki"/>Laki - Laki
                 				</label>
-                			</div>
-                			<div class = "radio">
                 				<label>
-                					<input type="radio" name = "jenis_kel" id="perempuan" value = "Perempuan">Perempuan
+                					<input type="radio" name="jenis_kel" value="Perempuan"/>Perempuan
                 				</label>
                 			</div>
                 		</div>
@@ -212,12 +213,10 @@
 	                		<label>Status Pernikahan : </label>
                 			<div class = "radio">
                 				<label>
-                					<input type="radio" name = "status" id="sudah" value = "Sudah Menikah">Sudah Menikah
+                					<input type="radio" name="status" value="Sudah Menikah"/>Sudah Menikah
                 				</label>
-                			</div>
-                			<div class = "radio">
                 				<label>
-                					<input type="radio" name = "status" id="belum" value = "Belum Menikah">Belum Menikah
+                					<input type="radio" name="status" value="Belum Menikah"/>Belum Menikah
                 				</label>
                 			</div>
 	                	</div>
@@ -274,6 +273,10 @@
 						<textarea class="form-control" rows="3" name = "alamat"></textarea>
 					</div>
 					<div class = "form-group">
+                			<label>Email : </label>
+                			<input class = "form-control" name = "email" type = "text">
+                		</div>
+					<div class = "form-group">
 						<label>Nomor Peserta Wajib Pajak (NPWP) : </label>
 						<input class = "form-control" name = "npwp">
 					</div>
@@ -298,39 +301,57 @@
     <script src="./../../resources/assets/js/sb-admin-2.js"></script>
 </body>
 	<script type = "text/javascript">
+	var jenis_kel;
+	var warga_negara;
+	var status;
+
+	$(document).ready(function(){
+		$("input[name='jenis_kel']").on("change", function(){
+			jenis_kel = $(this).val();
+		});
+
+		$("input[name='warga_negara']").on("change", function(){
+			warga_negara = $(this).val();
+		});
+
+		$("input[name='status']").on("change", function(){
+			status = $(this).val();
+		});
+	});
 		function save() {
 			var no_rek = $('input[name="no_rek"]').val();
 			var nama = $('input[name="nama"]').val();
 			var jenis_identitas = $('select[name="jenis_identitas"]').val();
 			var no_identitas = $('input[name="no_identitas"]').val();
-			var warga_negara = $('input[name="warga_negara"]').val();
 			var alamat = $('textarea[name="alamat"]').val();
 			var tempat_lahir = $('input[name="tempat_lahir"]').val();
 			var tanggal_lahir = $('input[name="tanggal_lahir"]').val();
-			var jenis_kel = $('input[name="jenis_kel"]').val();
+			var email = $('input[name="email"]').val();
+			var no_hp = $('input[name="no_hp"]').val();
 			var pekerjaan = $('input[name="pekerjaan"]').val();
 			var penghasilan = $('input[name="penghasilan"]').val();
 			var npwp = $('input[name="npwp"]').val();
 			var rekomendasi_perusahaan = $('input[name="rekomendasi_perusahaan"]').val();
-			var status = $('input[name="status"]').val();
 			var ahli_waris = $('input[name="ahli_waris"]').val();
 
 			var nasabah = {
-				no_rek : no_rek,
+				noRek : no_rek,
 				nama : nama,
-				jenis_identitas : jenis_identitas	,
-				no_identitas : no_identitas,
-				warga_negara : warga_negara,
+				jenisIdentitas : jenis_identitas	,
+				noIdentitas : no_identitas,
+				wargaNegara : warga_negara,
 				alamat : alamat,
-				tempat_lahir : tempat_lahir,
-				tanggal_lahir : tanggal_lahir,
-				jenis_kel : jenis_kel,
+				email : email,
+				noHp : no_hp,
+				tempatLahir : tempat_lahir,
+				tanggalLahir : tanggal_lahir,
+				jenisKel : jenis_kel,
 				pekerjaan : pekerjaan,
 				penghasilan : penghasilan,
 				npwp : npwp,
-				rekomendasi_perusahaan : rekomendasi_perusahaan,
+				rekomendasiPerusahaan : rekomendasi_perusahaan,
 				status : status,
-				ahli_waris : ahli_waris
+				ahliWaris : ahli_waris
 			}
 
 			$.ajax({
@@ -341,7 +362,7 @@
 				success : function(data, a, xhr) {
 					console.log(xhr.status);
 					if (xhr.status == 201) {
-						alert("Success Add Data..");
+						window.location = "./../account";
 					}
 				}
 			});

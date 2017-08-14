@@ -81,7 +81,7 @@
                             <a href="peminjamandana"><i class="fa fa-edit fa-fw"></i> Loan Funds</a>
                         </li>
                         <li>
-                            <a href="account"><i class="fa fa-book fa-fw"></i> Create Nasabah Account</a>
+                            <a href="account"><i class="fa fa-book fa-fw"></i> Nasabah</a>
                         </li>
                     </ul>
                 </div>
@@ -139,10 +139,7 @@
 
     <!-- Morris Charts JavaScript -->
     <script src="./../../resources/assets/vendor/raphael/raphael.min.js"></script>
-    <script src="./../../resources/assets/vendor/morrisjs/morris.min.js"></script>
-    <script src="./../../resources/assets/data/morris-data.js"></script>
-
-    <!-- Custom Theme JavaScript -->
-    <script src="./../../resources/assets/dist/js/sb-admin-2.js"></script>
+    
+    <script src="./../../resources/assets/js/sb-admin-2.js"></script>
 </body>
 </html>

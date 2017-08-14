@@ -1,6 +1,8 @@
 package bank.model;
 
 import java.util.List;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -21,7 +23,8 @@ public class Rekening {
 	private int id;
 	private String rekening;
 	private Double saldo;
-	private Double harga;
+	@Column(name = "administrasi_bulanan")
+	private Double administrasiBulanan;
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "rekening")
 	private List<Nasabah> nasabah;
 	// Nasabah (One To Many)
@@ -30,12 +33,13 @@ public class Rekening {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Rekening(int id, String rekening, Double saldo, Double harga) {
+	public Rekening(int id, String rekening, Double saldo, Double administrasiBulanan, List<Nasabah> nasabah) {
 		super();
 		this.id = id;
 		this.rekening = rekening;
 		this.saldo = saldo;
-		this.harga = harga;
+		this.administrasiBulanan = administrasiBulanan;
+		this.nasabah = nasabah;
 	}
 
 	public int getId() {
@@ -62,11 +66,19 @@ public class Rekening {
 		this.saldo = saldo;
 	}
 
-	public Double getHarga() {
-		return harga;
+	public Double getAdministrasiBulanan() {
+		return administrasiBulanan;
 	}
 
-	public void setHarga(Double harga) {
-		this.harga = harga;
+	public void setAdministrasiBulanan(Double administrasiBulanan) {
+		this.administrasiBulanan = administrasiBulanan;
+	}
+
+	public List<Nasabah> getNasabah() {
+		return nasabah;
+	}
+
+	public void setNasabah(List<Nasabah> nasabah) {
+		this.nasabah = nasabah;
 	}
 }

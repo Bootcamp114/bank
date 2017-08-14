@@ -18,11 +18,9 @@ public class NasabahController {
 	@Autowired
 	NasabahService nasabahService;
 
-	@ResponseBody
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
 	@ResponseStatus(value = HttpStatus.CREATED)
-	public Nasabah save(@RequestBody Nasabah nasabah) {
+	public void save(@RequestBody Nasabah nasabah) {
 		nasabahService.save(nasabah);
-		return nasabah;
 	}
 }

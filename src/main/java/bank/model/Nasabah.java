@@ -57,8 +57,6 @@ public class Nasabah {
 	// Rekening (Many to One)
 	// Keluarga (One to Many)
 	// Produk (Many To One)
-	@OneToMany(fetch=FetchType.LAZY, mappedBy="nasabah")
-	private List<PeminjamanDana> listPeminjamanDana;
 
 	public Nasabah() {
 		// TODO Auto-generated constructor stub
