@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page isELIgnored="false" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -102,11 +104,10 @@
 				<h2 class="page-header">Form Peminjaman Dana</h2>
 				<table align = "right">
                     	<tr>
-                    		<td><select class = "form-control" name="role">
-                    			<option>CS 1</option>
-                    			<option>CS 2</option>
-                    			<option>CS 3</option>
-                    			<option>CS 4</option>
+                    		<td><select class = "form-control" name="nama_employee">
+                    			<c:forEach var="employee" items="${employee}">
+                    				<option value="${employee.role}">${employee.nama}</option>
+                    			</c:forEach>
                     		</select></td>
                     	</tr>
                     </table>
