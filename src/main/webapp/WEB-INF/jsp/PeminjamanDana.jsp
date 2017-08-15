@@ -21,6 +21,17 @@
 		rel="stylesheet" type="text/css">
 		
 </head>
+<script type="text/javascript" src="/resources/assets/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$(document).on("click", ".delete", function(){
+				var conf = confirm("Apakah Sudah Lunas ?");
+				if (conf == true){
+					doDelete(this);
+				}
+			});
+		});
+	</script>
 <body>
     <div id="wrapper">
         <!-- Navigation -->
@@ -114,18 +125,16 @@
 								<th class="text-center">Jaminan</th>
 								<th class="text-center">Jumlah Pinjam</th>
 								<th class="text-center">Jatuh Tempo</th>
-								<th class="text-center" colspan="3">Action</th>
+								<th class="text-center">Action</th>
 							</tr>
 						</thead>
 						<tbody>
-						<c:forEach var = "pinjam" items = "${pinjam}">
+						<c:forEach var = "peminjamanDana" items = "${peminjamanDana}">
 							<tr>
-								<td class="text-center">${pinjam.nama}</td>
-								<td class="text-center">${pinjam.namaJaminan}</td>
-								<td class="text-center">${pinjam.jumlahPinjam}</td>
-								<td class="text-center">${pinjam.jatuhTempo}</td>
-								<td class="text-center"><a href="#" class = "btn btn-primary btn-sm"><span class = "fa fa-fw fa-edit"></span>Edit</a></td>
-								<td class="text-center"><a href="#" id_delete="${pinjam.id}" class = "delete btn btn-danger btn-sm"><span class = "fa fa-fw fa-times"></span>Delete</a></td>
+								<td class="text-center">${peminjamanDana.nama}</td>
+								<td class="text-center">${peminjamanDana.namaJaminan}</td>
+								<td class="text-center">${peminjamanDana.jumlahPinjam}</td>
+								<td class="text-center">${peminjamanDana.jatuhTempo}</td>
 								<td class="text-center"><a href="#" class = "btn btn-info btn-sm"><span class = "fa fa-fw fa-info"></span>Detail</a></td>	
 							</tr>
 						</c:forEach>
@@ -149,17 +158,4 @@
     
     <script src="./../../resources/assets/js/sb-admin-2.js"></script>
 </body>
-<script type="text/javascript">
-function doDelete(del){
-	var id = $(del).attr("id_delete");
-	$.ajax({
-		url : "/nasabah/delete/"+id,
-		type : "DELETE",
-		success : function(data){
-			console.log(data);
-			window.location = "account";
-		}
-	});
-}
-</script>
 </html>

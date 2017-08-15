@@ -1,5 +1,7 @@
 package bank.dao;
 
+import java.util.List;
+
 import bank.model.PeminjamanDana;
 
 public interface PeminjamanDanaDao {
@@ -10,4 +12,7 @@ public interface PeminjamanDanaDao {
 
 	public void update(PeminjamanDana pinjamdn);
 
+	public List<PeminjamanDana> getAllPeminjamanDana();
+	
+	public PeminjamanDana getPeminjamanDanaById(int id);
 }

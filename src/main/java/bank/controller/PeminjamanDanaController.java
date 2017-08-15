@@ -19,7 +19,7 @@ public class PeminjamanDanaController {
 	
 	@Autowired
 	PeminjamanDanaService pinjamDnService;
-
+	
 	@RequestMapping(value="/save", method=RequestMethod.POST)
 	@ResponseStatus(value=HttpStatus.CREATED)
 	public void save(@RequestBody PeminjamanDana pinjamdn) {
@@ -31,4 +31,5 @@ public class PeminjamanDanaController {
 	public void delete(@PathVariable int id) {
 		pinjamDnService.delete(id);
 	}
+
 }

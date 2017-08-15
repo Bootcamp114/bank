@@ -37,13 +37,13 @@ public class PeminjamanDanaServiceImple implements PeminjamanDanaService {
 	@Override
 	public List<PeminjamanDana> getAllPeminjamanDana() {
 		// TODO Auto-generated method stub
-		return null;
+		return pinjamDnDao.getAllPeminjamanDana();
 	}
 
 	@Override
 	public PeminjamanDana getPeminjamanDanaById(int id) {
 		// TODO Auto-generated method stub
-		return null;
+		return pinjamDnDao.getPeminjamanDanaById(id);
 	}
 
 }

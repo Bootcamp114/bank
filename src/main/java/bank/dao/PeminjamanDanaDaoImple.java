@@ -1,5 +1,7 @@
 package bank.dao;
 
+import java.util.List;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,6 +40,22 @@ public class PeminjamanDanaDaoImple implements PeminjamanDanaDao{
 		Session session = sessionFactory.getCurrentSession();
 		session.update(pinjamdn);
 		session.flush();
+	}
+
+	@Override
+	public List<PeminjamanDana> getAllPeminjamanDana() {
+		// TODO Auto-generated method stub
+		Session session = sessionFactory.getCurrentSession();
+		List<PeminjamanDana> peminjamanDana = session.createCriteria(PeminjamanDana.class).list();
+		return peminjamanDana;
+	}
+
+	@Override
+	public PeminjamanDana getPeminjamanDanaById(int id) {
+		// TODO Auto-generated method stub
+		Session session = sessionFactory.getCurrentSession();
+		PeminjamanDana peminjamanDana = session.get(PeminjamanDana.class, id);
+		return peminjamanDana;
 	}
 
 }

@@ -85,8 +85,8 @@ public class UrlController {
 
 	@RequestMapping("/peminjamandana")
 	public String pinjam(Model model) {
-		List<PeminjamanDana> pinjam = pinjamDnService.getAllPeminjamanDana();
-		model.addAttribute("pinjam", pinjam);
+		List<PeminjamanDana> peminjamanDana = pinjamDnService.getAllPeminjamanDana();
+		model.addAttribute("peminjamanDana", peminjamanDana);
 		return "PeminjamanDana";
 	}
 
