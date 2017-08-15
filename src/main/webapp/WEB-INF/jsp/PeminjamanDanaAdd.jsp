@@ -117,8 +117,11 @@
 						<div class="col-lg-12">
 							<div class="col-lg-12">
 								<div class="form-group">
-									<label>Nama Nasabah: </label> <input class="form-control"
-										name="nama">
+									<label>Nama Nasabah: </label> <select class="form-control" name="nama" id="nama">
+										<c:forEach var="nasabah" items="${nasabah}">
+											<option value="${nasabah.nama}">${nasabah.nama}</option>
+										</c:forEach>
+									</select>
 								</div>
 							</div>
 						</div>
@@ -241,7 +244,7 @@
 </body>
 <script type="text/javascript">	
 	function save() {
-		var nama = $('input[name="nama"]').val();
+		var nasabah = $('#nasabah').val();
 		var tujuanPenggunaan = $('input[name="tujuan_penggunaan"]').val();
 		var jumlahPinjam = $('input[name="jumlah_pinjam"]').val();
 		var lamaPinjam = $('select[name="lama_pinjam"]').val();
@@ -262,7 +265,10 @@
 			    jatuhTempo: jatuhTempo,
 			    namaJaminan: namaJaminan,
 			    deskripsiJaminan: deskripsiJaminan,
-			    fileBuktiJaminan: fileBuktiJaminan
+			    fileBuktiJaminan: fileBuktiJaminan,
+			    nasabah : {
+			    	id: nama
+			    }
 		}
 
 		$.ajax({
@@ -273,7 +279,7 @@
 			success : function(data, a, xhr) { 
 				if (xhr.status == 201) {
 					console.log("data berhasil dimasukkan");
-					window.location("./../../add");
+					window.location("./../peminjamandana");
 				}
 			}
 		});
