@@ -103,7 +103,7 @@ public class UrlController {
 	public String addpinjam(Model model) {
 		List<Employee> employee = employeeService.getAllEmployee();
 		model.addAttribute("employee", employee); 
-		return "PeminjamanDanaAdd";
+		return "PeminjamanDanaAdd"; 
 	}
 
 	@RequestMapping("/peminjamandana/detail")
