@@ -114,7 +114,7 @@
 					<div class="col-lg-6">
 						<div class = "form-group">
 		                	<label>Nama Rekening : </label>
-		               		<input class = "form-control" name = "rekening">
+		               		<input class = "form-control" name = "rekening" required autofocus>
 		             	</div>
 		                <div class = "form-group">
 		                	<label>Saldo Minimal : </label>

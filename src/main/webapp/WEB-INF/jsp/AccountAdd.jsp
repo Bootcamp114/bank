@@ -123,10 +123,15 @@
                 <!-- Edit Dibawah -->
                 <div class = "col-lg-6">
                 	<form role = "form" id = "myForm">
-                		<input class = "form-control" name = "no_rek">
+                		<div class = "form-group">
+                			<label>No Rekening : </label>
+                			<span class = "form-control">${noRek}</span>
+                			<input type="hidden" class = "form-control" name = "no_rek" value="${noRek}">
+                			<p class="help-block">Nomer Rekening Otomatis</p>
+                		</div>
                 		<div class = "form-group">
                 			<label>Nama : </label>
-                			<input class = "form-control" name = "nama" required>
+                			<input class = "form-control" name = "nama" required autofocus>
                 		</div>
                 		<div class = "form-group">
                 			<label>Jenis Identitas : </label>
