@@ -181,10 +181,10 @@
 						</div>
                 		<div class = "form-group">
                 			<label>Rekening : </label>
-                			<select class = "form-control" name = "rekening">
-                				<option>Tabungan</option>
-                				<option>Kredit</option>
-                				<option>Giro</option>
+                			<select class = "form-control" name = "rekening" id="rekening">
+                				<c:forEach var = "rekening" items = "${rekening}">
+                					<option value="${rekening.id}">${rekening.rekening}</option>
+                				</c:forEach>
                 			</select>
                 		</div>
                			<div class = "form-group">
@@ -341,6 +341,7 @@
 			var rekomendasi_perusahaan = $('input[name="rekomendasi_perusahaan"]').val();
 			var ahli_waris = $('input[name="ahli_waris"]').val();
 			var produk = $('#produk').val();
+			var rekening = $('#rekening').val();
 
 			var nasabah = {
 				noRek : no_rek,
@@ -362,6 +363,9 @@
 				ahliWaris : ahli_waris,
 				produkNasabah : {
 					id : produk
+				},
+				rekening : {
+					id : rekening
 				}
 			}
 

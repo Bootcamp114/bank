@@ -51,7 +51,9 @@ public class UrlController {
 	@RequestMapping("/account/add")
 	public String addakun(Model model) {
 		List<ProdukNasabah> produkNasabah = produkNasabahService.getAllProdukNasabah();
+		List<Rekening> rekening = rekeningService.getAllRekening();
 		model.addAttribute("produkNasabah", produkNasabah);
+		model.addAttribute("rekening", rekening);
 		return "AccountAdd";
 	}
 
