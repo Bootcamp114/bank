@@ -25,7 +25,6 @@
 			<list>
 				<value>bank.model.ClassAsuransi</value>
 				<value>bank.model.Employee</value>
-				<value>bank.model.InfoTertanggung</value>
 				<value>bank.model.Jaminan</value>
 				<value>bank.model.JumlahStoran</value>
 				<value>bank.model.KeluargaNasabah</value>

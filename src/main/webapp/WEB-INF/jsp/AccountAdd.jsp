@@ -66,7 +66,7 @@
                             <a href="#"><i class="fa fa-wrench fa-fw"></i> Komponen Bank<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="#">Karyawan</a>
+                                    <a href="../karyawan">Karyawan</a>
                                 </li>
                                 <li>
                                     <a href="../produknasabah">Produk Nasabah</a>
@@ -107,11 +107,10 @@
                 <div class="col-lg-12">
                     <h1 class="page-header">Buat Akun Nasabah<table align = "right">
                     	<tr>
-                    		<td><select class = "form-control" name = "cs">
-                    			<option>CS 1</option>
-                    			<option>CS 2</option>
-                    			<option>CS 3</option>
-                    			<option>CS 4</option>
+                    		<td><select class = "form-control" name = "employee" id="employee">
+                    			<c:forEach var = "employee" items = "${employee}">
+	                				<option value="${employee.id}">${employee.nama}</option>
+	                			</c:forEach>
                     		</select></td>
                     	</tr>
                     </table></h1>
@@ -373,7 +372,7 @@
 		});
 
 		$("#rekening").on("change", function(){
-			$("#saldo").val("200000");
+			$("#saldo").val("20000");
 		});
 	});
 		function save() {
@@ -393,6 +392,7 @@
 			var ahli_waris = $('input[name="ahli_waris"]').val();
 			var produk = $('#produk').val();
 			var rekening = $('#rekening').val();
+			var employee = $('#employee').val();
 
 			var nasabah = {
 				noRek : no_rek,
@@ -417,6 +417,9 @@
 				},
 				rekening : {
 					id : rekening
+				},
+				employee : {
+					id : employee
 				}
 			}
 

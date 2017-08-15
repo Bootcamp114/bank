@@ -27,4 +27,22 @@ public class EmployeeServiceImple implements EmployeeService {
 		// TODO Auto-generated method stub
 		return employeeDao.getAllEmployee();
 	}
+
+	@Override
+	public void update(Employee employee) {
+		// TODO Auto-generated method stub
+		employeeDao.update(employee);
+	}
+
+	@Override
+	public void delete(int id) {
+		// TODO Auto-generated method stub
+		employeeDao.delete(id);
+	}
+
+	@Override
+	public Employee getEmployeeById(int id) {
+		// TODO Auto-generated method stub
+		return employeeDao.getEmployeeById(id);
+	}
 }

@@ -54,7 +54,8 @@ public class Nasabah {
 	private Rekening rekening;
 	@ManyToOne
 	private ProdukNasabah produkNasabah;
-	// Karyawan (ManyToOne)
+	@ManyToOne
+	private Employee employee;
 	// Keluarga (One to Many)
 
 	public Nasabah() {
@@ -64,7 +65,7 @@ public class Nasabah {
 	public Nasabah(int id, String noRek, String nama, String jenisIdentitas, String noIdentitas, String wargaNegara,
 			String alamat, String noHp, String email, String tempatLahir, String tanggalLahir, String jenisKel,
 			String pekerjaan, Double penghasilan, String npwp, String rekomendasiPerusahaan, String status,
-			String ahliWaris, Rekening rekening, ProdukNasabah produkNasabah) {
+			String ahliWaris, Rekening rekening, ProdukNasabah produkNasabah, Employee employee) {
 		super();
 		this.id = id;
 		this.noRek = noRek;
@@ -86,6 +87,7 @@ public class Nasabah {
 		this.ahliWaris = ahliWaris;
 		this.rekening = rekening;
 		this.produkNasabah = produkNasabah;
+		this.employee = employee;
 	}
 
 	public int getId() {
@@ -246,5 +248,13 @@ public class Nasabah {
 
 	public void setProdukNasabah(ProdukNasabah produkNasabah) {
 		this.produkNasabah = produkNasabah;
+	}
+
+	public Employee getEmployee() {
+		return employee;
+	}
+
+	public void setEmployee(Employee employee) {
+		this.employee = employee;
 	}
 }

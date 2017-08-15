@@ -106,39 +106,47 @@
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Produk Nasabah</h1>
+                    <h1 class="page-header">Karyawan</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
             <!-- /.row -->
+		<div class="panel-body">
             <div class="row">
 				<div class = "col-lg-12">
 					<div class = "col-lg-4">
-						<a href="produknasabah/add" class = "btn btn-success btn-md"><span class = "fa fa-fw fa-plus"></span>Tambah Produk Nasabah</a>
-						<a href="produknasabah" class = "btn btn-primary btn-md"><span class = "fa fa-fw fa-refresh fa-spin"></span>Refresh</a>
+						<a href="karyawan/add" class = "btn btn-success btn-md"><span class = "fa fa-fw fa-plus"></span>Tambah Karyawan</a>
+						<a href="karyawan" class = "btn btn-primary btn-md"><span class = "fa fa-fw fa-refresh fa-spin"></span>Refresh</a>
 					</div>
 					<br><br>
 					<table class = "table table-striped table-bordered table-hover dataTable no-footer dtr-inline" id = "dataTables-example" role = "grid" aria-describedby="dataTables-example_info">
 						<thead class = "kolom">
 							<tr>
-								<th class="text-center">Nama Produk</th>
-								<th class="text-center">Harga</th>
+								<th class="text-center">Nama Karyawan</th>
+								<th class="text-center">Alamat</th>
+								<th class="text-center">No Hp</th>
+								<th class="text-center">Email</th>
+								<th class="text-center">Username</th>
 								<th class="text-center" colspan="3">Action</th>
 							</tr>
 						</thead>
 						<tbody>
-						<c:forEach var = "produkNasabah" items = "${produkNasabah}">
+						<c:forEach var = "karyawan" items = "${karyawan}">
 							<tr>
-								<td class="text-center">${produkNasabah.namaProduk}</td>
-								<td class="text-center">${produkNasabah.harga}</td>
+								<td class="text-center">${karyawan.nama}</td>
+								<td class="text-center">${karyawan.alamat}</td>
+								<td class="text-center">${karyawan.noHp}</td>
+								<td class="text-center">${karyawan.email}</td>
+								<td class="text-center">${karyawan.username}</td>
 								<td class="text-center"><a href="#" class = "btn btn-primary btn-sm"><span class = "fa fa-fw fa-edit"></span>Edit</a></td>
-								<td class="text-center"><a href="#" id_delete="${produkNasabah.id}" class = "delete btn btn-danger btn-sm"><span class = "fa fa-fw fa-times"></span>Delete</a></td>
+								<td class="text-center"><a href="#" id_delete="${karyawan.id}" class = "delete btn btn-danger btn-sm"><span class = "fa fa-fw fa-times"></span>Delete</a></td>
 							</tr>
 						</c:forEach>
 						</tbody>
 					</table>
 				</div>
             </div>
+		</div>
             <!-- /.row -->
     <!-- /#wrapper -->
 
@@ -160,11 +168,11 @@
 	function doDelete(del){
 		var id = $(del).attr("id_delete");
 		$.ajax({
-			url : "/nasabah/produknasabah/delete/"+id,
+			url : "/nasabah/karyawan/delete/"+id,
 			type : "DELETE",
 			success : function(data){
 				console.log(data);
-				window.location = "produknasabah";
+				window.location = "karyawan";
 			}
 		});
 	}

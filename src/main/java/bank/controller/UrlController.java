@@ -59,10 +59,12 @@ public class UrlController {
 	public String addakun(Model model) {
 		List<ProdukNasabah> produkNasabah = produkNasabahService.getAllProdukNasabah();
 		List<Rekening> rekening = rekeningService.getAllRekening();
+		List<Employee> employee = employeeService.getAllEmployee();
 		String noRek = appUtils.getNoRek();
 		model.addAttribute("produkNasabah", produkNasabah);
 		model.addAttribute("rekening", rekening);
 		model.addAttribute("noRek", noRek);
+		model.addAttribute("employee", employee);
 		return "AccountAdd";
 	}
 
@@ -92,6 +94,19 @@ public class UrlController {
 		return "RekeningAdd";
 	}
 
+	@RequestMapping("/karyawan")
+	public String karyawan(Model model) {
+		List<Employee> karyawan = employeeService.getAllEmployee();
+		model.addAttribute("karyawan", karyawan);
+		return "Karyawan";
+	}
+
+	@RequestMapping("/karyawan/add")
+	public String tambahkaryawan() {
+
+		return "TambahKaryawan";
+	}
+
 	@RequestMapping("/peminjamandana")
 	public String pinjam(Model model) {
 		List<PeminjamanDana> peminjamanDana = pinjamDnService.getAllPeminjamanDana();
@@ -99,11 +114,11 @@ public class UrlController {
 		return "PeminjamanDana";
 	}
 
-	@RequestMapping("/peminjamandana/add") 
+	@RequestMapping("/peminjamandana/add")
 	public String addpinjam(Model model) {
 		List<Employee> employee = employeeService.getAllEmployee();
-		model.addAttribute("employee", employee); 
-		return "PeminjamanDanaAdd"; 
+		model.addAttribute("employee", employee);
+		return "PeminjamanDanaAdd";
 	}
 
 	@RequestMapping("/peminjamandana/detail")

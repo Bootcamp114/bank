@@ -1,7 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page isELIgnored="false" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -11,7 +9,7 @@
 	<meta name="description" content="">
 	<meta name="author" content="">
 
-	<title>Insert title here</title>
+		<title>Insert title here</title>
 
 	<link href="./../../resources/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 	<link href="./../../resources/assets/vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
@@ -20,18 +18,17 @@
 	<link href="./../../resources/assets/vendor/font-awesome/css/font-awesome.min.css"
 		rel="stylesheet" type="text/css">
 		
-</head>
-	<script type="text/javascript" src="/resources/assets/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript"
+		src="/resources/assets/jquery-3.2.1.min.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function(){
-			$(document).on("click", ".delete", function(){
-				var conf = confirm("Apakah anda yakin menghapus data ini ?");
-				if (conf == true){
-					doDelete(this);
-				}
+			$("#submit").on("click", function(e){
+				e.preventDefault();
+				save();
 			});
 		});
 	</script>
+</head>
 <body>
     <div id="wrapper">
         <!-- Navigation -->
@@ -61,40 +58,40 @@
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
                         <li>
-                            <a href="index"><i class="fa fa-dashboard fa-fw"></i> Menu Utama</a>
+                            <a href="../index"><i class="fa fa-dashboard fa-fw"></i> Menu Utama</a>
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-wrench fa-fw"></i> Komponen Bank<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="karyawan">Karyawan</a>
+                                    <a href="../karyawan">Karyawan</a>
                                 </li>
                                 <li>
-                                    <a href="produknasabah">Produk Nasabah</a>
+                                    <a href="../produknasabah">Produk Nasabah</a>
                                 </li>
                                 <li>
                                     <a href="#">Produk Asuransi</a>
                                 </li>
                                 <li>
-                                    <a href="rekening">Info Rekening</a>
+                                    <a href="../rekening">Info Rekening</a>
                                 </li>
                                 <li>
                                     <a href="#">Info Setoran Asuransi</a>
                                 </li>
                                 <li>
-                                    <a href="classasuransi"> Kelas Asuransi</a>
+                                    <a href="../classasuransi"> Kelas Asuransi</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="asuransi"><i class="fa fa-table fa-fw"></i> Asuransi Kesehatan</a>
+                            <a href="../asuransi"><i class="fa fa-table fa-fw"></i> Asuransi Kesehatan</a>
                         </li>
                         <li>
-                            <a href="peminjamandana"><i class="fa fa-edit fa-fw"></i> Peminjaman Dana</a>
+                            <a href="../peminjamandana"><i class="fa fa-edit fa-fw"></i> Peminjaman Dana</a>
                         </li>
                         <li>
-                            <a href="account"><i class="fa fa-book fa-fw"></i> Nasabah</a>
+                            <a href="../account"><i class="fa fa-book fa-fw"></i> Nasabah</a>
                         </li>
                     </ul>
                 </div>
@@ -106,39 +103,45 @@
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Produk Nasabah</h1>
+                    <h1 class="page-header">Tambah Karyawan</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
             <!-- /.row -->
             <div class="row">
-				<div class = "col-lg-12">
-					<div class = "col-lg-4">
-						<a href="produknasabah/add" class = "btn btn-success btn-md"><span class = "fa fa-fw fa-plus"></span>Tambah Produk Nasabah</a>
-						<a href="produknasabah" class = "btn btn-primary btn-md"><span class = "fa fa-fw fa-refresh fa-spin"></span>Refresh</a>
-					</div>
-					<br><br>
-					<table class = "table table-striped table-bordered table-hover dataTable no-footer dtr-inline" id = "dataTables-example" role = "grid" aria-describedby="dataTables-example_info">
-						<thead class = "kolom">
-							<tr>
-								<th class="text-center">Nama Produk</th>
-								<th class="text-center">Harga</th>
-								<th class="text-center" colspan="3">Action</th>
-							</tr>
-						</thead>
-						<tbody>
-						<c:forEach var = "produkNasabah" items = "${produkNasabah}">
-							<tr>
-								<td class="text-center">${produkNasabah.namaProduk}</td>
-								<td class="text-center">${produkNasabah.harga}</td>
-								<td class="text-center"><a href="#" class = "btn btn-primary btn-sm"><span class = "fa fa-fw fa-edit"></span>Edit</a></td>
-								<td class="text-center"><a href="#" id_delete="${produkNasabah.id}" class = "delete btn btn-danger btn-sm"><span class = "fa fa-fw fa-times"></span>Delete</a></td>
-							</tr>
-						</c:forEach>
-						</tbody>
-					</table>
-				</div>
-            </div>
+                <!-- Edit Dibawah -->
+				<form>
+					<div class="col-lg-6">
+						<div class = "form-group">
+		                	<label>Nama Karyawan : </label>
+		               		<input class = "form-control" name = "nama" required autofocus>
+		             	</div>
+		                <div class = "form-group">
+		                	<label>Alamat : </label>
+		               		<input class = "form-control" name = "alamat">
+	               		</div>
+	               		<div class = "form-group">
+		                	<label>No Hp : </label>
+		               		<input class = "form-control" name = "no_hp">
+	               		</div>
+	               		<div class = "form-group">
+		                	<label>Email : </label>
+		               		<input class = "form-control" name = "email">
+	               		</div>
+	               		<div class = "form-group">
+		                	<label>Username : </label>
+		               		<input class = "form-control" name = "username">
+	               		</div>
+	               		<div class = "form-group">
+		                	<label>Password : </label>
+		               		<input class = "form-control" name = "password">
+	               		</div>
+	                <button type="submit" id = "submit" class="btn btn-success">Submit Button</button>
+					<button type="reset" class="btn btn-warning">Reset Button</button>
+				</form>
+			</div>
+		</div>
+	</div>
             <!-- /.row -->
     <!-- /#wrapper -->
 
@@ -151,22 +154,39 @@
     <!-- Metis Menu Plugin JavaScript -->
     <script src="./../../resources/assets/vendor/metisMenu/metisMenu.min.js"></script>
 
-    <!-- Morris Charts JavaScript -->
-    <script src="./../../resources/assets/vendor/raphael/raphael.min.js"></script>
-    
+    <!-- Custom Theme JavaScript -->
     <script src="./../../resources/assets/js/sb-admin-2.js"></script>
 </body>
-<script>
-	function doDelete(del){
-		var id = $(del).attr("id_delete");
-		$.ajax({
-			url : "/nasabah/produknasabah/delete/"+id,
-			type : "DELETE",
-			success : function(data){
-				console.log(data);
-				window.location = "produknasabah";
+	<script type = "text/javascript">
+		function save() {
+			var nama = $('input[name="nama"]').val();
+			var alamat = $('input[name="alamat"]').val();
+			var no_hp = $('input[name="no_hp"]').val();
+			var email = $('input[name="email"]').val();
+			var username = $('input[name="username"]').val();
+			var password = $('input[name="password"]').val();
+
+			var karyawan = {
+				nama : nama,
+				alamat : alamat,
+				noHp : no_hp,
+				email : email,
+				username : username,
+				password : password
 			}
-		});
-	}
-</script>
+
+			$.ajax({
+				url : '/nasabah/karyawan/save',
+				type : 'POST',
+				contentType : 'application/json',
+				data : JSON.stringify(karyawan), // Convert object to string
+				success : function(data, a, xhr) {
+					console.log(xhr.status);
+					if (xhr.status == 201) {
+						window.location = "./../karyawan";
+					}
+				}
+			});
+		}
+	</script>
 </html>

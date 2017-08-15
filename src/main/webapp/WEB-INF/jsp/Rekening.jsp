@@ -67,7 +67,7 @@
                             <a href="#"><i class="fa fa-wrench fa-fw"></i> Komponen Bank<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="#">Karyawan</a>
+                                    <a href="karyawan">Karyawan</a>
                                 </li>
                                 <li>
                                     <a href="produknasabah">Produk Nasabah</a>

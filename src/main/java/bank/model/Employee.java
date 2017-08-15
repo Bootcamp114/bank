@@ -26,14 +26,13 @@ public class Employee {
 	private String email;
 	private String username;
 	private String password;
-	private String role;
 
 	public Employee() {
 		// TODO Auto-generated constructor stub
 		
 	}
 
-	public Employee(int id,String role, String nama, String alamat, String noHp, String email, String username, String password) {
+	public Employee(int id, String nama, String alamat, String noHp, String email, String username, String password) {
 		super();
 		this.id = id;
 		this.nama = nama;
@@ -42,7 +41,6 @@ public class Employee {
 		this.email = email;
 		this.username = username;
 		this.password = password;
-		this.role = role;
 	}
 
 	public int getId() {
@@ -100,14 +98,4 @@ public class Employee {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-
-	public String getRole() {
-		return role;
-	}
-
-	public void setRole(String role) {
-		this.role = role;
-	}
-	
-	
 }

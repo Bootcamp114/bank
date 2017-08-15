@@ -9,9 +9,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
+
+import bank.model.Employee;
 import bank.model.Nasabah;
 import bank.model.ProdukNasabah;
 import bank.model.Rekening;
+import bank.service.EmployeeService;
 import bank.service.NasabahService;
 import bank.service.ProdukNasabahService;
 import bank.service.RekeningService;
@@ -26,6 +29,8 @@ public class NasabahController {
 	ProdukNasabahService produkNasabahService;
 	@Autowired
 	RekeningService rekeningService;
+	@Autowired
+	EmployeeService employeeService;
 
 	/* Nasabah */
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
@@ -64,5 +69,18 @@ public class NasabahController {
 	@ResponseStatus(value = HttpStatus.OK)
 	public void deleterekening(@PathVariable int id) {
 		rekeningService.delete(id);
+	}
+
+	/* Karyawan */
+	@RequestMapping(value = "/karyawan/save", method = RequestMethod.POST)
+	@ResponseStatus(value = HttpStatus.CREATED)
+	public void savekaryawan(@RequestBody Employee employee){
+		employeeService.save(employee);
+	}
+
+	@RequestMapping(value = "/karyawan/delete/{id}", method = RequestMethod.DELETE)
+	@ResponseStatus(value = HttpStatus.OK)
+	public void deletekaryawan(@PathVariable int id) {
+		employeeService.delete(id);
 	}
 }
