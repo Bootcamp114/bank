@@ -82,7 +82,7 @@
                                     <a href="#">Info Setoran Asuransi</a>
                                 </li>
                                 <li>
-                                    <a href="#"> Class Asuransi</a>
+                                    <a href="classasuransi"> Class Asuransi</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
