@@ -106,7 +106,7 @@
                     	<tr>
                     		<td><select class = "form-control" name="nama_employee">
                     			<c:forEach var="employee" items="${employee}">
-                    				<option value="${employee.role}">${employee.nama}</option>
+                    				<option value="${employee.id}">${employee.nama}</option>
                     			</c:forEach>
                     		</select></td>
                     	</tr>

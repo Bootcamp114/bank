@@ -7,10 +7,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import bank.model.Employee;
 import bank.model.Nasabah;
 import bank.model.PeminjamanDana;
 import bank.model.ProdukNasabah;
 import bank.model.Rekening;
+import bank.service.EmployeeService;
 import bank.service.NasabahService;
 import bank.service.PeminjamanDanaService;
 import bank.service.ProdukNasabahService;
@@ -28,6 +30,8 @@ public class UrlController {
 	RekeningService rekeningService;
 	@Autowired
 	PeminjamanDanaService pinjamDnService;
+	@Autowired
+	EmployeeService employeeService;
 
 	@RequestMapping("/login")
 	public String login() {
@@ -91,8 +95,9 @@ public class UrlController {
 	}
 
 	@RequestMapping("/peminjamandana/add")
-	public String addpinjam() {
-
+	public String addpinjam(Model model) {
+		List<Employee> employee = employeeService.getAllEmployee();
+		model.addAttribute("employee", employee);
 		return "PeminjamanDanaAdd";
 	}
 
