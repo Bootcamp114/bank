@@ -22,12 +22,25 @@
 <link
 	href="./../../resources/assets/vendor/font-awesome/css/font-awesome.min.css"
 	rel="stylesheet" type="text/css">
+	
+<script type="text/javascript"src="/resources/assets/jquery-3.2.1.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	
+	//save
+	$('input[name="submit"]').on('click', function(e){
+		e.preventDefault();
+		savePolis();
+		
+	});
+});
+
+</script>
 
 </head>
 <body>
 
 	<div id="wrapper">
-
 		<!-- Navigation -->
 		<nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
             <div class="navbar-header">
@@ -100,7 +113,9 @@
 		<div id="page-wrapper">
 			<div class="row">
 				<div class="col-lg-12">
+				
 					<h1 class="page-header">Add polis</h1>
+					
 				</div>
 				<!-- /.col-lg-12 -->
 			</div>
@@ -112,13 +127,12 @@
 						<div class="form-group" class="col-lg-6">
 							<label for="exampleInputEmail1">No Polis</label> <input
 								type="text" class="form-control" id="NoPolis"
-								placeholder="Masukan No Polis" disabled="disabled">
+								disabled="disabled" name="no_polis">
 						</div>
 						
 						<div class="form-group">
 						<label for="exampleInputEmail1">Tanggal Dibuat</label> <input
-							type="date" class="form-control"  id="NoPolis"
-							placeholder="Masukan Nama penanggung ">
+							type="date" class="form-control"  id="NoPolis" name ="tanggal_dibuat">
 				</div>
 
 						<div class="form-group">
@@ -131,8 +145,7 @@
 								<option>asuraansi kecelakaan</option>
 							</select>
 						</div>
-						<a href="asuransiadd"><button type="button" hre
-								class="btn btn-primary">Rincian</button></a><br/><br/>
+						<br/><br/>
 					
 					<div class = "form-group">
 	                			<textarea class="form-control" rows="10" name = "alamat" disabled="disabled"></textarea>
@@ -145,8 +158,7 @@
 								<option>Platinum</option>
 							</select>
 						</div>
-						<a href="asuransiadd"><button type="button" hre
-								class="btn btn-primary">Rincian</button></a><br/><br/>
+						<br/><br/>
 					
 					<div class = "form-group">
 	                			<textarea class="form-control" rows="10" name = "alamat" disabled="disabled"></textarea>
@@ -155,31 +167,27 @@
 					<h2 class="page-header">Info Tertanggung</h2>
 				<div class="form-group">
 						<label for="exampleInputEmail1">Nama</label> <input
-							type="text" class="form-control" id="NoPolis"
-							placeholder="Masukan Nama penanggung ">
+							type="text" class="form-control" id="NoPolis" name ="nama"
+							placeholder="Masukan Nama Tertanggung">
 				</div>
 				<div class = "form-group">
                 			<label>Hubungan : </label>
-                			<select class = "form-control" name = "jenis_identitas">
-                				<option>Anak</option>
-                				<option>Istri / Suami</option>
-                				<option>Ayah / Ibu</option>
-                				<option>Adik / Kakak</option>
-                				<option>Lain-Lain</option>
-                			</select>
+                			<input class = "form-control" name = "hubungan" required
+                			placeholder="masukan hubunngan penanggung dan tertanggung">
                 		</div>
                 <div class = "form-group">
                 			<label>No Hp : </label>
-                			<input class = "form-control" name = "no_identitas" required>
+                			<input class = "form-control" name = "no_hp" required
+                			placeholder="masaukan No Hp info tertanggung">
                 		</div>
                 <div class = "form-group">
                 			<label>Email : </label>
-                			<input class = "form-control" name = "no_identitas" required>
+                			<input class = "form-control" name = "email" required
+                			placeholder="masukan email info tertanggung ">
                 		</div>
 				<div class="form-group">
 						<label for="exampleInputEmail1">Tanggal Lahir</label> <input
-							type="date" class="form-control"  id="NoPolis"
-							placeholder="Masukan Nama penanggung ">
+							type="date" class="form-control"  name ="tanggal_lahir">
 				</div>
 				
 				<div class = "form-group">
@@ -194,20 +202,21 @@
                 		</div>
                 		<div class = "form-group">
                 			<label>Nomor Identitas : </label>
-                			<input class = "form-control" name = "no_identitas" required>
+                			<input class = "form-control" name = "no_identitas" required
+                			placeholder="Masukan No Identitas info tertanggung">
                 		</div>
                 			
                 
                 
-                <button type="button" class="btn btn-success">Save</button>
-                <button type="button" class="btn btn-danger">Cencel</button>
+                <input type="button" class="btn btn-success" name="submit" value="Save">
+                
                 
 				</div>
 
 				<div class="col-lg-6">
 					<div class = "form-group">
                 			<label>Nama Penanggung : </label>
-                			<select class = "form-control" name = "jenis_identitas">
+                			<select class = "form-control" name = "nasabah">
                 				<option>unknow</option>
                 				<option>unknow</option>
                 				<option>unknow</option>
@@ -217,8 +226,8 @@
                 		</div>
 					<div class="form-group">
 						<label for="exampleInputEmail1">Ahli Waris</label> <input
-							type="text" class="form-control" id="NoPolis"
-							placeholder="Masukan Nama penanggung ">
+							type="text" class="form-control" name="ahli_waris"
+							placeholder="Masukan Nama Ahli Waris">
 
 					</div>
 				</form>
@@ -231,8 +240,7 @@
 						<option>Rp.500.000</option>
 					</select>
 					</div>
-				<a href="asuransiadd"><button type="button" hre
-								class="btn btn-primary">Rincian</button></a><br/><br/>
+				<br/><br/>
 				<div class = "form-group">
 	                			<textarea class="form-control" rows="10" name = "alamat" disabled="disabled"></textarea>
 	                		</div>
@@ -241,10 +249,9 @@
 				
 				<div class="form-group">
 						<label for="exampleInputEmail1">Pekerjaan</label> <input
-							type="text" class="form-control" id="NoPolis"
-							placeholder="Masukan Nama penanggung ">
+							type="text" class="form-control" name="pekerjaan"
+							placeholder="Masukan Pekerjaan info tertanggung ">
 				
-
 					</div>
 					
 				<div class = "form-group">
@@ -256,12 +263,12 @@
                 			<label>Jenis Kelamin : </label>
                 			<div class = "radio">
                 				<label>
-                					<input type="radio" name="jenis_kel" id="laki" checked>Laki - Laki
+                					<input type="radio" name="jenis_kelamin" value="Laki_Laki">Laki-Laki
                 				</label>
                 			</div>
                 			<div class = "radio">
                 				<label>
-                					<input type="radio" name="jenis_kel" id="perempuan" checked>Perempuan
+                					<input type="radio" name="jenis_kelamin" value="Perempuan">Perempuan
                 				</label>
                 			</div>
                 
@@ -271,12 +278,12 @@
                 			<label>Status : </label>
                 			<div class = "radio">
                 				<label>
-                					<input type="radio" name="status" id="sudah" checked>Menikah
+                					<input type="radio" name="status"  value="Sudah Menikah">Sudah Menikah
                 				</label>
                 			</div>
                 			<div class = "radio">
                 				<label>
-                					<input type="radio" name="status" id="belum" checked>Belum Menikah
+                					<input type="radio" name="status"  value="Belum Menikah">Belum Menikah
                 				</label>
                 			</div>
                 			
@@ -284,12 +291,12 @@
                 			<label>Warga Negara : </label>
                 			<div class = "radio">
                 				<label>
-                					<input type="radio" name="warga_negara" id="wni" checked>WNI
+                					<input type="radio" name="kewarganegaraan" value="WNI">WNI
                 				</label>
                 			</div>
                 			<div class = "radio">
                 				<label>
-                					<input type="radio" name="warga_negara" id="wna" checked>WNA
+                					<input type="radio" name="warga_negara" value="WNA">WNA
                 				</label>
                 			</div>
                 		</div>
@@ -317,4 +324,98 @@
 	
 	<script src="./../../resources/assets/js/sb-admin-2.js"></script>
 </body>
+<script>
+function savePolis(){
+	var no_polis = $('input[name="no_polis"]').val();
+	var ahli_waris = $('input[name="ahli_waris"]').val();
+	var tanggal_dibuat = $('input[name="tanggal_dibuat"]').val();
+	var class_asuransi = $('#classasuransi').val();
+	var produk_asuransi = $('#produkasuransi').val();
+	var jumlah_storan = $('#jumlahstoran').val();
+	var nasabah = $('#nasabah').val();
+	
+	var polis = {
+			noPolis : no_polis,
+			ahliWaris : ahli_waris,
+			tanggalDibuat : tanggal_dibuat,
+			classAsuransi : {
+				id : class_asuransi
+			},
+			
+			produkAsuransi : {
+				id : produk_asuransi
+			}, 
+			
+			jumlahStroran : {
+				id : jumlah_storan
+			},
+			
+			nasabah : {
+				id : nasasbah
+			}
+			
+	}
+	$.ajax({
+		url : '/poliscontroller/save',
+		type : 'POST',
+		contentType : 'application/json',
+		data : JSON.stringify(polis),
+		success : function(data, a, xhr) {
+			console.log(xhr.status);
+		}
+		
+	});
+	
+}
+
+var jenis_kelamin;
+var kewarganegaraan;
+var status;
+
+$(document).ready(function(){
+	$('input[name="jenis_kelamin"]').on('change',function(){
+		jenis_kelamin = $(this).val();
+	});
+	
+	$('input[name="kewarganagaraan"]').on('change', function(){
+		kewarganegaraan = $(this).val();
+	});
+	$('input[name="status"]').on('change',function(){
+		status = $(this).val();
+	});
+	
+});
+
+	function saveInfoTertanggung(){
+		var nama = $('input[namee="nama"]').val();
+		var alamat =$('input[name="alamat"]').val();
+		var pekerjaan =$('input[name="pekerjaan"]').val();
+		var tanggal_lahir =$('input[name="tanggal_lahir"]').val();
+		var no_hp =$('input[name="no_hp"]')val();
+		var email =$('input[name="email"]').val();
+
+		var info_tertanggung = {
+				nama : nama,
+				alamat : alamat,
+				pekerjaan : pekerjaan,
+				tanggalLahir : tanggal_lahir,
+				noHp : no_hp,
+				email : email,
+				jenisKelamin : jenis_kelamin,
+				kewarganegaraan : kewarganegaraan,
+				status : status
+		}
+		
+		$.ajax({
+			url :'/infotertanggungcontroller/save',
+			type : 'POST',
+			contentType : 'application/json',
+			success : function(data, a, xhr){
+				console.log(xhr.status)
+			}
+		});
+	
+	}
+	
+<script>
 </html>
