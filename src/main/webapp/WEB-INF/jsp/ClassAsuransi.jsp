@@ -22,18 +22,72 @@
 <link
 	href="./../../resources/assets/vendor/font-awesome/css/font-awesome.min.css"
 	rel="stylesheet" type="text/css">
-	
+
+<script type="text/javascript"src="/resources/assets/jquery-3.2.1.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
 	
 	//save data
-	$("#submit").on(click,function(){
+	$("input[name='submit']").on('click' ,function(){
 		save();
-	})
+		clearColumn()
+	});
 	
-	//load data
-	$()
-})
+	//show data
+	showData();
+	
+	//delete
+	$(document).on("click",'.delete', function(){
+		onDelete(this);
+	});
+	
+	
+	// update
+	$("input[name='update']").on('click', function(){
+	var type =$('input[name="type"]').val();
+	var jenis_pelayanan =$('input[name="jenis_pelayanan"]').val();
+	var harga_kartu =$('input[name="harga_kartu"]').val();
+	var jenis_obat =$('input[name="jenis_obat"]').val();
+	var id = $('input[name="id"]').val();
+	
+	var class_asuransi = {
+		
+			type : type,
+			jenisPelayanan : jenis_pelayanan,
+			hargaKartu : harga_kartu,
+			jenisObat : jenis_obat,
+			id : id
+	}
+	
+	$.ajax({
+		url : '/classasuransicontroller/update',
+		type : 'PUT',
+		contentType : 'application/json',
+		data : JSON.stringify(class_asuransi),
+		success: function(data){
+			showData();
+			clearColumn();
+		}
+		
+	});
+	
+	});
+	
+	//get id
+	$(document).on("click",'.edit', function(){
+		var id = $(this).attr('id_edit');
+		$.ajax({
+			url :"/classasuransicontroller/getbyid/"+id,
+			type:'GET',
+			dataType : 'json',
+			success : function(data){
+				updateColumn(data);
+			}
+		});
+	});
+	
+	
+});
 
 </script>
 
@@ -122,6 +176,10 @@ $(document).ready(function(){
 			<div class="row">
 				<!-- Edit Dibawah Ini -->
 				<div>
+				<input type="hidden" name="id"/>
+				</div>
+				
+				<div>
 				<label for="exampleInputEmail1">Type </label> <input
 							type="text" class="form-control" name="type"
 							placeholder="Masukan Type Class Asuransi ">
@@ -136,18 +194,24 @@ $(document).ready(function(){
 							type="text" class="form-control" name="harga_kartu"
 							placeholder="Masukan harga Kartu Class Asuransi">
 				</div>
+				<div>			
+				<label for="exampleInputEmail1">Jenis Obat</label> <input
+							type="text" class="form-control" name="jenis_obat"
+							placeholder="Masukan jenis obat class asuransi">
+				</div>
 				<br/>
-				<button type="button" class="btn btn-success" id="submit" class="submit" >Save</button>
-				<button type="button" class="btn btn-primary" id="update" class="update" >update</button>
+				<input type="button" class="btn btn-primary" name="submit" value="Save"/>
+				<input type ="button" class="btn btn-succes" name="update" value="Update">
 				
 				<h3 class="page-header">Class Asuransi List</h3>
 				<div>
-				<table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
+				<table width="100%" class="table table-striped table-bordered table-hover" id="dataTables">
                                 <thead>
                                     <tr>
                                         <th><center>Type</center></th>
                                         <th><center>Jenis Pelayanan</center></th>
                                         <th><center>Harga Kartu</center></th>
+                                        <th><center>Jenis Obat</center></th>
                                         <th><center>Action</center></th>
                                     </tr>
                                 </thead>
@@ -174,9 +238,135 @@ $(document).ready(function(){
 	<!-- Morris Charts JavaScript -->
 	<script src="./../../resources/assets/vendor/raphael/raphael.min.js"></script>
 	<script src="./../../resources/assets/vendor/morrisjs/morris.min.js"></script>
-	<script src="./../../resources/assets/data/morris-data.js"></script>
-
-	<!-- Custom Theme JavaScript -->
-	<script src="./../../resources/assets/dist/js/sb-admin-2.js"></script>
 </body>
+<script>
+	function showData(){
+		$.ajax({
+			url : '/classasuransicontroller/getall',
+			type : 'POST',
+			dataType : 'json',
+			success : function(data, x, xhr) {
+				console.log("data is loaded");
+				fillData(data);
+			}
+		});
+	}
+	
+	function fillData(data){
+		var dt = $('#dataTables');
+		var tbody = dt.find('tbody');
+		var child = tbody.find('tr').remove();
+		
+		//xtrack data json
+		$.each(data,function(index, class_asuransi){
+			var trString = "<tr>";
+			trString += "<td>";
+			trString += class_asuransi.type;
+			trString += "</td>"
+			trString += "<td>";
+			trString += class_asuransi.jenisPelayanan;
+			trString += "</td>"
+			trString += "<td>";
+			trString += class_asuransi.hargaKartu;
+			trString += "</td>"
+			trString += "<td>";
+			trString += class_asuransi.jenisObat;
+			trString += "</td>"
+			trString += "<td>";
+			trString += "<a id_delete = '"+class_asuransi.id+"' href='#' class = 'delete' >Delete</a>";
+			trString += "</td>"
+			trString += "<td>";
+			trString += "<a id_edit='"+class_asuransi.id+"' href='#' class='edit'>Edit</a>"
+			trString += "</td>"
+			trString += "</tr>"
+			
+			tbody.append(trString)
+			
+		});
+	}
+	
+	function save(){
+		var type = $('input[name="type"]').val();
+		var jenis_pelayanan = $('input[name="jenis_pelayanan"]').val();
+		var harga_kartu = $('input[name="harga_kartu"]').val();
+		var jenis_obat = $('input[name="jenis_obat"]').val();
+		
+		var class_asuransi = {
+				type : type,
+				jenisPelayanan : jenis_pelayanan,
+				hargaKartu : harga_kartu,
+				jenisObat : jenis_obat
+		}
+		
+		$.ajax({
+			url : '/classasuransicontroller/save',
+			type : 'POST',
+			contentType : 'application/json',
+			data : JSON.stringify(class_asuransi),
+			success : function(data, a, xhr) {
+				console.log(data);
+				console.log(a);
+				console.log(xhr.status);
+				showData();
+			}
+		});
+	}
+	
+	function onDelete(ini){
+		var id = $(ini).attr('id_delete');
+		
+		$.ajax({
+			url : '/classasuransicontroller/delete/'+id,
+			type :'DELETE',
+			success : function(data) {
+				console.log(data);
+				showData();
+			}
+		});
+		
+	}
+	
+	function update(){
+		var type = $('input[name="type"]').val();
+		var jenis_pelayanan = $('input[name="jenis_pelayanan"]').val();
+		var harga_kartu = $('input[name="harga_kartu"]').val();
+		var jenis_obat = $('input[name="jenis_obat"]').val();
+		
+		var class_asuransi = {
+				type : type,
+				jenisPelayanan : jenis_pelayanan,
+				hargaKartu : harga_kartu,
+				jenisObat : jenis_obat
+		}
+		
+		$.ajax({
+			url : '/classasuransicontroller/save',
+			type : 'POST',
+			data : JSON.stringify(class_asuransi),
+			success : function(data, a, xhr) {
+				console.log(a);
+				console.log(xhr.status);
+				showData();
+			}
+		});
+		
+		
+	}
+	
+	function updateColumn(data){
+		$('input[name="type"]').val(data.type);
+		$('input[name="jenis_pelayanan"]').val(data.jenisPelayanan);
+		$('input[name="harga_kartu"]').val(data.hargaKartu);
+		$('input[name="jenis_obat"]').val(data.jenisObat);
+		$('input[name="id"]').val(data.id);
+	}
+	function clearColumn(){
+		$('input[name="type"]').val("");
+		$('input[name="jenis_pelayanan"]').val("");
+		$('input[name="harga_kartu"]').val("");
+		$('input[name="jenis_obat"]').val("");
+	}
+
+</script>
+
 </html>

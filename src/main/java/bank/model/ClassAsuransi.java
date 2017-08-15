@@ -23,13 +23,13 @@ public class ClassAsuransi {
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE)
 	private int id;
-	@Column(name="type" , nullable=false)
+	@Column(name="type")
 	private String type;
-	@Column(name="jenis_pelayanan" , nullable=false)
+	@Column(name="jenis_pelayanan")
 	private String jenisPelayanan;
-	@Column(name="jenis_obat" , nullable=false)
+	@Column(name="jenis_obat")
 	private String jenisObat;
-	@Column(name="harga_kartu" , nullable=false)
+	@Column(name="harga_kartu")
 	private Double hargaKartu;
 	@OneToMany(fetch=FetchType.LAZY,mappedBy="classAsuransi")
 	private List<Polis> listPolis;
