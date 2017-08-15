@@ -114,7 +114,7 @@
 					<div class="col-lg-6">
 						<div class = "form-group">
 		                	<label>Nama Produk : </label>
-		               		<input class = "form-control" name = "nama_produk">
+		               		<input class = "form-control" name = "nama_produk" required autofocus>
 		             	</div>
 		                <div class = "form-group">
 		                	<label>Harga Produk : </label>

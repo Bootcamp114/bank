@@ -17,6 +17,7 @@ import bank.service.NasabahService;
 import bank.service.PeminjamanDanaService;
 import bank.service.ProdukNasabahService;
 import bank.service.RekeningService;
+import bank.utils.AppUtils;
 
 @Controller
 @RequestMapping("/bank")
@@ -24,6 +25,8 @@ public class UrlController {
 
 	@Autowired
 	NasabahService nasabahService;
+	@Autowired
+	private AppUtils appUtils;
 	@Autowired
 	ProdukNasabahService produkNasabahService;
 	@Autowired
@@ -56,8 +59,10 @@ public class UrlController {
 	public String addakun(Model model) {
 		List<ProdukNasabah> produkNasabah = produkNasabahService.getAllProdukNasabah();
 		List<Rekening> rekening = rekeningService.getAllRekening();
+		String noRek = appUtils.getNoRek();
 		model.addAttribute("produkNasabah", produkNasabah);
 		model.addAttribute("rekening", rekening);
+		model.addAttribute("noRek", noRek);
 		return "AccountAdd";
 	}
 

@@ -75,13 +75,13 @@
                                     <a href="#">Product Asuransi</a>
                                 </li>
                                 <li>
-                                    <a href="rekening">Info Rekening</a>
+                                    <a href="../rekening">Info Rekening</a>
                                 </li>
                                 <li>
                                     <a href="#">Info Setoran Asuransi</a>
                                 </li>
                                 <li>
-                                    <a href="#"> Class Asuransi</a>
+                                    <a href="../classasuransi"> Class Asuransi</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
@@ -123,10 +123,15 @@
                 <!-- Edit Dibawah -->
                 <div class = "col-lg-6">
                 	<form role = "form" id = "myForm">
-                		<input class = "form-control" name = "no_rek">
+                		<div class = "form-group">
+                			<label>No Rekening : </label>
+                			<span class = "form-control">${noRek}</span>
+                			<input type="hidden" class = "form-control" name = "no_rek" value="${noRek}">
+                			<p class="help-block">Nomer Rekening Otomatis</p>
+                		</div>
                 		<div class = "form-group">
                 			<label>Nama : </label>
-                			<input class = "form-control" name = "nama" required>
+                			<input class = "form-control" name = "nama" required autofocus>
                 		</div>
                 		<div class = "form-group">
                 			<label>Jenis Identitas : </label>
@@ -198,13 +203,13 @@
 						<label>Saldo : </label>
               			<div class="form-group input-group">
 							<span class="input-group-addon">Rp</span>
-								<input type="text" class="form-control" disabled>
+								<input type="text" class="form-control" id="saldo" value="---" disabled>
 							<span class="input-group-addon">.00</span>
 						</div>
               			<label>Pembayaran : </label>
                			<div class="form-group input-group">
 							<span class="input-group-addon">Rp</span>
-                				<input type="text" class="form-control" id="pembayaran" value = "--" disabled>
+                				<input type="text" class="form-control" id="pembayaran" value = "---" disabled>
 							<span class="input-group-addon">.00</span>
 						</div>
 							
@@ -222,7 +227,8 @@
                 				</label>
                 			</div>
 	                	</div>
-	                	<a class = "btn btn-info btn-sm"><span class = "fa fa-fw fa-plus"></span></a>
+	                	<!-- <a class = "btn btn-info btn-sm"><span class = "fa fa-fw fa-plus"></span></a> -->
+	                	<button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#add-keluarga"><span class = "fa fa-fw fa-plus"></span></button>
 	                	<br>
 		                <div class = "from-group">
 		                	<table class = "table table-stripeed table-bordered table-hover dataTable no-footer dtr-inline" id = "dataTables-example" role = "grid" aria-describedby="dataTables-example_info">
@@ -283,6 +289,45 @@
 						<input class = "form-control" name = "npwp">
 					</div>
                 </div>
+                <!-- Modal -->
+				<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel" id="add-keluarga">
+					<div class="modal-dialog" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+								<h4 class="modal-title" id="gridSystemModalLabel">Add Keluarga</h4>
+							</div>
+							<div class="modal-body">
+							<!-- <p>This is a small modal.</p>-->
+								<div class="form-group">
+									<label>Nama</label>
+									<input type="text" class="form-control" id="nama" placeholder="Masukan Nama">
+								</div>
+								<div class="form-group">
+									<label>Hubungan Keluarga</label> 
+									<input type="text" class="form-control" id="hubungan_kel" placeholder="Masukan Hubungan Keluarga">
+								</div>
+								<div class="form-group">
+									<label>Pendidikan</label>
+									<input type="text" class="form-control" id="pendidikan" placeholder="Masukan Pendidikan">
+								</div>
+								<div class="form-group">
+									<label>Nomer Telpon</label>
+									<input type="text" class="form-control" id="no_telp" placeholder="Masukan Nomer Telp">
+								</div>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+									<button type="button" class="btn btn-primary" data-dismiss="modal" id="save">Save</button>
+								</div>
+							</div>
+						<!-- /.modal-content -->
+						</div>
+					<!-- /.modal-dialog -->
+					</div>
+				<!-- /.modal -->
+				</div>
 				</form>
 			</div>
 		</div>
@@ -322,7 +367,11 @@
 
 		$("#produk").on("change", function(){
 			/* Pake Function Edit Masukin Harga Pembayaran */
-			$("#pembayaran").val("12312");
+			$("#pembayaran").val("10000");
+		});
+
+		$("#rekening").on("change", function(){
+			$("#saldo").val("200000");
 		});
 	});
 		function save() {
