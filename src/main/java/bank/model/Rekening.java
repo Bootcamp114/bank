@@ -25,6 +25,8 @@ public class Rekening {
 	private Double saldo;
 	@Column(name = "administrasi_bulanan")
 	private Double administrasiBulanan;
+	@Column(name = "biaya_tutup_rekening")
+	private Double biayaTutupRekening;
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "rekening")
 	private List<Nasabah> nasabah;
 	// Nasabah (One To Many)
@@ -33,12 +35,14 @@ public class Rekening {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Rekening(int id, String rekening, Double saldo, Double administrasiBulanan, List<Nasabah> nasabah) {
+	public Rekening(int id, String rekening, Double saldo, Double administrasiBulanan, Double biayaTutupRekening,
+			List<Nasabah> nasabah) {
 		super();
 		this.id = id;
 		this.rekening = rekening;
 		this.saldo = saldo;
 		this.administrasiBulanan = administrasiBulanan;
+		this.biayaTutupRekening = biayaTutupRekening;
 		this.nasabah = nasabah;
 	}
 
@@ -72,6 +76,14 @@ public class Rekening {
 
 	public void setAdministrasiBulanan(Double administrasiBulanan) {
 		this.administrasiBulanan = administrasiBulanan;
+	}
+
+	public Double getBiayaTutupRekening() {
+		return biayaTutupRekening;
+	}
+
+	public void setBiayaTutupRekening(Double biayaTutupRekening) {
+		this.biayaTutupRekening = biayaTutupRekening;
 	}
 
 	public List<Nasabah> getNasabah() {

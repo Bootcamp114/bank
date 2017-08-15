@@ -1,7 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page isELIgnored="false" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -11,7 +9,7 @@
 	<meta name="description" content="">
 	<meta name="author" content="">
 
-	<title>Insert title here</title>
+		<title>Insert title here</title>
 
 	<link href="./../../resources/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 	<link href="./../../resources/assets/vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
@@ -20,18 +18,17 @@
 	<link href="./../../resources/assets/vendor/font-awesome/css/font-awesome.min.css"
 		rel="stylesheet" type="text/css">
 		
-</head>
-	<script type="text/javascript" src="/resources/assets/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript"
+		src="/resources/assets/jquery-3.2.1.min.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function(){
-			$(document).on("click", ".delete", function(){
-				var conf = confirm("Apakah anda yakin menghapus data ini ?");
-				if (conf == true){
-					doDelete(this);
-				}
+			$("#submit").on("click", function(e){
+				e.preventDefault();
+				save();
 			});
 		});
 	</script>
+</head>
 <body>
     <div id="wrapper">
         <!-- Navigation -->
@@ -61,7 +58,7 @@
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
                         <li>
-                            <a href="index"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                            <a href="./../index"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-wrench fa-fw"></i> Component Bank<span class="fa arrow"></span></a>
@@ -70,13 +67,13 @@
                                     <a href="#">Employee</a>
                                 </li>
                                 <li>
-                                    <a href="produknasabah">Product Nasabah</a>
+                                    <a href="../produknasabah">Product Nasabah</a>
                                 </li>
                                 <li>
                                     <a href="#">Product Asuransi</a>
                                 </li>
                                 <li>
-                                    <a href="rekening">Info Rekening</a>
+                                    <a href="../rekening">Info Rekening</a>
                                 </li>
                                 <li>
                                     <a href="#">Info Setoran Asuransi</a>
@@ -88,13 +85,13 @@
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="asuransi"><i class="fa fa-table fa-fw"></i> Health Insurance</a>
+                            <a href="./../asuransi"><i class="fa fa-table fa-fw"></i> Health Insurance</a>
                         </li>
                         <li>
-                            <a href="peminjamandana"><i class="fa fa-edit fa-fw"></i> Loan Funds</a>
+                            <a href="./../peminjamandana"><i class="fa fa-edit fa-fw"></i> Loan Funds</a>
                         </li>
                         <li>
-                            <a href="account"><i class="fa fa-book fa-fw"></i> Nasabah</a>
+                            <a href="./../account"><i class="fa fa-book fa-fw"></i> Nasabah</a>
                         </li>
                     </ul>
                 </div>
@@ -106,41 +103,37 @@
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Rekening</h1>
+                    <h1 class="page-header">Add Rekening</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
             <!-- /.row -->
             <div class="row">
-				<div class = "col-lg-12">
-					<div class = "col-lg-4">
-						<a href="rekening/add" class = "btn btn-success btn-md"><span class = "fa fa-fw fa-plus"></span>Add Rekening</a>
-						<a href="rekening" class = "btn btn-primary btn-md"><span class = "fa fa-fw fa-refresh fa-spin"></span>Refresh</a>
-					</div>
-					<br><br>
-					<table class = "table table-striped table-bordered table-hover dataTable no-footer dtr-inline" id = "dataTables-example" role = "grid" aria-describedby="dataTables-example_info">
-						<thead class = "kolom">
-							<tr>
-								<th class="text-center">Nama Rekening</th>
-								<th class="text-center">Biaya Administrasi</th>
-								<th class="text-center">Min Saldo</th>
-								<th class="text-center" colspan="3">Action</th>
-							</tr>
-						</thead>
-						<tbody>
-						<c:forEach var = "rekening" items = "${rekening}">
-							<tr>
-								<td class="text-center">${rekening.rekening}</td>
-								<td class="text-center">${rekening.administrasiBulanan}</td>
-								<td class="text-center">${rekening.saldo}</td>
-								<td class="text-center"><a href="#" class = "btn btn-primary btn-sm"><span class = "fa fa-fw fa-edit"></span>Edit</a></td>
-								<td class="text-center"><a href="#" id_delete="${rekening.id}" class = "delete btn btn-danger btn-sm"><span class = "fa fa-fw fa-times"></span>Delete</a></td>
-							</tr>
-						</c:forEach>
-						</tbody>
-					</table>
-				</div>
-            </div>
+                <!-- Edit Dibawah -->
+				<form>
+					<div class="col-lg-6">
+						<div class = "form-group">
+		                	<label>Nama Rekening : </label>
+		               		<input class = "form-control" name = "rekening">
+		             	</div>
+		                <div class = "form-group">
+		                	<label>Saldo Minimal : </label>
+		               		<input type="number" class = "form-control" name = "saldo">
+	               		</div>
+	               		<div class = "form-group">
+		                	<label>Administrasi Bulanan : </label>
+		               		<input type="number" class = "form-control" name = "administrasi_bulanan">
+	               		</div>
+	               		<div class = "form-group">
+		                	<label>Biaya Penutupan Akun : </label>
+		               		<input type="number" class = "form-control" name = "biaya_tutup_rekening">
+	               		</div>
+	                <button type="submit" id = "submit" class="btn btn-success">Submit Button</button>
+					<button type="reset" class="btn btn-warning">Reset Button</button>
+				</form>
+			</div>
+		</div>
+	</div>
             <!-- /.row -->
     <!-- /#wrapper -->
 
@@ -153,22 +146,35 @@
     <!-- Metis Menu Plugin JavaScript -->
     <script src="./../../resources/assets/vendor/metisMenu/metisMenu.min.js"></script>
 
-    <!-- Morris Charts JavaScript -->
-    <script src="./../../resources/assets/vendor/raphael/raphael.min.js"></script>
-    
+    <!-- Custom Theme JavaScript -->
     <script src="./../../resources/assets/js/sb-admin-2.js"></script>
 </body>
-<script>
-	function doDelete(del){
-		var id = $(del).attr("id_delete");
-		$.ajax({
-			url : "/nasabah/rekening/delete/"+id,
-			type : "DELETE",
-			success : function(data){
-				console.log(data);
-				window.location = "rekening";
+	<script type = "text/javascript">
+		function save() {
+			var rekening = $('input[name="rekening"]').val();
+			var saldo = $('input[name="saldo"]').val();
+			var administrasi_bulanan = $('input[name="administrasi_bulanan"]').val();
+			var biaya_tutup_rekening = $('input[name="biaya_tutup_rekening"]').val();
+
+			var rekening = {
+				rekening : rekening,
+				saldo : saldo,
+				administrasiBulanan : administrasi_bulanan,
+				biayaTutupRekening : biaya_tutup_rekening
 			}
-		});
-	}
-</script>
+
+			$.ajax({
+				url : '/nasabah/rekening/save',
+				type : 'POST',
+				contentType : 'application/json',
+				data : JSON.stringify(rekening), // Convert object to string
+				success : function(data, a, xhr) {
+					console.log(xhr.status);
+					if (xhr.status == 201) {
+						window.location = "./../rekening";
+					}
+				}
+			});
+		}
+	</script>
 </html>

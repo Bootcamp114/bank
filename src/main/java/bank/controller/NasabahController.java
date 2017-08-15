@@ -11,8 +11,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import bank.model.Nasabah;
 import bank.model.ProdukNasabah;
+import bank.model.Rekening;
 import bank.service.NasabahService;
 import bank.service.ProdukNasabahService;
+import bank.service.RekeningService;
 
 @Controller
 @RequestMapping("/nasabah")
@@ -22,6 +24,8 @@ public class NasabahController {
 	NasabahService nasabahService;
 	@Autowired
 	ProdukNasabahService produkNasabahService;
+	@Autowired
+	RekeningService rekeningService;
 
 	/* Nasabah */
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
@@ -47,5 +51,18 @@ public class NasabahController {
 	@ResponseStatus(value = HttpStatus.OK)
 	public void deleteproduk(@PathVariable int id) {
 		produkNasabahService.delete(id);
+	}
+
+	/* Rekening Bank */
+	@RequestMapping(value = "/rekening/save", method = RequestMethod.POST)
+	@ResponseStatus(value = HttpStatus.CREATED)
+	public void saverekening(@RequestBody Rekening rekening) {
+		rekeningService.save(rekening);
+	}
+
+	@RequestMapping(value = "/rekening/delete/{id}", method = RequestMethod.DELETE)
+	@ResponseStatus(value = HttpStatus.OK)
+	public void deleterekening(@PathVariable int id) {
+		rekeningService.delete(id);
 	}
 }
