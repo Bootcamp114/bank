@@ -18,8 +18,8 @@ public class KeluargaNasabah {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private int id;
 	private String nama;
-	@Column(name = "hub_kel")
-	private String hubKel;
+	@Column(name = "hubungan_kel")
+	private String hubunganKel;
 	private int umur;
 	private String pendidikan;
 	@Column(name = "no_hp")
@@ -30,11 +30,11 @@ public class KeluargaNasabah {
 		// TODO Auto-generated constructor stub
 	}
 
-	public KeluargaNasabah(int id, String nama, String hubKel, int umur, String pendidikan, String noHp) {
+	public KeluargaNasabah(int id, String nama, String hubunganKel, int umur, String pendidikan, String noHp) {
 		super();
 		this.id = id;
 		this.nama = nama;
-		this.hubKel = hubKel;
+		this.hubunganKel = hubunganKel;
 		this.umur = umur;
 		this.pendidikan = pendidikan;
 		this.noHp = noHp;
@@ -56,12 +56,12 @@ public class KeluargaNasabah {
 		this.nama = nama;
 	}
 
-	public String getHubKel() {
-		return hubKel;
+	public String getHubunganKel() {
+		return hubunganKel;
 	}
 
-	public void setHubKel(String hubKel) {
-		this.hubKel = hubKel;
+	public void setHubunganKel(String hubunganKel) {
+		this.hubunganKel = hubunganKel;
 	}
 
 	public int getUmur() {
