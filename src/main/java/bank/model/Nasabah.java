@@ -54,9 +54,8 @@ public class Nasabah {
 	private Rekening rekening;
 	@ManyToOne
 	private ProdukNasabah produkNasabah;
-	// Rekening (Many to One)
+	// Karyawan (ManyToOne)
 	// Keluarga (One to Many)
-	// Produk (Many To One)
 
 	public Nasabah() {
 		// TODO Auto-generated constructor stub

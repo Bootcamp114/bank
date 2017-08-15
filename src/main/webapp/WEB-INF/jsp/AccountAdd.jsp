@@ -119,216 +119,218 @@
                 <!-- /.col-lg-12 -->
             </div>
             <!-- /.row -->
-            <div class="row">
-                <!-- Edit Dibawah -->
-                <div class = "col-lg-6">
-                	<form role = "form" id = "myForm">
-                		<div class = "form-group">
-                			<label>No Rekening : </label>
-                			<span class = "form-control">${noRek}</span>
-                			<input type="hidden" class = "form-control" name = "no_rek" value="${noRek}">
-                			<p class="help-block">Nomer Rekening Otomatis</p>
-                		</div>
-                		<div class = "form-group">
-                			<label>Nama : </label>
-                			<input class = "form-control" name = "nama" required autofocus>
-                		</div>
-                		<div class = "form-group">
-                			<label>Jenis Identitas : </label>
-                			<select class = "form-control" name = "jenis_identitas">
-                				<option value = "KTP">KTP</option>
-                				<option value = "SIM">SIM</option>
-                				<option value = "Kartu Pelajar">Kartu Keluarga</option>
-                				<option value = "Ijazah">Ijazah</option>
-                				<option value = "Passport">Passport</option>
-                			</select>
-                		</div>
-                		<div class = "form-group">
-                			<label>Nomor Identitas : </label>
-                			<input class = "form-control" name = "no_identitas" required>
-                		</div>
-                		<div class = "form-group">
-                			<label>Warga Negara : </label>
-                			<div class = "radio">
-                				<label>
-                					<input type="radio" name="warga_negara" value="WNI"/>WNI
-                				</label>
-                				<label>
-                					<input type="radio" name="warga_negara" value="WNA"/>WNA
-                				</label>
-                			</div>
-                		</div>
-                		<div class = "form-group">
-                			<label>Tempat Lahir : </label>
-                			<input class = "form-control" name = "tempat_lahir">
-                		</div>
-                		<div class = "form-group">
-                			<label>Tanggal Lahir : </label>
-                			<input class = "form-control" name = "tanggal_lahir" type = "date">
-                		</div>
-                		<div class = "form-group">
-                			<label>No Hp : </label>
-                			<input class = "form-control" name = "no_hp">
-                		</div>
-                		<div class = "form-group">
-                			<label>Jenis Kelamin : </label>
-                			<div class = "radio">
-                				<label>
-                					<input type="radio" name="jenis_kel" value="Laki-Laki"/>Laki - Laki
-                				</label>
-                				<label>
-                					<input type="radio" name="jenis_kel" value="Perempuan"/>Perempuan
-                				</label>
-                			</div>
-                		</div>
-                		<div class="col-lg-12">
-							<h1 class="page-header">Jenis Rekening</h1>
-						</div>
-                		<div class = "form-group">
-                			<label>Rekening : </label>
-                			<select class = "form-control" name = "rekening" id="rekening">
-                				<c:forEach var = "rekening" items = "${rekening}">
-                					<option value="${rekening.id}">${rekening.rekening}</option>
-                				</c:forEach>
-                			</select>
-                		</div>
-               			<div class = "form-group">
-                			<label>Produk : </label>
-                			<select class = "form-control" name = "produk" id="produk">
-                				<c:forEach var = "produkNasabah" items = "${produkNasabah}">
-                					<option value="${produkNasabah.id}">${produkNasabah.namaProduk}</option>
-                				</c:forEach>
-                			</select>
-                		</div>
-						<label>Saldo : </label>
-              			<div class="form-group input-group">
+			<div class="panel-body">
+	            <div class="row">
+	                <!-- Edit Dibawah -->
+	                <div class = "col-lg-6">
+	                	<form role = "form" id = "myForm">
+	                		<div class = "form-group">
+	                			<label>No Rekening : </label>
+	                			<span class = "form-control">${noRek}</span>
+	                			<input type="hidden" class = "form-control" name = "no_rek" value="${noRek}">
+	                			<p class="help-block">Nomer Rekening Otomatis</p>
+	                		</div>
+	                		<div class = "form-group">
+	                			<label>Nama : </label>
+	                			<input class = "form-control" name = "nama" required autofocus>
+	                		</div>
+	                		<div class = "form-group">
+	                			<label>Jenis Identitas : </label>
+	                			<select class = "form-control" name = "jenis_identitas">
+	                				<option value = "KTP">KTP</option>
+	                				<option value = "SIM">SIM</option>
+	                				<option value = "Kartu Pelajar">Kartu Keluarga</option>
+	                				<option value = "Ijazah">Ijazah</option>
+	                				<option value = "Passport">Passport</option>
+	                			</select>
+	                		</div>
+	                		<div class = "form-group">
+	                			<label>Nomor Identitas : </label>
+	                			<input class = "form-control" name = "no_identitas" required>
+	                		</div>
+	                		<div class = "form-group">
+	                			<label>Warga Negara : </label>
+	                			<div class = "radio">
+	                				<label>
+	                					<input type="radio" name="warga_negara" value="WNI"/>WNI
+	                				</label>
+	                				<label>
+	                					<input type="radio" name="warga_negara" value="WNA"/>WNA
+	                				</label>
+	                			</div>
+	                		</div>
+	                		<div class = "form-group">
+	                			<label>Tempat Lahir : </label>
+	                			<input class = "form-control" name = "tempat_lahir">
+	                		</div>
+	                		<div class = "form-group">
+	                			<label>Tanggal Lahir : </label>
+	                			<input class = "form-control" name = "tanggal_lahir" type = "date">
+	                		</div>
+	                		<div class = "form-group">
+	                			<label>No Hp : </label>
+	                			<input class = "form-control" name = "no_hp">
+	                		</div>
+	                		<div class = "form-group">
+	                			<label>Jenis Kelamin : </label>
+	                			<div class = "radio">
+	                				<label>
+	                					<input type="radio" name="jenis_kel" value="Laki-Laki"/>Laki - Laki
+	                				</label>
+	                				<label>
+	                					<input type="radio" name="jenis_kel" value="Perempuan"/>Perempuan
+	                				</label>
+	                			</div>
+	                		</div>
+	                		<div class="col-lg-12">
+								<h1 class="page-header">Jenis Rekening</h1>
+							</div>
+	                		<div class = "form-group">
+	                			<label>Rekening : </label>
+	                			<select class = "form-control" name = "rekening" id="rekening">
+	                				<c:forEach var = "rekening" items = "${rekening}">
+	                					<option value="${rekening.id}">${rekening.rekening}</option>
+	                				</c:forEach>
+	                			</select>
+	                		</div>
+	               			<div class = "form-group">
+	                			<label>Produk : </label>
+	                			<select class = "form-control" name = "produk" id="produk">
+	                				<c:forEach var = "produkNasabah" items = "${produkNasabah}">
+	                					<option value="${produkNasabah.id}">${produkNasabah.namaProduk}</option>
+	                				</c:forEach>
+	                			</select>
+	                		</div>
+							<label>Saldo : </label>
+	              			<div class="form-group input-group">
+								<span class="input-group-addon">Rp</span>
+									<input type="text" class="form-control" id="saldo" value="---" disabled>
+								<span class="input-group-addon">.00</span>
+							</div>
+	              			<label>Pembayaran : </label>
+	               			<div class="form-group input-group">
+								<span class="input-group-addon">Rp</span>
+	                				<input type="text" class="form-control" id="pembayaran" value = "---" disabled>
+								<span class="input-group-addon">.00</span>
+							</div>
+								
+							<div class = "col-lg-12">
+								<h1 class="page-header">Keluarga</h1>
+							</div>
+							<div class = "form-group">
+		                		<label>Status Pernikahan : </label>
+	                			<div class = "radio">
+	                				<label>
+	                					<input type="radio" name="status" value="Sudah Menikah"/>Sudah Menikah
+	                				</label>
+	                				<label>
+	                					<input type="radio" name="status" value="Belum Menikah"/>Belum Menikah
+	                				</label>
+	                			</div>
+		                	</div>
+		                	<!-- <a class = "btn btn-info btn-sm"><span class = "fa fa-fw fa-plus"></span></a> -->
+		                	<button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#add-keluarga"><span class = "fa fa-fw fa-plus"></span></button>
+		                	<br>
+			                <div class = "from-group">
+			                	<table class = "table table-stripeed table-bordered table-hover dataTable no-footer dtr-inline" id = "dataTables-example" role = "grid" aria-describedby="dataTables-example_info">
+									<thead class = "kolom">
+										<tr>
+											<th class="text-center">No</th>
+											<th class="text-center">Nama</th>
+											<th class="text-center">Hubungan Keluarga</th>
+											<th class="text-center">Pendidikan</th>
+											<th class="text-center">No Telp</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td class="text-center">1</td>
+											<td class="text-center"> </td>
+											<td class="text-center"> </td>
+											<td class="text-center"> </td>
+											<td class="text-center"> </td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+							<div class = "form-group">
+		                		<label>Ahli Waris : </label>
+		               			<input class = "form-control" name = "ahli_waris">
+		             		</div>
+							
+							<button type="submit" id = "submit" class="btn btn-success">Submit Button</button>
+							<button type="reset" class="btn btn-warning">Reset Button</button>
+								
+					</div>
+					<div class="col-lg-6">
+						<div class = "form-group">
+		                	<label>Rekomendasi Perusahaan : </label>
+		               		<input class = "form-control" name = "rekomendasi_perusahaan">
+		             	</div>
+		                <div class = "form-group">
+		                	<label>Pekerjaan : </label>
+		               		<input class = "form-control" name = "pekerjaan">
+		             	</div>
+		              		<label>Penghasilan</label>
+		              		<div class="form-group input-group">
 							<span class="input-group-addon">Rp</span>
-								<input type="text" class="form-control" id="saldo" value="---" disabled>
+								<input class="form-control" name="penghasilan">
 							<span class="input-group-addon">.00</span>
 						</div>
-              			<label>Pembayaran : </label>
-               			<div class="form-group input-group">
-							<span class="input-group-addon">Rp</span>
-                				<input type="text" class="form-control" id="pembayaran" value = "---" disabled>
-							<span class="input-group-addon">.00</span>
-						</div>
-							
-						<div class = "col-lg-12">
-							<h1 class="page-header">Keluarga</h1>
+						<div class = "form-group">
+							<label>Alamat Rumah : </label>
+							<textarea class="form-control" rows="3" name = "alamat"></textarea>
 						</div>
 						<div class = "form-group">
-	                		<label>Status Pernikahan : </label>
-                			<div class = "radio">
-                				<label>
-                					<input type="radio" name="status" value="Sudah Menikah"/>Sudah Menikah
-                				</label>
-                				<label>
-                					<input type="radio" name="status" value="Belum Menikah"/>Belum Menikah
-                				</label>
-                			</div>
-	                	</div>
-	                	<!-- <a class = "btn btn-info btn-sm"><span class = "fa fa-fw fa-plus"></span></a> -->
-	                	<button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#add-keluarga"><span class = "fa fa-fw fa-plus"></span></button>
-	                	<br>
-		                <div class = "from-group">
-		                	<table class = "table table-stripeed table-bordered table-hover dataTable no-footer dtr-inline" id = "dataTables-example" role = "grid" aria-describedby="dataTables-example_info">
-								<thead class = "kolom">
-									<tr>
-										<th class="text-center">No</th>
-										<th class="text-center">Nama</th>
-										<th class="text-center">Hubungan Keluarga</th>
-										<th class="text-center">Pendidikan</th>
-										<th class="text-center">No Telp</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<td class="text-center">1</td>
-										<td class="text-center"> </td>
-										<td class="text-center"> </td>
-										<td class="text-center"> </td>
-										<td class="text-center"> </td>
-									</tr>
-								</tbody>
-							</table>
-						</div>
+	                			<label>Email : </label>
+	                			<input class = "form-control" name = "email" type = "text">
+	                		</div>
 						<div class = "form-group">
-	                		<label>Ahli Waris : </label>
-	               			<input class = "form-control" name = "ahli_waris">
-	             		</div>
-						
-						<button type="submit" id = "submit" class="btn btn-success">Submit Button</button>
-						<button type="reset" class="btn btn-warning">Reset Button</button>
-							
-				</div>
-				<div class="col-lg-6">
-					<div class = "form-group">
-	                	<label>Rekomendasi Perusahaan : </label>
-	               		<input class = "form-control" name = "rekomendasi_perusahaan">
-	             	</div>
-	                <div class = "form-group">
-	                	<label>Pekerjaan : </label>
-	               		<input class = "form-control" name = "pekerjaan">
-	             	</div>
-	              		<label>Penghasilan</label>
-	              		<div class="form-group input-group">
-						<span class="input-group-addon">Rp</span>
-							<input class="form-control" name="penghasilan">
-						<span class="input-group-addon">.00</span>
-					</div>
-					<div class = "form-group">
-						<label>Alamat Rumah : </label>
-						<textarea class="form-control" rows="3" name = "alamat"></textarea>
-					</div>
-					<div class = "form-group">
-                			<label>Email : </label>
-                			<input class = "form-control" name = "email" type = "text">
-                		</div>
-					<div class = "form-group">
-						<label>Nomor Peserta Wajib Pajak (NPWP) : </label>
-						<input class = "form-control" name = "npwp">
-					</div>
-                </div>
-                <!-- Modal -->
-				<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel" id="add-keluarga">
-					<div class="modal-dialog" role="document">
-						<div class="modal-content">
-							<div class="modal-header">
-								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-									<span aria-hidden="true">&times;</span>
-								</button>
-								<h4 class="modal-title" id="gridSystemModalLabel">Add Keluarga</h4>
-							</div>
-							<div class="modal-body">
-							<!-- <p>This is a small modal.</p>-->
-								<div class="form-group">
-									<label>Nama</label>
-									<input type="text" class="form-control" id="nama" placeholder="Masukan Nama">
-								</div>
-								<div class="form-group">
-									<label>Hubungan Keluarga</label> 
-									<input type="text" class="form-control" id="hubungan_kel" placeholder="Masukan Hubungan Keluarga">
-								</div>
-								<div class="form-group">
-									<label>Pendidikan</label>
-									<input type="text" class="form-control" id="pendidikan" placeholder="Masukan Pendidikan">
-								</div>
-								<div class="form-group">
-									<label>Nomer Telpon</label>
-									<input type="text" class="form-control" id="no_telp" placeholder="Masukan Nomer Telp">
-								</div>
-								<div class="modal-footer">
-									<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-									<button type="button" class="btn btn-primary" data-dismiss="modal" id="save">Save</button>
-								</div>
-							</div>
-						<!-- /.modal-content -->
+							<label>Nomor Peserta Wajib Pajak (NPWP) : </label>
+							<input class = "form-control" name = "npwp">
 						</div>
-					<!-- /.modal-dialog -->
+	                </div>
+	                <!-- Modal -->
+					<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel" id="add-keluarga">
+						<div class="modal-dialog" role="document">
+							<div class="modal-content">
+								<div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+										<span aria-hidden="true">&times;</span>
+									</button>
+									<h4 class="modal-title" id="gridSystemModalLabel">Add Keluarga</h4>
+								</div>
+								<div class="modal-body">
+								<!-- <p>This is a small modal.</p>-->
+									<div class="form-group">
+										<label>Nama</label>
+										<input type="text" class="form-control" id="nama" placeholder="Masukan Nama">
+									</div>
+									<div class="form-group">
+										<label>Hubungan Keluarga</label> 
+										<input type="text" class="form-control" id="hubungan_kel" placeholder="Masukan Hubungan Keluarga">
+									</div>
+									<div class="form-group">
+										<label>Pendidikan</label>
+										<input type="text" class="form-control" id="pendidikan" placeholder="Masukan Pendidikan">
+									</div>
+									<div class="form-group">
+										<label>Nomer Telpon</label>
+										<input type="text" class="form-control" id="no_telp" placeholder="Masukan Nomer Telp">
+									</div>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+										<button type="button" class="btn btn-primary" data-dismiss="modal" id="save">Save</button>
+									</div>
+								</div>
+							<!-- /.modal-content -->
+							</div>
+						<!-- /.modal-dialog -->
+						</div>
+					<!-- /.modal -->
 					</div>
-				<!-- /.modal -->
+					</form>
 				</div>
-				</form>
 			</div>
 		</div>
 	</div>

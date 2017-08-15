@@ -107,22 +107,24 @@
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
-            <!-- /.row -->
-            <div class="row">
-                <!-- Edit Dibawah -->
-				<form>
-					<div class="col-lg-6">
-						<div class = "form-group">
-		                	<label>Nama Produk : </label>
-		               		<input class = "form-control" name = "nama_produk" required autofocus>
-		             	</div>
-		                <div class = "form-group">
-		                	<label>Harga Produk : </label>
-		               		<input type="number" class = "form-control" name = "harga">
-	                </div>
-	                <button type="submit" id = "submit" class="btn btn-success">Submit Button</button>
-					<button type="reset" class="btn btn-warning">Reset Button</button>
-				</form>
+	            <!-- /.row -->
+			<div class="panel-body">
+	            <div class="row">
+	                <!-- Edit Dibawah -->
+					<form>
+						<div class="col-lg-6">
+							<div class = "form-group">
+			                	<label>Nama Produk : </label>
+			               		<input class = "form-control" name = "nama_produk" required autofocus>
+			             	</div>
+			                <div class = "form-group">
+			                	<label>Harga Produk : </label>
+			               		<input type="number" class = "form-control" name = "harga">
+		                </div>
+		                <button type="submit" id = "submit" class="btn btn-success">Submit Button</button>
+						<button type="reset" class="btn btn-warning">Reset Button</button>
+					</form>
+				</div>
 			</div>
 		</div>
 	</div>
