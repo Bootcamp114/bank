@@ -26,14 +26,13 @@
 <script type="text/javascript"src="/resources/assets/jquery-3.2.1.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
-	
-	//save
-	$('input[name="submit"]').on('click', function(e){
+	$("input[name='submit']").on('click', function(e){
 		e.preventDefault();
-		savePolis();
-		
-	});
+		save();
+	})
 });
+	
+
 
 </script>
 
@@ -112,199 +111,162 @@ $(document).ready(function(){
 
 		<div id="page-wrapper">
 			<div class="row">
-				<div class="col-lg-12">
-				
-					<h1 class="page-header">Add polis</h1>
-					
-				</div>
+				 <div class="col-lg-12">
+                    <h1 class="page-header">Tambah Polis<table align = "right">
+                    	<tr>
+                    		<td><select  class = "form-control" name = "cs">
+                    			<option>CS 1</option>
+                    			<option>CS 2</option>
+                    			<option>CS 3</option>
+                    			<option>CS 4</option>
+                    		</select></td>
+                    	</tr>
+                    </table></h1>
+                </div>
 				<!-- /.col-lg-12 -->
 			</div>
 			<!-- /.row -->
 			<div class="row">
 				<!-- Edit Dibawah Ini -->
-				<div class="col-lg-6">
-					<form>
-						<div class="form-group" class="col-lg-6">
-							<label for="exampleInputEmail1">No Polis</label> <input
-								type="text" class="form-control" id="NoPolis"
-								disabled="disabled" name="no_polis">
-						</div>
-						
-						<div class="form-group">
-						<label for="exampleInputEmail1">Tanggal Dibuat</label> <input
-							type="date" class="form-control"  id="NoPolis" name ="tanggal_dibuat">
-				</div>
-
-						<div class="form-group">
-							<label for="exampleInputEmail1">Produk Asuransi</label> <select
-								class="form-control">
-								<option>asuraansi penyakit kritis</option>
-								<option>asuraansi ketenaga kerjaan</option>
-								<option>asuraansi kesehatan</option>
-								<option>asuraansi pendidikan</option>
-								<option>asuraansi kecelakaan</option>
-							</select>
-						</div>
-						<br/><br/>
-					
-					<div class = "form-group">
-	                			<textarea class="form-control" rows="10" name = "alamat" disabled="disabled"></textarea>
+				<div class = "col-lg-6">
+	                	<form role = "form" id = "myForm">
+	                		<div class = "form-group">
+	                			<label>No Polis : </label>
+	                			<span class = "form-control">${noRek}</span>
+	                			<input type="hidden" class = "form-control" name = "no_rek" value="${noRek}">
 	                		</div>
-	                <div class="form-group">
-							<label for="exampleInputEmail1">Class Asuransi</label> <select
-								class="form-control">
-								<option>Silver</option>
-								<option>Gold</option>
-								<option>Platinum</option>
-							</select>
+	                		<div class = "form-group">
+	                			<label>Nama Penanggung : </label>
+	                			<input class = "form-control" name = "nama_penanggung" required autofocus>
+	                		</div>
+	                		<div class = "form-group">
+	                			<label>Ahli Waris : </label>
+	                			<input class = "form-control" name = "ahli_waris" required autofocus>
+	                		</div>
+	                		<div class = "form-group">
+	                			<label>Tanggal Dibuat : </label>
+	                			<input type="date" class = "form-control" name = "tanggal_dibuat" required autofocus>
+	                		</div>
+	                		<div class = "form-group">
+	                			<label>Produk Asuransi : </label>
+	                			<select class = "form-control" name = "rekening" id="rekening">
+	                				<c:forEach var = "rekening" items = "${rekening}">
+	                					<option value="${rekening.id}">${rekening.rekening}</option>
+	                				</c:forEach>
+	                			</select>
+	                		</div>
+	                	<div>
+	                		<textarea class="form-control" rows="6" disabled="disabled"></textarea>
 						</div>
-						<br/><br/>
-					
-					<div class = "form-group">
-	                			<textarea class="form-control" rows="10" name = "alamat" disabled="disabled"></textarea>
+	                		<div class = "form-group">
+	                			<label>Class Asuransi : </label>
+	                			<select class = "form-control" name = "rekening" id="rekening">
+	                				<c:forEach var = "rekening" items = "${rekening}">
+	                					<option value="${rekening.id}">${rekening.rekening}</option>
+	                				</c:forEach>
+	                			</select>
 	                		</div>
-								
-					<h2 class="page-header">Info Tertanggung</h2>
-				<div class="form-group">
-						<label for="exampleInputEmail1">Nama</label> <input
-							type="text" class="form-control" id="NoPolis" name ="nama"
-							placeholder="Masukan Nama Tertanggung">
-				</div>
-				<div class = "form-group">
-                			<label>Hubungan : </label>
-                			<input class = "form-control" name = "hubungan" required
-                			placeholder="masukan hubunngan penanggung dan tertanggung">
-                		</div>
-                <div class = "form-group">
-                			<label>No Hp : </label>
-                			<input class = "form-control" name = "no_hp" required
-                			placeholder="masaukan No Hp info tertanggung">
-                		</div>
-                <div class = "form-group">
-                			<label>Email : </label>
-                			<input class = "form-control" name = "email" required
-                			placeholder="masukan email info tertanggung ">
-                		</div>
-				<div class="form-group">
-						<label for="exampleInputEmail1">Tanggal Lahir</label> <input
-							type="date" class="form-control"  name ="tanggal_lahir">
-				</div>
-				
-				<div class = "form-group">
-                			<label>Jenis Identitas : </label>
-                			<select class = "form-control" name = "jenis_identitas">
-                				<option>KTP</option>
-                				<option>SIM</option>
-                				<option>Kartu Keluarga</option>
-                				<option>Ijazah</option>
-                				<option>Passport</option>
-                			</select>
-                		</div>
-                		<div class = "form-group">
-                			<label>Nomor Identitas : </label>
-                			<input class = "form-control" name = "no_identitas" required
-                			placeholder="Masukan No Identitas info tertanggung">
-                		</div>
-                			
-                
-                
-                <input type="button" class="btn btn-success" name="submit" value="Save">
-                
-                
-				</div>
-
-				<div class="col-lg-6">
-					<div class = "form-group">
-                			<label>Nama Penanggung : </label>
-                			<select class = "form-control" name = "nasabah">
-                				<option>unknow</option>
-                				<option>unknow</option>
-                				<option>unknow</option>
-                				<option>unknow</option>
-                				<option>unknow</option>
-                			</select>
-                		</div>
-					<div class="form-group">
-						<label for="exampleInputEmail1">Ahli Waris</label> <input
-							type="text" class="form-control" name="ahli_waris"
-							placeholder="Masukan Nama Ahli Waris">
-
-					</div>
-				</form>
-				
-				<div class="form-group"> 
-					<label for="exampleInputEmail1">Program Setroran / bulan</label> <select
-						class="form-control">
-						<option>Rp.100.000</option>
-						<option>Rp.300.00</option>
-						<option>Rp.500.000</option>
-					</select>
-					</div>
-				<br/><br/>
-				<div class = "form-group">
-	                			<textarea class="form-control" rows="10" name = "alamat" disabled="disabled"></textarea>
+	                	<div>
+	                		<textarea class="form-control" rows="6" disabled="disabled"></textarea>
+						</div>
+	                		<div class = "form-group">
+	                			<label>Jumlah Stroran : </label>
+	                			<select class = "form-control" name = "rekening" id="rekening">
+	                				<c:forEach var = "rekening" items = "${rekening}">
+	                					<option value="${rekening.id}">${rekening.rekening}</option>
+	                				</c:forEach>
+	                			</select>
 	                		</div>
-				<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>				
-				<h1 class="page-header">  </h1>
-				
-				<div class="form-group">
-						<label for="exampleInputEmail1">Pekerjaan</label> <input
-							type="text" class="form-control" name="pekerjaan"
-							placeholder="Masukan Pekerjaan info tertanggung ">
-				
+	                	<div>
+	                		<textarea class="form-control" rows="6" disabled="disabled"></textarea>
+						</div><br>
+						<div>
+						<input type="submit" name="submit" class="btn btn-success">
+							<button type="reset" class="btn btn-warning">Reset Button</button>
+						</div>
 					</div>
 					
-				<div class = "form-group">
-						<label>Alamat Rumah : </label>
-						<textarea class="form-control" rows="3" name = "alamat"></textarea>
-					</div>
+					
+					
+					<div class="col-lg-6">
+						<div class = "form-group">
+		                	<label>Nama Tertanggung : </label>
+		               		<input class = "form-control" name = "nama">
+		             	</div>
+		             	<div class = "form-group">
+		                	<label>Hubungan : </label>
+		               		<input class = "form-control" name = "hubungan">
+		             	</div>
+		             	<div class = "form-group">
+		                	<label>Pekerjaan : </label>
+		               		<input class = "form-control" name = "pekerjaan">
+		             	</div>
+		             	<div class = "form-group">
+		                	<label>No Hp : </label>
+		               		<input class = "form-control" name = "no_hp">
+		             	</div>
+		             	<div class = "form-group">
+		                	<label>Email : </label>
+		               		<input class = "form-control" name = "email">
+		             	</div>
+		             	<div class = "form-group">
+		                	<label>Tanggal Lahir : </label>
+		               		<input class = "form-control" type="date" name = "tanggal_lahir">
+		             	</div> 
+		             	<div>
+		             		<label>Alamat : </label>
+	                		<textarea class="form-control" rows="3" name = "alamat"></textarea>
+						</div>
+						<div class = "form-group">
+	                			<label>Jenis Kelamin : </label>
+	                			<div class = "radio">
+	                				<label>
+	                					<input type="radio" name="jenis_kelamin" value="Laki-Laki"/>Laki-Laki
+	                				</label>
+	                				<label>
+	                					<input type="radio" name="jenis_kelamin" value="perempuan"/>Perempuan
+	                				</label>
+	                			</div>
+	                	</div>
+	                	<div class = "form-group">
+	                			<label>Status : </label>
+	                			<div class = "radio">
+	                				<label>
+	                					<input type="radio" name="status" value="menikah"/>Menikah
+	                				</label>
+	                				<label>
+	                					<input type="radio" name="status" value="belum-menikah"/>Belum Menikah
+	                				</label>
+	                			</div>
+	                		</div>
+	                	<div class = "form-group">
+	                			<label>Warga Negara : </label>
+	                			<div class = "radio">
+	                				<label>
+	                					<input type="radio" name="kewarganegaraan" value="WNI"/>WNI
+	                				</label>
+	                				<label>
+	                					<input type="radio" name="kewarganegaraan" value="WNA"/>WNA
+	                				</label>
+	                			</div>
+	                		</div>
+		             	<div class = "form-group">
+	                			<label>Jenis Identitas : </label>
+	                			<select class = "form-control" name = "jenis_identitas">
+	                				<option value = "KTP">KTP</option>
+	                				<option value = "SIM">SIM</option>
+	                				<option value = "Kartu Pelajar">Kartu Keluarga</option>
+	                				<option value = "Ijazah">Ijazah</option>
+	                				<option value = "Passport">Passport</option>
+	                			</select>
+	                	</div>
+	                	<div class = "form-group">
+		                	<label>No Identitas : </label> <input class="form-control" name="no_identitas">
+					</div> 	
+		                
+	                		
 				
-				<div class = "form-group">
-                			<label>Jenis Kelamin : </label>
-                			<div class = "radio">
-                				<label>
-                					<input type="radio" name="jenis_kelamin" value="Laki_Laki">Laki-Laki
-                				</label>
-                			</div>
-                			<div class = "radio">
-                				<label>
-                					<input type="radio" name="jenis_kelamin" value="Perempuan">Perempuan
-                				</label>
-                			</div>
-                
-					
-					
-					<div class = "form-group">
-                			<label>Status : </label>
-                			<div class = "radio">
-                				<label>
-                					<input type="radio" name="status"  value="Sudah Menikah">Sudah Menikah
-                				</label>
-                			</div>
-                			<div class = "radio">
-                				<label>
-                					<input type="radio" name="status"  value="Belum Menikah">Belum Menikah
-                				</label>
-                			</div>
-                			
-                	<div class = "form-group">
-                			<label>Warga Negara : </label>
-                			<div class = "radio">
-                				<label>
-                					<input type="radio" name="kewarganegaraan" value="WNI">WNI
-                				</label>
-                			</div>
-                			<div class = "radio">
-                				<label>
-                					<input type="radio" name="warga_negara" value="WNA">WNA
-                				</label>
-                			</div>
-                		</div>
-                		
-
-		</div>
-		</div>
-</div>
+			</div>
 	<!-- /.row -->
 	<!-- /#wrapper -->
 
@@ -324,98 +286,67 @@ $(document).ready(function(){
 	
 	<script src="./../../resources/assets/js/sb-admin-2.js"></script>
 </body>
-<script>
-function savePolis(){
-	var no_polis = $('input[name="no_polis"]').val();
-	var ahli_waris = $('input[name="ahli_waris"]').val();
-	var tanggal_dibuat = $('input[name="tanggal_dibuat"]').val();
-	var class_asuransi = $('#classasuransi').val();
-	var produk_asuransi = $('#produkasuransi').val();
-	var jumlah_storan = $('#jumlahstoran').val();
-	var nasabah = $('#nasabah').val();
-	
-	var polis = {
-			noPolis : no_polis,
-			ahliWaris : ahli_waris,
-			tanggalDibuat : tanggal_dibuat,
-			classAsuransi : {
-				id : class_asuransi
-			},
-			
-			produkAsuransi : {
-				id : produk_asuransi
-			}, 
-			
-			jumlahStroran : {
-				id : jumlah_storan
-			},
-			
-			nasabah : {
-				id : nasasbah
-			}
-			
-	}
-	$.ajax({
-		url : '/poliscontroller/save',
-		type : 'POST',
-		contentType : 'application/json',
-		data : JSON.stringify(polis),
-		success : function(data, a, xhr) {
-			console.log(xhr.status);
-		}
-		
-	});
-	
-}
-
+<script type="text/javascript">
 var jenis_kelamin;
 var kewarganegaraan;
 var status;
 
 $(document).ready(function(){
-	$('input[name="jenis_kelamin"]').on('change',function(){
-		jenis_kelamin = $(this).val();
+	$("input[name='jenis_kelamin']").on('change', function(){
+		jenis_kelamin =$(this).val();
 	});
-	
-	$('input[name="kewarganagaraan"]').on('change', function(){
+	$("input[name='kewarganegaraan']").on('change', function(){
 		kewarganegaraan = $(this).val();
 	});
-	$('input[name="status"]').on('change',function(){
+	$("input[name='status']").on('change',function(){
 		status = $(this).val();
 	});
-	
 });
 
-	function saveInfoTertanggung(){
-		var nama = $('input[namee="nama"]').val();
-		var alamat =$('input[name="alamat"]').val();
-		var pekerjaan =$('input[name="pekerjaan"]').val();
-		var tanggal_lahir =$('input[name="tanggal_lahir"]').val();
-		var no_hp =$('input[name="no_hp"]')val();
-		var email =$('input[name="email"]').val();
-
-		var info_tertanggung = {
-				nama : nama,
-				alamat : alamat,
-				pekerjaan : pekerjaan,
-				tanggalLahir : tanggal_lahir,
-				noHp : no_hp,
-				email : email,
-				jenisKelamin : jenis_kelamin,
-				kewarganegaraan : kewarganegaraan,
-				status : status
-		}
-		
-		$.ajax({
-			url :'/infotertanggungcontroller/save',
-			type : 'POST',
-			contentType : 'application/json',
-			success : function(data, a, xhr){
-				console.log(xhr.status)
-			}
-		});
+function save(){
+	var no_polis = $("input[name='no_polis']").val();
+	var ahli_waris = $("input[name='ahli_waris']").val();
+	var tanggal_dibuat = $("input[name='tanggal_dibuat']").val();
+	var nama = $("input[name='nama']").val();
+	var hubungan = $("input[name='hubungan']").val();
+	var no_hp = $("input[name='no_hp']").val();
+	var email = $("input[name='email']").val();
+	var tanggal_lahir = $("input[name='tanggal_lahir']").val();
+	var jenis_identitas = $("select[name='jenis_identitas']").val();
+	var pekerjaan = $("input[name='pekerjaan']").val();
+	var alamat = $("textarea[name='alamat']").val();
+	var no_identitas = $("input[name='no_identitas']").val();
 	
+	var polis = {
+		noPolis : no_polis,
+		ahliWaris : ahli_waris,
+		tanggalDibuat : tanggal_dibuat,
+		nama : nama,
+		hubungan : hubungan,
+		noHp : no_hp,
+		email : email,
+		tanggalLahir : tanggal_lahir,
+		jenisIdentitas : jenis_identitas,
+		pekerjaan : pekerjaan,
+		alamat : alamat,
+		noIdentitas : no_identitas,
+		jenisKelamin : jenis_kelamin,
+		kewarganegaraan : kewarganegaraan,
+		status : status
 	}
 	
-<script>
+	$.ajax({
+		url : '/poliscontroller/save',
+		type : 'POST',
+		contentType : 'application/json',
+		data : JSON.stringify(polis),
+		success : function(data, a, xhr){
+			console.log(xhr.status);
+			
+		}
+	});
+}
+</script>
+
+
 </html>
