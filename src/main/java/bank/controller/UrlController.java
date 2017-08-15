@@ -94,7 +94,7 @@ public class UrlController {
 		return "PeminjamanDana";
 	}
 
-	@RequestMapping("/peminjamandana/add")
+	@RequestMapping("/peminjamandana/add") 
 	public String addpinjam(Model model) {
 		List<Employee> employee = employeeService.getAllEmployee();
 		model.addAttribute("employee", employee); 
