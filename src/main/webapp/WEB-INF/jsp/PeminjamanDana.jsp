@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page isELIgnored="false" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -105,18 +107,28 @@
 						<a href="peminjamandana" class = "btn btn-primary btn-md"><span class = "fa fa-fw fa-refresh fa-spin"></span>Refresh</a>
 					</div>
 					<br><br>
-					<table id="dt-table-pinjamdn"class = "table table-stripeed table-bordered table-hover dataTable no-footer dtr-inline" id = "dataTables-example" role = "grid" aria-describedby="dataTables-example_info">
+					<table class = "table table-striped table-bordered table-hover dataTable no-footer dtr-inline" id = "dataTables-example" role = "grid" aria-describedby="dataTables-example_info">
 						<thead class = "kolom">
 							<tr>
-								<th class="text-center">No</th>
 								<th class="text-center">Nama Nasabah</th>
-								<th class="text-center">Tujuan Penggunaan</th>
+								<th class="text-center">Jaminan</th>
 								<th class="text-center">Jumlah Pinjam</th>
 								<th class="text-center">Jatuh Tempo</th>
-								<th class="text-center">Action</th>
+								<th class="text-center" colspan="3">Action</th>
 							</tr>
 						</thead>
 						<tbody>
+						<c:forEach var = "pinjam" items = "${pinjam}">
+							<tr>
+								<td class="text-center">${pinjam.nama}</td>
+								<td class="text-center">${pinjam.namaJaminan}</td>
+								<td class="text-center">${pinjam.jumlahPinjam}</td>
+								<td class="text-center">${pinjam.jatuhTempo}</td>
+								<td class="text-center"><a href="#" class = "btn btn-primary btn-sm"><span class = "fa fa-fw fa-edit"></span>Edit</a></td>
+								<td class="text-center"><a href="#" id_delete="${pinjam.id}" class = "delete btn btn-danger btn-sm"><span class = "fa fa-fw fa-times"></span>Delete</a></td>
+								<td class="text-center"><a href="#" class = "btn btn-info btn-sm"><span class = "fa fa-fw fa-info"></span>Detail</a></td>	
+							</tr>
+						</c:forEach>
 						</tbody>
 					</table>
 				</div>
@@ -138,5 +150,16 @@
     <script src="./../../resources/assets/js/sb-admin-2.js"></script>
 </body>
 <script type="text/javascript">
+function doDelete(del){
+	var id = $(del).attr("id_delete");
+	$.ajax({
+		url : "/nasabah/delete/"+id,
+		type : "DELETE",
+		success : function(data){
+			console.log(data);
+			window.location = "account";
+		}
+	});
+}
 </script>
 </html>

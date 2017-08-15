@@ -21,4 +21,23 @@ public class PeminjamanDanaDaoImple implements PeminjamanDanaDao{
 		session.flush();
 	}
 
+	@Override
+	public void delete(int id) {
+		// TODO Auto-generated method stub
+		Session session = sessionFactory.getCurrentSession();
+		PeminjamanDana pinjamDn = new PeminjamanDana();
+		pinjamDn.setId(id);
+		pinjamDn.setNama(null);
+		session.delete(id);
+		session.flush();
+	}
+
+	@Override
+	public void update(PeminjamanDana pinjamdn) {
+		// TODO Auto-generated method stub
+		Session session = sessionFactory.getCurrentSession();
+		session.update(pinjamdn);
+		session.flush();
+	}
+
 }

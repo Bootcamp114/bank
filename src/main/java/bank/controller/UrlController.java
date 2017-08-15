@@ -8,9 +8,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import bank.model.Nasabah;
+import bank.model.PeminjamanDana;
 import bank.model.ProdukNasabah;
 import bank.model.Rekening;
 import bank.service.NasabahService;
+import bank.service.PeminjamanDanaService;
 import bank.service.ProdukNasabahService;
 import bank.service.RekeningService;
 
@@ -24,6 +26,8 @@ public class UrlController {
 	ProdukNasabahService produkNasabahService;
 	@Autowired
 	RekeningService rekeningService;
+	@Autowired
+	PeminjamanDanaService pinjamDnService;
 
 	@RequestMapping("/login")
 	public String login() {
@@ -78,8 +82,9 @@ public class UrlController {
 	}
 
 	@RequestMapping("/peminjamandana")
-	public String pinjam() {
-
+	public String pinjam(Model model) {
+		List<PeminjamanDana> pinjam = pinjamDnService.getAllPeminjamanDana();
+		model.addAttribute("pinjam", pinjam);
 		return "PeminjamanDana";
 	}
 
