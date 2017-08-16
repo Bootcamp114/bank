@@ -25,7 +25,6 @@ public class KeluargaNasabah {
 	private String pendidikan;
 	@Column(name = "no_hp")
 	private String noHp;
-	private String status;
 	@ManyToOne
 	private Nasabah nasabah;
 
@@ -34,7 +33,7 @@ public class KeluargaNasabah {
 	}
 
 	public KeluargaNasabah(int id, String nama, String hubunganKel, int umur, String pendidikan, String noHp,
-			String status, Nasabah nasabah) {
+			Nasabah nasabah) {
 		super();
 		this.id = id;
 		this.nama = nama;
@@ -42,7 +41,6 @@ public class KeluargaNasabah {
 		this.umur = umur;
 		this.pendidikan = pendidikan;
 		this.noHp = noHp;
-		this.status = status;
 		this.nasabah = nasabah;
 	}
 
@@ -100,13 +98,5 @@ public class KeluargaNasabah {
 
 	public void setNasabah(Nasabah nasabah) {
 		this.nasabah = nasabah;
-	}
-
-	public String getStatus() {
-		return status;
-	}
-
-	public void setStatus(String status) {
-		this.status = status;
 	}
 }

@@ -24,16 +24,50 @@
 		src="/resources/assets/jquery-3.2.1.min.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function(){
-			showData();
 			$("#submit").on("click", function(e){
 				e.preventDefault();
 				save();
 			});
 
-			/* $("#save").on("click", function(){
-				e,preventDefault();
-				saveKeluarga();
-			}); */
+				var datatable = $('#keluarga-dt');
+				var elementNama = $('#nama_kel');
+				var elementHubungan = $('#hubungan_kel');
+				var elementPendidikan = $('#pendidikan_kel');
+				var elementUmur = $('#umur_kel');
+				var elementNoTelp = $('#no_telp_kel');
+				var elementSubmit = $('#add');
+				var oTr = 0;
+
+				elementSubmit.on('click', function(){
+ 					var keluarga = {
+ 						nama : elementNama.val(),
+ 						hubungan : elementHubungan.val(),
+ 						pendidikan : elementPendidikan.val(),
+ 						umur : elementUmur.val(),
+ 						notelp : elementNoTelp.val()
+ 					}
+
+ 					var tbody = datatable.find('tbody');
+ 					//jquery append
+ 					var tr = "<tr>";
+ 					tr += "<td>"+keluarga.nama+"</td>";
+ 					tr += "<td>"+keluarga.hubungan+"</td>";
+ 					tr += "<td>"+keluarga.pendidikan+"</td>";
+ 					tr += "<td>"+keluarga.notelp+"</td>";
+ 					tr += "<td>"+keluarga.umur+"</td>";
+ 					tr += "</tr>";
+ 					tbody.append(tr);
+
+ 					clearForm();
+				});
+
+				function clearForm() {
+					elementNama.val("");
+					elementHubungan.val("");
+					elementPendidikan.val("");
+					elementUmur.val("");
+					elementNoTelp.val("");
+				}
 		});
 	</script>
 </head>
@@ -235,7 +269,7 @@
 		                	</div>
 		                	<!-- <a class = "btn btn-info btn-sm"><span class = "fa fa-fw fa-plus"></span></a> -->
 		                	<button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#add-keluarga"><span class = "fa fa-fw fa-plus"></span></button>
-		                	<br>
+		                	<br><br>
 			                <div class = "from-group">
 			                	<table class = "table table-striped table-bordered table-hover dataTable no-footer dtr-inline" role = "grid" aria-describedby="dataTables-example_info" id="keluarga-dt">
 									<thead class = "kolom">
@@ -303,27 +337,27 @@
 								<!-- <p>This is a small modal.</p>-->
 									<div class="form-group">
 										<label>Nama</label>
-										<input type="text" class="form-control" name="nama_kel" placeholder="Masukan Nama">
+										<input type="text" class="form-control" id="nama_kel" placeholder="Masukan Nama">
 									</div>
 									<div class="form-group">
 										<label>Hubungan Keluarga</label> 
-										<input type="text" class="form-control" name="hubungan_kel" placeholder="Masukan Hubungan Keluarga">
+										<input type="text" class="form-control" id="hubungan_kel" placeholder="Masukan Hubungan Keluarga">
 									</div>
 									<div class="form-group">
 										<label>Pendidikan</label>
-										<input type="text" class="form-control" name="pendidikan_kel" placeholder="Masukan Pendidikan">
+										<input type="text" class="form-control" id="pendidikan_kel" placeholder="Masukan Pendidikan">
 									</div>
 									<div class="form-group">
 										<label>Umur</label>
-										<input type="text" class="form-control" name="umur_kel" placeholder="Masukan Umur">
+										<input type="text" class="form-control" id="umur_kel" placeholder="Masukan Umur">
 									</div>
 									<div class="form-group">
 										<label>Nomer Telpon</label>
-										<input type="text" class="form-control" name="no_telp_kel" placeholder="Masukan Nomer Telp">
+										<input type="text" class="form-control" id="no_telp_kel" placeholder="Masukan Nomer Telp">
 									</div>
 									<div class="modal-footer">
-										<button type="button" id="save" class="btn btn-default" data-dismiss="modal">Close</button>
-										<button type="button" class="btn btn-primary" data-dismiss="modal" id="save">Save</button>
+										<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+										<button type="button" id="add" class="btn btn-primary" data-dismiss="modal" id="save">add</button>
 									</div>
 								</div>
 							<!-- /.modal-content -->
@@ -440,79 +474,5 @@
 				}
 			});
 		}
-
-		function saveKeluarga() {
-			var nama_kel = $('input[name="nama_kel"]').val();
-			var hubungan_kel = $('input[name="hubungan_kel"]').val();
-			var pendikan_kel = $('input[name="pendikan_kel"]').val();
-			var umur_kel = $('input[name="umur_kel"]').val();
-			var no_telp_kel = $('input[name="no_telp_kel"]').val();
-			var status = "0";
-			var nasabah = null;
-
-			var keluarga = {
-				nama : nama_kel,
-				hubungan_kel : hubungan_kel,
-				pendidikan : pendidikan_kel,
-				umur : umue_kel,
-				noTelp : no_telp_kel,
-				status : status,
-				nasabah : {
-					id : nasabah
-				}
-			}
-
-			/* $.ajax({
-				url : '/nasabah/keluarga/save',
-				type : 'POST',
-				contentType : 'application/json',
-				data : JSON.stringify(keluarga), // Convert object to string
-				success : function(data, a, xhr) {
-					console.log(xhr.status);
-					if (xhr.status == 201) {
-						alert("Success..");
-					}
-				}
-			}); */
-		}
-
-		function showData(){
-			$.ajax({
-				url : '/nasabah/keluarga/getall',
-				type : 'POST',
-				dataType : 'json',
-				success : function(data, x, xhr){
-					fillData(data);
-					}
-			});
-		}
-
-
-		function fillData(data){
-			var dt = $("#keluarga-dt");
-			var tbody = dt.find('tbody');
-			tbody.find('tr').remove();
-
-			$.each(data, function(index, keluarga){
-				var trString = "<tr>";
-					trString += "<td>";
-						trString += keluarga.nama;
-					trString += "</td>";
-					trString += "<td>";
-						trString += keluarga.hubunganKel;
-					trString += "</td>";
-					trString += "<td>";
-						trString += keluarga.pendidikan;
-					trString += "</td>";
-					trString += "<td>";
-						trString += keluarga.noTelp;
-					trString += "</td>";
-					trString += "<td>";
-						trString += keluarga.umur;
-					trString += "</td>";
-				trString += "</tr>"
-				tbody.append(trString);
-			});
-			}
 	</script>
 </html>
