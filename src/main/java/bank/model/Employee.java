@@ -32,6 +32,8 @@ public class Employee {
 	private String password;
 	@OneToMany(fetch=FetchType.LAZY, mappedBy="employee")
 	private List<PeminjamanDana> peminjamanDana;
+	@OneToMany(fetch = FetchType.LAZY, mappedBy="employee")
+	private List<Polis> listPolis;
 
 	public Employee() {
 		// TODO Auto-generated constructor stub
