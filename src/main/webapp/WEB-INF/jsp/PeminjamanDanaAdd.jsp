@@ -18,7 +18,15 @@
 <link href="./../../resources/assets/css/sb-admin-2.css" rel="stylesheet">
 <link href="./../../resources/assets/vendor/morrisjs/morris.css" rel="stylesheet">
 <link href="./../../resources/assets/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-<script type="text/javascript" src="/resources/assets/jquery-3.2.1.min.js"></script>
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script type="text/javascript" src="./../../resources/assets/jquery-3.2.1.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+  $( function() {
+    $( "#tanggal_pinjam" ).datepicker();
+  } );
+  </script>
 <script type="text/javascript">
 	$(document).ready(function(){
 		$("input[name='submit']").on("click", function(e) {
@@ -196,8 +204,8 @@
 							</div>
 							<div class="col-lg-6">
 								<div class="form-group">
-									<label>Tanggal Pinjam : </label> <input type="date"
-									class="form-control" name="tanggal_pinjam" />
+									<label>Tanggal Pinjam : </label> <input type="text"
+									class="form-control" name="tanggal_pinjam" id="tanggal_pinjam"/>
 								</div>
 							</div>
 							<div class="col-lg-12">
