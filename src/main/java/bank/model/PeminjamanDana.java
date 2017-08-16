@@ -40,6 +40,8 @@ public class PeminjamanDana {
 	private String fileBuktiJaminan;
 	@ManyToOne
 	private Nasabah nasabah;
+	@ManyToOne
+	private Employee employee;
 
 	public PeminjamanDana(int id, String nama, String tujuanPenggunaan, Double jumlahPinjam, String lamaPinjam,
 			String bungaBank, String tanggalPinjam, String jatuhTempo, String namaJaminan, String deskripsiJaminan,

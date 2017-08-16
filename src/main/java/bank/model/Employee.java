@@ -1,10 +1,14 @@
 package bank.model;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
@@ -26,6 +30,8 @@ public class Employee {
 	private String email;
 	private String username;
 	private String password;
+	@OneToMany(fetch=FetchType.LAZY, mappedBy="employee")
+	private List<PeminjamanDana> peminjamanDana;
 
 	public Employee() {
 		// TODO Auto-generated constructor stub

@@ -58,6 +58,8 @@ public class Nasabah {
 	private Employee employee;
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "nasabah")
 	private List<KeluargaNasabah> keluargaNasabah;
+	@OneToMany(fetch=FetchType.LAZY, mappedBy="nasabah")
+	private List<PeminjamanDana> peminjamanDana;
 
 	public Nasabah() {
 		// TODO Auto-generated constructor stub
