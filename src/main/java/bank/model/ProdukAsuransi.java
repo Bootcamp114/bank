@@ -27,6 +27,8 @@ public class ProdukAsuransi {
 	private String produk;
 	@Column(name="jumlah_dana")
 	private Double jumlahDana;
+	@Column (name="jumlah_storan")
+	private Double jumlahStoran;
 	@Column(name="kondisi_tunjungan_1")
 	private String kondisiTunjangan1;
 	@Column(name="kondisi_tunjungan_2")
@@ -53,16 +55,16 @@ public class ProdukAsuransi {
 	public ProdukAsuransi(){
 		
 	}
-	
 
-	public ProdukAsuransi(int id, String produk, String kondisiTunjangan1, String kondisiTunjangan2,
-			String kondisiTunjangan3, String kondisiTunjangan4, String kondisiTunjangan5, String kondisiTunjangan6,
-			String kondisiTunjangan7, String kondisiTunjangan8, String kondisiTunjangan9, String kondisiTunjangan10,
-			List<Polis> listPolis, Double jumlahDana) {
+	public ProdukAsuransi(int id, String produk, Double jumlahDana, Double jumlahStoran, String kondisiTunjangan1,
+			String kondisiTunjangan2, String kondisiTunjangan3, String kondisiTunjangan4, String kondisiTunjangan5,
+			String kondisiTunjangan6, String kondisiTunjangan7, String kondisiTunjangan8, String kondisiTunjangan9,
+			String kondisiTunjangan10, List<Polis> listPolis) {
 		super();
 		this.id = id;
 		this.produk = produk;
 		this.jumlahDana = jumlahDana;
+		this.jumlahStoran = jumlahStoran;
 		this.kondisiTunjangan1 = kondisiTunjangan1;
 		this.kondisiTunjangan2 = kondisiTunjangan2;
 		this.kondisiTunjangan3 = kondisiTunjangan3;
@@ -90,6 +92,22 @@ public class ProdukAsuransi {
 
 	public void setProduk(String produk) {
 		this.produk = produk;
+	}
+
+	public Double getJumlahDana() {
+		return jumlahDana;
+	}
+
+	public void setJumlahDana(Double jumlahDana) {
+		this.jumlahDana = jumlahDana;
+	}
+
+	public Double getJumlahStoran() {
+		return jumlahStoran;
+	}
+
+	public void setJumlahStoran(Double jumlahStoran) {
+		this.jumlahStoran = jumlahStoran;
 	}
 
 	public String getKondisiTunjangan1() {
@@ -180,16 +198,6 @@ public class ProdukAsuransi {
 		this.listPolis = listPolis;
 	}
 	
-	public Double getJumlahDana() {
-		return jumlahDana;
-	}
-
-	public void setJumlahDana(Double jumlahDana) {
-		this.jumlahDana = jumlahDana;
-	}
-
-
-
 	
-	
-}
+
+	}
