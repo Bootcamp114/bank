@@ -113,10 +113,11 @@
 					<table class = "table table-striped table-bordered table-hover dataTable no-footer dtr-inline" id = "dataTables-example" role = "grid" aria-describedby="dataTables-example_info">
 						<thead class = "kolom">
 							<tr>
-								<th class="text-center">Nama Employee</th>
-								<th class="text-center">Nama Nasabah</th>
+								<th class="text-center">Employee</th>
+								<th class="text-center">Nasabah</th>
 								<th class="text-center">Jaminan</th>
 								<th class="text-center">Jumlah Pinjam</th>
+								<th class="text-center">Angsuran (/Bln)</th>
 								<th class="text-center">Tanggal Pinjam</th>
 								<th class="text-center">Jatuh Tempo</th>
 								<th class="text-center">Action</th>
@@ -129,6 +130,7 @@
 								<td class="text-center">${peminjamanDana.nasabah.nama}</td>
 								<td class="text-center">${peminjamanDana.namaJaminan}</td>
 								<td class="text-center">${peminjamanDana.jumlahPinjam}</td>
+								<td class="text-center">${peminjamanDana.totalAngsuran}</td>
 								<td class="text-center">${peminjamanDana.tanggalPinjam}</td>
 								<td class="text-center">${peminjamanDana.jatuhTempo}</td>
 								<td class="text-center"><a href="#" class = "btn btn-info btn-sm"><span class = "fa fa-fw fa-info"></span>Detail</a></td>	

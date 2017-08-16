@@ -18,17 +18,39 @@
 <link href="./../../resources/assets/css/sb-admin-2.css" rel="stylesheet">
 <link href="./../../resources/assets/vendor/morrisjs/morris.css" rel="stylesheet">
 <link href="./../../resources/assets/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-<script type="text/javascript" src="./../../resources/assets/jquery-3.2.1.min.js"></script>
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<script>
-  $( function() {
-    $( "#tanggal_pinjam" ).datepicker();
-  } );
-  </script>
+<script type="text/javascript" src="/resources/assets/jquery-3.2.1.min.js"></script>
 <script type="text/javascript">
-	$(document).ready(function(){
+	$(document).ready(function(){	
+		$('#htg-angsuran').on('click', function(){
+			var jumlahPinjam = $('input[name="jumlah_pinjam"]').val();
+			var lamaPinjam = $('input[name="lama_pinjam"]').val();
+			var bungaBank = $('input[name="bunga_bank"]').val();
+			
+			var hasilAngsuranBunga = hitungAngsuranBunga(jumlahPinjam, lamaPinjam,bungaBank);
+			$('#angsuran_bunga').val(hasilAngsuranBunga);
+			
+			var hasilAngsuranPokok = hitungAngsuranPokok(jumlahPinjam, lamaPinjam);
+			$('#angsuran_pokok').val(hasilAngsuranPokok);
+			
+			var hasilTotalAngsuran = hitungTotalAngsuran(hasilAngsuranBunga, hasilAngsuranPokok);
+			$('#total_angsuran').val(hasilTotalAngsuran);
+		});
+		
+		function hitungAngsuranBunga(jumlahPinjam, lamaPinjam, bungaBank){
+			var angsuranBunga = jumlahPinjam*(bungaBank/100)/(lamaPinjam/2);
+			return angsuranBunga;
+		}
+	
+		function hitungAngsuranPokok(jumlahPinjam, lamaPinjam){
+			var angsuranPokok = jumlahPinjam/lamaPinjam;
+			return angsuranPokok;
+		}
+		
+		function hitungTotalAngsuran(hasilAngsuranBunga, hasilAngsuranPokok){
+			var totalAngsuran = hasilAngsuranBunga+hasilAngsuranPokok;
+			return totalAngsuran;
+		}
+		
 		$("input[name='submit']").on("click", function(e) {
 			e.preventDefault();
 			save();
@@ -175,6 +197,12 @@
 								</div>
 							</div>
 							<div class="col-lg-6">
+								<div class="form-group">
+									<label>Tanggal Pinjam : </label> <input type="date"
+									class="form-control" name="tanggal_pinjam" id="tanggal_pinjam"/>
+								</div>
+							</div>
+							<div class="col-lg-6">
 								<label>Jumlah Pinjam</label>
 								<div class="form-group input-group">
 									<span class="input-group-addon">Rp</span> <input type="text"
@@ -183,29 +211,39 @@
 								</div>
 							</div>
 							<div class="col-lg-6">
-								<div class="form-group">
-									<label>Lama Pinjam : </label> <select class="form-control"
-										name="lama_pinjam">
-										<option>- </option>
-										<option value="12 Bulan">12 Bulan</option>
-										<option value="24 Bulan">24 Bulan</option>
-										<option value="36 Bulan">36 Bulan</option>
-										<option value="48 Bulan">48 Bulan</option>
-										<option value="60 Bulan">60 Bulan</option>
-									</select>
+								<label>Lama Pinjam : </label>
+								<div class="form-group input-group">
+									<input type="text" class="form-control" name="lama_pinjam">
+									<span class="input-group-addon">Bulan</span>
 								</div>
 							</div>
 							<div class="col-lg-6">
-								<label>Bunga Bank (/thn)</label>
+								<label>Bunga Bank : </label>
 								<div class="form-group input-group">
 									<input type="text" class="form-control" name="bunga_bank">
 									<span class="input-group-addon">%</span>
 								</div>
 							</div>
+							<div class="col-lg-12">
+								<input type="button" id="htg-angsuran" class="btn btn-danger" value="Hitung Angsuran" onclick="">
+							</div>
 							<div class="col-lg-6">
 								<div class="form-group">
-									<label>Tanggal Pinjam : </label> <input type="text"
-									class="form-control" name="tanggal_pinjam" id="tanggal_pinjam"/>
+									<label>Angsuran Bunga : </label> <input type="text"
+									class="form-control" name="angsuran_bunga" id="angsuran_bunga" readOnly/>
+								</div>
+							</div>
+							<div class="col-lg-6">
+								<div class="form-group">
+									<label>Angsuran Pokok : </label> <input type="text"
+									class="form-control" name="angsuran_pokok" id="angsuran_pokok" readOnly/>
+								</div>
+							</div>
+							<div class="col-lg-12">
+								<label>Total Angsuran : </label>
+								<div class="form-group input-group">
+									<input type="text" class="form-control" name="total_angsuran" id="total_angsuran" readOnly/>
+									<span class="input-group-addon">/Bulan	</span>
 								</div>
 							</div>
 							<div class="col-lg-12">
@@ -213,10 +251,6 @@
 									<label>Jatuh Tempo : </label> <input type="text"
 									class="form-control" name="jatuh_tempo" />
 								</div>
-							</div>
-							<div class="col-lg-12">
-								<button type="submit" class="btn btn-danger" name="htg-angsuran">Hitung
-									Angsuran</button>
 							</div>
 						</div>
 					</div>
@@ -251,13 +285,16 @@
 	
 	<script src="./../../resources/assets/js/sb-admin-2.js"></script>
 </body>
-<script type="text/javascript">	
+<script type="text/javascript">		
 	function save() {
 		var tujuanPenggunaan = $('input[name="tujuan_penggunaan"]').val();
 		var jumlahPinjam = $('input[name="jumlah_pinjam"]').val();
-		var lamaPinjam = $('select[name="lama_pinjam"]').val();
+		var lamaPinjam = $('input[name="lama_pinjam"]').val();
 		var bungaBank = $('input[name="bunga_bank"]').val();
 		var tanggalPinjam = $('input[name="tanggal_pinjam"]').val();
+		var angsuranBunga = $('input[name="angsuran_bunga"]').val();
+		var angsuranPokok = $('input[name="angsuran_pokok"]').val();
+		var totalAngsuran = $('input[name="total_angsuran"]').val();
 		var jatuhTempo = $('input[name="jatuh_tempo"]').val();
 		var namaJaminan = $('select[name="nama_jaminan"]').val();
 		var deskripsiJaminan = $("textarea[name='deskripsi_jaminan']").val();
@@ -272,6 +309,9 @@
 			    lamaPinjam: lamaPinjam,
 			    bungaBank : bungaBank,
 			    tanggalPinjam: tanggalPinjam,
+			    angsuranBunga : angsuranBunga,
+			    angsuranPokok : angsuranPokok,
+			    totalAngsuran : totalAngsuran,
 			    jatuhTempo: jatuhTempo,
 			    namaJaminan: namaJaminan,
 			    deskripsiJaminan: deskripsiJaminan,

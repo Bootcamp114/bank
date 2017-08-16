@@ -29,6 +29,12 @@ public class PeminjamanDana {
 	private String bungaBank;
 	@Column(name="tanggal_pinjam")
 	private String tanggalPinjam;
+	@Column(name="angsuran_bunga")
+	private Double angsuranBunga;
+	@Column(name="angsuran_pokok")
+	private Double angsuranPokok;
+	@Column(name="total_angsuran")
+	private Double totalAngsuran;
 	@Column(name="jatuh_tempo")
 	private String jatuhTempo;
 	@Column(name="nama_jaminan")
@@ -44,24 +50,6 @@ public class PeminjamanDana {
 
 	public PeminjamanDana() {
 		// TODO Auto-generated constructor stub
-	}
-
-	public PeminjamanDana(int id, String tujuanPenggunaan, Double jumlahPinjam, String lamaPinjam,
-			String bungaBank, String tanggalPinjam, String jatuhTempo, String namaJaminan, String deskripsiJaminan,
-			String fileBuktiJaminan, Nasabah nasabah, Employee employee) {
-		super();
-		this.id = id;
-		this.tujuanPenggunaan = tujuanPenggunaan;
-		this.jumlahPinjam = jumlahPinjam;
-		this.lamaPinjam = lamaPinjam;
-		this.bungaBank = bungaBank;
-		this.tanggalPinjam = tanggalPinjam;
-		this.jatuhTempo = jatuhTempo;
-		this.namaJaminan = namaJaminan;
-		this.deskripsiJaminan = deskripsiJaminan;
-		this.fileBuktiJaminan = fileBuktiJaminan;
-		this.nasabah = nasabah;
-		this.employee = employee;
 	}
 
 	public int getId() {
@@ -112,6 +100,30 @@ public class PeminjamanDana {
 		this.tanggalPinjam = tanggalPinjam;
 	}
 
+	public Double getAngsuranBunga() {
+		return angsuranBunga;
+	}
+
+	public void setAngsuranBunga(Double angsuranBunga) {
+		this.angsuranBunga = angsuranBunga;
+	}
+
+	public Double getAngsuranPokok() {
+		return angsuranPokok;
+	}
+
+	public void setAngsuranPokok(Double angsuranPokok) {
+		this.angsuranPokok = angsuranPokok;
+	}
+
+	public Double getTotalAngsuran() {
+		return totalAngsuran;
+	}
+
+	public void setTotalAngsuran(Double totalAngsuran) {
+		this.totalAngsuran = totalAngsuran;
+	}
+
 	public String getJatuhTempo() {
 		return jatuhTempo;
 	}
@@ -159,7 +171,26 @@ public class PeminjamanDana {
 	public void setEmployee(Employee employee) {
 		this.employee = employee;
 	}
-	
-	
+
+	public PeminjamanDana(int id, String tujuanPenggunaan, Double jumlahPinjam, String lamaPinjam, String bungaBank,
+			String tanggalPinjam, Double angsuranBunga, Double angsuranPokok, Double totalAngsuran, String jatuhTempo,
+			String namaJaminan, String deskripsiJaminan, String fileBuktiJaminan, Nasabah nasabah, Employee employee) {
+		super();
+		this.id = id;
+		this.tujuanPenggunaan = tujuanPenggunaan;
+		this.jumlahPinjam = jumlahPinjam;
+		this.lamaPinjam = lamaPinjam;
+		this.bungaBank = bungaBank;
+		this.tanggalPinjam = tanggalPinjam;
+		this.angsuranBunga = angsuranBunga;
+		this.angsuranPokok = angsuranPokok;
+		this.totalAngsuran = totalAngsuran;
+		this.jatuhTempo = jatuhTempo;
+		this.namaJaminan = namaJaminan;
+		this.deskripsiJaminan = deskripsiJaminan;
+		this.fileBuktiJaminan = fileBuktiJaminan;
+		this.nasabah = nasabah;
+		this.employee = employee;
+	}
 	
 }
