@@ -19,4 +19,12 @@ public class AppUtils {
 			List<Long> data = query.list();
 		return String.valueOf(data.get(0));
 	}
+	
+	public String getNoPolis(){
+		Session session = sessionFactory.getCurrentSession();
+		Query query2 = session.createSQLQuery("select seq_polis.nextval from dual");
+			List<Long> data2 = query2.list();
+		return String.valueOf(data2.get(0));
+		
+	}
 }

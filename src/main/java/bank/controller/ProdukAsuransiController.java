@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 import bank.model.ProdukAsuransi;
@@ -38,7 +39,7 @@ public class ProdukAsuransiController {
 	public void update(@RequestBody ProdukAsuransi produkAsuransi){
 		produkAsuransiService.update(produkAsuransi);
 	}
-	
+	@ResponseBody
 	@RequestMapping(value="/getall")
 	@ResponseStatus(value=HttpStatus.OK)
 	public List<ProdukAsuransi> getAllProdukAsuransi(){
@@ -46,6 +47,7 @@ public class ProdukAsuransiController {
 		
 	}
 	
+	@ResponseBody
 	@RequestMapping(value="/getById/{id}",method=RequestMethod.GET)
 	@ResponseStatus(value=HttpStatus.OK)
 	public ProdukAsuransi getProdukAsuransiById(@PathVariable int id){

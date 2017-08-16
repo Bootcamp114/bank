@@ -7,16 +7,20 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import bank.model.ClassAsuransi;
 import bank.model.Employee;
 import bank.model.KeluargaNasabah;
 import bank.model.Nasabah;
 import bank.model.PeminjamanDana;
+import bank.model.ProdukAsuransi;
 import bank.model.ProdukNasabah;
 import bank.model.Rekening;
+import bank.service.ClassAsuransiService;
 import bank.service.EmployeeService;
 import bank.service.KeluargaNasabahService;
 import bank.service.NasabahService;
 import bank.service.PeminjamanDanaService;
+import bank.service.ProdukAsuransiService;
 import bank.service.ProdukNasabahService;
 import bank.service.RekeningService;
 import bank.utils.AppUtils;
@@ -39,6 +43,10 @@ public class UrlController {
 	PeminjamanDanaService pinjamDnService;
 	@Autowired
 	EmployeeService employeeService;
+	@Autowired
+	ClassAsuransiService classAsuransiService;
+	@Autowired
+	ProdukAsuransiService produkAsuransiService;
 
 	@RequestMapping("/login")
 	public String login() {
@@ -142,8 +150,17 @@ public class UrlController {
 	}
 
 	@RequestMapping("/asuransi/add")
-	public String addasuransi() {
-
+	public String addasuransi(Model model) {
+		List<ClassAsuransi> classAsuransi = classAsuransiService.getAllClassAsuransi();
+		List<ProdukAsuransi> produkAsuransi = produkAsuransiService.getAllProdkAsuransi();
+		List<Employee> employee = employeeService.getAllEmployee();
+		List<Nasabah> nasabah = nasabahService.getAllNasabah();
+		String noPolis = appUtils.getNoPolis();
+		model.addAttribute("classAsuransi", classAsuransi);
+		model.addAttribute("produkAsuransi", produkAsuransi);
+		model.addAttribute("employee", employee);
+		model.addAttribute("nasabah", nasabah);
+		model.addAttribute("noPolis", noPolis);
 		return "AsuransiAdd";
 	}
 

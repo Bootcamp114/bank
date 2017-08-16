@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page isELIgnored="false" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -29,7 +31,7 @@ $(document).ready(function(){
 	$("input[name='submit']").on('click', function(e){
 		e.preventDefault();
 		save();
-	})
+	});
 });
 	
 
@@ -114,11 +116,10 @@ $(document).ready(function(){
 				 <div class="col-lg-12">
                     <h1 class="page-header">Tambah Polis<table align = "right">
                     	<tr>
-                    		<td><select  class = "form-control" name = "cs">
-                    			<option>CS 1</option>
-                    			<option>CS 2</option>
-                    			<option>CS 3</option>
-                    			<option>CS 4</option>
+                    		<td><select class = "form-control" name = "employee" id="employee">
+                    			<c:forEach var = "employee" items = "${employee}">
+	                				<option value="${employee.id}">${employee.nama}</option>
+	                			</c:forEach>
                     		</select></td>
                     	</tr>
                     </table></h1>
@@ -131,9 +132,9 @@ $(document).ready(function(){
 				<div class = "col-lg-6">
 	                	<form role = "form" id = "myForm">
 	                		<div class = "form-group">
-	                			<label>No Polis : </label>
-	                			<span class = "form-control">${noRek}</span>
-	                			<input type="hidden" class = "form-control" name = "no_rek" value="${noRek}">
+	                			<label>No Rekening : </label>
+	                			<span class = "form-control">${noPolis}</span>
+	                			<input type="hidden" class = "form-control" name = "no_polis" value="${noPolis}">
 	                		</div>
 	                		<div class = "form-group">
 	                			<label>Nama Penanggung : </label>
@@ -149,9 +150,9 @@ $(document).ready(function(){
 	                		</div>
 	                		<div class = "form-group">
 	                			<label>Produk Asuransi : </label>
-	                			<select class = "form-control" name = "rekening" id="rekening">
-	                				<c:forEach var = "rekening" items = "${rekening}">
-	                					<option value="${rekening.id}">${rekening.rekening}</option>
+	                			<select class = "form-control" name = "produkAsuransi" id="produkAsuransi">
+	                				<c:forEach var = "produkAsuransi" items = "${produkAsuransi}">
+	                					<option value="${produkAsuransi.id}">${produkAsuransi.produk}</option>
 	                				</c:forEach>
 	                			</select>
 	                		</div>
@@ -160,26 +161,22 @@ $(document).ready(function(){
 						</div>
 	                		<div class = "form-group">
 	                			<label>Class Asuransi : </label>
-	                			<select class = "form-control" name = "rekening" id="rekening">
-	                				<c:forEach var = "rekening" items = "${rekening}">
-	                					<option value="${rekening.id}">${rekening.rekening}</option>
+	                			<select class = "form-control" name = "classAsuransi" id="classAsuransi">
+	                				<c:forEach var = "classAsuransi" items = "${classAsuransi}">
+	                					<option value="${classAsuransi.id}">${classAsuransi.class}</option>
 	                				</c:forEach>
 	                			</select>
 	                		</div>
 	                	<div>
 	                		<textarea class="form-control" rows="6" disabled="disabled"></textarea>
 						</div>
-	                		<div class = "form-group">
-	                			<label>Jumlah Stroran : </label>
-	                			<select class = "form-control" name = "rekening" id="rekening">
-	                				<c:forEach var = "rekening" items = "${rekening}">
-	                					<option value="${rekening.id}">${rekening.rekening}</option>
-	                				</c:forEach>
-	                			</select>
-	                		</div>
-	                	<div>
-	                		<textarea class="form-control" rows="6" disabled="disabled"></textarea>
-						</div><br>
+	                		<label>Jumlah Storan / bulan : </label>
+	              			<div class="form-group input-group">
+								<span class="input-group-addon">Rp</span>
+									<input type="text" class="form-control" id="saldo" value="---" disabled>
+								<span class="input-group-addon">.00</span>
+							</div>
+	                	<br>
 						<div>
 						<input type="submit" name="submit" class="btn btn-success">
 							<button type="reset" class="btn btn-warning">Reset Button</button>
@@ -316,6 +313,9 @@ function save(){
 	var pekerjaan = $("input[name='pekerjaan']").val();
 	var alamat = $("textarea[name='alamat']").val();
 	var no_identitas = $("input[name='no_identitas']").val();
+	var employee = $('#employee').val();
+	var classAsuransi = $('#classAsuransi').val();
+	var produkAsuransi = $('#produkAsuransi');
 	
 	var polis = {
 		noPolis : no_polis,
@@ -332,7 +332,17 @@ function save(){
 		noIdentitas : no_identitas,
 		jenisKelamin : jenis_kelamin,
 		kewarganegaraan : kewarganegaraan,
-		status : status
+		status : status,
+		employee : {
+			id : employee
+		},
+		classAsuransi : {
+			id : classAsuransi
+		},
+		produkAsuransi : {
+			id : produkAsuransi
+		}
+		
 	}
 	
 	$.ajax({
