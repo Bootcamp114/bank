@@ -8,11 +8,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import bank.model.Employee;
+import bank.model.KeluargaNasabah;
 import bank.model.Nasabah;
 import bank.model.PeminjamanDana;
 import bank.model.ProdukNasabah;
 import bank.model.Rekening;
 import bank.service.EmployeeService;
+import bank.service.KeluargaNasabahService;
 import bank.service.NasabahService;
 import bank.service.PeminjamanDanaService;
 import bank.service.ProdukNasabahService;
@@ -31,6 +33,8 @@ public class UrlController {
 	ProdukNasabahService produkNasabahService;
 	@Autowired
 	RekeningService rekeningService;
+	@Autowired
+	KeluargaNasabahService keluargaNasabahService;
 	@Autowired
 	PeminjamanDanaService pinjamDnService;
 	@Autowired
@@ -60,11 +64,13 @@ public class UrlController {
 		List<ProdukNasabah> produkNasabah = produkNasabahService.getAllProdukNasabah();
 		List<Rekening> rekening = rekeningService.getAllRekening();
 		List<Employee> employee = employeeService.getAllEmployee();
+		List<KeluargaNasabah> keluargaNasabah = keluargaNasabahService.getAllKeluargaNasabah();
 		String noRek = appUtils.getNoRek();
 		model.addAttribute("produkNasabah", produkNasabah);
 		model.addAttribute("rekening", rekening);
 		model.addAttribute("noRek", noRek);
 		model.addAttribute("employee", employee);
+		model.addAttribute("keluargaNasabah", keluargaNasabah);
 		return "AccountAdd";
 	}
 

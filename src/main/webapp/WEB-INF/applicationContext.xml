@@ -25,7 +25,6 @@
 			<list>
 				<value>bank.model.ClassAsuransi</value>
 				<value>bank.model.Employee</value>
-				<value>bank.model.Jaminan</value>
 				<value>bank.model.JumlahStoran</value>
 				<value>bank.model.KeluargaNasabah</value>
 				<value>bank.model.Nasabah</value>
@@ -33,7 +32,6 @@
 				<value>bank.model.Polis</value>
 				<value>bank.model.ProdukAsuransi</value>
 				<value>bank.model.ProdukNasabah</value>
-				<value>bank.model.RekamPinjam</value>
 				<value>bank.model.Rekening</value>
 			</list>
 		</property>
