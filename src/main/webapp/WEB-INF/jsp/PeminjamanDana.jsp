@@ -23,14 +23,6 @@
 </head>
 <script type="text/javascript" src="/resources/assets/jquery-3.2.1.min.js"></script>
 	<script type="text/javascript">
-		$(document).ready(function(){
-			$(document).on("click", ".delete", function(){
-				var conf = confirm("Apakah Sudah Lunas ?");
-				if (conf == true){
-					doDelete(this);
-				}
-			});
-		});
 	</script>
 <body>
     <div id="wrapper">
@@ -124,6 +116,7 @@
 								<th class="text-center">Nama Nasabah</th>
 								<th class="text-center">Jaminan</th>
 								<th class="text-center">Jumlah Pinjam</th>
+								<th class="text-center">Tanggal Pinjam</th>
 								<th class="text-center">Jatuh Tempo</th>
 								<th class="text-center">Action</th>
 							</tr>
@@ -134,6 +127,7 @@
 								<td class="text-center">${peminjamanDana.nama}</td>
 								<td class="text-center">${peminjamanDana.namaJaminan}</td>
 								<td class="text-center">${peminjamanDana.jumlahPinjam}</td>
+								<td class="text-center">${peminjamanDana.tanggalPinjam}</td>
 								<td class="text-center">${peminjamanDana.jatuhTempo}</td>
 								<td class="text-center"><a href="#" class = "btn btn-info btn-sm"><span class = "fa fa-fw fa-info"></span>Detail</a></td>	
 							</tr>
