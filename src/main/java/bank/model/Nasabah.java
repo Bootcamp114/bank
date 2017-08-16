@@ -56,7 +56,8 @@ public class Nasabah {
 	private ProdukNasabah produkNasabah;
 	@ManyToOne
 	private Employee employee;
-	// Keluarga (One to Many)
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "nasabah")
+	private List<KeluargaNasabah> keluargaNasabah;
 
 	public Nasabah() {
 		// TODO Auto-generated constructor stub
@@ -65,7 +66,8 @@ public class Nasabah {
 	public Nasabah(int id, String noRek, String nama, String jenisIdentitas, String noIdentitas, String wargaNegara,
 			String alamat, String noHp, String email, String tempatLahir, String tanggalLahir, String jenisKel,
 			String pekerjaan, Double penghasilan, String npwp, String rekomendasiPerusahaan, String status,
-			String ahliWaris, Rekening rekening, ProdukNasabah produkNasabah, Employee employee) {
+			String ahliWaris, Rekening rekening, ProdukNasabah produkNasabah, Employee employee,
+			List<KeluargaNasabah> keluargaNasabah) {
 		super();
 		this.id = id;
 		this.noRek = noRek;
@@ -88,6 +90,7 @@ public class Nasabah {
 		this.rekening = rekening;
 		this.produkNasabah = produkNasabah;
 		this.employee = employee;
+		this.keluargaNasabah = keluargaNasabah;
 	}
 
 	public int getId() {
@@ -256,5 +259,13 @@ public class Nasabah {
 
 	public void setEmployee(Employee employee) {
 		this.employee = employee;
+	}
+
+	public List<KeluargaNasabah> getKeluargaNasabah() {
+		return keluargaNasabah;
+	}
+
+	public void setKeluargaNasabah(List<KeluargaNasabah> keluargaNasabah) {
+		this.keluargaNasabah = keluargaNasabah;
 	}
 }

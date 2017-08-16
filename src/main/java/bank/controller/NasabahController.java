@@ -1,5 +1,7 @@
 package bank.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
@@ -11,10 +13,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 import bank.model.Employee;
+import bank.model.KeluargaNasabah;
 import bank.model.Nasabah;
 import bank.model.ProdukNasabah;
 import bank.model.Rekening;
 import bank.service.EmployeeService;
+import bank.service.KeluargaNasabahService;
 import bank.service.NasabahService;
 import bank.service.ProdukNasabahService;
 import bank.service.RekeningService;
@@ -31,6 +35,8 @@ public class NasabahController {
 	RekeningService rekeningService;
 	@Autowired
 	EmployeeService employeeService;
+	@Autowired
+	KeluargaNasabahService keluargaNasabahService;
 
 	/* Nasabah */
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
@@ -74,7 +80,7 @@ public class NasabahController {
 	/* Karyawan */
 	@RequestMapping(value = "/karyawan/save", method = RequestMethod.POST)
 	@ResponseStatus(value = HttpStatus.CREATED)
-	public void savekaryawan(@RequestBody Employee employee){
+	public void savekaryawan(@RequestBody Employee employee) {
 		employeeService.save(employee);
 	}
 
@@ -82,5 +88,25 @@ public class NasabahController {
 	@ResponseStatus(value = HttpStatus.OK)
 	public void deletekaryawan(@PathVariable int id) {
 		employeeService.delete(id);
+	}
+
+	/* Keluarga Nasabah */
+	@RequestMapping(value = "/keluarga/save", method = RequestMethod.POST)
+	@ResponseStatus(value = HttpStatus.CREATED)
+	public void savekeluarga(@RequestBody KeluargaNasabah keluargaNasabah) {
+		keluargaNasabahService.save(keluargaNasabah);
+	}
+
+	@RequestMapping(value = "/keluarga/delete/{id}", method = RequestMethod.DELETE)
+	@ResponseStatus(value = HttpStatus.OK)
+	public void deletekeluarga(@PathVariable int id) {
+		keluargaNasabahService.delete(id);
+	}
+
+	@ResponseBody
+	@RequestMapping(value = "/keluarga/getall")
+	public List<KeluargaNasabah> listKeluarga(){
+
+		return keluargaNasabahService.getAllKeluargaNasabah();
 	}
 }

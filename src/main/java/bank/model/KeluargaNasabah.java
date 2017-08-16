@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
@@ -24,13 +25,16 @@ public class KeluargaNasabah {
 	private String pendidikan;
 	@Column(name = "no_hp")
 	private String noHp;
-	// Nasabah (Many To One)
+	private String status;
+	@ManyToOne
+	private Nasabah nasabah;
 
 	public KeluargaNasabah() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public KeluargaNasabah(int id, String nama, String hubunganKel, int umur, String pendidikan, String noHp) {
+	public KeluargaNasabah(int id, String nama, String hubunganKel, int umur, String pendidikan, String noHp,
+			String status, Nasabah nasabah) {
 		super();
 		this.id = id;
 		this.nama = nama;
@@ -38,6 +42,8 @@ public class KeluargaNasabah {
 		this.umur = umur;
 		this.pendidikan = pendidikan;
 		this.noHp = noHp;
+		this.status = status;
+		this.nasabah = nasabah;
 	}
 
 	public int getId() {
@@ -86,5 +92,21 @@ public class KeluargaNasabah {
 
 	public void setNoHp(String noHp) {
 		this.noHp = noHp;
+	}
+
+	public Nasabah getNasabah() {
+		return nasabah;
+	}
+
+	public void setNasabah(Nasabah nasabah) {
+		this.nasabah = nasabah;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
 	}
 }
