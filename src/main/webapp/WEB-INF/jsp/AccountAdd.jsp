@@ -36,6 +36,7 @@
 				var elementUmur = $('#umur_kel');
 				var elementNoTelp = $('#no_telp_kel');
 				var elementSubmit = $('#add');
+				var elementClose = $('#close');
 				var oTr = 0;
 
 				elementSubmit.on('click', function(){
@@ -50,15 +51,20 @@
  					var tbody = datatable.find('tbody');
  					//jquery append
  					var tr = "<tr>";
- 					tr += "<td>"+keluarga.nama+"</td>";
- 					tr += "<td>"+keluarga.hubungan+"</td>";
- 					tr += "<td>"+keluarga.pendidikan+"</td>";
- 					tr += "<td>"+keluarga.notelp+"</td>";
- 					tr += "<td>"+keluarga.umur+"</td>";
+ 					tr += "<td class='text-center'>"+keluarga.nama+"</td>";
+ 					tr += "<td class='text-center'>"+keluarga.hubungan+"</td>";
+ 					tr += "<td class='text-center'>"+keluarga.pendidikan+"</td>";
+ 					tr += "<td class='text-center'>"+keluarga.notelp+"</td>";
+ 					tr += "<td class='text-center'>"+keluarga.umur+"</td>";
+ 					tr += "<td class='text-center'><a href='#' class='del btn btn-info btn-danger'>Delete</td>";
  					tr += "</tr>";
  					tbody.append(tr);
 
  					clearForm();
+				});
+
+				elementClose.on('click', function(){
+					clearForm();
 				});
 
 				function clearForm() {
@@ -68,6 +74,12 @@
 					elementUmur.val("");
 					elementNoTelp.val("");
 				}
+
+				$(document).on('click','.del',function(){
+					var row = $(this).closest('tr');
+					row.remove();
+					alert('Data berhasil dihapus..');
+				});
 		});
 	</script>
 </head>
@@ -269,7 +281,7 @@
 		                	</div>
 		                	<!-- <a class = "btn btn-info btn-sm"><span class = "fa fa-fw fa-plus"></span></a> -->
 		                	<button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#add-keluarga"><span class = "fa fa-fw fa-plus"></span></button>
-		                	<br><br>
+		                	<br>
 			                <div class = "from-group">
 			                	<table class = "table table-striped table-bordered table-hover dataTable no-footer dtr-inline" role = "grid" aria-describedby="dataTables-example_info" id="keluarga-dt">
 									<thead class = "kolom">
@@ -279,12 +291,14 @@
 											<th class="text-center">Pendidikan</th>
 											<th class="text-center">No Telp</th>
 											<th class="text-center">Umur</th>
+											<th class="text-center">Action</th>
 										</tr>
 									</thead>
 									<tbody>
 										
 									</tbody>
 								</table>
+								<p class="help-block">Jika sudah meninggal dunia, Input Pendidikan terakhir semasa hidup.</p>
 							</div>
 							<div class = "form-group">
 		                		<label>Ahli Waris : </label>
@@ -356,7 +370,7 @@
 										<input type="text" class="form-control" id="no_telp_kel" placeholder="Masukan Nomer Telp">
 									</div>
 									<div class="modal-footer">
-										<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+										<button type="button" id="close" class="btn btn-default" data-dismiss="modal">Close</button>
 										<button type="button" id="add" class="btn btn-primary" data-dismiss="modal" id="save">add</button>
 									</div>
 								</div>
