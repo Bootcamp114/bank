@@ -39,9 +39,13 @@ public class Employee {
 		// TODO Auto-generated constructor stub
 		
 	}
+	
+	
+
+
 
 	public Employee(int id, String nama, String alamat, String noHp, String email, String username, String password,
-			List<PeminjamanDana> peminjamanDana) {
+			List<PeminjamanDana> peminjamanDana, List<Polis> listPolis) {
 		super();
 		this.id = id;
 		this.nama = nama;
@@ -51,6 +55,7 @@ public class Employee {
 		this.username = username;
 		this.password = password;
 		this.peminjamanDana = peminjamanDana;
+		this.listPolis = listPolis;
 	}
 
 	public int getId() {
@@ -116,6 +121,23 @@ public class Employee {
 	public void setPeminjamanDana(List<PeminjamanDana> peminjamanDana) {
 		this.peminjamanDana = peminjamanDana;
 	}
+
+
+
+
+
+	public List<Polis> getListPolis() {
+		return listPolis;
+	}
+
+
+
+
+
+	public void setListPolis(List<Polis> listPolis) {
+		this.listPolis = listPolis;
+	}
+	
 
 	
 }
