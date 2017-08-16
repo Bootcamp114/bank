@@ -19,7 +19,6 @@ public class PeminjamanDana {
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE)
 	private int id;
-	private String nama;
 	@Column(name="tujuan_penggunaan")
 	private String tujuanPenggunaan;
 	@Column(name="jumlah_pinjam")
@@ -47,12 +46,11 @@ public class PeminjamanDana {
 		// TODO Auto-generated constructor stub
 	}
 
-	public PeminjamanDana(int id, String nama, String tujuanPenggunaan, Double jumlahPinjam, String lamaPinjam,
+	public PeminjamanDana(int id, String tujuanPenggunaan, Double jumlahPinjam, String lamaPinjam,
 			String bungaBank, String tanggalPinjam, String jatuhTempo, String namaJaminan, String deskripsiJaminan,
 			String fileBuktiJaminan, Nasabah nasabah, Employee employee) {
 		super();
 		this.id = id;
-		this.nama = nama;
 		this.tujuanPenggunaan = tujuanPenggunaan;
 		this.jumlahPinjam = jumlahPinjam;
 		this.lamaPinjam = lamaPinjam;
@@ -72,14 +70,6 @@ public class PeminjamanDana {
 
 	public void setId(int id) {
 		this.id = id;
-	}
-
-	public String getNama() {
-		return nama;
-	}
-
-	public void setNama(String nama) {
-		this.nama = nama;
 	}
 
 	public String getTujuanPenggunaan() {

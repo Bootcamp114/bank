@@ -113,6 +113,7 @@
 					<table class = "table table-striped table-bordered table-hover dataTable no-footer dtr-inline" id = "dataTables-example" role = "grid" aria-describedby="dataTables-example_info">
 						<thead class = "kolom">
 							<tr>
+								<th class="text-center">Nama Employee</th>
 								<th class="text-center">Nama Nasabah</th>
 								<th class="text-center">Jaminan</th>
 								<th class="text-center">Jumlah Pinjam</th>
@@ -124,7 +125,8 @@
 						<tbody>
 						<c:forEach var = "peminjamanDana" items = "${peminjamanDana}">
 							<tr>
-								<td class="text-center">${peminjamanDana.nama}</td>
+								<td class="text-center">${peminjamanDana.employee.nama}</td>
+								<td class="text-center">${peminjamanDana.nasabah.nama}</td>
 								<td class="text-center">${peminjamanDana.namaJaminan}</td>
 								<td class="text-center">${peminjamanDana.jumlahPinjam}</td>
 								<td class="text-center">${peminjamanDana.tanggalPinjam}</td>

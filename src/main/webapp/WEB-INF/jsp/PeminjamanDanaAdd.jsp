@@ -21,7 +21,8 @@
 <script type="text/javascript" src="/resources/assets/jquery-3.2.1.min.js"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
-		$("input[name='submit']").on("click", function() {
+		$("input[name='submit']").on("click", function(e) {
+			e.preventDefault();
 			save();
 		});
 	});
@@ -119,7 +120,7 @@
 								<div class="form-group">
 									<label>Nama Nasabah: </label> <select class="form-control" name="nasabah" id="nasabah">
 										<c:forEach var="nasabah" items="${nasabah}">
-											<option value="${nasabah.nama}">${nasabah.nama}</option>
+											<option value="${nasabah.id}">${nasabah.nama}</option>
 										</c:forEach>
 									</select>
 								</div>
@@ -244,8 +245,6 @@
 </body>
 <script type="text/javascript">	
 	function save() {
-		var employee = $('#employee').val();
-		var nasabah = $('#nasabah').val();
 		var tujuanPenggunaan = $('input[name="tujuan_penggunaan"]').val();
 		var jumlahPinjam = $('input[name="jumlah_pinjam"]').val();
 		var lamaPinjam = $('select[name="lama_pinjam"]').val();
@@ -255,6 +254,9 @@
 		var namaJaminan = $('select[name="nama_jaminan"]').val();
 		var deskripsiJaminan = $("textarea[name='deskripsi_jaminan']").val();
 		var fileBuktiJaminan = $('input[name="file_bukti_jaminan"]').val();
+		var nasabah = $('#nasabah').val();
+		var employee = $('#employee').val();
+		
 
 		var pinjamdn = {
 			    tujuanPenggunaan: tujuanPenggunaan,
@@ -282,7 +284,7 @@
 			success : function(data, a, xhr) { 
 				if (xhr.status == 201) {
 					console.log("data berhasil dimasukkan");
-					window.location("./../peminjamandana");
+					window.location = "./../peminjamandana";
 				}
 			}
 		});
