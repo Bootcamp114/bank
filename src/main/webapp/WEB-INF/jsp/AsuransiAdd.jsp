@@ -157,23 +157,25 @@ $(document).ready(function(){
 	                			</select>
 	                		</div>
 	                	<div>
-	                		<textarea class="form-control" rows="6" disabled="disabled"></textarea>
+	                		<textarea class="form-control" rows="9" disabled="disabled"></textarea>
 						</div>
 	                		<div class = "form-group">
 	                			<label>Class Asuransi : </label>
 	                			<select class = "form-control" name = "classAsuransi" id="classAsuransi">
 	                				<c:forEach var = "classAsuransi" items = "${classAsuransi}">
-	                					<option value="${classAsuransi.id}">${classAsuransi.class}</option>
+	                					<option value="${classAsuransi.id}">${classAsuransi.type}</option>
 	                				</c:forEach>
 	                			</select>
 	                		</div>
 	                	<div>
-	                		<textarea class="form-control" rows="6" disabled="disabled"></textarea>
+	                		<textarea class="form-control" rows="9" disabled="disabled" id="classAsuransiDeskripsi" >
+	                		
+	                		</textarea>
 						</div>
 	                		<label>Jumlah Storan / bulan : </label>
 	              			<div class="form-group input-group">
 								<span class="input-group-addon">Rp</span>
-									<input type="text" class="form-control" id="saldo" value="---" disabled>
+									<input type="text" class="form-control" id="storan" value="---" disabled>
 								<span class="input-group-addon">.00</span>
 							</div>
 	                	<br>
@@ -315,7 +317,7 @@ function save(){
 	var no_identitas = $("input[name='no_identitas']").val();
 	var employee = $('#employee').val();
 	var classAsuransi = $('#classAsuransi').val();
-	var produkAsuransi = $('#produkAsuransi');
+	var produkAsuransi = $('#produkAsuransi').val();
 	
 	var polis = {
 		noPolis : no_polis,
@@ -342,7 +344,7 @@ function save(){
 		produkAsuransi : {
 			id : produkAsuransi
 		}
-		
+	
 	}
 	
 	$.ajax({

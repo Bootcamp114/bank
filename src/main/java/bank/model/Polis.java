@@ -25,6 +25,8 @@ public class Polis {
 	private String ahliWaris;
 	@Column(name="tanggal_dibuat")
 	private String tanggalDibuat;
+	@Column(name="jumlah_storan")
+	private String jumlahStoran;
 	@Column(name="nama")
 	private String nama;
 	@Column(name="hubungan")
@@ -61,16 +63,17 @@ public class Polis {
 	public Polis(){
 		
 	}
-
+	
 	public Polis(int id, int noPolis, String ahliWaris, String tanggalDibuat, String nama, String hubungan, int noHp,
 			String email, String tanggalLahir, String jenisIdentitas, String noIdentitas, String pekerjaan,
 			String alamat, String jenisKelamin, String status, String kewarganegaraan, ProdukAsuransi produkAsuransi,
-			ClassAsuransi classAsuransi, Nasabah nasabah, Employee employee) {
+			ClassAsuransi classAsuransi, Nasabah nasabah, Employee employee, String jumlahStoran) {
 		super();
 		this.id = id;
 		this.noPolis = noPolis;
 		this.ahliWaris = ahliWaris;
 		this.tanggalDibuat = tanggalDibuat;
+		this.jumlahStoran = jumlahStoran;
 		this.nama = nama;
 		this.hubungan = hubungan;
 		this.noHp = noHp;
@@ -248,6 +251,12 @@ public class Polis {
 
 	public void setEmployee(Employee employee) {
 		this.employee = employee;
+	}
+	public String getJumlahStoran() {
+		return jumlahStoran;
+	}
+	public void setJumlahStoran(String jumlahStoran) {
+		this.jumlahStoran = jumlahStoran;
 	}
 
 }

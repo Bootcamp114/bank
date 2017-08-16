@@ -30,7 +30,7 @@ public class Employee {
 	private String email;
 	private String username;
 	private String password;
-	@OneToMany(fetch=FetchType.LAZY, mappedBy="employee")
+	@OneToMany(fetch=FetchType.LAZY, mappedBy="employee") 
 	private List<PeminjamanDana> peminjamanDana;
 	@OneToMany(fetch = FetchType.LAZY, mappedBy="employee")
 	private List<Polis> listPolis;
