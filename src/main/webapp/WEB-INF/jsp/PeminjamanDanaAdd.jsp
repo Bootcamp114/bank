@@ -104,7 +104,7 @@
 				<h2 class="page-header">Form Peminjaman Dana</h2>
 				<table align = "right">
                     	<tr>
-                    		<td><select class = "form-control" name="nama_employee">
+                    		<td><select class = "form-control" name="employee" id="employee">
                     			<c:forEach var="employee" items="${employee}">
                     				<option value="${employee.id}">${employee.nama}</option>
                     			</c:forEach>
@@ -117,7 +117,7 @@
 						<div class="col-lg-12">
 							<div class="col-lg-12">
 								<div class="form-group">
-									<label>Nama Nasabah: </label> <select class="form-control" name="nama" id="nama">
+									<label>Nama Nasabah: </label> <select class="form-control" name="nasabah" id="nasabah">
 										<c:forEach var="nasabah" items="${nasabah}">
 											<option value="${nasabah.nama}">${nasabah.nama}</option>
 										</c:forEach>
@@ -244,6 +244,7 @@
 </body>
 <script type="text/javascript">	
 	function save() {
+		var employee = $('#employee').val();
 		var nasabah = $('#nasabah').val();
 		var tujuanPenggunaan = $('input[name="tujuan_penggunaan"]').val();
 		var jumlahPinjam = $('input[name="jumlah_pinjam"]').val();
@@ -256,7 +257,6 @@
 		var fileBuktiJaminan = $('input[name="file_bukti_jaminan"]').val();
 
 		var pinjamdn = {
-			    nama: nama,
 			    tujuanPenggunaan: tujuanPenggunaan,
 			    jumlahPinjam: jumlahPinjam,
 			    lamaPinjam: lamaPinjam,
@@ -267,7 +267,10 @@
 			    deskripsiJaminan: deskripsiJaminan,
 			    fileBuktiJaminan: fileBuktiJaminan,
 			    nasabah : {
-			    	id: nama
+			    	id: nasabah
+			    },
+			    employee : {
+			    	id: employee
 			    }
 		}
 
