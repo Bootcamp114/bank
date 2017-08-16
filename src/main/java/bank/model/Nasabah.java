@@ -69,7 +69,7 @@ public class Nasabah {
 			String alamat, String noHp, String email, String tempatLahir, String tanggalLahir, String jenisKel,
 			String pekerjaan, Double penghasilan, String npwp, String rekomendasiPerusahaan, String status,
 			String ahliWaris, Rekening rekening, ProdukNasabah produkNasabah, Employee employee,
-			List<KeluargaNasabah> keluargaNasabah) {
+			List<KeluargaNasabah> keluargaNasabah, List<PeminjamanDana> peminjamanDana) {
 		super();
 		this.id = id;
 		this.noRek = noRek;
@@ -93,6 +93,7 @@ public class Nasabah {
 		this.produkNasabah = produkNasabah;
 		this.employee = employee;
 		this.keluargaNasabah = keluargaNasabah;
+		this.peminjamanDana = peminjamanDana;
 	}
 
 	public int getId() {
@@ -270,4 +271,14 @@ public class Nasabah {
 	public void setKeluargaNasabah(List<KeluargaNasabah> keluargaNasabah) {
 		this.keluargaNasabah = keluargaNasabah;
 	}
+
+	public List<PeminjamanDana> getPeminjamanDana() {
+		return peminjamanDana;
+	}
+
+	public void setPeminjamanDana(List<PeminjamanDana> peminjamanDana) {
+		this.peminjamanDana = peminjamanDana;
+	}
+
+	
 }

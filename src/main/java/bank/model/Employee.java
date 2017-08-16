@@ -38,7 +38,8 @@ public class Employee {
 		
 	}
 
-	public Employee(int id, String nama, String alamat, String noHp, String email, String username, String password) {
+	public Employee(int id, String nama, String alamat, String noHp, String email, String username, String password,
+			List<PeminjamanDana> peminjamanDana) {
 		super();
 		this.id = id;
 		this.nama = nama;
@@ -47,6 +48,7 @@ public class Employee {
 		this.email = email;
 		this.username = username;
 		this.password = password;
+		this.peminjamanDana = peminjamanDana;
 	}
 
 	public int getId() {
@@ -104,4 +106,14 @@ public class Employee {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+
+	public List<PeminjamanDana> getPeminjamanDana() {
+		return peminjamanDana;
+	}
+
+	public void setPeminjamanDana(List<PeminjamanDana> peminjamanDana) {
+		this.peminjamanDana = peminjamanDana;
+	}
+
+	
 }

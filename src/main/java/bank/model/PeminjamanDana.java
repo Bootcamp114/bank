@@ -43,9 +43,13 @@ public class PeminjamanDana {
 	@ManyToOne
 	private Employee employee;
 
+	public PeminjamanDana() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public PeminjamanDana(int id, String nama, String tujuanPenggunaan, Double jumlahPinjam, String lamaPinjam,
 			String bungaBank, String tanggalPinjam, String jatuhTempo, String namaJaminan, String deskripsiJaminan,
-			String fileBuktiJaminan, Nasabah nasabah) {
+			String fileBuktiJaminan, Nasabah nasabah, Employee employee) {
 		super();
 		this.id = id;
 		this.nama = nama;
@@ -59,8 +63,9 @@ public class PeminjamanDana {
 		this.deskripsiJaminan = deskripsiJaminan;
 		this.fileBuktiJaminan = fileBuktiJaminan;
 		this.nasabah = nasabah;
+		this.employee = employee;
 	}
-	
+
 	public int getId() {
 		return id;
 	}
@@ -157,8 +162,14 @@ public class PeminjamanDana {
 		this.nasabah = nasabah;
 	}
 
-	public PeminjamanDana() {
-		// TODO Auto-generated constructor stub
+	public Employee getEmployee() {
+		return employee;
 	}
+
+	public void setEmployee(Employee employee) {
+		this.employee = employee;
+	}
+	
+	
 	
 }
