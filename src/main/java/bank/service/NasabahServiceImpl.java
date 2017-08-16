@@ -5,7 +5,10 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import bank.dao.KeluargaNasabahDao;
 import bank.dao.NasabahDao;
+import bank.model.KeluargaNasabah;
 import bank.model.Nasabah;
 
 @Service
@@ -14,11 +17,17 @@ public class NasabahServiceImpl implements NasabahService {
 
 	@Autowired
 	NasabahDao nasabahDao;
+	@Autowired
+	KeluargaNasabahDao keluargaNasabahDao;
 
 	@Override
 	public void save(Nasabah nasabah) {
 		// TODO Auto-generated method stub
 		nasabahDao.save(nasabah);
+		for (KeluargaNasabah keluarga : nasabah.getKeluargaNasabah()) {
+			keluarga.getNasabah().setId(nasabah.getId());
+			keluargaNasabahDao.save(keluarga);
+		}
 	}
 
 	@Override

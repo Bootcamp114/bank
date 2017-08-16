@@ -13,18 +13,27 @@
 
 		<title>Insert title here</title>
 
-	<link href="./../../resources/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-	<link href="./../../resources/assets/vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
-	<link href="./../../resources/assets/css/sb-admin-2.css" rel="stylesheet">
-	<link href="./../../resources/assets/vendor/morrisjs/morris.css" rel="stylesheet">
-	<link href="./../../resources/assets/vendor/font-awesome/css/font-awesome.min.css"
-		rel="stylesheet" type="text/css">
-		
-	<script type="text/javascript"
-		src="/resources/assets/jquery-3.2.1.min.js"></script>
+	<link href="/resources/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+	<link href="/resources/assets/css/bootstrap-theme.min.css" rel="stylesheet" />
+	<link href="/resources/assets/css/sb-admin-2.css" rel="stylesheet" />
+	<link href="/resources/assets/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="/resources/assets/jquery-ui-1.12.1/jquery-ui.css">
+	<link href="/resources/assets/jquery-ui-1.12.1/jquery-ui.js"></script>
+	<script type="text/javascript" src="/resources/assets/jquery-3.2.1.min.js"></script>
+	<script>
+		$(function() {
+			$( "#tanggal_lahirr" ).on("click", function(){
+				alert();
+			});
+		} );
+	</script>
 	<script type="text/javascript">
+	var nasabah;
 		$(document).ready(function(){
+			var keluarga;
+
 			$("#submit").on("click", function(e){
+				console.log(nasabah);
 				e.preventDefault();
 				save();
 			});
@@ -40,7 +49,7 @@
 				var oTr = 0;
 
 				elementSubmit.on('click', function(){
- 					var keluarga = {
+ 					var keluarga1 = {
  						nama : elementNama.val(),
  						hubungan : elementHubungan.val(),
  						pendidikan : elementPendidikan.val(),
@@ -51,11 +60,11 @@
  					var tbody = datatable.find('tbody');
  					//jquery append
  					var tr = "<tr>";
- 					tr += "<td class='text-center'>"+keluarga.nama+"</td>";
- 					tr += "<td class='text-center'>"+keluarga.hubungan+"</td>";
- 					tr += "<td class='text-center'>"+keluarga.pendidikan+"</td>";
- 					tr += "<td class='text-center'>"+keluarga.notelp+"</td>";
- 					tr += "<td class='text-center'>"+keluarga.umur+"</td>";
+ 					tr += "<td name='nama_kel' class='text-center'>"+keluarga1.nama+"</td>";
+ 					tr += "<td name='hubungan_kel' class='text-center'>"+keluarga1.hubungan+"</td>";
+ 					tr += "<td name='pendidikan_kel' class='text-center'>"+keluarga1.pendidikan+"</td>";
+ 					tr += "<td name='no_telp_kel' class='text-center'>"+keluarga1.notelp+"</td>";
+ 					tr += "<td name='umur' class='text-center'>"+keluarga1.umur+"</td>";
  					tr += "<td class='text-center'><a href='#' class='del btn btn-info btn-danger'>Delete</td>";
  					tr += "</tr>";
  					tbody.append(tr);
@@ -216,7 +225,7 @@
 	                		</div>
 	                		<div class = "form-group">
 	                			<label>Tanggal Lahir : </label>
-	                			<input class = "form-control" name = "tanggal_lahir" type = "date">
+	                			<input class = "form-control" name = "tanggal_lahir" type = "date" id="tanggal_lahir">
 	                		</div>
 	                		<div class = "form-group">
 	                			<label>No Hp : </label>
@@ -366,7 +375,7 @@
 										<input type="text" class="form-control" id="umur_kel" placeholder="Masukan Umur">
 									</div>
 									<div class="form-group">
-										<label>Nomer Telpon</label>
+										<label>Nomer Telepon</label>
 										<input type="text" class="form-control" id="no_telp_kel" placeholder="Masukan Nomer Telp">
 									</div>
 									<div class="modal-footer">
@@ -446,10 +455,10 @@
 			var rekening = $('#rekening').val();
 			var employee = $('#employee').val();
 
-			var nasabah = {
+			nasabah = {
 				noRek : no_rek,
 				nama : nama,
-				jenisIdentitas : jenis_identitas	,
+				jenisIdentitas : jenis_identitas,
 				noIdentitas : no_identitas,
 				wargaNegara : warga_negara,
 				alamat : alamat,
@@ -472,21 +481,69 @@
 				},
 				employee : {
 					id : employee
-				}
+				},
+				keluargaNasabah : [
+					
+				]
 			}
+
+			var table = $("#keluarga-dt");
+			var tbody = table.find('tbody');
+			var tr = tbody.find('tr');
+			var families = [];
+			$.each(tr, function(index, data){
+				/* console.log(index, data); */
+				/* var td = data.find('td').eq(0); */
+				/* console.log($(this).find('td').eq(0).text()); */
+				keluarga = {
+						nama : $(this).find('td').eq(0).text(),
+						hubunganKel : $(this).find('td').eq(1).text(),
+						pendidikan : $(this).find('td').eq(2).text(),
+						umur : $(this).find('td').eq(4).text(),
+						noHp : $(this).find('td').eq(3).text()
+						/* nasabah : {
+							id : "1"
+						} */
+					}
+				
+				nasabah.keluargaNasabah.push(keluarga);
+			});
+			/* console.log(nasabah); */
 
 			$.ajax({
 				url : '/nasabah/save',
 				type : 'POST',
 				contentType : 'application/json',
 				data : JSON.stringify(nasabah), // Convert object to string
-				success : function(data, a, xhr) {
-					console.log(xhr.status);
-					if (xhr.status == 201) {
-						window.location = "./../account";
-					}
+				dataType : 'JSON',
+				success : function(data) {
+					console.log(data);
+					/* if (xhr.status == 201) { */
+						//window.location = "./../account";
+						
+					/* } */
 				}
 			});
+
+			/* Keluarga */
+			var nama_kel = $('input[name="nama_kel"]').val();
+			var hubungan_kel = $('input[name="hubungan_kel"]').val();
+			var pendidikan_kel = $('input[name="pendidikan_kel"]').val();
+			var umur_kel = $('input[name="umur_kel"]').val();
+			var no_telp_kel = $('input[name="no_telp_kel"]').val();
+			var nasabah = "1";
+
+			var keluarga = {
+				nama : nama_kel,
+				hubungan_kel : hubungan_kel,
+				pendidikan : pendidikan_kel,
+				umur : umur_kel,
+				no_telp : no_telp_kel,
+				nasabah : {
+					id : nasabah
+				}
+			}
+			/* End */
 		}
 	</script>
 </html>

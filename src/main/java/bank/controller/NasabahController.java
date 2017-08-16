@@ -39,10 +39,12 @@ public class NasabahController {
 	KeluargaNasabahService keluargaNasabahService;
 
 	/* Nasabah */
+	@ResponseBody
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
 	@ResponseStatus(value = HttpStatus.CREATED)
-	public void save(@RequestBody Nasabah nasabah) {
+	public Nasabah save(@RequestBody Nasabah nasabah) {
 		nasabahService.save(nasabah);
+		return nasabah;
 	}
 
 	@RequestMapping(value = "/delete/{id}", method = RequestMethod.DELETE)
