@@ -25,7 +25,6 @@ public class NasabahServiceImpl implements NasabahService {
 		// TODO Auto-generated method stub
 		nasabahDao.save(nasabah);
 		for (KeluargaNasabah keluarga : nasabah.getKeluargaNasabah()) {
-			// keluarga.getNasabah().setId(nasabah.getId());
 			keluarga.setNasabah(nasabah);
 			keluargaNasabahDao.save(keluarga);
 		}

@@ -90,26 +90,12 @@
 					alert('Data berhasil dihapus..');
 				});
 
-				$(document).on("click", ".pilihRek", function(){
-					var idRek = $(this).attr("idPilihRek");
-					$.ajax({
-						url : "/nasabah/getrekeningbyid/" + idRek,
-						type : "GET",
-						success : function(data){
-							pilihRek(data);
-						}
-					});
+				$("#rekening").on("change", function(){
+					showRekening();
 				});
 
-				$(document).on("click", ".pilihPro", function(){
-					var idPro = $(this).attr("idPilihPro");
-					$.ajax({
-						url : "/nasabah/getprodukbyid/" + idPro,
-						type : "GET",
-						success : function(data){
-							pilihPro(data);
-						}
-					});
+				$("#produk").on("change", function(){
+					showProduk();
 				});
 		});
 	</script>
@@ -191,7 +177,7 @@
                     <h1 class="page-header">Buat Akun Nasabah<table align = "right">
                     	<tr>
                     		<td><select class = "form-control" name = "employee" id="employee">
-                    			<option>-- Pilih Karyawan --</option>
+                    			<option> </option>
                     			<c:forEach var = "employee" items = "${employee}">
 	                				<option value="${employee.id}">${employee.nama}</option>
 	                			</c:forEach>
@@ -271,7 +257,7 @@
 	                		<div class = "form-group">
 	                			<label>Rekening : </label>
 	                			<select class = "form-control" name = "rekening" id="rekening">
-	                			<option>-- Pilih Rekening --</option>
+	                			<option> </option>
 	                				<c:forEach var = "rekening" items = "${rekening}">
 	                					<option class="pilihRek" idPilihRek="${rekening.id}" value="${rekening.id}">${rekening.rekening}</option>
 	                				</c:forEach>
@@ -280,25 +266,30 @@
 	               			<div class = "form-group">
 	                			<label>Produk : </label>
 	                			<select class = "form-control" name = "produk" id="produk">
-	                			<option>-- Pilih Produk --</option>
+	                			<option> </option>
 	                				<c:forEach var = "produkNasabah" items = "${produkNasabah}">
 	                					<option class="pilihPro" idPilihPro="${produkNasabah.id}" value="${produkNasabah.id}">${produkNasabah.namaProduk}</option>
 	                				</c:forEach>
 	                			</select>
 	                		</div>
-							<label>Saldo : </label>
+							<label>Saldo Minimal : </label>
 	              			<div class="form-group input-group">
 								<span class="input-group-addon">Rp</span>
 									<input type="text" class="form-control" id="saldo" value="---" disabled>
 								<span class="input-group-addon">.00</span>
 							</div>
-	              			<label>Pembayaran : </label>
+	              			<label>Harga Produk : </label>
 	               			<div class="form-group input-group">
 								<span class="input-group-addon">Rp</span>
 	                				<input type="text" class="form-control" id="pembayaran" value = "---" disabled>
 								<span class="input-group-addon">.00</span>
 							</div>
-								
+							<label>Total Pembayaran : </label>
+	               			<div class="form-group input-group">
+								<span class="input-group-addon">Rp</span>
+	                				<input type="text" class="form-control" id="total" disabled>
+								<span class="input-group-addon">.00</span>
+							</div>
 							<div class = "col-lg-12">
 								<h1 class="page-header">Keluarga</h1>
 							</div>
@@ -534,22 +525,53 @@
 				contentType : 'application/json',
 				data : JSON.stringify(nasabah), // Convert object to string
 				dataType : 'JSON',
-				success : function(data) {
-					console.log(data);
-					/* if (xhr.status == 201) { */
-						//window.location = "./../account";
-						
-					/* } */
+				success : function(data, a, xhr) {
+					console.log(xhr.status);
+					if (xhr.status == 201) {
+						window.location = "./../account";			
+					}
 				}
 			});
 		}
 
-		function pilihRek(data) {
+		function pilihReke(data) {
 			$("#saldo").val(data.saldo);
 		}
 
-		function pilihPro(data) {
-			$("#produk").val(data.harga);
+		function pilihProd(data) {
+			$("#pembayaran").val(data.harga);
 		}
+
+		
+		function showRekening() {
+			var idRek = $('#rekening').val();
+			$.ajax({
+				url : "/nasabah/rekening/getrekeningbyid/" + idRek,
+				type : "GET",
+				success : function(data){
+					pilihReke(data);
+					total();
+				}
+			});
+		}
+
+		function showProduk() {
+			var idPro = $('#produk').val();
+			$.ajax({
+				url : "/nasabah/produknasabah/getprodukbyid/" + idPro,
+				type : "GET",
+				success : function(data){
+					pilihProd(data);
+					total();
+				}
+			});
+		}
+		
+		function total() {
+			var saldo = parseFloat($("#saldo").val());
+			var pembayaran = parseFloat($("#pembayaran").val());
+			$("#total").val(saldo+pembayaran);
+		}
+
 	</script>
 </html>

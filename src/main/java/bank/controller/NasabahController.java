@@ -63,10 +63,9 @@ public class NasabahController {
 	}
 
 	@ResponseBody
-	@RequestMapping(value = "/rekening/getprodukbyid/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "/produknasabah/getprodukbyid/{id}", method = RequestMethod.GET)
 	@ResponseStatus(value = HttpStatus.OK)
 	public ProdukNasabah getprodukbyid(@PathVariable int id) {
-		
 		return produkNasabahService.getProdukNasabahById(id);
 	}
 
@@ -87,7 +86,6 @@ public class NasabahController {
 	@RequestMapping(value = "/rekening/getrekeningbyid/{id}", method = RequestMethod.GET)
 	@ResponseStatus(value = HttpStatus.OK)
 	public Rekening getrekeningbyid(@PathVariable int id) {
-		
 		return rekeningService.getRekeningById(id);
 	}
 

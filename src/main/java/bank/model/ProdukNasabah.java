@@ -23,7 +23,7 @@ public class ProdukNasabah {
 	private int id;
 	@Column(name = "nama_produk")
 	private String namaProduk;
-	private Double harga;
+	private int harga;
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "produkNasabah")
 	private List<Nasabah> nasabah;
 	// Nasabah (One To Many)
@@ -32,7 +32,7 @@ public class ProdukNasabah {
 		// TODO Auto-generated constructor stub
 	}
 
-	public ProdukNasabah(int id, String namaProduk, Double harga) {
+	public ProdukNasabah(int id, String namaProduk, int harga) {
 		super();
 		this.id = id;
 		this.namaProduk = namaProduk;
@@ -55,11 +55,11 @@ public class ProdukNasabah {
 		this.namaProduk = namaProduk;
 	}
 
-	public Double getHarga() {
+	public int getHarga() {
 		return harga;
 	}
 
-	public void setHarga(Double harga) {
+	public void setHarga(int harga) {
 		this.harga = harga;
 	}
 }

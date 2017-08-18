@@ -22,7 +22,7 @@ public class Rekening {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private int id;
 	private String rekening;
-	private Double saldo;
+	private int saldo;
 	@Column(name = "administrasi_bulanan")
 	private Double administrasiBulanan;
 	@Column(name = "biaya_tutup_rekening")
@@ -35,7 +35,7 @@ public class Rekening {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Rekening(int id, String rekening, Double saldo, Double administrasiBulanan, Double biayaTutupRekening,
+	public Rekening(int id, String rekening, int saldo, Double administrasiBulanan, Double biayaTutupRekening,
 			List<Nasabah> nasabah) {
 		super();
 		this.id = id;
@@ -62,11 +62,11 @@ public class Rekening {
 		this.rekening = rekening;
 	}
 
-	public Double getSaldo() {
+	public int getSaldo() {
 		return saldo;
 	}
 
-	public void setSaldo(Double saldo) {
+	public void setSaldo(int saldo) {
 		this.saldo = saldo;
 	}
 
