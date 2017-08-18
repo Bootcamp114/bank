@@ -134,7 +134,7 @@
 	               		</div>
 	               		<div class = "form-group">
 		                	<label>Password : </label>
-		               		<input class = "form-control" name = "password">
+		               		<input type="password" class = "form-control" name = "password">
 	               		</div>
 	                <button type="submit" id = "submit" class="btn btn-success">Submit Button</button>
 					<button type="reset" class="btn btn-warning">Reset Button</button>

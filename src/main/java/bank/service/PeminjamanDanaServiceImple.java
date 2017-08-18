@@ -6,7 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import bank.dao.MyFileDao;
 import bank.dao.PeminjamanDanaDao;
+import bank.model.MyFiles;
 import bank.model.PeminjamanDana;
 
 @Service
@@ -15,11 +17,17 @@ public class PeminjamanDanaServiceImple implements PeminjamanDanaService {
 	
 	@Autowired
 	PeminjamanDanaDao pinjamDnDao;
+	@Autowired
+	MyFileDao myFileDao;
 
 	@Override
 	public void save(PeminjamanDana pinjamdn) {
 		// TODO Auto-generated method stub
 		pinjamDnDao.save(pinjamdn);
+		for(MyFiles myFile : pinjamdn.getMyFiles()) {
+			myFile.setPeminjamanDana(pinjamdn);
+			myFileDao.save(myFile);
+		}
 	}
 
 	@Override

@@ -45,8 +45,6 @@ public class PeminjamanDana {
 	private String namaJaminan;
 	@Column(name="deskripsi_jaminan")
 	private String deskripsiJaminan;
-	@Column(name="file_bukti_jaminan")
-	private String fileBuktiJaminan;
 	@ManyToOne
 	private Nasabah nasabah;
 	@ManyToOne
@@ -60,7 +58,7 @@ public class PeminjamanDana {
 
 	public PeminjamanDana(int id, String tujuanPenggunaan, Double jumlahPinjam, String lamaPinjam, String bungaBank,
 			String tanggalPinjam, Double angsuranBunga, Double angsuranPokok, Double totalAngsuran, String jatuhTempo,
-			String namaJaminan, String deskripsiJaminan, String fileBuktiJaminan, Nasabah nasabah, Employee employee,
+			String namaJaminan, String deskripsiJaminan, Nasabah nasabah, Employee employee,
 			List<MyFiles> myFiles) {
 		super();
 		this.id = id;
@@ -75,7 +73,6 @@ public class PeminjamanDana {
 		this.jatuhTempo = jatuhTempo;
 		this.namaJaminan = namaJaminan;
 		this.deskripsiJaminan = deskripsiJaminan;
-		this.fileBuktiJaminan = fileBuktiJaminan;
 		this.nasabah = nasabah;
 		this.employee = employee;
 		this.myFiles = myFiles;
@@ -175,14 +172,6 @@ public class PeminjamanDana {
 
 	public void setDeskripsiJaminan(String deskripsiJaminan) {
 		this.deskripsiJaminan = deskripsiJaminan;
-	}
-
-	public String getFileBuktiJaminan() {
-		return fileBuktiJaminan;
-	}
-
-	public void setFileBuktiJaminan(String fileBuktiJaminan) {
-		this.fileBuktiJaminan = fileBuktiJaminan;
 	}
 
 	public Nasabah getNasabah() {
