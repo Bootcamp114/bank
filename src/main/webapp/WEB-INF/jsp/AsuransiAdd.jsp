@@ -32,6 +32,10 @@ $(document).ready(function(){
 		e.preventDefault();
 		save();
 	});
+	
+	$("#produkAsuransi").on('change', function(){
+		showData();
+	});
 });
 	
 
@@ -69,40 +73,40 @@ $(document).ready(function(){
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
                         <li>
-                            <a href="./../index"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                            <a href="index"><i class="fa fa-dashboard fa-fw"></i> Menu Utama</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-wrench fa-fw"></i> Component Bank<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-wrench fa-fw"></i> Komponen Bank<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="#">Employee</a>
+                                    <a href="karyawan">Karyawan</a>
                                 </li>
                                 <li>
-                                    <a href="#">Product Nasabah</a>
+                                    <a href="produknasabah">Produk Nasabah</a>
                                 </li>
                                 <li>
-                                    <a href="#">Product Asuransi</a>
+                                    <a href="#">Produk Asuransi</a>
                                 </li>
                                 <li>
-                                    <a href="#">Info Rekening</a>
+                                    <a href="rekening">Info Rekening</a>
                                 </li>
                                 <li>
                                     <a href="#">Info Setoran Asuransi</a>
                                 </li>
                                 <li>
-                                    <a href="#"> Class Asuransi</a>
+                                    <a href="classasuransi"> Kelas Asuransi</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="./../asuransi"><i class="fa fa-table fa-fw"></i> Health Insurance</a>
+                            <a href="asuransi"><i class="fa fa-table fa-fw"></i> Asuransi Kesehatan</a>
                         </li>
                         <li>
-                            <a href="./../peminjamandana"><i class="fa fa-edit fa-fw"></i> Loan Funds</a>
+                            <a href="peminjamandana"><i class="fa fa-edit fa-fw"></i> Peminjaman Dana</a>
                         </li>
                         <li>
-                            <a href="./../account"><i class="fa fa-book fa-fw"></i> Create Nasabah Account</a>
+                            <a href="account"><i class="fa fa-book fa-fw"></i> Nasabah</a>
                         </li>
                     </ul>
                 </div>
@@ -117,6 +121,7 @@ $(document).ready(function(){
                     <h1 class="page-header">Tambah Polis<table align = "right">
                     	<tr>
                     		<td><select class = "form-control" name = "employee" id="employee">
+                    			<option>-customer serviec-</option>
                     			<c:forEach var = "employee" items = "${employee}">
 	                				<option value="${employee.id}">${employee.nama}</option>
 	                			</c:forEach>
@@ -124,7 +129,7 @@ $(document).ready(function(){
                     	</tr>
                     </table></h1>
                 </div>
-				<!-- /.col-lg-12 -->
+				<!-- /.col-lg-12 -->to
 			</div>
 			<!-- /.row -->
 			<div class="row">
@@ -138,7 +143,12 @@ $(document).ready(function(){
 	                		</div>
 	                		<div class = "form-group">
 	                			<label>Nama Penanggung : </label>
-	                			<input class = "form-control" name = "nama_penanggung" required autofocus>
+	                			<select class = "form-control" name = "nasabah" id="nasabah">
+	                				<option>-pilih nama nasabah-</option>
+	                			<c:forEach var = "nasabah" items = "${nasabah}">
+									<option value="${nasabah.id}">${nasabah.nama}</option>
+								</c:forEach>
+								</select>
 	                		</div>
 	                		<div class = "form-group">
 	                			<label>Ahli Waris : </label>
@@ -151,8 +161,9 @@ $(document).ready(function(){
 	                		<div class = "form-group">
 	                			<label>Produk Asuransi : </label>
 	                			<select class = "form-control" name = "produkAsuransi" id="produkAsuransi">
+	                				<option>-pilih produk asuransi-</option>
 	                				<c:forEach var = "produkAsuransi" items = "${produkAsuransi}">
-	                					<option value="${produkAsuransi.id}">${produkAsuransi.produk}</option>
+									<option value="${produkAsuransi.id}">${produkAsuransi.produk}</option>
 	                				</c:forEach>
 	                			</select>
 	                		</div>
@@ -162,6 +173,7 @@ $(document).ready(function(){
 	                		<div class = "form-group">
 	                			<label>Class Asuransi : </label>
 	                			<select class = "form-control" name = "classAsuransi" id="classAsuransi">
+	                				<option>-pilih class asuransi-</option>
 	                				<c:forEach var = "classAsuransi" items = "${classAsuransi}">
 	                					<option value="${classAsuransi.id}">${classAsuransi.type}</option>
 	                				</c:forEach>
@@ -175,7 +187,7 @@ $(document).ready(function(){
 	                		<label>Jumlah Storan / bulan : </label>
 	              			<div class="form-group input-group">
 								<span class="input-group-addon">Rp</span>
-									<input type="text" class="form-control" id="storan" value="---" disabled>
+									<input type="text" class="form-control" id="storan" name ="storan" value="" disabled>
 								<span class="input-group-addon">.00</span>
 							</div>
 	                	<br>
@@ -318,6 +330,7 @@ function save(){
 	var employee = $('#employee').val();
 	var classAsuransi = $('#classAsuransi').val();
 	var produkAsuransi = $('#produkAsuransi').val();
+	var nasabah = $('#nasabah').val();
 	
 	var polis = {
 		noPolis : no_polis,
@@ -343,6 +356,9 @@ function save(){
 		},
 		produkAsuransi : {
 			id : produkAsuransi
+		},
+		nasabah : {
+			id : nasabah
 		}
 	
 	}
@@ -354,7 +370,27 @@ function save(){
 		data : JSON.stringify(polis),
 		success : function(data, a, xhr){
 			console.log(xhr.status);
+			if ( xhr.status == 201) {
+				window.location ="./../asuransi"
+			}
 			
+		}
+	});
+}
+
+function Produk(data){
+	$('input[name="storan"]').val(data.jumlahStoran);
+}
+
+function showData(){
+	var id = $('#produkAsuransi').val();
+	$.ajax({
+		url : '/bank/getById/'+id,
+		type : 'GET',
+		dataType : 'json',
+		success : function(data, x, xhr) {
+			console.log("data is loaded");
+			Produk(data);
 		}
 	});
 }

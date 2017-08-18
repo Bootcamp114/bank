@@ -3,15 +3,21 @@ package bank.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.ResponseStatus;
 
 import bank.model.ClassAsuransi;
 import bank.model.Employee;
 import bank.model.KeluargaNasabah;
 import bank.model.Nasabah;
 import bank.model.PeminjamanDana;
+import bank.model.Polis;
 import bank.model.ProdukAsuransi;
 import bank.model.ProdukNasabah;
 import bank.model.Rekening;
@@ -20,6 +26,7 @@ import bank.service.EmployeeService;
 import bank.service.KeluargaNasabahService;
 import bank.service.NasabahService;
 import bank.service.PeminjamanDanaService;
+import bank.service.PolisService;
 import bank.service.ProdukAsuransiService;
 import bank.service.ProdukNasabahService;
 import bank.service.RekeningService;
@@ -47,6 +54,9 @@ public class UrlController {
 	ClassAsuransiService classAsuransiService;
 	@Autowired
 	ProdukAsuransiService produkAsuransiService;
+	@Autowired
+	PolisService polisService; 
+	
 
 	@RequestMapping("/login")
 	public String login() {
@@ -144,8 +154,9 @@ public class UrlController {
 	}
 
 	@RequestMapping("/asuransi")
-	public String ansuransi() {
-
+	public String ansuransi(Model model) {
+		List<Polis> polis = polisService.getAllPolis();
+		model.addAttribute("polis",polis);
 		return "Asuransi";
 	}
 
@@ -155,6 +166,7 @@ public class UrlController {
 		List<ProdukAsuransi> produkAsuransi = produkAsuransiService.getAllProdkAsuransi();
 		List<Employee> employee = employeeService.getAllEmployee();
 		List<Nasabah> nasabah = nasabahService.getAllNasabah();
+		
 		String noPolis = appUtils.getNoPolis();
 		model.addAttribute("classAsuransi", classAsuransi);
 		model.addAttribute("produkAsuransi", produkAsuransi);
@@ -162,6 +174,21 @@ public class UrlController {
 		model.addAttribute("nasabah", nasabah);
 		model.addAttribute("noPolis", noPolis);
 		return "AsuransiAdd";
+	}
+	
+
+	@ResponseBody
+	@RequestMapping(value="/getById/{id}",method=RequestMethod.GET)
+	@ResponseStatus(value=HttpStatus.OK)
+	public ProdukAsuransi getProdukAsuransiById(@PathVariable int id){
+		return produkAsuransiService.getProdukAsuransiById(id);
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="/getbyid/{id}",method=RequestMethod.GET)
+	@ResponseStatus(value=HttpStatus.OK)
+	public ClassAsuransi getClassAsuransiById(@PathVariable int id){
+		return classAsuransiService.getClassAsuransiById(id);	
 	}
 
 	@RequestMapping("/classasuransi")
