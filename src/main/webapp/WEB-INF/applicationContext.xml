@@ -32,6 +32,7 @@
 				<value>bank.model.ProdukAsuransi</value>
 				<value>bank.model.ProdukNasabah</value>
 				<value>bank.model.Rekening</value>
+				<value>bank.model.MyFiles</value>
 			</list>
 		</property>
 		<property name="hibernateProperties">

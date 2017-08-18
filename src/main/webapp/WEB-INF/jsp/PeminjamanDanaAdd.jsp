@@ -87,40 +87,40 @@
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
                         <li>
-                            <a href="./../index"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                            <a href="index"><i class="fa fa-dashboard fa-fw"></i> Menu Utama</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-wrench fa-fw"></i> Component Bank<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-wrench fa-fw"></i> Komponen Bank<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="#">Employee</a>
+                                    <a href="karyawan">Karyawan</a>
                                 </li>
                                 <li>
-                                    <a href="#">Product Nasabah</a>
+                                    <a href="produknasabah">Produk Nasabah</a>
                                 </li>
                                 <li>
-                                    <a href="#">Product Asuransi</a>
+                                    <a href="#">Produk Asuransi</a>
                                 </li>
                                 <li>
-                                    <a href="#">Info Rekening</a>
+                                    <a href="rekening">Info Rekening</a>
                                 </li>
                                 <li>
                                     <a href="#">Info Setoran Asuransi</a>
                                 </li>
                                 <li>
-                                    <a href="#"> Class Asuransi</a>
+                                    <a href="classasuransi"> Kelas Asuransi</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="./../asuransi"><i class="fa fa-table fa-fw"></i> Health Insurance</a>
+                            <a href="asuransi"><i class="fa fa-table fa-fw"></i> Asuransi Kesehatan</a>
                         </li>
                         <li>
-                            <a href="./../peminjamandana"><i class="fa fa-edit fa-fw"></i> Loan Funds</a>
+                            <a href="peminjamandana"><i class="fa fa-edit fa-fw"></i> Peminjaman Dana</a>
                         </li>
                         <li>
-                            <a href="./../account"><i class="fa fa-book fa-fw"></i> Create Nasabah Account</a>
+                            <a href="account"><i class="fa fa-book fa-fw"></i> Nasabah</a>
                         </li>
                     </ul>
                 </div>
@@ -182,7 +182,7 @@
 							<div class="col-lg-12">
 								<div class="form-group" id="filesContainer">
 									<label>Masukkan Dokumen : </label> <input type="file"
-										name="file_bukti_jaminan" />
+										name="file_bukti_jaminan" id="file_bukti_jaminan" />
 								</div>
 							</div>
 						</div>
@@ -299,6 +299,8 @@
 		var namaJaminan = $('select[name="nama_jaminan"]').val();
 		var deskripsiJaminan = $("textarea[name='deskripsi_jaminan']").val();
 		var fileBuktiJaminan = $('input[name="file_bukti_jaminan"]').val();
+		var fd = new FormData();    
+		fd.append( 'theFile', $('#file_bukti_jaminan')[0].files[0]);
 		var nasabah = $('#nasabah').val();
 		var employee = $('#employee').val();
 		
@@ -323,6 +325,19 @@
 			    	id: employee
 			    }
 		}
+		
+		$.ajax({
+			  url: 'pinjamdana/doupload',
+			  data: fd,
+			  enctype: 'multipart/form-data',
+			  processData: false,
+			  contentType: false,
+			  type: 'POST',
+			  success: function(data){
+				alert(data);
+			  }
+			});
+
 
 		$.ajax({
 			url : '/pinjamdana/save',
