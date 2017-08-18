@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page isELIgnored="false" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -17,7 +19,16 @@
 	<link href="./../resources/assets/vendor/morrisjs/morris.css" rel="stylesheet">
 	<link href="./../resources/assets/vendor/font-awesome/css/font-awesome.min.css"
 		rel="stylesheet" type="text/css">
-		
+<script type="text/javascript" src="/resources/assets/jquery-3.2.1.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	
+	$(document).on('click','.delete', function(){
+		doDelete(this);
+	});
+});
+
+</script>
 </head>
 <body>
 
@@ -50,40 +61,40 @@
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
                         <li>
-                            <a href="index"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                            <a href="index"><i class="fa fa-dashboard fa-fw"></i> Menu Utama</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-wrench fa-fw"></i> Component Bank<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-wrench fa-fw"></i> Komponen Bank<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="#">Employee</a>
+                                    <a href="karyawan">Karyawan</a>
                                 </li>
                                 <li>
-                                    <a href="#">Product Nasabah</a>
+                                    <a href="produknasabah">Produk Nasabah</a>
                                 </li>
                                 <li>
-                                    <a href="#">Product Asuransi</a>
+                                    <a href="#">Produk Asuransi</a>
                                 </li>
                                 <li>
-                                    <a href="#">Info Rekening</a>
+                                    <a href="rekening">Info Rekening</a>
                                 </li>
                                 <li>
                                     <a href="#">Info Setoran Asuransi</a>
                                 </li>
                                 <li>
-                                    <a href="#"> Class Asuransi</a>
+                                    <a href="classasuransi"> Kelas Asuransi</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="asuransi"><i class="fa fa-table fa-fw"></i> Health Insurance</a>
+                            <a href="asuransi"><i class="fa fa-table fa-fw"></i> Asuransi Kesehatan</a>
                         </li>
                         <li>
-                            <a href="peminjamandana"><i class="fa fa-edit fa-fw"></i> Loan Funds</a>
+                            <a href="peminjamandana"><i class="fa fa-edit fa-fw"></i> Peminjaman Dana</a>
                         </li>
                         <li>
-                            <a href="account"><i class="fa fa-book fa-fw"></i> Create Nasabah Account</a>
+                            <a href="account"><i class="fa fa-book fa-fw"></i> Nasabah</a>
                         </li>
                     </ul>
                 </div>
@@ -115,12 +126,27 @@
                                         <th><center>No polis</center></th>
                                         <th><center>Penanggung</center></th>
                                         <th><center>Produk</center></th>
-                                        <th><center>Tertanggung</center></th>
-                                        <th><center>Uang pertanggungan</center></th>
-                                        <th><center>Detail</center></th>
+										<th><center>Class</center></th>
+										<th><center>Tertanggung</center></th>
+                                        <th><center>Storan</center></th>
+                                        <th><center>Customer Service</center></th>
+                                        <th><center>Action</center></th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    
+                                    <c:forEach var = "polis" items = "${polis}">
+							<tr>
+								<td class="text-center">${polis.noPolis}</td>
+								<td class="text-center">${polis.nasabah.nama}</td>
+								<td class="text-center">${polis.produkAsuransi.produk}</td>
+								<td class="text-center">${polis.classAsuransi.type}</td>
+								<td class="text-center">${polis.nama}</td>
+								<td class="text-center">${polis.jumlahStoran}</td>
+								<td class="text-center">${polis.employee.nama}</td>
+								<td class="text-center"><a id_delete = ${polis.id} href='#' class = 'delete' >Delete</a></td>	
+							</tr>
+						</c:forEach>
                                     
                                 </tbody>
                             </table>
@@ -145,4 +171,18 @@
     
     <script src="./../../resources/assets/js/sb-admin-2.js"></script>
 </body>
+<script type="text/javascript">
+ 
+function doDelete(ini){
+	var id =$(ini).attr('id_delete');
+	
+	$.ajax({
+		url : '/poliscontroller/delete/'+id,
+		type : 'DELETE',
+		success : function(data,a,xhr){
+			
+		}
+	});
+}
+</script>
 </html>
