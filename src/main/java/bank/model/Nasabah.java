@@ -280,5 +280,4 @@ public class Nasabah {
 		this.peminjamanDana = peminjamanDana;
 	}
 
-	
 }

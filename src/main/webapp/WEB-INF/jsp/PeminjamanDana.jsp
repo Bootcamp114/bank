@@ -106,21 +106,21 @@
             <div class="row">
 				<div class = "col-lg-12">
 					<div class = "col-lg-4">
-						<a href="peminjamandana/add" class = "btn btn-success btn-md"><span class = "fa fa-fw fa-plus"></span>Add Loan Funds</a>
+						<a href="peminjamandana/add" class = "btn btn-success btn-md"><span class = "fa fa-fw fa-plus"></span>Tambah Peminjaman Dana</a>
 						<a href="peminjamandana" class = "btn btn-primary btn-md"><span class = "fa fa-fw fa-refresh fa-spin"></span>Refresh</a>
 					</div>
 					<br><br>
 					<table class = "table table-striped table-bordered table-hover dataTable no-footer dtr-inline" id = "dataTables-example" role = "grid" aria-describedby="dataTables-example_info">
 						<thead class = "kolom">
 							<tr>
-								<th class="text-center">Employee</th>
+								<th class="text-center">Karyawan</th>
 								<th class="text-center">Nasabah</th>
 								<th class="text-center">Jaminan</th>
 								<th class="text-center">Jumlah Pinjam</th>
 								<th class="text-center">Angsuran (/Bln)</th>
 								<th class="text-center">Tanggal Pinjam</th>
 								<th class="text-center">Jatuh Tempo</th>
-								<th class="text-center">Action</th>
+								<th class="text-center">Aksi</th>
 							</tr>
 						</thead>
 						<tbody>

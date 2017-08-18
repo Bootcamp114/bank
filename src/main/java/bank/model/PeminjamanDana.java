@@ -1,11 +1,15 @@
 package bank.model;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
@@ -47,9 +51,34 @@ public class PeminjamanDana {
 	private Nasabah nasabah;
 	@ManyToOne
 	private Employee employee;
+	@OneToMany(fetch=FetchType.LAZY, mappedBy="peminjamanDana")
+	private List<MyFiles> myFiles;
 
 	public PeminjamanDana() {
 		// TODO Auto-generated constructor stub
+	}
+
+	public PeminjamanDana(int id, String tujuanPenggunaan, Double jumlahPinjam, String lamaPinjam, String bungaBank,
+			String tanggalPinjam, Double angsuranBunga, Double angsuranPokok, Double totalAngsuran, String jatuhTempo,
+			String namaJaminan, String deskripsiJaminan, String fileBuktiJaminan, Nasabah nasabah, Employee employee,
+			List<MyFiles> myFiles) {
+		super();
+		this.id = id;
+		this.tujuanPenggunaan = tujuanPenggunaan;
+		this.jumlahPinjam = jumlahPinjam;
+		this.lamaPinjam = lamaPinjam;
+		this.bungaBank = bungaBank;
+		this.tanggalPinjam = tanggalPinjam;
+		this.angsuranBunga = angsuranBunga;
+		this.angsuranPokok = angsuranPokok;
+		this.totalAngsuran = totalAngsuran;
+		this.jatuhTempo = jatuhTempo;
+		this.namaJaminan = namaJaminan;
+		this.deskripsiJaminan = deskripsiJaminan;
+		this.fileBuktiJaminan = fileBuktiJaminan;
+		this.nasabah = nasabah;
+		this.employee = employee;
+		this.myFiles = myFiles;
 	}
 
 	public int getId() {
@@ -172,25 +201,11 @@ public class PeminjamanDana {
 		this.employee = employee;
 	}
 
-	public PeminjamanDana(int id, String tujuanPenggunaan, Double jumlahPinjam, String lamaPinjam, String bungaBank,
-			String tanggalPinjam, Double angsuranBunga, Double angsuranPokok, Double totalAngsuran, String jatuhTempo,
-			String namaJaminan, String deskripsiJaminan, String fileBuktiJaminan, Nasabah nasabah, Employee employee) {
-		super();
-		this.id = id;
-		this.tujuanPenggunaan = tujuanPenggunaan;
-		this.jumlahPinjam = jumlahPinjam;
-		this.lamaPinjam = lamaPinjam;
-		this.bungaBank = bungaBank;
-		this.tanggalPinjam = tanggalPinjam;
-		this.angsuranBunga = angsuranBunga;
-		this.angsuranPokok = angsuranPokok;
-		this.totalAngsuran = totalAngsuran;
-		this.jatuhTempo = jatuhTempo;
-		this.namaJaminan = namaJaminan;
-		this.deskripsiJaminan = deskripsiJaminan;
-		this.fileBuktiJaminan = fileBuktiJaminan;
-		this.nasabah = nasabah;
-		this.employee = employee;
+	public List<MyFiles> getMyFiles() {
+		return myFiles;
 	}
-	
+
+	public void setMyFiles(List<MyFiles> myFiles) {
+		this.myFiles = myFiles;
+	}
 }

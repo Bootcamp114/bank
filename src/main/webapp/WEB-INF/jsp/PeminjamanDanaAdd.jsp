@@ -20,7 +20,7 @@
 <link href="./../../resources/assets/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 <script type="text/javascript" src="/resources/assets/jquery-3.2.1.min.js"></script>
 <script type="text/javascript">
-	$(document).ready(function(){	
+	$(document).ready(function(){
 		$('#htg-angsuran').on('click', function(){
 			var jumlahPinjam = $('input[name="jumlah_pinjam"]').val();
 			var lamaPinjam = $('input[name="lama_pinjam"]').val();
@@ -300,7 +300,7 @@
 		var deskripsiJaminan = $("textarea[name='deskripsi_jaminan']").val();
 		var fileBuktiJaminan = $('input[name="file_bukti_jaminan"]').val();
 		var fd = new FormData();    
-		fd.append( 'theFile', $('#file_bukti_jaminan')[0].files[0]);
+		fd.append( 'theFile', $('input[type="file"]')[0].files[0]);
 		var nasabah = $('#nasabah').val();
 		var employee = $('#employee').val();
 		
@@ -327,7 +327,7 @@
 		}
 		
 		$.ajax({
-			  url: 'pinjamdana/doupload',
+			  url: '/pinjamdana/doupload',
 			  data: fd,
 			  enctype: 'multipart/form-data',
 			  processData: false,
@@ -347,7 +347,7 @@
 			success : function(data, a, xhr) { 
 				if (xhr.status == 201) {
 					console.log("data berhasil dimasukkan");
-					window.location = "./../peminjamandana";
+					window.location = "./../peminjamandana"; 
 				}
 			}
 		});
