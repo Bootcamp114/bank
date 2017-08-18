@@ -1,7 +1,5 @@
 package bank.controller;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
@@ -11,9 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
-
 import bank.model.Employee;
-import bank.model.KeluargaNasabah;
 import bank.model.Nasabah;
 import bank.model.ProdukNasabah;
 import bank.model.Rekening;
@@ -66,6 +62,14 @@ public class NasabahController {
 		produkNasabahService.delete(id);
 	}
 
+	@ResponseBody
+	@RequestMapping(value = "/rekening/getprodukbyid/{id}", method = RequestMethod.GET)
+	@ResponseStatus(value = HttpStatus.OK)
+	public ProdukNasabah getprodukbyid(@PathVariable int id) {
+		
+		return produkNasabahService.getProdukNasabahById(id);
+	}
+
 	/* Rekening Bank */
 	@RequestMapping(value = "/rekening/save", method = RequestMethod.POST)
 	@ResponseStatus(value = HttpStatus.CREATED)
@@ -79,6 +83,14 @@ public class NasabahController {
 		rekeningService.delete(id);
 	}
 
+	@ResponseBody
+	@RequestMapping(value = "/rekening/getrekeningbyid/{id}", method = RequestMethod.GET)
+	@ResponseStatus(value = HttpStatus.OK)
+	public Rekening getrekeningbyid(@PathVariable int id) {
+		
+		return rekeningService.getRekeningById(id);
+	}
+
 	/* Karyawan */
 	@RequestMapping(value = "/karyawan/save", method = RequestMethod.POST)
 	@ResponseStatus(value = HttpStatus.CREATED)
@@ -90,25 +102,5 @@ public class NasabahController {
 	@ResponseStatus(value = HttpStatus.OK)
 	public void deletekaryawan(@PathVariable int id) {
 		employeeService.delete(id);
-	}
-
-	/* Keluarga Nasabah */
-	@RequestMapping(value = "/keluarga/save", method = RequestMethod.POST)
-	@ResponseStatus(value = HttpStatus.CREATED)
-	public void savekeluarga(@RequestBody KeluargaNasabah keluargaNasabah) {
-		keluargaNasabahService.save(keluargaNasabah);
-	}
-
-	@RequestMapping(value = "/keluarga/delete/{id}", method = RequestMethod.DELETE)
-	@ResponseStatus(value = HttpStatus.OK)
-	public void deletekeluarga(@PathVariable int id) {
-		keluargaNasabahService.delete(id);
-	}
-
-	@ResponseBody
-	@RequestMapping(value = "/keluarga/getall")
-	public List<KeluargaNasabah> listKeluarga(){
-
-		return keluargaNasabahService.getAllKeluargaNasabah();
 	}
 }

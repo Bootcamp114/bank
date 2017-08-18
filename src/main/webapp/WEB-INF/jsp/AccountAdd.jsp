@@ -89,6 +89,28 @@
 					row.remove();
 					alert('Data berhasil dihapus..');
 				});
+
+				$(document).on("click", ".pilihRek", function(){
+					var idRek = $(this).attr("idPilihRek");
+					$.ajax({
+						url : "/nasabah/getrekeningbyid/" + idRek,
+						type : "GET",
+						success : function(data){
+							pilihRek(data);
+						}
+					});
+				});
+
+				$(document).on("click", ".pilihPro", function(){
+					var idPro = $(this).attr("idPilihPro");
+					$.ajax({
+						url : "/nasabah/getprodukbyid/" + idPro,
+						type : "GET",
+						success : function(data){
+							pilihPro(data);
+						}
+					});
+				});
 		});
 	</script>
 </head>
@@ -169,6 +191,7 @@
                     <h1 class="page-header">Buat Akun Nasabah<table align = "right">
                     	<tr>
                     		<td><select class = "form-control" name = "employee" id="employee">
+                    			<option>-- Pilih Karyawan --</option>
                     			<c:forEach var = "employee" items = "${employee}">
 	                				<option value="${employee.id}">${employee.nama}</option>
 	                			</c:forEach>
@@ -248,16 +271,18 @@
 	                		<div class = "form-group">
 	                			<label>Rekening : </label>
 	                			<select class = "form-control" name = "rekening" id="rekening">
+	                			<option>-- Pilih Rekening --</option>
 	                				<c:forEach var = "rekening" items = "${rekening}">
-	                					<option value="${rekening.id}">${rekening.rekening}</option>
+	                					<option class="pilihRek" idPilihRek="${rekening.id}" value="${rekening.id}">${rekening.rekening}</option>
 	                				</c:forEach>
 	                			</select>
 	                		</div>
 	               			<div class = "form-group">
 	                			<label>Produk : </label>
 	                			<select class = "form-control" name = "produk" id="produk">
+	                			<option>-- Pilih Produk --</option>
 	                				<c:forEach var = "produkNasabah" items = "${produkNasabah}">
-	                					<option value="${produkNasabah.id}">${produkNasabah.namaProduk}</option>
+	                					<option class="pilihPro" idPilihPro="${produkNasabah.id}" value="${produkNasabah.id}">${produkNasabah.namaProduk}</option>
 	                				</c:forEach>
 	                			</select>
 	                		</div>
@@ -409,7 +434,7 @@
     <!-- Custom Theme JavaScript -->
     <script src="./../../resources/assets/js/sb-admin-2.js"></script>
 </body>
-	<script type = "text/javascript">
+	<script type="text/javascript">
 	var jenis_kel;
 	var warga_negara;
 	var status;
@@ -425,16 +450,15 @@
 
 		$("input[name='status']").on("change", function(){
 			status = $(this).val();
-		});
+		});/* 
 
 		$("#produk").on("change", function(){
-			/* Pake Function Edit Masukin Harga Pembayaran */
 			$("#pembayaran").val("10000");
 		});
 
 		$("#rekening").on("change", function(){
 			$("#saldo").val("20000");
-		});
+		}); */
 	});
 		function save() {
 			var no_rek = $('input[name="no_rek"]').val();
@@ -492,23 +516,17 @@
 			var tr = tbody.find('tr');
 			var families = [];
 			$.each(tr, function(index, data){
-				/* console.log(index, data); */
-				/* var td = data.find('td').eq(0); */
-				/* console.log($(this).find('td').eq(0).text()); */
+				
 				keluarga = {
 						nama : $(this).find('td').eq(0).text(),
 						hubunganKel : $(this).find('td').eq(1).text(),
 						pendidikan : $(this).find('td').eq(2).text(),
 						umur : $(this).find('td').eq(4).text(),
 						noHp : $(this).find('td').eq(3).text()
-						/* nasabah : {
-							id : "1"
-						} */
 					}
 				
 				nasabah.keluargaNasabah.push(keluarga);
 			});
-			/* console.log(nasabah); */
 
 			$.ajax({
 				url : '/nasabah/save',
@@ -524,26 +542,14 @@
 					/* } */
 				}
 			});
+		}
 
-			/* Keluarga */
-			var nama_kel = $('input[name="nama_kel"]').val();
-			var hubungan_kel = $('input[name="hubungan_kel"]').val();
-			var pendidikan_kel = $('input[name="pendidikan_kel"]').val();
-			var umur_kel = $('input[name="umur_kel"]').val();
-			var no_telp_kel = $('input[name="no_telp_kel"]').val();
-			var nasabah = "1";
+		function pilihRek(data) {
+			$("#saldo").val(data.saldo);
+		}
 
-			var keluarga = {
-				nama : nama_kel,
-				hubungan_kel : hubungan_kel,
-				pendidikan : pendidikan_kel,
-				umur : umur_kel,
-				no_telp : no_telp_kel,
-				nasabah : {
-					id : nasabah
-				}
-			}
-			/* End */
+		function pilihPro(data) {
+			$("#produk").val(data.harga);
 		}
 	</script>
 </html>
