@@ -28,27 +28,9 @@ public class ProdukAsuransi {
 	@Column(name="jumlah_dana")
 	private Double jumlahDana;
 	@Column (name="jumlah_storan")
-	private Double jumlahStoran;
-	@Column(name="kondisi_tunjungan_1")
-	private String kondisiTunjangan1;
-	@Column(name="kondisi_tunjungan_2")
-	private String kondisiTunjangan2;
-	@Column(name="kondisi_tunjungan_3")
-	private String kondisiTunjangan3;
-	@Column(name="kondisi_tunjungan_4")
-	private String kondisiTunjangan4;
-	@Column(name="kondisi_tunjungan_5")
-	private String kondisiTunjangan5;
-	@Column(name="kondisi_tunjungan_6")
-	private String kondisiTunjangan6;
-	@Column(name="kondisi_tunjungan_7")
-	private String kondisiTunjangan7;
-	@Column(name="kondisi_tunjungan_8")
-	private String kondisiTunjangan8;
-	@Column(name="kondisi_tunjungan_9")
-	private String kondisiTunjangan9;
-	@Column(name="kondisi_tunjungan_10")
-	private String kondisiTunjangan10;
+	private int jumlahStoran;
+	@Column(name="diskripsi_prosuk")
+	private String diskripsiProduk;
 	@OneToMany(fetch=FetchType.LAZY,mappedBy="produkAsuransi")
 	private List<Polis>listPolis;
 
@@ -56,25 +38,14 @@ public class ProdukAsuransi {
 		
 	}
 
-	public ProdukAsuransi(int id, String produk, Double jumlahDana, Double jumlahStoran, String kondisiTunjangan1,
-			String kondisiTunjangan2, String kondisiTunjangan3, String kondisiTunjangan4, String kondisiTunjangan5,
-			String kondisiTunjangan6, String kondisiTunjangan7, String kondisiTunjangan8, String kondisiTunjangan9,
-			String kondisiTunjangan10, List<Polis> listPolis) {
+	public ProdukAsuransi(int id, String produk, Double jumlahDana, int jumlahStoran, String diskripsiProduk,
+			List<Polis> listPolis) {
 		super();
 		this.id = id;
 		this.produk = produk;
 		this.jumlahDana = jumlahDana;
 		this.jumlahStoran = jumlahStoran;
-		this.kondisiTunjangan1 = kondisiTunjangan1;
-		this.kondisiTunjangan2 = kondisiTunjangan2;
-		this.kondisiTunjangan3 = kondisiTunjangan3;
-		this.kondisiTunjangan4 = kondisiTunjangan4;
-		this.kondisiTunjangan5 = kondisiTunjangan5;
-		this.kondisiTunjangan6 = kondisiTunjangan6;
-		this.kondisiTunjangan7 = kondisiTunjangan7;
-		this.kondisiTunjangan8 = kondisiTunjangan8;
-		this.kondisiTunjangan9 = kondisiTunjangan9;
-		this.kondisiTunjangan10 = kondisiTunjangan10;
+		this.diskripsiProduk = diskripsiProduk;
 		this.listPolis = listPolis;
 	}
 
@@ -102,92 +73,20 @@ public class ProdukAsuransi {
 		this.jumlahDana = jumlahDana;
 	}
 
-	public Double getJumlahStoran() {
+	public int getJumlahStoran() {
 		return jumlahStoran;
 	}
 
-	public void setJumlahStoran(Double jumlahStoran) {
+	public void setJumlahStoran(int jumlahStoran) {
 		this.jumlahStoran = jumlahStoran;
 	}
 
-	public String getKondisiTunjangan1() {
-		return kondisiTunjangan1;
+	public String getDiskripsiProduk() {
+		return diskripsiProduk;
 	}
 
-	public void setKondisiTunjangan1(String kondisiTunjangan1) {
-		this.kondisiTunjangan1 = kondisiTunjangan1;
-	}
-
-	public String getKondisiTunjangan2() {
-		return kondisiTunjangan2;
-	}
-
-	public void setKondisiTunjangan2(String kondisiTunjangan2) {
-		this.kondisiTunjangan2 = kondisiTunjangan2;
-	}
-
-	public String getKondisiTunjangan3() {
-		return kondisiTunjangan3;
-	}
-
-	public void setKondisiTunjangan3(String kondisiTunjangan3) {
-		this.kondisiTunjangan3 = kondisiTunjangan3;
-	}
-
-	public String getKondisiTunjangan4() {
-		return kondisiTunjangan4;
-	}
-
-	public void setKondisiTunjangan4(String kondisiTunjangan4) {
-		this.kondisiTunjangan4 = kondisiTunjangan4;
-	}
-
-	public String getKondisiTunjangan5() {
-		return kondisiTunjangan5;
-	}
-
-	public void setKondisiTunjangan5(String kondisiTunjangan5) {
-		this.kondisiTunjangan5 = kondisiTunjangan5;
-	}
-
-	public String getKondisiTunjangan6() {
-		return kondisiTunjangan6;
-	}
-
-	public void setKondisiTunjangan6(String kondisiTunjangan6) {
-		this.kondisiTunjangan6 = kondisiTunjangan6;
-	}
-
-	public String getKondisiTunjangan7() {
-		return kondisiTunjangan7;
-	}
-
-	public void setKondisiTunjangan7(String kondisiTunjangan7) {
-		this.kondisiTunjangan7 = kondisiTunjangan7;
-	}
-
-	public String getKondisiTunjangan8() {
-		return kondisiTunjangan8;
-	}
-
-	public void setKondisiTunjangan8(String kondisiTunjangan8) {
-		this.kondisiTunjangan8 = kondisiTunjangan8;
-	}
-
-	public String getKondisiTunjangan9() {
-		return kondisiTunjangan9;
-	}
-
-	public void setKondisiTunjangan9(String kondisiTunjangan9) {
-		this.kondisiTunjangan9 = kondisiTunjangan9;
-	}
-
-	public String getKondisiTunjangan10() {
-		return kondisiTunjangan10;
-	}
-
-	public void setKondisiTunjangan10(String kondisiTunjangan10) {
-		this.kondisiTunjangan10 = kondisiTunjangan10;
+	public void setDiskripsiProduk(String diskripsiProduk) {
+		this.diskripsiProduk = diskripsiProduk;
 	}
 
 	public List<Polis> getListPolis() {
@@ -197,7 +96,6 @@ public class ProdukAsuransi {
 	public void setListPolis(List<Polis> listPolis) {
 		this.listPolis = listPolis;
 	}
-	
-	
+
 
 	}

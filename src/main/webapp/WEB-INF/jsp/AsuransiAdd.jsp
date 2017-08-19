@@ -36,6 +36,9 @@ $(document).ready(function(){
 	$("#produkAsuransi").on('change', function(){
 		showData();
 	});
+	$("#classAsuransi").on('change', function(){
+		showData2();
+	});
 });
 	
 
@@ -129,7 +132,7 @@ $(document).ready(function(){
                     	</tr>
                     </table></h1>
                 </div>
-				<!-- /.col-lg-12 -->to
+				<!-- /.col-lg-12 -->
 			</div>
 			<!-- /.row -->
 			<div class="row">
@@ -137,7 +140,7 @@ $(document).ready(function(){
 				<div class = "col-lg-6">
 	                	<form role = "form" id = "myForm">
 	                		<div class = "form-group">
-	                			<label>No Rekening : </label>
+	                			<label>No Polis : </label>
 	                			<span class = "form-control">${noPolis}</span>
 	                			<input type="hidden" class = "form-control" name = "no_polis" value="${noPolis}">
 	                		</div>
@@ -185,7 +188,13 @@ $(document).ready(function(){
 	                		</textarea>
 						</div>
 	                		<label>Jumlah Storan / bulan : </label>
-	              			<div class="form-group input-group">
+	              			<div>
+									<input type="hidden" class="form-control" id="storan_class" name ="storan_class" value="" disabled>
+							</div>
+							<div>
+									<input type="hidden" class="form-control" id="storan_produk" name ="storan_produk" value="" disabled>
+							</div>
+							<div class="form-group input-group">
 								<span class="input-group-addon">Rp</span>
 									<input type="text" class="form-control" id="storan" name ="storan" value="" disabled>
 								<span class="input-group-addon">.00</span>
@@ -379,7 +388,7 @@ function save(){
 }
 
 function Produk(data){
-	$('input[name="storan"]').val(data.jumlahStoran);
+	$('input[name="storan_produk"]').val(data.jumlahStoran);
 }
 
 function showData(){
@@ -391,8 +400,32 @@ function showData(){
 		success : function(data, x, xhr) {
 			console.log("data is loaded");
 			Produk(data);
+			storan();
 		}
 	});
+}
+
+function classAsuransi(data){
+	$('input[name="storan_class"]').val(data.kelipatan);
+}
+
+function showData2(){
+	var id = $('#classAsuransi').val();
+	$.ajax({
+		url : "/bank/getbyid/"+id,
+		type : "GET",
+		dataType : "json",
+		success : function(data, x, xhr) {
+			classAsuransi(data);
+			storan();
+		}
+	});
+}
+
+function storan() {
+	var classAsuransi = parseFloat($("#storan_class").val());
+	var produkAsuransi = parseFloat($("#storan_produk").val());
+	$("#storan").val(classAsuransi*produkAsuransi);
 }
 </script>
 

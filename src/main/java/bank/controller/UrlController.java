@@ -196,4 +196,9 @@ public class UrlController {
 
 		return "ClassAsuransi";
 	}
+	
+	@RequestMapping("produkasuransi")
+	public String produkAsuransi(){
+		return "ProdukAsuransi";
+	}
 }

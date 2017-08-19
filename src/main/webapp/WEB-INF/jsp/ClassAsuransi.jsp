@@ -48,6 +48,8 @@ $(document).ready(function(){
 	var jenis_pelayanan =$('input[name="jenis_pelayanan"]').val();
 	var harga_kartu =$('input[name="harga_kartu"]').val();
 	var jenis_obat =$('input[name="jenis_obat"]').val();
+	var kelipatan = $('input[name="kelipatan"]').val();
+	var diskripsi_class = $('textarea[name="diskripsi_class"]').val(); 
 	var id = $('input[name="id"]').val();
 	
 	var class_asuransi = {
@@ -56,6 +58,8 @@ $(document).ready(function(){
 			jenisPelayanan : jenis_pelayanan,
 			hargaKartu : harga_kartu,
 			jenisObat : jenis_obat,
+			kelipatan : kelipatan,
+			diskripsiClass : diskripsi_class,
 			id : id
 	}
 	
@@ -190,14 +194,23 @@ $(document).ready(function(){
 							placeholder="Masukan Jenis Pelayanan ">
 				</div>
 				<div>			
-				<label for="exampleInputEmail1">Harga Kartu</label> <input
-							type="text" class="form-control" name="harga_kartu"
-							placeholder="Masukan harga Kartu Class Asuransi">
-				</div>
-				<div>			
 				<label for="exampleInputEmail1">Jenis Obat</label> <input
 							type="text" class="form-control" name="jenis_obat"
 							placeholder="Masukan jenis obat class asuransi">
+				</div>
+				<div>			
+				<label for="exampleInputEmail1">Harga Kartu</label> <input
+							type="text" class="form-control" name="harga_kartu"
+							placeholder="Masukan Harga Kartu">
+				</div>
+				<div>			
+				<label for="exampleInputEmail1">Kelipatan</label> <input
+							type="text" class="form-control" name="kelipatan"
+							placeholder="Masukan Jumlah Kelipatan">
+				</div>
+				<div>			
+				<label for="exampleInputEmail1">Diskripsi Class</label>
+							<textarea class="form-control" rows="9" name="diskripsi_class" placeholder="Masukan Diskripsi class Asuransi"></textarea>	
 				</div>
 				<br/>
 				<input type="button" class="btn btn-primary" name="submit" value="Save"/>
@@ -212,6 +225,9 @@ $(document).ready(function(){
                                         <th><center>Jenis Pelayanan</center></th>
                                         <th><center>Harga Kartu</center></th>
                                         <th><center>Jenis Obat</center></th>
+                                         <th><center>Harga Kart</center></th>
+                                          <th><center>Kelipatan</center></th>
+                                        <th><center>Deskripsi</center></th>
                                         <th><center>Action</center></th>
                                     </tr>
                                 </thead>
@@ -273,6 +289,15 @@ $(document).ready(function(){
 			trString += class_asuransi.jenisObat;
 			trString += "</td>"
 			trString += "<td>";
+			trString += class_asuransi.hargaKartu;
+			trString += "</td>"
+			trString += "<td>";
+			trString += class_asuransi.kelipatan;
+			trString += "</td>"
+			trString += "<td>";
+			trString += class_asuransi.diskripsiClass;
+			trString += "</td>"
+			trString += "<td>";
 			trString += "<a id_delete = '"+class_asuransi.id+"' href='#' class = 'delete' >Delete</a>";
 			trString += "</td>"
 			trString += "<td>";
@@ -288,14 +313,18 @@ $(document).ready(function(){
 	function save(){
 		var type = $('input[name="type"]').val();
 		var jenis_pelayanan = $('input[name="jenis_pelayanan"]').val();
-		var harga_kartu = $('input[name="harga_kartu"]').val();
 		var jenis_obat = $('input[name="jenis_obat"]').val();
+		var harga_kartu = $('input[name="harga_kartu"]').val();
+		var kelipatan = $("input[name=kelipatan]").val();
+		var diskripsi_class = $("textarea[name='diskripsi_class']").val();
 		
 		var class_asuransi = {
 				type : type,
 				jenisPelayanan : jenis_pelayanan,
+				jenisObat : jenis_obat,
 				hargaKartu : harga_kartu,
-				jenisObat : jenis_obat
+				kelipatan : kelipatan,
+				diskripsiClass : diskripsi_class
 		}
 		
 		$.ajax({
@@ -328,15 +357,19 @@ $(document).ready(function(){
 	
 	function update(){
 		var type = $('input[name="type"]').val();
-		var jenis_pelayanan = $('input[name="jenis_pelayanan"]').val();
-		var harga_kartu = $('input[name="harga_kartu"]').val();
+		var jenis_pelayanan = $('input[name="jenis_pelayanan"]').val();;
 		var jenis_obat = $('input[name="jenis_obat"]').val();
+		var harga_kartu = $('input[name="harga_kartu"]').val();
+		var kelipatan = $("input[name=kelipatan]").val();
+		var diskripsi_class = $("textarea[name='diskripsi_class']").val();
 		
 		var class_asuransi = {
 				type : type,
 				jenisPelayanan : jenis_pelayanan,
+				jenisObat : jenis_obat,
 				hargaKartu : harga_kartu,
-				jenisObat : jenis_obat
+				kelipatan : kelipatan,
+				diskripsiClass : diskripsi_class
 		}
 		
 		$.ajax({
@@ -356,15 +389,19 @@ $(document).ready(function(){
 	function updateColumn(data){
 		$('input[name="type"]').val(data.type);
 		$('input[name="jenis_pelayanan"]').val(data.jenisPelayanan);
-		$('input[name="harga_kartu"]').val(data.hargaKartu);
 		$('input[name="jenis_obat"]').val(data.jenisObat);
+		$('input[name="harga_kartu"]').val(data.hargaKartu);
+		$('input[name="kelipatan"]').val(data.kelipatan);
+		$('textarea[name="diskripsi_class"]').val(data.diskripsiClass);
 		$('input[name="id"]').val(data.id);
 	}
 	function clearColumn(){
 		$('input[name="type"]').val("");
 		$('input[name="jenis_pelayanan"]').val("");
-		$('input[name="harga_kartu"]').val("");
 		$('input[name="jenis_obat"]').val("");
+		$('input[name="harga_kartu"]').val("");
+		$('input[name="kelipatan"]').val("");
+		$('textarea[name="diskripsi_class"]').val("");
 	}
 
 </script>

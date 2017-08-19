@@ -32,7 +32,9 @@ public class ClassAsuransi {
 	@Column(name="harga_kartu")
 	private Double hargaKartu;
 	@Column (name="kelipatan")
-	private Double kelipatan;
+	private int kelipatan;
+	@Column (name="diskripsi_class")
+	private String diskripsiClass;
 	@OneToMany(fetch=FetchType.LAZY,mappedBy="classAsuransi")
 	private List<Polis> listPolis;
 	
@@ -41,8 +43,9 @@ public class ClassAsuransi {
 		
 	}
 
+
 	public ClassAsuransi(int id, String type, String jenisPelayanan, String jenisObat, Double hargaKartu,
-			Double kelipatan, Double besarTunjangan, List<Polis> listPolis) {
+			int kelipatan, Double besarTunjangan, List<Polis> listPolis, String diskripsiClass) {
 		super();
 		this.id = id;
 		this.type = type;
@@ -51,6 +54,7 @@ public class ClassAsuransi {
 		this.hargaKartu = hargaKartu;
 		this.kelipatan = kelipatan;
 		this.listPolis = listPolis;
+		this.diskripsiClass = diskripsiClass;
 	}
 
 
@@ -106,12 +110,12 @@ public class ClassAsuransi {
 	}
 
 
-	public Double getKelipatan() {
+	public int getKelipatan() {
 		return kelipatan;
 	}
 
 
-	public void setKelipatan(Double kelipatan) {
+	public void setKelipatan(int kelipatan) {
 		this.kelipatan = kelipatan;
 	}
 
@@ -124,6 +128,16 @@ public class ClassAsuransi {
 	public void setListPolis(List<Polis> listPolis) {
 		this.listPolis = listPolis;
 	}
+	
+	public String getDiskripsiClass() {
+		return diskripsiClass;
+	}
+
+	public void setDiskripsiClass(String diskripsiClass) {
+		this.diskripsiClass = diskripsiClass;
+	}
+
+
 
 	
 
