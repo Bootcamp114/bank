@@ -200,5 +200,6 @@ public class UrlController {
 	@RequestMapping("produkasuransi")
 	public String produkAsuransi(){
 		return "ProdukAsuransi";
+		
 	}
 }
