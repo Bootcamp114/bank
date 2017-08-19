@@ -31,7 +31,7 @@ public class PolisDaoImpl implements PolisDao {
 		Polis polis = new Polis();
 		polis.setId(id);
 		polis.setAhliWaris("will be delete");
-		session.delete(id);
+		session.delete(polis);
 		session.flush();
 	}
 

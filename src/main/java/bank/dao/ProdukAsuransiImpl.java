@@ -30,8 +30,8 @@ public class ProdukAsuransiImpl implements ProdukAsuransiDao {
 		Session session = sessionFactory.getCurrentSession();
 		ProdukAsuransi produkAsuransi = new ProdukAsuransi();
 		produkAsuransi.setId(id);
-		produkAsuransi.setProduk("will be delete");
-		session.delete(id);
+		produkAsuransi.setDiskripsiProduk("will be delete");
+		session.delete(produkAsuransi);
 		session.flush();
 		
 	}

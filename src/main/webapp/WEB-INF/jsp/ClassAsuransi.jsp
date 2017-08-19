@@ -30,7 +30,7 @@ $(document).ready(function(){
 	//save data
 	$("input[name='submit']").on('click' ,function(){
 		save();
-		clearColumn()
+		clearColumn();
 	});
 	
 	//show data
@@ -139,7 +139,7 @@ $(document).ready(function(){
                                     <a href="produknasabah">Produk Nasabah</a>
                                 </li>
                                 <li>
-                                    <a href="#">Produk Asuransi</a>
+                                    <a href="produkasuransi">Produk Asuransi</a>
                                 </li>
                                 <li>
                                     <a href="rekening">Info Rekening</a>
@@ -172,7 +172,7 @@ $(document).ready(function(){
 		<div id="page-wrapper">
 			<div class="row">
 				<div class="col-lg-12">
-					<h1 class="page-header">Add Class Asuransi</h1>
+					<h1 class="page-header">Tambah Class Asuransi</h1>
 				</div>
 				<!-- /.col-lg-12 -->
 			</div>

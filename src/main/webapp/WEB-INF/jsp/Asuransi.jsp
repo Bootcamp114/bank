@@ -76,7 +76,7 @@
 						<ul class="nav nav-second-level">
 							<li><a href="karyawan">Karyawan</a></li>
 							<li><a href="produknasabah">Produk Nasabah</a></li>
-							<li><a href="#">Produk Asuransi</a></li>
+							<li><a href="produkasuransi">Produk Asuransi</a></li>
 							<li><a href="rekening">Info Rekening</a></li>
 							<li><a href="#">Info Setoran Asuransi</a></li>
 							<li><a href="classasuransi"> Kelas Asuransi</a></li>
@@ -122,8 +122,8 @@
 							<tr>
 								<th><center>No polis</center></th>
 								<th><center>Penanggung</center></th>
-								<th><center>Produk</center></th>
-								<th><center>Class</center></th>
+								<th><center>Produk Asuransi</center></th>
+								<th><center>Class Asuransi</center></th>
 								<th><center>Tertanggung</center></th>
 								<th><center>Storan</center></th>
 								<th><center>Customer Service</center></th>

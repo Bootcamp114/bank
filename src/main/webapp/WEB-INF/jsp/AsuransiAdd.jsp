@@ -88,7 +88,7 @@ $(document).ready(function(){
                                     <a href="produknasabah">Produk Nasabah</a>
                                 </li>
                                 <li>
-                                    <a href="#">Produk Asuransi</a>
+                                    <a href="produkasuransi">Produk Asuransi</a>
                                 </li>
                                 <li>
                                     <a href="rekening">Info Rekening</a>
@@ -171,7 +171,7 @@ $(document).ready(function(){
 	                			</select>
 	                		</div>
 	                	<div>
-	                		<textarea class="form-control" rows="9" disabled="disabled"></textarea>
+	                		<textarea class="form-control" name="diskripsi_produk" rows="9" disabled="disabled"></textarea>
 						</div>
 	                		<div class = "form-group">
 	                			<label>Class Asuransi : </label>
@@ -183,7 +183,7 @@ $(document).ready(function(){
 	                			</select>
 	                		</div>
 	                	<div>
-	                		<textarea class="form-control" rows="9" disabled="disabled" id="classAsuransiDeskripsi" >
+	                		<textarea class="form-control" name="diskripsi_class" rows="9" disabled="disabled" id="classAsuransiDeskripsi" >
 	                		
 	                		</textarea>
 						</div>
@@ -196,7 +196,7 @@ $(document).ready(function(){
 							</div>
 							<div class="form-group input-group">
 								<span class="input-group-addon">Rp</span>
-									<input type="text" class="form-control" id="storan" name ="storan" value="" disabled>
+									<input type="text" class="form-control" id="jumlah_storan" name ="jumlah_storan" value="" disabled>
 								<span class="input-group-addon">.00</span>
 							</div>
 	                	<br>
@@ -340,6 +340,7 @@ function save(){
 	var classAsuransi = $('#classAsuransi').val();
 	var produkAsuransi = $('#produkAsuransi').val();
 	var nasabah = $('#nasabah').val();
+	var jumlah_storan = $('input[name="jumlah_storan"]').val();
 	
 	var polis = {
 		noPolis : no_polis,
@@ -357,6 +358,7 @@ function save(){
 		jenisKelamin : jenis_kelamin,
 		kewarganegaraan : kewarganegaraan,
 		status : status,
+		jumlahStoran : jumlah_storan,
 		employee : {
 			id : employee
 		},
@@ -389,6 +391,7 @@ function save(){
 
 function Produk(data){
 	$('input[name="storan_produk"]').val(data.jumlahStoran);
+	$('textarea[name="diskripsi_produk"]').val(data.diskripsiProduk);
 }
 
 function showData(){
@@ -407,6 +410,7 @@ function showData(){
 
 function classAsuransi(data){
 	$('input[name="storan_class"]').val(data.kelipatan);
+	$('textarea[name="diskripsi_class"]').val(data.diskripsiClass);
 }
 
 function showData2(){
@@ -425,7 +429,7 @@ function showData2(){
 function storan() {
 	var classAsuransi = parseFloat($("#storan_class").val());
 	var produkAsuransi = parseFloat($("#storan_produk").val());
-	$("#storan").val(classAsuransi*produkAsuransi);
+	$("#jumlah_storan").val(classAsuransi*produkAsuransi);
 }
 </script>
 
