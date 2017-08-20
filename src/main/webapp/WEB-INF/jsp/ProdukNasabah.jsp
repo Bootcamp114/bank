@@ -24,11 +24,30 @@
 	<script type="text/javascript" src="/resources/assets/jquery-3.2.1.min.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function(){
+			var produk;
+
+			$("#update").on("click", function(){
+				updateData();
+				// alert("Berfungsi..");
+			});
+
 			$(document).on("click", ".delete", function(){
 				var conf = confirm("Apakah anda yakin menghapus data ini ?");
 				if (conf == true){
 					doDelete(this);
 				}
+			});
+
+			$(document).on("click", ".edit", function(){
+				var id = $(this).attr("id_update");
+				$.ajax({
+					url : "/nasabah/produknasabah/getprodukbyid/"+id,
+					type : "GET",
+					dataType : "json",
+					success : function(data){
+						editData(data);
+					}
+				});
 			});
 		});
 	</script>
@@ -123,7 +142,7 @@
 							<tr>
 								<th class="text-center">Nama Produk</th>
 								<th class="text-center">Harga</th>
-								<th class="text-center" colspan="3">Action</th>
+								<th class="text-center" colspan="2">Action</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -131,12 +150,47 @@
 							<tr>
 								<td class="text-center">${produkNasabah.namaProduk}</td>
 								<td class="text-center">${produkNasabah.harga}</td>
-								<td class="text-center"><a href="#" class = "btn btn-primary btn-sm"><span class = "fa fa-fw fa-edit"></span>Edit</a></td>
+								<td class="text-center"><a href="#" id_update="${produkNasabah.id}" class = "edit btn btn-primary btn-sm" data-toggle="modal" data-target="#edit-produk"><span class = "fa fa-fw fa-edit"></span>Edit</a></td>
 								<td class="text-center"><a href="#" id_delete="${produkNasabah.id}" class = "delete btn btn-danger btn-sm"><span class = "fa fa-fw fa-times"></span>Delete</a></td>
 							</tr>
 						</c:forEach>
 						</tbody>
 					</table>
+					<!-- Modal Edit  -->
+					<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel" id="edit-produk">
+						<div class="modal-dialog" role="document">
+							<div class="modal-content">
+								<div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+										<span aria-hidden="true">&times;</span>
+									</button>
+									<h4 class="modal-title" id="gridSystemModalLabel">Edit Produk</h4>
+								</div>
+								<div class="modal-body">
+								<!-- <p>This is a small modal.</p>-->
+									<div class="form-group">
+										<label>ID</label>
+										<input type="text" name="id_edit" class="form-control" id="id" disabled>
+									</div>
+									<div class="form-group">
+										<label>Nama Produk</label>
+										<input type="text" name="nama_edit" class="form-control" id="nama">
+									</div>
+									<div class="form-group">
+										<label>Harga</label> 
+										<input type="text" name="harga_edit" class="form-control" id="harga">
+									</div>
+									<div class="modal-footer">
+										<button type="button" id="close" class="btn btn-default" data-dismiss="modal">Cancel</button>
+										<button type="button" id="update" class="btn btn-primary" data-dismiss="modal">Update</button>
+									</div>
+								</div>
+							<!-- /.modal-content -->
+							</div>
+						<!-- /.modal-dialog -->
+						</div>
+					<!-- /.modal -->
+					</div>
 				</div>
             </div>
             <!-- /.row -->
@@ -157,16 +211,46 @@
     <script src="./../../resources/assets/js/sb-admin-2.js"></script>
 </body>
 <script>
-	function doDelete(del){
+	function doDelete(del) {
 		var id = $(del).attr("id_delete");
 		$.ajax({
 			url : "/nasabah/produknasabah/delete/"+id,
 			type : "DELETE",
 			success : function(data){
 				console.log(data);
-				window.location = "produknasabah";
+				if(xhr.status == 201){
+					window.location = "produknasabah";	
+				}
 			}
 		});
+	}
+
+	function updateData() {
+		var id = $('input[name="id_edit"]').val();
+		var nama = $('input[name="nama_edit"]').val();
+		var harga = $('input[name="harga_edit"]').val();
+
+		produk = {
+			id : id,
+			namaProduk : nama,
+			harga : harga
+		}
+
+		$.ajax({
+			url : "/nasabah/produknasabah/update",
+			type : "POST",
+			contentType : "application/json",
+			data : JSON.stringify(produk),
+			dataType : "JSON",
+			success : function(data, a, xhr) {
+				console.log(xhr.status);
+			}
+		});
+	}
+	function editData(data) {
+		$('input[name="id_edit"]').val(data.id);
+		$('input[name="nama_edit"]').val(data.namaProduk);
+		$('input[name="harga_edit"]').val(data.harga);
 	}
 </script>
 </html>

@@ -69,6 +69,12 @@ public class NasabahController {
 		return produkNasabahService.getProdukNasabahById(id);
 	}
 
+	@RequestMapping(value = "/produknasabah/update", method = RequestMethod.POST)
+	@ResponseStatus(value = HttpStatus.OK)
+	public void updateproduk(@RequestBody ProdukNasabah produkNasabah){
+		produkNasabahService.update(produkNasabah);
+	}
+
 	/* Rekening Bank */
 	@RequestMapping(value = "/rekening/save", method = RequestMethod.POST)
 	@ResponseStatus(value = HttpStatus.CREATED)
@@ -89,6 +95,12 @@ public class NasabahController {
 		return rekeningService.getRekeningById(id);
 	}
 
+	@RequestMapping(value = "/rekening/update", method = RequestMethod.POST)
+	@ResponseStatus(value = HttpStatus.OK)
+	public void updaterekening(@RequestBody Rekening rekening){
+		rekeningService.update(rekening);
+	}
+
 	/* Karyawan */
 	@RequestMapping(value = "/karyawan/save", method = RequestMethod.POST)
 	@ResponseStatus(value = HttpStatus.CREATED)
@@ -100,5 +112,18 @@ public class NasabahController {
 	@ResponseStatus(value = HttpStatus.OK)
 	public void deletekaryawan(@PathVariable int id) {
 		employeeService.delete(id);
+	}
+
+	@ResponseBody
+	@RequestMapping(value = "/karyawan/getkaryawanbyid/{id}", method = RequestMethod.GET)
+	@ResponseStatus(value = HttpStatus.OK)
+	public Employee getkaryawanbyid(@PathVariable int id) {
+		return employeeService.getEmployeeById(id);
+	}
+
+	@RequestMapping(value = "/karyawan/update", method = RequestMethod.POST)
+	@ResponseStatus(value = HttpStatus.OK)
+	public void updatekaryawan(@RequestBody Employee employee){
+		employeeService.update(employee);
 	}
 }

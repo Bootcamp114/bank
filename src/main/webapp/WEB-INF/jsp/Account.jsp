@@ -127,7 +127,7 @@
 								<th class="text-center">Email</th>
 								<th class="text-center">Tanggal Lahir</th>
 								<th class="text-center">Pekerjaan</th>
-								<th class="text-center" colspan="3">Action</th>
+								<th class="text-center">Action</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -139,9 +139,7 @@
 								<td class="text-center">${nasabah.email}</td>
 								<td class="text-center">${nasabah.tanggalLahir}</td>
 								<td class="text-center">${nasabah.pekerjaan}</td>
-								<td class="text-center"><a href="#" class = "btn btn-primary btn-sm"><span class = "fa fa-fw fa-edit"></span>Edit</a></td>
 								<td class="text-center"><a href="#" id_delete="${nasabah.id}" class = "delete btn btn-danger btn-sm"><span class = "fa fa-fw fa-times"></span>Delete</a></td>
-								<td class="text-center"><a href="#" class = "btn btn-info btn-sm"><span class = "fa fa-fw fa-info"></span>Detail</a></td>	
 							</tr>
 						</c:forEach>
 						</tbody>

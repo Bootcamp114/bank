@@ -24,11 +24,30 @@
 	<script type="text/javascript" src="/resources/assets/jquery-3.2.1.min.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function(){
+			var karyawan;
+
+			$("#update").on("click", function(){
+				updateData();
+				// alert("Berfungsi..");
+			});
+
 			$(document).on("click", ".delete", function(){
 				var conf = confirm("Apakah anda yakin menghapus data ini ?");
 				if (conf == true){
 					doDelete(this);
 				}
+			});
+
+			$(document).on("click", ".edit", function(){
+				var id = $(this).attr("id_update");
+				$.ajax({
+					url : "/nasabah/karyawan/getkaryawanbyid/"+id,
+					type : "GET",
+					dataType : "json",
+					success : function(data){
+						editData(data);
+					}
+				});
 			});
 		});
 	</script>
@@ -138,12 +157,62 @@
 								<td class="text-center">${karyawan.noHp}</td>
 								<td class="text-center">${karyawan.email}</td>
 								<td class="text-center">${karyawan.username}</td>
-								<td class="text-center"><a href="#" class = "btn btn-primary btn-sm"><span class = "fa fa-fw fa-edit"></span>Edit</a></td>
+								<td class="text-center"><a href="#" id_update="${karyawan.id}" class = "edit btn btn-primary btn-sm" data-toggle="modal" data-target="#edit-karyawan"><span class = "fa fa-fw fa-edit"></span>Edit</a></td>
 								<td class="text-center"><a href="#" id_delete="${karyawan.id}" class = "delete btn btn-danger btn-sm"><span class = "fa fa-fw fa-times"></span>Delete</a></td>
 							</tr>
 						</c:forEach>
 						</tbody>
 					</table>
+					<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel" id="edit-karyawan">
+						<div class="modal-dialog" role="document">
+							<div class="modal-content">
+								<div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+										<span aria-hidden="true">&times;</span>
+									</button>
+									<h4 class="modal-title" id="gridSystemModalLabel">Edit Karyawan</h4>
+								</div>
+								<div class="modal-body">
+								<!-- <p>This is a small modal.</p>-->
+									<div class="form-group">
+										<label>ID</label>
+										<input type="text" name="id_edit" class="form-control" id="id" disabled>
+									</div>
+									<div class="form-group">
+										<label>Nama Karyawan</label>
+										<input type="text" name="nama_edit" class="form-control" id="nama">
+									</div>
+									<div class="form-group">
+										<label>Alamat</label> 
+										<input type="text" name="alamat_edit" class="form-control" id="alamat">
+									</div>
+									<div class="form-group">
+										<label>Nomer Handphone</label> 
+										<input type="text" name="nohp_edit" class="form-control" id="nohp">
+									</div>
+									<div class="form-group">
+										<label>Email</label> 
+										<input type="text" name="email_edit" class="form-control" id="email">
+									</div>
+									<div class="form-group">
+										<label>Username</label> 
+										<input type="text" name="user_edit" class="form-control" id="user">
+									</div>
+									<div class="form-group">
+										<label>Password</label> 
+										<input type="text" name="pass_edit" class="form-control" id="pass">
+									</div>
+									<div class="modal-footer">
+										<button type="button" id="close" class="btn btn-default" data-dismiss="modal">Cancel</button>
+										<button type="button" id="update" class="btn btn-primary" data-dismiss="modal">Update</button>
+									</div>
+								</div>
+							<!-- /.modal-content -->
+							</div>
+						<!-- /.modal-dialog -->
+						</div>
+					<!-- /.modal -->
+					</div>
 				</div>
             </div>
 		</div>
@@ -175,6 +244,50 @@
 				window.location = "karyawan";
 			}
 		});
+	}
+
+	function updateData(data) {
+		var id = $('input[name="id_edit"]').val();
+		var nama = $('input[name="nama_edit"]').val();
+		var alamat = $('input[name="alamat_edit"]').val();
+		var nohp = $('input[name="nohp_edit"]').val();
+		var email = $('input[name="email_edit"]').val();
+		var user = $('input[name="user_edit"]').val();
+		var pass = $('input[name="pass_edit"]').val();
+
+		karyawan = {
+			id : id,
+			nama : nama,
+			alamat : alamat,
+			noHp : nohp,
+			email : email,
+			username : user,
+			password : pass
+		}
+
+		$.ajax({
+			url : "/nasabah/karyawan/update",
+			type : "POST",
+			contentType : "application/json",
+			data : JSON.stringify(karyawan),
+			dataType : "JSON",
+			success : function(data, a, xhr) {
+				console.log(xhr.status);
+				if(xhr.status == 201){
+					window.location = "karyawan";	
+				}
+			},
+		});
+	}
+
+	function editData(data) {
+		$('input[name="id_edit"]').val(data.id);
+		$('input[name="nama_edit"]').val(data.nama);
+		$('input[name="alamat_edit"]').val(data.alamat);
+		$('input[name="nohp_edit"]').val(data.noHp);
+		$('input[name="email_edit"]').val(data.email);
+		$('input[name="user_edit"]').val(data.username);
+		$('input[name="pass_edit"]').val(data.password);
 	}
 </script>
 </html>
