@@ -29,7 +29,7 @@ public class ProdukAsuransi {
 	private Double jumlahDana;
 	@Column (name="jumlah_storan")
 	private int jumlahStoran;
-	@Column(name="diskripsi_prosuk")
+	@Column(name="diskripsi_produk")
 	private String diskripsiProduk;
 	@OneToMany(fetch=FetchType.LAZY,mappedBy="produkAsuransi")
 	private List<Polis>listPolis;

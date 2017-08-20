@@ -53,7 +53,4 @@ public class ProdukAsuransiController {
 	public ProdukAsuransi getProdukAsuransiById(@PathVariable int id){
 		return produkAsuransiService.getProdukAsuransiById(id);
 	}
-	
-	
-
 }

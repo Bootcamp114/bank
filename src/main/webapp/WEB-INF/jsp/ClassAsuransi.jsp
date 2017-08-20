@@ -360,7 +360,7 @@ $(document).ready(function(){
 		var jenis_pelayanan = $('input[name="jenis_pelayanan"]').val();;
 		var jenis_obat = $('input[name="jenis_obat"]').val();
 		var harga_kartu = $('input[name="harga_kartu"]').val();
-		var kelipatan = $("input[name=kelipatan]").val();
+		var kelipatan = $("input[name='kelipatan']").val();
 		var diskripsi_class = $("textarea[name='diskripsi_class']").val();
 		
 		var class_asuransi = {

@@ -38,7 +38,7 @@ $(document).ready(function(){
 		doDelete(this);
 	});
 	
-	$("input=[name='update']").on('click',function(){
+	$("input[name='update']").on('click',function(){
 		var produk =$('input[name="produk"]').val();
 		var jumlah_dana =$('input[name="jumlah_dana"]').val();
 		var jumlah_storan =$('input[name="jumlah_storan"]').val();
@@ -70,7 +70,7 @@ $(document).ready(function(){
 		var id = $(this).attr('id_edit');
 		
 		$.ajax({
-			url :'/produkasuransicontroller/getbyid'+id,
+			url :'/produkasuransicontroller/getById/'+id,
 			type : 'GET',
 			dataType : 'json',
 			success : function(data){
@@ -346,6 +346,7 @@ function updateColumn(data){
 	$('input[name="jumlah_dana"]').val(data.jumlahDana);
 	$('input[name="jumlah_storan"]').val(data.jumlahStoran);
 	$('textarea[name="diskripsi_produk"]').val(data.diskripsiProduk);
+	$('input[name="id"]').val(data.id);
 }
 function clearColumn(){
 	$('input[name="produk"]').val("");
