@@ -22,11 +22,15 @@
 <script type="text/javascript">
 	$(document).ready(function(){
 		$('#htg-angsuran').on('click', function(){
+			var now = new Date();
 			var jumlahPinjam = $('input[name="jumlah_pinjam"]').val();
 			var lamaPinjam = $('input[name="lama_pinjam"]').val();
 			var bungaBank = $('input[name="bunga_bank"]').val();
 			
-			var hasilAngsuranBunga = hitungAngsuranBunga(jumlahPinjam, lamaPinjam,bungaBank);
+			var jatuhTempo = expired(now, lamaPinjam);
+			$('#jatuh_tempo').val(jatuhTempo);
+			
+			var hasilAngsuranBunga = hitungAngsuranBunga(jumlahPinjam, lamaPinjam, bungaBank);
 			$('#angsuran_bunga').val(hasilAngsuranBunga);
 			
 			var hasilAngsuranPokok = hitungAngsuranPokok(jumlahPinjam, lamaPinjam);
@@ -35,6 +39,11 @@
 			var hasilTotalAngsuran = hitungTotalAngsuran(hasilAngsuranBunga, hasilAngsuranPokok);
 			$('#total_angsuran').val(hasilTotalAngsuran);
 		});
+		
+		function expired(now, lamaPinjam){
+			var jatuhTempo = now.setMonth(now.getMonth()+lamaPinjam);
+			return jatuhTempo;
+		}
 		
 		function hitungAngsuranBunga(jumlahPinjam, lamaPinjam, bungaBank){
 			var angsuranBunga = jumlahPinjam*(bungaBank/100)/(lamaPinjam/2);
@@ -249,7 +258,7 @@
 							<div class="col-lg-12">
 								<div class="form-group">
 									<label>Jatuh Tempo : </label> <input type="text"
-									class="form-control" name="jatuh_tempo" />
+									class="form-control" name="jatuh_tempo" id="jatuh_tempo"/>
 								</div>
 							</div>
 						</div>
@@ -299,7 +308,7 @@
 		var namaJaminan = $('select[name="nama_jaminan"]').val();
 		var deskripsiJaminan = $("textarea[name='deskripsi_jaminan']").val();
 		var fd = new FormData();    
-		fd.append( 'theFile', $('input[type="file"]')[0].files[0]);
+		fd.append( 'theFiles', $('input[type="file"]')[0].files[0]);
 		var nasabah = $('#nasabah').val();
 		var employee = $('#employee').val();
 		
@@ -326,6 +335,7 @@
 			    	
 			    ]
 		}
+		
 		
 		$.ajax({
 			  url: '/pinjamdana/doupload',

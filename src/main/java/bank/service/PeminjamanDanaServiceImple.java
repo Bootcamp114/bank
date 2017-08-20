@@ -24,9 +24,9 @@ public class PeminjamanDanaServiceImple implements PeminjamanDanaService {
 	public void save(PeminjamanDana pinjamdn) {
 		// TODO Auto-generated method stub
 		pinjamDnDao.save(pinjamdn);
-		for(MyFiles myFile : pinjamdn.getMyFiles()) {
-			myFile.setPeminjamanDana(pinjamdn);
-			myFileDao.save(myFile);
+		for(MyFiles myFiles : pinjamdn.getMyFiles()) {
+			myFiles.setPeminjamanDana(pinjamdn);
+			myFileDao.save(myFiles);
 		}
 	}
 

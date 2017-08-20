@@ -44,15 +44,15 @@ public class PeminjamanDanaController {
 
 	@ResponseBody
 	@RequestMapping(value="/doupload", method=RequestMethod.POST)
-	public void doUpload(@RequestParam("theFile") MultipartFile theFile) {
+	public void doUpload(@RequestParam("theFiles") MultipartFile theFiles) {
 		MyFiles myFiles = null;
-		if(!theFile.isEmpty()) {
+		if(!theFiles.isEmpty()) {
 			try {
-				byte[] bFile = theFile.getBytes();
+				byte[] bFiles = theFiles.getBytes();
 				myFiles = new MyFiles();
-				Blob blob = new SerialBlob(bFile);
+				Blob blob = new SerialBlob(bFiles);
 				myFiles.setFile(blob);
-				myFiles.setName(theFile.getName());
+				myFiles.setName(theFiles.getName());
 				myFileService.save(myFiles);
 			} catch (Exception e) {
 				// TODO: handle exception
