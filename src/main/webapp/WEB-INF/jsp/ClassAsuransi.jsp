@@ -97,11 +97,9 @@ $(document).ready(function(){
 
 </head>
 <body>
-
-	<div id="wrapper">
-
-		<!-- Navigation -->
-		<nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+    <div id="wrapper">
+        <!-- Navigation -->
+        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
             <div class="navbar-header">
                 <a class="navbar-brand" href="index">Bank CBA</a>
             </div>
@@ -139,7 +137,7 @@ $(document).ready(function(){
                                     <a href="produknasabah">Produk Nasabah</a>
                                 </li>
                                 <li>
-                                    <a href="produkasuransi">Produk Asuransi</a>
+                                    <a href="#">Produk Asuransi</a>
                                 </li>
                                 <li>
                                     <a href="rekening">Info Rekening</a>
@@ -228,7 +226,7 @@ $(document).ready(function(){
                                          <th><center>Harga Kart</center></th>
                                           <th><center>Kelipatan</center></th>
                                         <th><center>Deskripsi</center></th>
-                                        <th><center>Action</center></th>
+                                        <th colspan="2"><center>Action</center></th>
                                     </tr>
                                 </thead>
                                 <tbody>

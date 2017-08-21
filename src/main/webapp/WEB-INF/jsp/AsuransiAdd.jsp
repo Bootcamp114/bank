@@ -47,10 +47,9 @@ $(document).ready(function(){
 
 </head>
 <body>
-
-	<div id="wrapper">
-		<!-- Navigation -->
-		<nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+    <div id="wrapper">
+        <!-- Navigation -->
+        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
             <div class="navbar-header">
                 <a class="navbar-brand" href="index">Bank CBA</a>
             </div>
@@ -76,40 +75,40 @@ $(document).ready(function(){
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
                         <li>
-                            <a href="index"><i class="fa fa-dashboard fa-fw"></i> Menu Utama</a>
+                            <a href="../index"><i class="fa fa-dashboard fa-fw"></i> Menu Utama</a>
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-wrench fa-fw"></i> Komponen Bank<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="karyawan">Karyawan</a>
+                                    <a href="../karyawan">Karyawan</a>
                                 </li>
                                 <li>
-                                    <a href="produknasabah">Produk Nasabah</a>
+                                    <a href="../produknasabah">Produk Nasabah</a>
                                 </li>
                                 <li>
-                                    <a href="produkasuransi">Produk Asuransi</a>
+                                    <a href="#">Produk Asuransi</a>
                                 </li>
                                 <li>
-                                    <a href="rekening">Info Rekening</a>
+                                    <a href="../rekening">Info Rekening</a>
                                 </li>
                                 <li>
                                     <a href="#">Info Setoran Asuransi</a>
                                 </li>
                                 <li>
-                                    <a href="classasuransi"> Kelas Asuransi</a>
+                                    <a href="../classasuransi"> Kelas Asuransi</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="asuransi"><i class="fa fa-table fa-fw"></i> Asuransi Kesehatan</a>
+                            <a href="../asuransi"><i class="fa fa-table fa-fw"></i> Asuransi Kesehatan</a>
                         </li>
                         <li>
-                            <a href="peminjamandana"><i class="fa fa-edit fa-fw"></i> Peminjaman Dana</a>
+                            <a href="../peminjamandana"><i class="fa fa-edit fa-fw"></i> Peminjaman Dana</a>
                         </li>
                         <li>
-                            <a href="account"><i class="fa fa-book fa-fw"></i> Nasabah</a>
+                            <a href="../account"><i class="fa fa-book fa-fw"></i> Nasabah</a>
                         </li>
                     </ul>
                 </div>
