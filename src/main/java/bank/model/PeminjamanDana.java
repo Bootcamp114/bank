@@ -58,8 +58,7 @@ public class PeminjamanDana {
 
 	public PeminjamanDana(int id, String tujuanPenggunaan, Double jumlahPinjam, String lamaPinjam, String bungaBank,
 			String tanggalPinjam, Double angsuranBunga, Double angsuranPokok, Double totalAngsuran, String jatuhTempo,
-			String namaJaminan, String deskripsiJaminan, Nasabah nasabah, Employee employee,
-			List<MyFiles> myFiles) {
+			String namaJaminan, String deskripsiJaminan, Nasabah nasabah, Employee employee, List<MyFiles> myFiles) {
 		super();
 		this.id = id;
 		this.tujuanPenggunaan = tujuanPenggunaan;
@@ -197,4 +196,5 @@ public class PeminjamanDana {
 	public void setMyFiles(List<MyFiles> myFiles) {
 		this.myFiles = myFiles;
 	}
+
 }

@@ -22,14 +22,16 @@
 <script type="text/javascript">
 	$(document).ready(function(){
 		$('#htg-angsuran').on('click', function(){
-			var now = new Date();
+			var date = new Date();
 			var jumlahPinjam = $('input[name="jumlah_pinjam"]').val();
 			var lamaPinjam = $('input[name="lama_pinjam"]').val();
 			var bungaBank = $('input[name="bunga_bank"]').val();
 			
-			var jatuhTempo = expired(now, lamaPinjam);
-			$('#jatuh_tempo').val(jatuhTempo);
+		 	var jatuhTempo = addDays(lamaPinjam);
+			$('#jatuh_tempo').val(jatuhTempo); 
 			
+		//	addDays(5);
+				
 			var hasilAngsuranBunga = hitungAngsuranBunga(jumlahPinjam, lamaPinjam, bungaBank);
 			$('#angsuran_bunga').val(hasilAngsuranBunga);
 			
@@ -40,9 +42,15 @@
 			$('#total_angsuran').val(hasilTotalAngsuran);
 		});
 		
-		function expired(now, lamaPinjam){
-			var jatuhTempo = now.setMonth(now.getMonth()+lamaPinjam);
-			return jatuhTempo;
+		function addDays(lamaPinjam){
+		    var t = new Date();
+		    t.setDate(t.getDate() + lamaPinjam); 
+		    var month = "0"+(t.getMonth()+1);
+		    var date = "0"+t.getDate();
+		    month = month.slice(-2);
+		    date = date.slice(-2);
+		    var date = date +"/"+month +"/"+t.getFullYear();
+		    alert(date);
 		}
 		
 		function hitungAngsuranBunga(jumlahPinjam, lamaPinjam, bungaBank){
@@ -222,7 +230,7 @@
 							<div class="col-lg-6">
 								<label>Lama Pinjam : </label>
 								<div class="form-group input-group">
-									<input type="text" class="form-control" name="lama_pinjam">
+									<input type="number" class="form-control" name="lama_pinjam">
 									<span class="input-group-addon">Bulan</span>
 								</div>
 							</div>
@@ -311,6 +319,7 @@
 		fd.append( 'theFiles', $('input[type="file"]')[0].files[0]);
 		var nasabah = $('#nasabah').val();
 		var employee = $('#employee').val();
+		var myFiles = [];
 		
 
 		var pinjamdn = {
@@ -331,9 +340,7 @@
 			    employee : {
 			    	id: employee
 			    },
-			    myFiles : [
-			    	
-			    ]
+			    myFiles : myFiles
 		}
 		
 		
@@ -345,7 +352,7 @@
 			  contentType: false,
 			  type: 'POST',
 			  success: function(data){
-				alert(data);
+				  console.log("file berhasil dimasukkan");
 			  }
 			});
 

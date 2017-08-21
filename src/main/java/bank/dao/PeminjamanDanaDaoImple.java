@@ -29,8 +29,8 @@ public class PeminjamanDanaDaoImple implements PeminjamanDanaDao{
 		Session session = sessionFactory.getCurrentSession();
 		PeminjamanDana pinjamDn = new PeminjamanDana();
 		pinjamDn.setId(id);
-		pinjamDn.setTujuanPenggunaan("-");
-		session.delete(id);
+		pinjamDn.setTujuanPenggunaan("~");
+		session.delete(pinjamDn);
 		session.flush();
 	}
 

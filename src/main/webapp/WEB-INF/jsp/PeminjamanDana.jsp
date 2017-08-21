@@ -19,11 +19,18 @@
 	<link href="./../resources/assets/vendor/morrisjs/morris.css" rel="stylesheet">
 	<link href="./../resources/assets/vendor/font-awesome/css/font-awesome.min.css"
 		rel="stylesheet" type="text/css">
-		
-</head>
-<script type="text/javascript" src="/resources/assets/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="/resources/assets/jquery-3.2.1.min.js"></script>
 	<script type="text/javascript">
+		$(document).ready(function(){
+			$(document).on("click", ".delete", function(){
+				var conf = confirm("Apakah Ada Yang Salah???");
+				if (conf == true){
+					doDelete(this);
+				}
+			});
+		});
 	</script>
+</head>
 <body>
     <div id="wrapper">
         <!-- Navigation -->
@@ -133,7 +140,7 @@
 								<td class="text-center">${peminjamanDana.totalAngsuran}</td>
 								<td class="text-center">${peminjamanDana.tanggalPinjam}</td>
 								<td class="text-center">${peminjamanDana.jatuhTempo}</td>
-								<td class="text-center"><a href="#" class = "btn btn-info btn-sm"><span class = "fa fa-fw fa-info"></span>Detail</a></td>	
+								<td class="text-center"><a href="#" id_delete="${peminjamanDana.id}" class="delete btn btn-danger btn-sm"><span class = "fa fa-fw fa-times"></span>Delete</a></td>	
 							</tr>
 						</c:forEach>
 						</tbody>
@@ -156,4 +163,17 @@
     
     <script src="./../../resources/assets/js/sb-admin-2.js"></script>
 </body>
+<script>
+	function doDelete(del){
+		var id = $(del).attr("id_delete");
+		$.ajax({
+			url : "/pinjamdana/delete/"+id,
+			type : "DELETE",
+			success : function(data){
+				console.log(data);
+				window.location = "peminjamandana";
+			}
+		});
+	}
+</script>
 </html>

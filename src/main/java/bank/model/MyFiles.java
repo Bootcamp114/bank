@@ -24,46 +24,10 @@ public class MyFiles {
 	private Blob file;
 	@ManyToOne
 	private PeminjamanDana peminjamanDana;
-
-	public int getId() {
-		return id;
+	
+	public MyFiles() {
+		// TODO Auto-generated constructor stub
 	}
-
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
-
-	public String getName() {
-		return name;
-	}
-
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-
-	public Blob getFile() {
-		return file;
-	}
-
-
-	public void setFile(Blob file) {
-		this.file = file;
-	}
-
-
-	public PeminjamanDana getPeminjamanDana() {
-		return peminjamanDana;
-	}
-
-
-	public void setPeminjamanDana(PeminjamanDana peminjamanDana) {
-		this.peminjamanDana = peminjamanDana;
-	}
-
 
 	public MyFiles(int id, String name, Blob file, PeminjamanDana peminjamanDana) {
 		super();
@@ -73,9 +37,36 @@ public class MyFiles {
 		this.peminjamanDana = peminjamanDana;
 	}
 
-
-	public MyFiles() {
-		// TODO Auto-generated constructor stub
+	public int getId() {
+		return id;
 	}
-		
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public Blob getFile() {
+		return file;
+	}
+
+	public void setFile(Blob file) {
+		this.file = file;
+	}
+
+	public PeminjamanDana getPeminjamanDana() {
+		return peminjamanDana;
+	}
+
+	public void setPeminjamanDana(PeminjamanDana peminjamanDana) {
+		this.peminjamanDana = peminjamanDana;
+	}
+	
 }
