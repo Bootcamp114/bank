@@ -60,13 +60,10 @@
                                     <a href="produknasabah">Produk Nasabah</a>
                                 </li>
                                 <li>
-                                    <a href="#">Produk Asuransi</a>
+                                    <a href="produkasuransi">Produk Asuransi</a>
                                 </li>
                                 <li>
                                     <a href="rekening">Info Rekening</a>
-                                </li>
-                                <li>
-                                    <a href="#">Info Setoran Asuransi</a>
                                 </li>
                                 <li>
                                     <a href="classasuransi"> Kelas Asuransi</a>
@@ -107,12 +104,12 @@
                                     <i class="fa fa-comments fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">26</div>
-                                    <div>Customer</div>
+                                    <div class="huge">-</div>
+                                    <div>Karyawan</div>
                                 </div>
                             </div>
                         </div>
-                        <a href="#">
+                        <a href="karyawan">
                             <div class="panel-footer">
                                 <span class="pull-left">View Details</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -129,12 +126,12 @@
                                     <i class="fa fa-tasks fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">12</div>
-                                    <div>Insurance Customer</div>
+                                    <div class="huge">-</div>
+                                    <div>Produk Nasabah</div>
                                 </div>
                             </div>
                         </div>
-                        <a href="#">
+                        <a href="produknasabah">
                             <div class="panel-footer">
                                 <span class="pull-left">View Details</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -151,12 +148,12 @@
                                     <i class="fa fa-shopping-cart fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">124</div>
-                                    <div>Loan Customer</div>
+                                    <div class="huge">-</div>
+                                    <div>Info Rekening</div>
                                 </div>
                             </div>
                         </div>
-                        <a href="#">
+                        <a href="rekening">
                             <div class="panel-footer">
                                 <span class="pull-left">View Details</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -173,12 +170,12 @@
                                     <i class="fa fa-support fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">13</div>
-                                    <div>Customer Service</div>
+                                    <div class="huge">-</div>
+                                    <div>Kelas Asuransi</div>
                                 </div>
                             </div>
                         </div>
-                        <a href="#">
+                        <a href="classasuransi">
                             <div class="panel-footer">
                                 <span class="pull-left">View Details</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>

@@ -8,8 +8,6 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="">
-	<meta name="author" content="">
 
 		<title>Insert title here</title>
 
@@ -17,20 +15,16 @@
 	<link href="/resources/assets/css/bootstrap-theme.min.css" rel="stylesheet" />
 	<link href="/resources/assets/css/sb-admin-2.css" rel="stylesheet" />
 	<link href="/resources/assets/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-	<link rel="stylesheet" href="/resources/assets/jquery-ui-1.12.1/jquery-ui.css">
-	<link href="/resources/assets/jquery-ui-1.12.1/jquery-ui.js"></script>
-	<script type="text/javascript" src="/resources/assets/jquery-3.2.1.min.js"></script>
-	<script>
-		$(function() {
-			$( "#tanggal_lahirr" ).on("click", function(){
-				alert();
-			});
-		} );
-	</script>
+	<!-- <link href="/resources/assets/jquery-ui-1.12.1/jquery-ui.css" rel="stylesheet"> -->
+	<script src="/resources/assets/jquery-3.2.1.min.js"></script>
+	<!-- <script src="/resources/assets/jquery-ui-1.12.1/jquery-ui.js"></script> -->
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 	<script type="text/javascript">
 	var nasabah;
 		$(document).ready(function(){
 			var keluarga;
+
+			// $("#tanggal_lahirr").datepicker();
 
 			$("#submit").on("click", function(e){
 				console.log(nasabah);
@@ -231,7 +225,7 @@
 	                		</div>
 	                		<div class = "form-group">
 	                			<label>Tanggal Lahir : </label>
-	                			<input class = "form-control" name = "tanggal_lahir" type = "date" id="tanggal_lahir">
+	                			<input class = "form-control" name = "tanggal_lahir" id="tanggal_lahir" type="date">
 	                		</div>
 	                		<div class = "form-group">
 	                			<label>No Hp : </label>
