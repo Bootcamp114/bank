@@ -112,7 +112,7 @@
 					</div>
 					<div>
 						<a href="asuransi/add" class="btn btn-success btn-md"><span
-							class="fa fa-fw fa-plus"></span>Add Polis</a> <a href="asuransi"
+							class="fa fa-fw fa-plus"></span>Tambah Polis</a> <a href="asuransi"
 							class="btn btn-primary btn-md"><span
 							class="fa fa-fw fa-refresh fa-spin"></span>Refresh</a>
 					</div>
@@ -129,7 +129,7 @@
 								<th><center>Tertanggung</center></th>
 								<th><center>Storan</center></th>
 								<th><center>Customer Service</center></th>
-								<th><center>Action</center></th>
+								<th colspan="2"><center>Action</center></th>
 							</tr>
 						</thead>
 						<tbody>
@@ -144,13 +144,13 @@
 									<td class="text-center">${polis.jumlahStoran}</td>
 									<td class="text-center">${polis.employee.nama}</td>
 									<td class="text-center"><a href="#" id_delete="${polis.id}" class = "delete btn btn-danger btn-sm"><span class = "fa fa-fw fa-times"></span>Delete</a></td>
+									<td class="text-center"><a type="button" class="btn btn-sm btn-primary btn-lg" data-toggle="modal" data-target="#myModal"><span class = "fa fa-fw fa-info"></span>Detail</a></td>
 								</tr>
 							</c:forEach>
 
 						</tbody>
 					</table>
 					
-
 
 				</div>
 			</div>
