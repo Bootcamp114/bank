@@ -172,21 +172,21 @@ $(document).ready(function(){
 				<div>
 				<label for="exampleInputEmail1">Produk </label> <input
 							type="text" class="form-control" name="produk"
-							placeholder="Masukan Type Class Asuransi ">
+							placeholder="Masukan Produk Asuransi ">
 				</div>
 				<div>			
 				<label for="exampleInputEmail1">Jumlah Dana</label> <input
 							type="text" class="form-control" name="jumlah_dana"
-							placeholder="Masukan Jenis Pelayanan ">
+							placeholder="Masukan Jumlah Dana Pada Produk Asuransi ">
 				</div>
 				<div>			
 				<label for="exampleInputEmail1">jumlah Storan</label> <input
 							type="text" class="form-control" name="jumlah_storan"
-							placeholder="Masukan jenis obat class asuransi">
+							placeholder="Masukan Jumlah Storan Pada Produk Asuransi">
 				</div>
 				<div>			
 				<label for="exampleInputEmail1">Diskripsi Class</label>
-							<textarea class="form-control" rows="9" name="diskripsi_produk" placeholder="Masukan Diskripsi class Asuransi"></textarea>	
+							<textarea class="form-control" rows="9" name="diskripsi_produk" placeholder="Masukan Diskripsi Produk Asuransi"></textarea>	
 				</div>
 				<br/>
 				<input type="button" class="btn btn-primary" name="submit" value="Save"/>
