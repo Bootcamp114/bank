@@ -81,7 +81,6 @@
 							<li><a href="produknasabah">Produk Nasabah</a></li>
 							<li><a href="produkasuransi">Produk Asuransi</a></li>
 							<li><a href="rekening">Info Rekening</a></li>
-							<li><a href="#">Info Setoran Asuransi</a></li>
 							<li><a href="classasuransi"> Kelas Asuransi</a></li>
 						</ul> <!-- /.nav-second-level --></li>
 					<li><a href="asuransi"><i class="fa fa-table fa-fw"></i>
