@@ -24,27 +24,23 @@ public class Employee {
 	private int id;
 	private String nama;
 	private String alamat;
-	@Column(name="no_hp", unique = true)
+	@Column(name = "no_hp", unique = true)
 	private String noHp;
 	@Column(unique = true)
 	private String email;
-	private String username;
-	private String password;
-	@OneToMany(fetch=FetchType.LAZY, mappedBy="employee") 
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "employee")
+	private List<Nasabah> nasabah;
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "employee")
 	private List<PeminjamanDana> peminjamanDana;
-	@OneToMany(fetch = FetchType.LAZY, mappedBy="employee")
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "employee")
 	private List<Polis> listPolis;
 
 	public Employee() {
 		// TODO Auto-generated constructor stub
-		
+
 	}
-	
-	
 
-
-
-	public Employee(int id, String nama, String alamat, String noHp, String email, String username, String password,
+	public Employee(int id, String nama, String alamat, String noHp, String email, List<Nasabah> nasabah,
 			List<PeminjamanDana> peminjamanDana, List<Polis> listPolis) {
 		super();
 		this.id = id;
@@ -52,8 +48,7 @@ public class Employee {
 		this.alamat = alamat;
 		this.noHp = noHp;
 		this.email = email;
-		this.username = username;
-		this.password = password;
+		this.nasabah = nasabah;
 		this.peminjamanDana = peminjamanDana;
 		this.listPolis = listPolis;
 	}
@@ -98,20 +93,12 @@ public class Employee {
 		this.email = email;
 	}
 
-	public String getUsername() {
-		return username;
+	public List<Nasabah> getNasabah() {
+		return nasabah;
 	}
 
-	public void setUsername(String username) {
-		this.username = username;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
+	public void setNasabah(List<Nasabah> nasabah) {
+		this.nasabah = nasabah;
 	}
 
 	public List<PeminjamanDana> getPeminjamanDana() {
@@ -122,22 +109,11 @@ public class Employee {
 		this.peminjamanDana = peminjamanDana;
 	}
 
-
-
-
-
 	public List<Polis> getListPolis() {
 		return listPolis;
 	}
 
-
-
-
-
 	public void setListPolis(List<Polis> listPolis) {
 		this.listPolis = listPolis;
 	}
-	
-
-	
 }
