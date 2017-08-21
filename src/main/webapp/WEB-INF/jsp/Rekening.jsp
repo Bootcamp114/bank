@@ -92,13 +92,10 @@
                                     <a href="produknasabah">Produk Nasabah</a>
                                 </li>
                                 <li>
-                                    <a href="#">Produk Asuransi</a>
+                                    <a href="produkasuransi">Produk Asuransi</a>
                                 </li>
                                 <li>
                                     <a href="rekening">Info Rekening</a>
-                                </li>
-                                <li>
-                                    <a href="#">Info Setoran Asuransi</a>
                                 </li>
                                 <li>
                                     <a href="classasuransi"> Kelas Asuransi</a>
