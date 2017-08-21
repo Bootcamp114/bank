@@ -142,7 +142,6 @@
 								<th class="text-center">Alamat</th>
 								<th class="text-center">No Hp</th>
 								<th class="text-center">Email</th>
-								<th class="text-center">Username</th>
 								<th class="text-center" colspan="3">Action</th>
 							</tr>
 						</thead>
@@ -153,7 +152,6 @@
 								<td class="text-center">${karyawan.alamat}</td>
 								<td class="text-center">${karyawan.noHp}</td>
 								<td class="text-center">${karyawan.email}</td>
-								<td class="text-center">${karyawan.username}</td>
 								<td class="text-center"><a href="#" id_update="${karyawan.id}" class = "edit btn btn-primary btn-sm" data-toggle="modal" data-target="#edit-karyawan"><span class = "fa fa-fw fa-edit"></span>Edit</a></td>
 								<td class="text-center"><a href="#" id_delete="${karyawan.id}" class = "delete btn btn-danger btn-sm"><span class = "fa fa-fw fa-times"></span>Delete</a></td>
 							</tr>
@@ -190,14 +188,6 @@
 									<div class="form-group">
 										<label>Email</label> 
 										<input type="text" name="email_edit" class="form-control" id="email">
-									</div>
-									<div class="form-group">
-										<label>Username</label> 
-										<input type="text" name="user_edit" class="form-control" id="user">
-									</div>
-									<div class="form-group">
-										<label>Password</label> 
-										<input type="text" name="pass_edit" class="form-control" id="pass">
 									</div>
 									<div class="modal-footer">
 										<button type="button" id="close" class="btn btn-default" data-dismiss="modal">Cancel</button>
@@ -249,17 +239,13 @@
 		var alamat = $('input[name="alamat_edit"]').val();
 		var nohp = $('input[name="nohp_edit"]').val();
 		var email = $('input[name="email_edit"]').val();
-		var user = $('input[name="user_edit"]').val();
-		var pass = $('input[name="pass_edit"]').val();
 
 		karyawan = {
 			id : id,
 			nama : nama,
 			alamat : alamat,
 			noHp : nohp,
-			email : email,
-			username : user,
-			password : pass
+			email : email
 		}
 
 		$.ajax({
@@ -283,8 +269,6 @@
 		$('input[name="alamat_edit"]').val(data.alamat);
 		$('input[name="nohp_edit"]').val(data.noHp);
 		$('input[name="email_edit"]').val(data.email);
-		$('input[name="user_edit"]').val(data.username);
-		$('input[name="pass_edit"]').val(data.password);
 	}
 </script>
 </html>

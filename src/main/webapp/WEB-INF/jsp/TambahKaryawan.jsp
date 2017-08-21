@@ -125,14 +125,6 @@
 		                	<label>Email : </label>
 		               		<input class = "form-control" name = "email">
 	               		</div>
-	               		<div class = "form-group">
-		                	<label>Username : </label>
-		               		<input class = "form-control" name = "username">
-	               		</div>
-	               		<div class = "form-group">
-		                	<label>Password : </label>
-		               		<input class = "form-control" name = "password">
-	               		</div>
 	                <button type="submit" id = "submit" class="btn btn-success">Submit Button</button>
 					<button type="reset" class="btn btn-warning">Reset Button</button>
 				</form>
@@ -160,16 +152,12 @@
 			var alamat = $('input[name="alamat"]').val();
 			var no_hp = $('input[name="no_hp"]').val();
 			var email = $('input[name="email"]').val();
-			var username = $('input[name="username"]').val();
-			var password = $('input[name="password"]').val();
 
 			var karyawan = {
 				nama : nama,
 				alamat : alamat,
 				noHp : no_hp,
-				email : email,
-				username : username,
-				password : password
+				email : email
 			}
 
 			$.ajax({
