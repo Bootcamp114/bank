@@ -48,7 +48,7 @@ public class PolisController {
 	}
 	
 	@ResponseBody
-	@RequestMapping(value="/getbyid",method=RequestMethod.GET)
+	@RequestMapping(value="/getbyid/{id}",method=RequestMethod.GET)
 	@ResponseStatus(value=HttpStatus.OK)
 	public Polis getPolisById(@PathVariable int id){
 		return polisService.getPolisById(id);

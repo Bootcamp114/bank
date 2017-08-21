@@ -126,7 +126,7 @@ $(document).ready(function(){
                                     <a href="produknasabah">Produk Nasabah</a>
                                 </li>
                                 <li>
-                                    <a href="produkasuransi">Produk Asuransi</a>
+                                    <a href="#">Produk Asuransi</a>
                                 </li>
                                 <li>
                                     <a href="rekening">Info Rekening</a>
@@ -203,7 +203,7 @@ $(document).ready(function(){
                                         <th><center>Jumlah Dana</center></th>
                                         <th><center>Jumlah Storan</center></th>
                                         <th><center>Deskripsi</center></th>
-                                        <th><center>Action</center></th>
+                                        <th colspan="2"><center>Action</center></th>
                                     </tr>
                                 </thead>
                                 <tbody>
