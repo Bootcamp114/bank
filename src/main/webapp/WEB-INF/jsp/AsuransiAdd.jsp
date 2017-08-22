@@ -11,7 +11,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>Insert title here</title>
+<title>Tambah Asuransi</title>
 
 <link
 	href="./../../resources/assets/vendor/bootstrap/css/bootstrap.min.css"
@@ -27,13 +27,14 @@
 	
 <script type="text/javascript"src="/resources/assets/jquery-3.2.1.min.js"></script>
 <script type="text/javascript">
+
+
 $(document).ready(function(){
 	$("input[name='submit']").on('click', function(e){
 		e.preventDefault();
 		save();
 	});
 	$("#nasabah").on('change', function(){
-		alert();
 		showData3();
 	});
 	$("#produkAsuransi").on('change', function(){
@@ -42,6 +43,24 @@ $(document).ready(function(){
 	$("#classAsuransi").on('change', function(){
 		showData2();
 	});
+	$("#check").on("click", function(){
+		validateForm();
+	});
+	
+	function validateForm() {
+	    var x = document.forms["myForm"]["email"].value;
+	    var atpos = x.indexOf("@");
+	    var dotpos = x.lastIndexOf(".");
+	    var sp = x.indexOf(" ");
+	    if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length || sp > 1) {
+	        alert("Not a valid E-Mail Address!");
+	        return false;
+	    }
+	    else {
+	    	alert("This email is valid.");
+	    	return true;
+	    }
+	}
 	
 });
 	
@@ -59,8 +78,8 @@ $(document).ready(function(){
             </div>
             <!-- /.navbar-header -->
 
-            <ul class="nav navbar-top-links navbar-right">
-                <!-- /.dropdown -->
+          <!--   <ul class="nav navbar-top-links navbar-right">
+                /.dropdown
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                         <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
@@ -68,7 +87,7 @@ $(document).ready(function(){
                     <ul class="dropdown-menu dropdown-user">
                         <li><a href="#"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                         </li>
-                    </ul>
+                    </ul> -->
                     <!-- /.dropdown-user -->
                 </li>
                 <!-- /.dropdown -->
@@ -146,8 +165,7 @@ $(document).ready(function(){
 	                		</div>
 	                		<div class = "form-group">
 	                			<label>Nama Penanggung : </label>
-	                			<select class = "form-control" name = "nasabah" id="nasabah">
-	                			<option>-pilih nama nasabah-</option>
+	                			<select class = "form-control" name = "nasabah" id="nasabah">	                			
 	                				<option>-pilih nama nasabah-</option>
 	                			<c:forEach var = "nasabah" items = "${nasabah}">
 									<option value="${nasabah.id}">${nasabah.nama}</option>
@@ -165,7 +183,7 @@ $(document).ready(function(){
 	                		
 	                		<div class = "form-group">
 	                			<label>Tanggal Dibuat : </label>
-	                			<input type="date" class = "form-control" id = "tanggal_dibuat" name="tanggal_dibuat" required autofocus>
+	                			<input type="text" class = "form-control" id = "tanggal" name="tanggal_dibuat" required autofocus disabled="disabled">
 	                		</div>
 	                		<div class = "form-group">
 	                			<label>Produk Asuransi : </label>
@@ -206,9 +224,7 @@ $(document).ready(function(){
 								<span class="input-group-addon">.00</span>
 							</div>
 	                	<br>
-						<div>
-						<input type="submit" name="submit" class="btn btn-success">
-							<button type="reset" class="btn btn-warning">Reset Button</button>
+						<div>	
 						</div>
 					</div>
 
@@ -231,11 +247,12 @@ $(document).ready(function(){
 		             	</div>
 		             	<div class = "form-group">
 		                	<label>Email : </label>
-		               		<input class = "form-control" name = "email">
+		               		<input class = "form-control" name = "email"><br>
+		               		<button type="button" id = "check" class="btn btn-info">Check</button>
 		             	</div>
 		             	<div class = "form-group">
 		                	<label>Tanggal Lahir : </label>
-		               		<input class = "form-control" type="date" name = "tanggal_lahir">
+		               		<input class = "form-control" type="date" name = "tanggal_lahir" id="tanggal_lahir">
 		             	</div> 
 		             	<div>
 		             		<label>Alamat : </label>
@@ -286,6 +303,8 @@ $(document).ready(function(){
 	                	</div>
 	                	<div class = "form-group">
 		                	<label>No Identitas : </label> <input class="form-control" name="no_identitas">
+						<br>
+						<input type="submit" name="submit" class="btn btn-success">
 					</div> 	
 		                
 	                		
@@ -311,6 +330,20 @@ $(document).ready(function(){
 	<script src="./../../resources/assets/js/sb-admin-2.js"></script>
 </body>
 <script type="text/javascript">
+var today = new Date();
+var dd = today.getDate();
+var mm = today.getMonth()+1;
+var yyyy = today.getFullYear();
+	if(dd < 10){
+		dd = "0" + dd;
+	}
+	if(mm < 10){
+		mm = "0" + mm;
+	}
+today = yyyy+'-'+mm+'-'+dd;
+document.getElementById("tanggal_lahir").setAttribute("max", today);
+
+
 var jenis_kelamin;
 var kewarganegaraan;
 var status;
@@ -437,6 +470,7 @@ function storan() {
 	$("#jumlah_storan").val(classAsuransi*produkAsuransi);
 }
 
+
 function rekening(data){
 	$('#noRek').val(data.noRek);
 }
@@ -452,6 +486,12 @@ function showData3(){
 		}
 	});
 }
+
+var date = new Date();
+var hari = date.getDate();
+var bulan = date.getMonth() + 1;
+var tahun = date.getFullYear();
+$("#tanggal").val(tahun + "-" + bulan + "-" + hari)
 
 
 </script>
