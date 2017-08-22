@@ -40,7 +40,7 @@ public class Polis {
 	@Column(name="jenis_identitas")
 	private String jenisIdentitas;
 	@Column(name="no_identitas")
-	private String noIdentitas;
+	private int noIdentitas;
 	@Column(name="pekerjaan")
 	private String pekerjaan;
 	@Column(name="alamat")
@@ -65,7 +65,7 @@ public class Polis {
 	}
 	
 	public Polis(int id, int noPolis, String ahliWaris, String tanggalDibuat, String nama, String hubungan, int noHp,
-			String email, String tanggalLahir, String jenisIdentitas, String noIdentitas, String pekerjaan,
+			String email, String tanggalLahir, String jenisIdentitas, int noIdentitas, String pekerjaan,
 			String alamat, String jenisKelamin, String status, String kewarganegaraan, ProdukAsuransi produkAsuransi,
 			ClassAsuransi classAsuransi, Nasabah nasabah, Employee employee, int jumlahStoran) {
 		super();
@@ -172,11 +172,11 @@ public class Polis {
 		this.jenisIdentitas = jenisIdentitas;
 	}
 
-	public String getNoIdentitas() {
+	public int getNoIdentitas() {
 		return noIdentitas;
 	}
 
-	public void setNoIdentitas(String noIdentitas) {
+	public void setNoIdentitas(int noIdentitas) {
 		this.noIdentitas = noIdentitas;
 	}
 

@@ -200,7 +200,13 @@ public class UrlController {
 	@RequestMapping("produkasuransi")
 	public String produkAsuransi(){
 		return "ProdukAsuransi";
-		
+				
 	}
-	
+	@ResponseBody
+	@RequestMapping(value="/getnasabahbyid/{id}",method=RequestMethod.GET)
+	@ResponseStatus(value=HttpStatus.OK)
+	public Nasabah getNasabahById(@PathVariable int id){
+		return nasabahService.getNasbahById(id);
+	}
+
 }
