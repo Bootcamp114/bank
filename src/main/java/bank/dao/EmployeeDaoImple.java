@@ -30,7 +30,7 @@ public class EmployeeDaoImple implements EmployeeDao {
 	public List<Employee> getAllEmployee() {
 		// TODO Auto-generated method stub
 		Session session = sessionFactory.getCurrentSession();
-		List<Employee> employee = session.createQuery("from " + Employee.class.getName() + " order by id").list();
+		List<Employee> employee = session.createQuery("from " + Employee.class.getName() + " order by id asc").list();
 		// employee.addAll(Order.asc("id.value"));
 		return employee;
 	}
