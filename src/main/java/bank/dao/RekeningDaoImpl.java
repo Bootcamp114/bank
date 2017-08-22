@@ -6,6 +6,8 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+
+import bank.model.ProdukNasabah;
 import bank.model.Rekening;
 
 @Repository
@@ -45,7 +47,7 @@ public class RekeningDaoImpl implements RekeningDao {
 	public List<Rekening> getAllRekening() {
 		// TODO Auto-generated method stub
 		Session session = sessionFactory.getCurrentSession();
-		List<Rekening> listRekening = session.createCriteria(Rekening.class).list();
+		List<Rekening> listRekening = session.createQuery("from " + Rekening.class.getName() + " order by id asc").list();
 		return listRekening;
 	}
 

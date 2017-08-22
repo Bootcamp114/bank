@@ -17,17 +17,21 @@
 	<link href="./../../resources/assets/vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
 	<link href="./../../resources/assets/css/sb-admin-2.css" rel="stylesheet">
 	<link href="./../../resources/assets/vendor/morrisjs/morris.css" rel="stylesheet">
-	<link href="./../../resources/assets/vendor/font-awesome/css/font-awesome.min.css"
-		rel="stylesheet" type="text/css">
+	<link href="./../../resources/assets/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<link href="./../../resources/assets/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css">
 		
 </head>
 	<script type="text/javascript" src="/resources/assets/jquery-3.2.1.min.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function(){
+
+			$("#dataTables-example").DataTable();
+
 			var produk;
 
 			$("#update").on("click", function(){
 				updateData();
+				window.location.href = "produknasabah";
 				// alert("Berfungsi..");
 			});
 
@@ -139,7 +143,7 @@
 							<tr>
 								<th class="text-center">Nama Produk</th>
 								<th class="text-center">Harga</th>
-								<th class="text-center" colspan="2">Action</th>
+								<th class="text-center">Action</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -147,8 +151,10 @@
 							<tr>
 								<td class="text-center">${produkNasabah.namaProduk}</td>
 								<td class="text-center">${produkNasabah.harga}</td>
-								<td class="text-center"><a href="#" id_update="${produkNasabah.id}" class = "edit btn btn-primary btn-sm" data-toggle="modal" data-target="#edit-produk"><span class = "fa fa-fw fa-edit"></span>Edit</a></td>
-								<td class="text-center"><a href="#" id_delete="${produkNasabah.id}" class = "delete btn btn-danger btn-sm"><span class = "fa fa-fw fa-times"></span>Delete</a></td>
+								<td class="text-center">
+									<a href="#" id_update="${produkNasabah.id}" class = "edit btn btn-primary btn-sm" data-toggle="modal" data-target="#edit-produk"><span class = "fa fa-fw fa-edit"></span>Edit</a>
+									<a href="#" id_delete="${produkNasabah.id}" class = "delete btn btn-danger btn-sm"><span class = "fa fa-fw fa-times"></span>Delete</a>
+								</td>
 							</tr>
 						</c:forEach>
 						</tbody>
@@ -248,4 +254,5 @@
 		$('input[name="harga_edit"]').val(data.harga);
 	}
 </script>
+<script type="text/javascript" src="/resources/assets/datatable/jquery.dataTables.min.js"></script>
 </html>

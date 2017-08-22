@@ -17,17 +17,20 @@
 	<link href="./../../resources/assets/vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
 	<link href="./../../resources/assets/css/sb-admin-2.css" rel="stylesheet">
 	<link href="./../../resources/assets/vendor/morrisjs/morris.css" rel="stylesheet">
-	<link href="./../../resources/assets/vendor/font-awesome/css/font-awesome.min.css"
-		rel="stylesheet" type="text/css">
-		
+	<link href="./../../resources/assets/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<link href="./../../resources/assets/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css">
+	
 </head>
 	<script type="text/javascript" src="/resources/assets/jquery-3.2.1.min.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function(){
 			var rekening;
 
+			$("#dataTables-example").DataTable();
+
 			$("#update").on("click", function(){
 				updateData();
+				window.location.href = "rekening";
 				// alert("Berfungsi..");
 			});
 
@@ -141,7 +144,7 @@
 								<th class="text-center">Nama Rekening</th>
 								<th class="text-center">Biaya Administrasi</th>
 								<th class="text-center">Saldo Minimal</th>
-								<th class="text-center" colspan="3">Action</th>
+								<th class="text-center">Action</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -150,8 +153,10 @@
 								<td class="text-center">${rekening.rekening}</td>
 								<td class="text-center">${rekening.administrasiBulanan}</td>
 								<td class="text-center">${rekening.saldo}</td>
-								<td class="text-center"><a href="#" id_update="${rekening.id}" class = "edit btn btn-primary btn-sm" data-toggle="modal" data-target="#edit-rekening"><span class = "fa fa-fw fa-edit"></span>Edit</a></td>
-								<td class="text-center"><a href="#" id_delete="${rekening.id}" class = "delete btn btn-danger btn-sm"><span class = "fa fa-fw fa-times"></span>Delete</a></td>
+								<td class="text-center">
+									<a href="#" id_update="${rekening.id}" class = "edit btn btn-primary btn-sm" data-toggle="modal" data-target="#edit-rekening"><span class = "fa fa-fw fa-edit"></span>Edit</a>
+									<a href="#" id_delete="${rekening.id}" class = "delete btn btn-danger btn-sm"><span class = "fa fa-fw fa-times"></span>Delete</a>
+								</td>
 							</tr>
 						</c:forEach>
 						</tbody>
@@ -269,4 +274,5 @@
 		$('input[name="tutup_edit"]').val(data.biayaTutupRekening);
 	}
 </script>
+<script type="text/javascript" src="/resources/assets/datatable/jquery.dataTables.min.js"></script>
 </html>

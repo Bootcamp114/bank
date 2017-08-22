@@ -209,7 +209,7 @@
 	                		</div>
 	                		<div class = "form-group">
 	                			<label>Nomor Identitas : </label>
-	                			<input class = "form-control" name = "no_identitas" required>
+	                			<input type="number" class = "form-control" name = "no_identitas" required>
 	                		</div>
 	                		<div class = "form-group">
 	                			<label>Warga Negara : </label>
@@ -232,7 +232,7 @@
 	                		</div>
 	                		<div class = "form-group">
 	                			<label>No Hp : </label>
-	                			<input class = "form-control" name = "no_hp">
+	                			<input type="number" class = "form-control" name = "no_hp">
 	                		</div>
 	                		<div class = "form-group">
 	                			<label>Jenis Kelamin : </label>
@@ -353,7 +353,7 @@
 	                		</div>
 						<div class = "form-group">
 							<label>Nomor Peserta Wajib Pajak (NPWP) : </label>
-							<input class = "form-control" name = "npwp">
+							<input type="number" class = "form-control" name = "npwp">
 						</div>
 	                </div>
 	                <!-- Modal -->
@@ -423,7 +423,7 @@
 	var today = new Date();
 	var dd = today.getDate();
 	var mm = today.getMonth()+1;
-	var yyyy = today.getFullYear();
+	var yyyy = today.getFullYear()-17;
 		if(dd < 10){
 			dd = "0" + dd;
 		}
@@ -582,7 +582,6 @@
 		        return false;
 		    }
 		    else {
-		    	alert("This email is valid.");
 		    	return true;
 		    }
 		}

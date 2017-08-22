@@ -9,7 +9,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>Insert title here</title>
+<title>Kelas Asuransi</title>
 
 <link
 	href="./../../resources/assets/vendor/bootstrap/css/bootstrap.min.css"
@@ -20,12 +20,19 @@
 <link href="./../../resources/assets/vendor/morrisjs/morris.css"
 	rel="stylesheet">
 <link
+	href="./../../resources/assets/css/jquery.dataTables.min.css"
+	rel="stylesheet" type="text/css">
+<link
 	href="./../../resources/assets/vendor/font-awesome/css/font-awesome.min.css"
 	rel="stylesheet" type="text/css">
 
 <script type="text/javascript"src="/resources/assets/jquery-3.2.1.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
+	
+	$('#dataTables').DataTable( {
+        "pagingType": "full_numbers"
+    } );
 	
 	//save data
 	$("input[name='submit']").on('click' ,function(){
@@ -38,7 +45,11 @@ $(document).ready(function(){
 	
 	//delete
 	$(document).on("click",'.delete', function(){
-		onDelete(this);
+		var conf = confirm("Apakah anda yakin menghapus data ini ?");
+		if (conf == true) {
+			onDelete(this);
+		}
+		
 	});
 	
 	
@@ -105,8 +116,8 @@ $(document).ready(function(){
             </div>
             <!-- /.navbar-header -->
 
-            <ul class="nav navbar-top-links navbar-right">
-                <!-- /.dropdown -->
+            <!-- <ul class="nav navbar-top-links navbar-right">
+                /.dropdown
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                         <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
@@ -115,10 +126,10 @@ $(document).ready(function(){
                         <li><a href="#"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                         </li>
                     </ul>
-                    <!-- /.dropdown-user -->
+                    /.dropdown-user
                 </li>
-                <!-- /.dropdown -->
-            </ul>
+                /.dropdown
+            </ul> -->
             <!-- /.navbar-top-links -->
 
             <div class="navbar-default sidebar" role="navigation">
@@ -195,12 +206,12 @@ $(document).ready(function(){
 				</div>
 				<div>			
 				<label for="exampleInputEmail1">Harga Kartu</label> <input
-							type="text" class="form-control" name="harga_kartu"
+							type="number" class="form-control" name="harga_kartu"
 							placeholder="Masukan Harga Kartu">
 				</div>
 				<div>			
 				<label for="exampleInputEmail1">Kelipatan</label> <input
-							type="text" class="form-control" name="kelipatan"
+							type="number" class="form-control" name="kelipatan"
 							placeholder="Masukan Jumlah Kelipatan">
 				</div>
 				<div>			

@@ -18,13 +18,15 @@
 	<link href="./../../resources/assets/css/sb-admin-2.css" rel="stylesheet">
 	<link href="./../../resources/assets/vendor/morrisjs/morris.css" rel="stylesheet">
 	<link href="./../../resources/assets/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-	<script type="text/javascript" src="/resources/assets/pagination/jquery.simplePagination.js"></script>
-	<link type="text/css" rel="stylesheet" href="/resources/assets/pagination/simplePagination.css"/>
+	<link href="./../../resources/assets/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css">
 		
 </head>
 	<script type="text/javascript" src="/resources/assets/jquery-3.2.1.min.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function(){
+			
+			$("#dataTables-example").DataTable();
+			
 			$(document).on("click", ".delete", function(){
 				var conf = confirm("Apakah anda yakin menghapus data ini ?");
 				if (conf == true){
@@ -175,4 +177,5 @@
 		});
 	}
 </script>
+<script type="text/javascript" src="/resources/assets/datatable/jquery.dataTables.min.js"></script>
 </html>
