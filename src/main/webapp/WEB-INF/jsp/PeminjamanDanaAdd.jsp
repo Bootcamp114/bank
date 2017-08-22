@@ -166,7 +166,7 @@
                     		</select></td>
                     	</tr>
                     </table>
-				<form role="form">
+				<form role="form" onsubmit="return validate();">
 					<div class="col-lg-12">
 						<h4 class="page-header">Data Diri</h4>
 						<div class="col-lg-12">
@@ -279,7 +279,7 @@
 						</div>
 					</div>
 					<div class="col-lg-12">
-						<input type="submit" class="btn btn-success" name="submit" onclick="validate()" value="Fix Loan"/> 
+						<input type="submit" class="btn btn-success" name="submit" value="Fix Loan"/> 
 						<input type="reset" class="btn btn-info" value="Reset Form"/>
 					</div>
 				</form>

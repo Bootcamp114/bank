@@ -24,17 +24,28 @@
 		$(document).ready(function(){
 			$("#submit").on("click", function(e){
 				e.preventDefault();
+				// validateForm();
+				if(validateForm() == true){
+					save();
+				}
+			});
+
+			$("#check").on("click", function(){
 				validateForm();
-				save();
 			});
 			
 			function validateForm() {
 			    var x = document.forms["myForm"]["email"].value;
 			    var atpos = x.indexOf("@");
 			    var dotpos = x.lastIndexOf(".");
-			    if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length) {
-			        alert("Not a valid e-mail address");
+			    var sp = x.indexOf(" ");
+			    if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length || sp > 1) {
+			        alert("Not a valid E-Mail Address!");
 			        return false;
+			    }
+			    else {
+			    	alert("This email is valid.");
+			    	return true;
 			    }
 			}
 		});
@@ -135,6 +146,7 @@
 	               		<div class = "form-group">
 		                	<label>Email : </label>
 		               		<input class = "form-control" name = "email">
+		               		<button type="button" id = "check" class="btn btn-info">Check</button>
 	               		</div>
 	                <button type="submit" id = "submit" class="btn btn-success">Submit Button</button>
 					<button type="reset" class="btn btn-warning">Reset Button</button>

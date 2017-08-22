@@ -30,7 +30,9 @@
 			$("#submit").on("click", function(e){
 				console.log(nasabah);
 				e.preventDefault();
-				save();
+				if(validateForm() == true){
+					save();
+				}
 			});
 
 				var datatable = $('#keluarga-dt');
@@ -184,7 +186,7 @@
 	            <div class="row">
 	                <!-- Edit Dibawah -->
 	                <div class = "col-lg-6">
-	                	<form role = "form" id = "myForm">
+	                	<form role = "form" id = "myForm" name="myForm" onsubmit="return validateForm();">
 	                		<div class = "form-group">
 	                			<label>No Rekening : </label>
 	                			<span class = "form-control">${noRek}</span>
@@ -570,5 +572,19 @@
 			$("#total").val(saldo+pembayaran);
 		}
 
+		function validateForm() {
+		    var x = document.forms["myForm"]["email"].value;
+		    var atpos = x.indexOf("@");
+		    var dotpos = x.lastIndexOf(".");
+		    var sp = x.indexOf(" ");
+		    if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length || sp > 1) {
+		        alert("Not a valid E-Mail Address!");
+		        return false;
+		    }
+		    else {
+		    	alert("This email is valid.");
+		    	return true;
+		    }
+		}
 	</script>
 </html>

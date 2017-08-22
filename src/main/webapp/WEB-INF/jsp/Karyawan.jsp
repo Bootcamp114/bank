@@ -28,6 +28,7 @@
 
 			$("#update").on("click", function(){
 				updateData();
+				window.location.href = "karyawan";
 				// alert("Berfungsi..");
 			});
 
@@ -223,20 +224,6 @@
     <script src="./../../resources/assets/js/sb-admin-2.js"></script>
 </body>
 <script>
-	$(document).ready(function(){
-		jQuery.validator.addMethod("noSpace", function(value, element){
-			return value.indexOf(" ") < 0 && value != "";
-		 	 }, "Tidak Boleh Menggunakan Spasi" );
-
-		$("#form").validate({
-			rules: {
-				email : {
-					noSpace : true
-				}
-			}
-		});
-	});
-
 	function doDelete(del){
 		var id = $(del).attr("id_delete");
 		$.ajax({
