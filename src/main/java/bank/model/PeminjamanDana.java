@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
@@ -43,6 +44,7 @@ public class PeminjamanDana {
 	private String jatuhTempo;
 	@Column(name="nama_jaminan")
 	private String namaJaminan;
+	@Size(min=2, max=99)
 	@Column(name="deskripsi_jaminan")
 	private String deskripsiJaminan;
 	@ManyToOne

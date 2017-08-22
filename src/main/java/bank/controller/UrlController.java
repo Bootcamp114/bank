@@ -2,15 +2,19 @@ package bank.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.servlet.ModelAndView;
 
 import bank.model.ClassAsuransi;
 import bank.model.Employee;
@@ -139,11 +143,12 @@ public class UrlController {
 	}
 
 	@RequestMapping("/peminjamandana/add")
-	public String addpinjam(Model model) {
+	public String addpinjam(@Valid Model model) {
 		List<Employee> employee = employeeService.getAllEmployee();
 		model.addAttribute("employee", employee);
 		List<Nasabah> nasabah = nasabahService.getAllNasabah();
 		model.addAttribute("nasabah", nasabah);
+		
 		return "PeminjamanDanaAdd";
 	}
 

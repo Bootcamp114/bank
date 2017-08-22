@@ -22,16 +22,12 @@
 <script type="text/javascript">
 	$(document).ready(function(){
 		$('#htg-angsuran').on('click', function(){
-			var date = new Date();
 			var jumlahPinjam = $('input[name="jumlah_pinjam"]').val();
 			var lamaPinjam = $('input[name="lama_pinjam"]').val();
 			var bungaBank = $('input[name="bunga_bank"]').val();
+		 
+			addDays(1825);
 			
-		 	var jatuhTempo = addDays(lamaPinjam);
-			$('#jatuh_tempo').val(jatuhTempo); 
-			
-		//	addDays(5);
-				
 			var hasilAngsuranBunga = hitungAngsuranBunga(jumlahPinjam, lamaPinjam, bungaBank);
 			$('#angsuran_bunga').val(hasilAngsuranBunga);
 			
@@ -44,13 +40,16 @@
 		
 		function addDays(lamaPinjam){
 		    var t = new Date();
-		    t.setDate(t.getDate() + lamaPinjam); 
+		    t.setDate(t.getDate()+lamaPinjam); 
 		    var month = "0"+(t.getMonth()+1);
 		    var date = "0"+t.getDate();
+		    var year = t.getFullYear();
 		    month = month.slice(-2);
 		    date = date.slice(-2);
-		    var date = date +"/"+month +"/"+t.getFullYear();
-		    alert(date);
+		    year = year;
+		    var date = date +"/"+month +"/"+year;
+		  //  alert(date);
+		    $('#jatuh_tempo').val(date);
 		}
 		
 		function hitungAngsuranBunga(jumlahPinjam, lamaPinjam, bungaBank){
@@ -230,7 +229,7 @@
 							<div class="col-lg-6">
 								<label>Lama Pinjam : </label>
 								<div class="form-group input-group">
-									<input type="number" class="form-control" name="lama_pinjam">
+									<input type="text" class="form-control" name="lama_pinjam" value="60" readOnly>
 									<span class="input-group-addon">Bulan</span>
 								</div>
 							</div>
