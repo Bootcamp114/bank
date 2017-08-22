@@ -177,15 +177,15 @@
 									</div>
 									<div class="form-group">
 										<label>Saldo Minimal</label> 
-										<input type="text" name="saldo_edit" class="form-control" id="saldo">
+										<input type="number" name="saldo_edit" class="form-control" id="saldo">
 									</div>
 									<div class="form-group">
 										<label>Administrasi Bulanan</label> 
-										<input type="text" name="administrasi_edit" class="form-control" id="administrasi">
+										<input type="number" name="administrasi_edit" class="form-control" id="administrasi">
 									</div>
 									<div class="form-group">
 										<label>Biaya Penutupan Akun</label> 
-										<input type="text" name="tutup_edit" class="form-control" id="tutup">
+										<input type="number" name="tutup_edit" class="form-control" id="tutup">
 									</div>
 									<div class="modal-footer">
 										<button type="button" id="close" class="btn btn-default" data-dismiss="modal">Cancel</button>

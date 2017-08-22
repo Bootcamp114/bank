@@ -213,11 +213,9 @@
 		$.ajax({
 			url : "/nasabah/produknasabah/delete/"+id,
 			type : "DELETE",
-			success : function(data){
+			success : function(data, a, xhr){
 				console.log(data);
-				if(xhr.status == 201){
 					window.location = "produknasabah";	
-				}
 			}
 		});
 	}

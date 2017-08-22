@@ -169,30 +169,32 @@
 								</div>
 								<div class="modal-body">
 								<!-- <p>This is a small modal.</p>-->
-									<div class="form-group">
-										<label>ID</label>
-										<input type="text" name="id_edit" class="form-control" id="id" disabled>
-									</div>
-									<div class="form-group">
-										<label>Nama Karyawan</label>
-										<input type="text" name="nama_edit" class="form-control" id="nama">
-									</div>
-									<div class="form-group">
-										<label>Alamat</label> 
-										<input type="text" name="alamat_edit" class="form-control" id="alamat">
-									</div>
-									<div class="form-group">
-										<label>Nomer Handphone</label> 
-										<input type="text" name="nohp_edit" class="form-control" id="nohp">
-									</div>
-									<div class="form-group">
-										<label>Email</label> 
-										<input type="text" name="email_edit" class="form-control" id="email">
-									</div>
-									<div class="modal-footer">
-										<button type="button" id="close" class="btn btn-default" data-dismiss="modal">Cancel</button>
-										<button type="button" id="update" class="btn btn-primary" data-dismiss="modal">Update</button>
-									</div>
+									<form id="form">
+										<div class="form-group">
+											<label>ID</label>
+											<input type="text" name="id_edit" class="form-control" id="id" disabled>
+										</div>
+										<div class="form-group">
+											<label>Nama Karyawan</label>
+											<input type="text" name="nama_edit" class="form-control" id="nama">
+										</div>
+										<div class="form-group">
+											<label>Alamat</label> 
+											<input type="text" name="alamat_edit" class="form-control" id="alamat">
+										</div>
+										<div class="form-group">
+											<label>Nomer Handphone</label> 
+											<input type="text" name="nohp_edit" class="form-control" id="nohp">
+										</div>
+										<div class="form-group">
+											<label>Email</label> 
+											<input type="text" name="email_edit" class="form-control" id="email">
+										</div>
+										<div class="modal-footer">
+											<button type="button" id="close" class="btn btn-default" data-dismiss="modal">Cancel</button>
+											<button type="button" id="update" class="btn btn-primary" data-dismiss="modal">Update</button>
+										</div>
+									</form>
 								</div>
 							<!-- /.modal-content -->
 							</div>
@@ -221,6 +223,20 @@
     <script src="./../../resources/assets/js/sb-admin-2.js"></script>
 </body>
 <script>
+	$(document).ready(function(){
+		jQuery.validator.addMethod("noSpace", function(value, element){
+			return value.indexOf(" ") < 0 && value != "";
+		 	 }, "Tidak Boleh Menggunakan Spasi" );
+
+		$("#form").validate({
+			rules: {
+				email : {
+					noSpace : true
+				}
+			}
+		});
+	});
+
 	function doDelete(del){
 		var id = $(del).attr("id_delete");
 		$.ajax({
@@ -254,11 +270,8 @@
 			contentType : "application/json",
 			data : JSON.stringify(karyawan),
 			dataType : "JSON",
-			success : function(data, a, xhr) {
-				console.log(xhr.status);
-				if(xhr.status == 201){
-					window.location = "karyawan";	
-				}
+			success : function(data) {
+				window.location.href = "karyawan";
 			},
 		});
 	}

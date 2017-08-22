@@ -40,8 +40,8 @@
             </div>
             <!-- /.navbar-header -->
 
-            <ul class="nav navbar-top-links navbar-right">
-                <!-- /.dropdown -->
+           <!--  <ul class="nav navbar-top-links navbar-right">
+                /.dropdown
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                         <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
@@ -50,10 +50,10 @@
                         <li><a href="#"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                         </li>
                     </ul>
-                    <!-- /.dropdown-user -->
+                    /.dropdown-user
                 </li>
-                <!-- /.dropdown -->
-            </ul>
+                /.dropdown
+            </ul> -->
             <!-- /.navbar-top-links -->
 
             <div class="navbar-default sidebar" role="navigation">
@@ -120,7 +120,6 @@
 					<table class = "table table-striped table-bordered table-hover dataTable no-footer dtr-inline" id = "dataTables-example" role = "grid" aria-describedby="dataTables-example_info">
 						<thead class = "kolom">
 							<tr>
-								<th class="text-center">Karyawan</th>
 								<th class="text-center">Nasabah</th>
 								<th class="text-center">Jaminan</th>
 								<th class="text-center">Jumlah Pinjam</th>
@@ -133,7 +132,6 @@
 						<tbody>
 						<c:forEach var = "peminjamanDana" items = "${peminjamanDana}">
 							<tr>
-								<td class="text-center">${peminjamanDana.employee.nama}</td>
 								<td class="text-center">${peminjamanDana.nasabah.nama}</td>
 								<td class="text-center">${peminjamanDana.namaJaminan}</td>
 								<td class="text-center">${peminjamanDana.jumlahPinjam}</td>

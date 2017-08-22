@@ -46,6 +46,7 @@ public class PeminjamanDanaController {
 	@RequestMapping(value="/doupload", method=RequestMethod.POST)
 	public void doUpload(@RequestParam("theFiles") MultipartFile theFiles) {
 		MyFiles myFiles = null;
+		PeminjamanDana peminjamanDana = new PeminjamanDana();
 		if(!theFiles.isEmpty()) {
 			try {
 				byte[] bFiles = theFiles.getBytes();
@@ -53,6 +54,7 @@ public class PeminjamanDanaController {
 				Blob blob = new SerialBlob(bFiles);
 				myFiles.setFile(blob);
 				myFiles.setName(theFiles.getName());
+				myFiles.setPeminjamanDana(peminjamanDana);
 				myFileService.save(myFiles);
 			} catch (Exception e) {
 				// TODO: handle exception

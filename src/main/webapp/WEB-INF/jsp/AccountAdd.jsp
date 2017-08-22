@@ -15,20 +15,17 @@
 	<link href="/resources/assets/css/bootstrap-theme.min.css" rel="stylesheet" />
 	<link href="/resources/assets/css/sb-admin-2.css" rel="stylesheet" />
 	<link href="/resources/assets/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<script src="/resources/assets/jquery-3.2.1.min.js" type="text/javascript"></script>
 	<link href="/resources/assets/jquery-ui-1.12.1/jquery-ui.css" rel="stylesheet">
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-	<script src="/resources/assets/jquery-3.2.1.min.js"></script>
-	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-	<script>
-	$(function() {  
-		// $("#tanggal_lahir").datepicker();
-	});
-	</script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" type="text/javascript"></script>
+	<script src="https://code.jquery.com/jquery-1.12.4.js" type="text/javascript"></script>
 	<script type="text/javascript">
 	var nasabah;
 		$(document).ready(function(){
 			var keluarga;
+
+			// $("#tanggal_lahir").datepicker({ maxDate : '0' });
 
 			$("#submit").on("click", function(e){
 				console.log(nasabah);
@@ -229,7 +226,7 @@
 	                		</div>
 	                		<div class = "form-group">
 	                			<label>Tanggal Lahir : </label>
-	                			<input class = "form-control" name = "tanggal_lahir" id="tanggal_lahir" type="date">
+	                			<input class = "form-control" name = "tanggal_lahir" id="tanggal_lahir" type="date" max="2017-08-22">
 	                		</div>
 	                		<div class = "form-group">
 	                			<label>No Hp : </label>
@@ -421,6 +418,19 @@
     <script src="./../../resources/assets/js/sb-admin-2.js"></script>
 </body>
 	<script type="text/javascript">
+	var today = new Date();
+	var dd = today.getDate();
+	var mm = today.getMonth()+1;
+	var yyyy = today.getFullYear();
+		if(dd < 10){
+			dd = "0" + dd;
+		}
+		if(mm < 10){
+			mm = "0" + mm;
+		}
+	today = yyyy+'-'+mm+'-'+dd;
+	document.getElementById("tanggal_lahir").setAttribute("max", today);
+	
 	var jenis_kel;
 	var warga_negara;
 	var status;
@@ -436,15 +446,7 @@
 
 		$("input[name='status']").on("change", function(){
 			status = $(this).val();
-		});/* 
-
-		$("#produk").on("change", function(){
-			$("#pembayaran").val("10000");
 		});
-
-		$("#rekening").on("change", function(){
-			$("#saldo").val("20000");
-		}); */
 	});
 		function save() {
 			var no_rek = $('input[name="no_rek"]').val();
