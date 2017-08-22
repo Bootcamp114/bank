@@ -27,6 +27,7 @@
 			$(document).on("click", ".delete", function(){
 				var conf = confirm("Apakah anda yakin menghapus data ini ?");
 				if (conf == true){
+					// alert("Cannot Delete This Data !");
 					doDelete(this);
 				}
 			});
@@ -41,8 +42,8 @@
             </div>
             <!-- /.navbar-header -->
 
-            <ul class="nav navbar-top-links navbar-right">
-                <!-- /.dropdown -->
+            <!-- <ul class="nav navbar-top-links navbar-right">
+                /.dropdown
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                         <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
@@ -51,10 +52,10 @@
                         <li><a href="#"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                         </li>
                     </ul>
-                    <!-- /.dropdown-user -->
+                    /.dropdown-user
                 </li>
-                <!-- /.dropdown -->
-            </ul>
+                /.dropdown
+            </ul> -->
             <!-- /.navbar-top-links -->
 
             <div class="navbar-default sidebar" role="navigation">
