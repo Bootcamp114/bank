@@ -24,8 +24,19 @@
 		$(document).ready(function(){
 			$("#submit").on("click", function(e){
 				e.preventDefault();
+				validateForm();
 				save();
 			});
+			
+			function validateForm() {
+			    var x = document.forms["myForm"]["email"].value;
+			    var atpos = x.indexOf("@");
+			    var dotpos = x.lastIndexOf(".");
+			    if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length) {
+			        alert("Not a valid e-mail address");
+			        return false;
+			    }
+			}
 		});
 	</script>
 </head>
@@ -107,7 +118,7 @@
             <!-- /.row -->
             <div class="row">
                 <!-- Edit Dibawah -->
-				<form>
+				<form name="myForm" onsubmit="return validateForm();">
 					<div class="col-lg-6">
 						<div class = "form-group">
 		                	<label>Nama Karyawan : </label>
