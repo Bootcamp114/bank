@@ -17,13 +17,16 @@
 	<link href="./../../resources/assets/vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
 	<link href="./../../resources/assets/css/sb-admin-2.css" rel="stylesheet">
 	<link href="./../../resources/assets/vendor/morrisjs/morris.css" rel="stylesheet">
-	<link href="./../../resources/assets/vendor/font-awesome/css/font-awesome.min.css"
-		rel="stylesheet" type="text/css">
+	<link href="./../../resources/assets/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<link href="./../../resources/assets/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css">
 		
 </head>
 	<script type="text/javascript" src="/resources/assets/jquery-3.2.1.min.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function(){
+
+			// $("#dataTables-example").DataTable();
+
 			var produk;
 
 			$("#update").on("click", function(){
@@ -249,4 +252,5 @@
 		$('input[name="harga_edit"]').val(data.harga);
 	}
 </script>
+<script type="text/javascript" src="/resources/assets/datatable/jquery.dataTables.min.js"></script>
 </html>
