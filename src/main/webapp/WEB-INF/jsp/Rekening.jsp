@@ -26,6 +26,8 @@
 		$(document).ready(function(){
 			var rekening;
 
+			$("#dataTables-example").DataTable();
+
 			$("#update").on("click", function(){
 				updateData();
 				window.location.href = "rekening";
@@ -142,7 +144,7 @@
 								<th class="text-center">Nama Rekening</th>
 								<th class="text-center">Biaya Administrasi</th>
 								<th class="text-center">Saldo Minimal</th>
-								<th class="text-center" colspan="3">Action</th>
+								<th class="text-center">Action</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -151,8 +153,10 @@
 								<td class="text-center">${rekening.rekening}</td>
 								<td class="text-center">${rekening.administrasiBulanan}</td>
 								<td class="text-center">${rekening.saldo}</td>
-								<td class="text-center"><a href="#" id_update="${rekening.id}" class = "edit btn btn-primary btn-sm" data-toggle="modal" data-target="#edit-rekening"><span class = "fa fa-fw fa-edit"></span>Edit</a></td>
-								<td class="text-center"><a href="#" id_delete="${rekening.id}" class = "delete btn btn-danger btn-sm"><span class = "fa fa-fw fa-times"></span>Delete</a></td>
+								<td class="text-center">
+									<a href="#" id_update="${rekening.id}" class = "edit btn btn-primary btn-sm" data-toggle="modal" data-target="#edit-rekening"><span class = "fa fa-fw fa-edit"></span>Edit</a>
+									<a href="#" id_delete="${rekening.id}" class = "delete btn btn-danger btn-sm"><span class = "fa fa-fw fa-times"></span>Delete</a>
+								</td>
 							</tr>
 						</c:forEach>
 						</tbody>

@@ -25,7 +25,7 @@
 	<script type="text/javascript">
 		$(document).ready(function(){
 
-			// $("#dataTables-example").DataTable();
+			$("#dataTables-example").DataTable();
 
 			var produk;
 
@@ -143,7 +143,7 @@
 							<tr>
 								<th class="text-center">Nama Produk</th>
 								<th class="text-center">Harga</th>
-								<th class="text-center" colspan="2">Action</th>
+								<th class="text-center">Action</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -151,8 +151,10 @@
 							<tr>
 								<td class="text-center">${produkNasabah.namaProduk}</td>
 								<td class="text-center">${produkNasabah.harga}</td>
-								<td class="text-center"><a href="#" id_update="${produkNasabah.id}" class = "edit btn btn-primary btn-sm" data-toggle="modal" data-target="#edit-produk"><span class = "fa fa-fw fa-edit"></span>Edit</a></td>
-								<td class="text-center"><a href="#" id_delete="${produkNasabah.id}" class = "delete btn btn-danger btn-sm"><span class = "fa fa-fw fa-times"></span>Delete</a></td>
+								<td class="text-center">
+									<a href="#" id_update="${produkNasabah.id}" class = "edit btn btn-primary btn-sm" data-toggle="modal" data-target="#edit-produk"><span class = "fa fa-fw fa-edit"></span>Edit</a>
+									<a href="#" id_delete="${produkNasabah.id}" class = "delete btn btn-danger btn-sm"><span class = "fa fa-fw fa-times"></span>Delete</a>
+								</td>
 							</tr>
 						</c:forEach>
 						</tbody>

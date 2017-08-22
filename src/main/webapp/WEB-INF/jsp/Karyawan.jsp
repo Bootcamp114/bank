@@ -18,12 +18,15 @@
 	<link href="./../../resources/assets/css/sb-admin-2.css" rel="stylesheet">
 	<link href="./../../resources/assets/vendor/morrisjs/morris.css" rel="stylesheet">
 	<link href="./../../resources/assets/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<link href="./../../resources/assets/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css">
 		
 </head>
 	<script type="text/javascript" src="/resources/assets/jquery-3.2.1.min.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function(){
 			var karyawan;
+
+			$("#dataTables-example").DataTable();
 
 			$("#update").on("click", function(){
 				updateData();
@@ -142,7 +145,7 @@
 								<th class="text-center">Alamat</th>
 								<th class="text-center">No Hp</th>
 								<th class="text-center">Email</th>
-								<th class="text-center" colspan="3">Action</th>
+								<th class="text-center">Action</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -152,8 +155,10 @@
 								<td class="text-center">${karyawan.alamat}</td>
 								<td class="text-center">${karyawan.noHp}</td>
 								<td class="text-center">${karyawan.email}</td>
-								<td class="text-center"><a href="#" id_update="${karyawan.id}" class = "edit btn btn-primary btn-sm" data-toggle="modal" data-target="#edit-karyawan"><span class = "fa fa-fw fa-edit"></span>Edit</a></td>
-								<td class="text-center"><a href="#" id_delete="${karyawan.id}" class = "delete btn btn-danger btn-sm"><span class = "fa fa-fw fa-times"></span>Delete</a></td>
+								<td class="text-center">
+									<a href="#" id_update="${karyawan.id}" class = "edit btn btn-primary btn-sm" data-toggle="modal" data-target="#edit-karyawan"><span class = "fa fa-fw fa-edit"></span>Edit</a>
+									<a href="#" id_delete="${karyawan.id}" class = "delete btn btn-danger btn-sm"><span class = "fa fa-fw fa-times"></span>Delete</a>
+								</td>
 							</tr>
 						</c:forEach>
 						</tbody>
@@ -270,4 +275,5 @@
 		$('input[name="email_edit"]').val(data.email);
 	}
 </script>
+<script type="text/javascript" src="/resources/assets/datatable/jquery.dataTables.min.js"></script>
 </html>
