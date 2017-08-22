@@ -15,16 +15,20 @@
 	<link href="/resources/assets/css/bootstrap-theme.min.css" rel="stylesheet" />
 	<link href="/resources/assets/css/sb-admin-2.css" rel="stylesheet" />
 	<link href="/resources/assets/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-	<!-- <link href="/resources/assets/jquery-ui-1.12.1/jquery-ui.css" rel="stylesheet"> -->
+	<link href="/resources/assets/jquery-ui-1.12.1/jquery-ui.css" rel="stylesheet">
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 	<script src="/resources/assets/jquery-3.2.1.min.js"></script>
-	<!-- <script src="/resources/assets/jquery-ui-1.12.1/jquery-ui.js"></script> -->
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<script>
+	$(function() {  
+		// $("#tanggal_lahir").datepicker();
+	});
+	</script>
 	<script type="text/javascript">
 	var nasabah;
 		$(document).ready(function(){
 			var keluarga;
-
-			// $("#tanggal_lahirr").datepicker();
 
 			$("#submit").on("click", function(e){
 				console.log(nasabah);
@@ -103,8 +107,8 @@
             </div>
             <!-- /.navbar-header -->
 
-            <ul class="nav navbar-top-links navbar-right">
-                <!-- /.dropdown -->
+            <!-- <ul class="nav navbar-top-links navbar-right">
+                /.dropdown
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                         <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
@@ -113,10 +117,10 @@
                         <li><a href="#"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                         </li>
                     </ul>
-                    <!-- /.dropdown-user -->
+                    /.dropdown-user
                 </li>
-                <!-- /.dropdown -->
-            </ul>
+                /.dropdown
+            </ul> -->
             <!-- /.navbar-top-links -->
 
             <div class="navbar-default sidebar" role="navigation">

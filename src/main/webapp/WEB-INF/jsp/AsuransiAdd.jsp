@@ -32,13 +32,17 @@ $(document).ready(function(){
 		e.preventDefault();
 		save();
 	});
-	
+	$("#nasabah").on('change', function(){
+		alert();
+		showData3();
+	});
 	$("#produkAsuransi").on('change', function(){
 		showData();
 	});
 	$("#classAsuransi").on('change', function(){
 		showData2();
 	});
+	
 });
 	
 
@@ -143,6 +147,7 @@ $(document).ready(function(){
 	                		<div class = "form-group">
 	                			<label>Nama Penanggung : </label>
 	                			<select class = "form-control" name = "nasabah" id="nasabah">
+	                			<option>-pilih nama nasabah-</option>
 	                				<option>-pilih nama nasabah-</option>
 	                			<c:forEach var = "nasabah" items = "${nasabah}">
 									<option value="${nasabah.id}">${nasabah.nama}</option>
@@ -150,12 +155,17 @@ $(document).ready(function(){
 								</select>
 	                		</div>
 	                		<div class = "form-group">
+	                			<label>No Rekening : </label>
+	                			<input type="text" class="form-control" id="noRek" name ="noRek" value="" disabled>
+	                		</div>
+	                		<div class = "form-group">
 	                			<label>Ahli Waris : </label>
 	                			<input class = "form-control" name = "ahli_waris" required autofocus>
 	                		</div>
+	                		
 	                		<div class = "form-group">
 	                			<label>Tanggal Dibuat : </label>
-	                			<input type="date" class = "form-control" name = "tanggal_dibuat" required autofocus>
+	                			<input type="date" class = "form-control" id = "tanggal_dibuat" name="tanggal_dibuat" required autofocus>
 	                		</div>
 	                		<div class = "form-group">
 	                			<label>Produk Asuransi : </label>
@@ -201,9 +211,7 @@ $(document).ready(function(){
 							<button type="reset" class="btn btn-warning">Reset Button</button>
 						</div>
 					</div>
-					
-					
-					
+
 					<div class="col-lg-6">
 						<div class = "form-group">
 		                	<label>Nama Tertanggung : </label>
@@ -378,7 +386,9 @@ function save(){
 		success : function(data, a, xhr){
 			console.log(xhr.status);
 			if ( xhr.status == 201) {
-				window.location ="./../asuransi"
+				window.location ="./../asuransi"		
+			} else {
+				alert("maaf data yang anda isikan belum benar, coba cek sekali lagi data anda");
 			}
 			
 		}
@@ -421,12 +431,29 @@ function showData2(){
 		}
 	});
 }
-
 function storan() {
 	var classAsuransi = parseFloat($("#storan_class").val());
 	var produkAsuransi = parseFloat($("#storan_produk").val());
 	$("#jumlah_storan").val(classAsuransi*produkAsuransi);
 }
+
+function rekening(data){
+	$('#noRek').val(data.noRek);
+}
+function showData3(){
+	var id = $('#nasabah').val();
+	$.ajax({
+		url : '/bank/getnasabahbyid/'+id,
+		type : 'GET',
+		dataType : 'json',
+		success : function(data, x, xhr) {
+			console.log("data is loaded");
+			rekening(data);
+		}
+	});
+}
+
+
 </script>
 
 
