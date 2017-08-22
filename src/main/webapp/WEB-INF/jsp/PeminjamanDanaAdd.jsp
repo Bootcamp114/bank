@@ -18,10 +18,15 @@
 <link href="./../../resources/assets/css/sb-admin-2.css" rel="stylesheet">
 <link href="./../../resources/assets/vendor/morrisjs/morris.css" rel="stylesheet">
 <link href="./../../resources/assets/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="./../../resources/assets/jquery-ui-1.12.1/jquery-ui.css">
 <script type="text/javascript" src="/resources/assets/jquery-3.2.1.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="./../../resources/assets/jquery-ui-1.12.1/jquery-ui.js"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
 		$('#htg-angsuran').on('click', function(){
+			$("#datepicker").datepicker();
+			
 			var jumlahPinjam = $('input[name="jumlah_pinjam"]').val();
 			var lamaPinjam = $('input[name="lama_pinjam"]').val();
 			var bungaBank = $('input[name="bunga_bank"]').val();
@@ -214,8 +219,8 @@
 							</div>
 							<div class="col-lg-6">
 								<div class="form-group">
-									<label>Tanggal Pinjam : </label> <input type="date"
-									class="form-control" name="tanggal_pinjam" id="tanggal_pinjam"/>
+									<label>Tanggal Pinjam : </label> <input type="text"
+									class="form-control" name="tanggal_pinjam" id="datepicker"/>
 								</div>
 							</div>
 							<div class="col-lg-6">
@@ -265,7 +270,7 @@
 							<div class="col-lg-12">
 								<div class="form-group">
 									<label>Jatuh Tempo : </label> <input type="text"
-									class="form-control" name="jatuh_tempo" id="jatuh_tempo"/>
+									class="form-control" name="jatuh_tempo" id="jatuh_tempo" readOnly/>
 								</div>
 							</div>
 						</div>
