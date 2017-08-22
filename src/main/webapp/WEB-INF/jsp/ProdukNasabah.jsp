@@ -28,6 +28,7 @@
 
 			$("#update").on("click", function(){
 				updateData();
+				window.location.href = "produknasabah";
 				// alert("Berfungsi..");
 			});
 

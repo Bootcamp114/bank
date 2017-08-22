@@ -46,7 +46,7 @@ public class ProdukNasabahDaoImpl implements ProdukNasabahDao {
 	public List<ProdukNasabah> getAllProdukNasabah() {
 		// TODO Auto-generated method stub
 		Session session = sessionFactory.getCurrentSession();
-		List<ProdukNasabah> listProdukNasabah = session.createQuery("from " + ProdukNasabah.class.getName() + " order by id").list();
+		List<ProdukNasabah> listProdukNasabah = session.createQuery("from " + ProdukNasabah.class.getName() + " order by id asc").list();
 		return listProdukNasabah;
 	}
 
