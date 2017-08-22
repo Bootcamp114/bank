@@ -44,7 +44,7 @@ public class NasabahDaoImpl implements NasabahDao {
 	public List<Nasabah> getAllNasabah() {
 		// TODO Auto-generated method stub
 		Session session = sessionFactory.getCurrentSession();
-		List<Nasabah> listNasabah = session.createQuery("from " + Nasabah.class.getName() + " order by id").list();
+		List<Nasabah> listNasabah = session.createQuery("from " + Nasabah.class.getName() + " order by id asc").list();
 		return listNasabah;
 	}
 
