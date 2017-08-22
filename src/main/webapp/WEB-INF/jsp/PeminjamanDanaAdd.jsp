@@ -18,15 +18,10 @@
 <link href="./../../resources/assets/css/sb-admin-2.css" rel="stylesheet">
 <link href="./../../resources/assets/vendor/morrisjs/morris.css" rel="stylesheet">
 <link href="./../../resources/assets/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-<link rel="stylesheet" href="./../../resources/assets/jquery-ui-1.12.1/jquery-ui.css">
 <script type="text/javascript" src="/resources/assets/jquery-3.2.1.min.js"></script>
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<script src="./../../resources/assets/jquery-ui-1.12.1/jquery-ui.js"></script>
 <script type="text/javascript">
-	$(document).ready(function(){
+	$(document).ready(function(){		
 		$('#htg-angsuran').on('click', function(){
-			$("#datepicker").datepicker();
-			
 			var jumlahPinjam = $('input[name="jumlah_pinjam"]').val();
 			var lamaPinjam = $('input[name="lama_pinjam"]').val();
 			var bungaBank = $('input[name="bunga_bank"]').val();
@@ -56,6 +51,14 @@
 		  //  alert(date);
 		    $('#jatuh_tempo').val(date);
 		}
+		
+		function validate() {
+	        if (document.getElementById("jaminan").value == "-") {
+	            alert("Jaminan Tidak Boleh Kosong.");
+	        } /* else if (document.getElementById("tujuan_penggunaan").value == "") {
+	            alert("Tujuan Penggunaan Tidak Boleh Kosong.");
+	        } */
+	    }
 		
 		function hitungAngsuranBunga(jumlahPinjam, lamaPinjam, bungaBank){
 			var angsuranBunga = jumlahPinjam*(bungaBank/100)/(lamaPinjam/2);
@@ -183,7 +186,7 @@
 						<div class="col-lg-12">
 							<div class="col-lg-12">
 								<div class="form-group">
-									<label>Jaminan : </label> <select class="form-control" name="nama_jaminan">
+									<label>Jaminan : </label> <select class="form-control" name="nama_jaminan" id="jaminan">
 										<option>-</option>
 										<option value="Tanah atau Bangunan">Tanah atau Bagunan</option>
 										<option value="Kendaraan">Kendaraan</option>
@@ -214,7 +217,7 @@
 							<div class="col-lg-12">
 								<div class="form-group">
 									<label>Tujuan Penggunaan : </label> <input type="text"
-									class="form-control" name="tujuan_penggunaan">
+									class="form-control" name="tujuan_penggunaan" id="tujuan_penggunaan">
 								</div>
 							</div>
 							<div class="col-lg-6">
@@ -276,7 +279,7 @@
 						</div>
 					</div>
 					<div class="col-lg-12">
-						<input type="submit" class="btn btn-success" name="submit" value="Fix Loan" />
+						<input type="submit" class="btn btn-success" name="submit" onclick="validate()" value="Fix Loan"/> 
 						<input type="reset" class="btn btn-info" value="Reset Form"/>
 					</div>
 				</form>
