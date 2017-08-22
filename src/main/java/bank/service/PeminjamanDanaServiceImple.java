@@ -24,11 +24,11 @@ public class PeminjamanDanaServiceImple implements PeminjamanDanaService {
 	public void save(PeminjamanDana pinjamdn) {
 		// TODO Auto-generated method stub
 		pinjamDnDao.save(pinjamdn);
-		for(MyFiles myFile : pinjamdn.getMyFiles()) {
+		/*for(MyFiles myFile : pinjamdn.getMyFiles()) {*/
 			MyFiles myFiles = new MyFiles();
 			myFiles.setPeminjamanDana(pinjamdn);
-			myFileDao.save(myFile);
-		}
+			myFileDao.save(myFiles);
+		/*}*/
 	}
 
 	@Override

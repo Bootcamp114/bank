@@ -20,7 +20,9 @@
 <link href="./../../resources/assets/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 <script type="text/javascript" src="/resources/assets/jquery-3.2.1.min.js"></script>
 <script type="text/javascript">
-	$(document).ready(function(){		
+	$(document).ready(function(){
+		days(0);
+		
 		$('#htg-angsuran').on('click', function(){
 			var jumlahPinjam = $('input[name="jumlah_pinjam"]').val();
 			var lamaPinjam = $('input[name="lama_pinjam"]').val();
@@ -38,6 +40,20 @@
 			$('#total_angsuran').val(hasilTotalAngsuran);
 		});
 		
+		function days(lamaPinjam){
+		    var t = new Date();
+		    t.setDate(t.getDate()+lamaPinjam); 
+		    var month = "0"+(t.getMonth()+1);
+		    var date = "0"+t.getDate();
+		    var year = t.getFullYear();
+		    month = month.slice(-2);
+		    date = date.slice(-2);
+		    year = year;
+		    var date = year+"-"+month+"-"+date;
+		  //  alert(date);
+		    $('#tanggal_pinjam').val(date);
+		}
+		
 		function addDays(lamaPinjam){
 		    var t = new Date();
 		    t.setDate(t.getDate()+lamaPinjam); 
@@ -47,7 +63,7 @@
 		    month = month.slice(-2);
 		    date = date.slice(-2);
 		    year = year;
-		    var date = date +"/"+month +"/"+year;
+		    var date = year+"-"+month+"-"+date;
 		  //  alert(date);
 		    $('#jatuh_tempo').val(date);
 		}
@@ -223,7 +239,7 @@
 							<div class="col-lg-6">
 								<div class="form-group">
 									<label>Tanggal Pinjam : </label> <input type="text"
-									class="form-control" name="tanggal_pinjam" id="datepicker"/>
+									class="form-control" name="tanggal_pinjam" id="tanggal_pinjam" readOnly/>
 								</div>
 							</div>
 							<div class="col-lg-6">
@@ -326,7 +342,6 @@
 		fd.append( 'theFiles', $('input[type="file"]')[0].files[0]);
 		var nasabah = $('#nasabah').val();
 		var employee = $('#employee').val();
-		var myFiles = [];
 		
 
 		var pinjamdn = {
@@ -347,7 +362,9 @@
 			    employee : {
 			    	id: employee
 			    },
-			    myFiles : myFiles
+			    myFiles :[
+			    	
+			    ]
 		}
 		
 		
