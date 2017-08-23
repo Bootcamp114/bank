@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page isELIgnored="false" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -9,7 +11,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>Insert title here</title>
+<title>Produk Asuransi</title>
 
 <link
 	href="./../../resources/assets/vendor/bootstrap/css/bootstrap.min.css"
@@ -22,20 +24,27 @@
 <link
 	href="./../../resources/assets/vendor/font-awesome/css/font-awesome.min.css"
 	rel="stylesheet" type="text/css">
+<link href="./../../resources/assets/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css">
 
 <script type="text/javascript"src="/resources/assets/jquery-3.2.1.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
+	$("#table").DataTable();
 	
 	$('input[name="submit"]').on('click', function(){
 		save();
 		clearColumn();
+		
 });
 	
-	showData();
+	
 	
 	$(document).on('click','.delete',function(){
-		doDelete(this);
+		var conf = confirm("Apakah anda yakin menghapus data ini ?");
+		if (conf == true) {
+			doDelete(this);
+		}
+		
 	});
 	
 	$("input[name='update']").on('click',function(){
@@ -59,7 +68,7 @@ $(document).ready(function(){
 			contentType : 'application/json',
 			data : JSON.stringify(produk_asuransi),
 			success : function(data){
-				showData();
+				window.location = "produkasuransi";
 				clearColumn();
 			}
 		});
@@ -94,8 +103,8 @@ $(document).ready(function(){
             </div>
             <!-- /.navbar-header -->
 
-            <ul class="nav navbar-top-links navbar-right">
-                <!-- /.dropdown -->
+            <!-- <ul class="nav navbar-top-links navbar-right">
+                /.dropdown
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                         <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
@@ -104,10 +113,10 @@ $(document).ready(function(){
                         <li><a href="#"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                         </li>
                     </ul>
-                    <!-- /.dropdown-user -->
+                    /.dropdown-user
                 </li>
-                <!-- /.dropdown -->
-            </ul>
+                /.dropdown
+            </ul> -->
             <!-- /.navbar-top-links -->
 
             <div class="navbar-default sidebar" role="navigation">
@@ -176,13 +185,13 @@ $(document).ready(function(){
 				</div>
 				<div>			
 				<label for="exampleInputEmail1">Jumlah Dana</label> <input
-							type="text" class="form-control" name="jumlah_dana"
+							type="number" class="form-control" name="jumlah_dana"
 							placeholder="Masukan Jumlah Dana Pada Produk Asuransi ">
 				</div>
 				<div>			
 				<label for="exampleInputEmail1">jumlah Storan</label> <input
-							type="text" class="form-control" name="jumlah_storan"
-							placeholder="Masukan Jumlah Storan Pada Produk Asuransi">
+							type="number" class="form-control" name="jumlah_storan"
+							placeholder="Masukan Jumlah Storan Pada Produk Asuransi" number only>
 				</div>
 				<div>			
 				<label for="exampleInputEmail1">Diskripsi Class</label>
@@ -192,20 +201,31 @@ $(document).ready(function(){
 				<input type="button" class="btn btn-primary" name="submit" value="Save"/>
 				<input type ="button" class="btn btn-succes" name="update" value="Update">
 				
-				<h3 class="page-header">Class Asuransi List</h3>
+				<h3 class="page-header">Produk Asuransi List</h3>
 				<div>
-				<table width="100%" class="table table-striped table-bordered table-hover" id="dataTables">
+				<table width="100%" class="table table-striped table-bordered table-hover" id="table">
                                 <thead>
                                     <tr>
                                         <th><center>Produk</center></th>
                                         <th><center>Jumlah Dana</center></th>
                                         <th><center>Jumlah Storan</center></th>
                                         <th><center>Deskripsi</center></th>
-                                        <th colspan="2"><center>Action</center></th>
+                                        <th><center>Action</center></th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    
+                                    <c:forEach var = "produkAsuransi" items = "${produkAsuransi}">
+							<tr>
+								<td class="text-center">${produkAsuransi.produk}</td>
+								<td class="text-center">${produkAsuransi.jumlahDana}</td>
+								<td class="text-center">${produkAsuransi.jumlahStoran}</td>
+								<td class="text-center">${produkAsuransi.diskripsiProduk}</td>
+								<td class="text-center">
+									<a href="#" id_delete="${produkAsuransi.id}" class = "delete btn btn-danger btn-sm"><span class = "fa fa-fw fa-times"></span>Delete</a>
+									<a href="#" id_edit="${produkAsuransi.id}" class = "edit btn btn-primary btn-sm"><span class = "fa fa-fw fa-info"></span>Edit</a>
+								</td>
+							</tr>
+						</c:forEach>
                                 </tbody>
                             </table>			
 				</div>			
@@ -229,49 +249,6 @@ $(document).ready(function(){
 	<script src="./../../resources/assets/vendor/morrisjs/morris.min.js"></script>
 </body>
 <script>
-function showData(){
-	$.ajax({
-		url : '/produkasuransicontroller/getall',
-		type : 'POST',
-		dataType : 'json', 
-		success: function(data, x, xhr){
-			console.log("data is load");
-			fillData(data);
-		}
-	});
-}
-
-function fillData(data){
-	var dt = $('#dataTables');
-	var tbody = dt.find('tbody');
-	var child = tbody.find('tr').remove();
-	
-	$.each(data, function(index, produk_asuransi){
-		var trString = "<tr>";
-		trString += "<td>";
-		trString += produk_asuransi.produk;
-		trString += "</td>"
-		trString += "<td>";
-		trString += produk_asuransi.jumlahDana;
-		trString += "</td>"
-		trString += "<td>";
-		trString += produk_asuransi.jumlahStoran;
-		trString += "</td>"
-		trString += "<td>";
-		trString += produk_asuransi.diskripsiProduk;
-		trString += "</td>"
-		trString += "<td>";
-		trString += "<a id_delete = '"+produk_asuransi.id+"' href='#' class = 'delete' >Delete</a>";
-		trString += "</td>"
-		trString += "<td>";
-		trString += "<a id_edit='"+produk_asuransi.id+"' href='#' class='edit'>Edit</a>"
-		trString += "</td>"
-		trString += "</tr>"
-		
-		tbody.append(trString)
-		
-	});
-}
 
 function save(){
 	var produk = $('input[name="produk"]').val();
@@ -295,7 +272,7 @@ function save(){
 			console.log(data);
 			console.log(a);
 			console.log(xhr.status);
-			showData();
+			window.location = "produkasuransi";
 			
 		}
 	});
@@ -305,11 +282,11 @@ function doDelete(ini){
 	var id = $(ini).attr('id_delete');
 	
 	$.ajax({
-		url : '/produkasuransicontroller/delete/'+id,
+		url : "/produkasuransicontroller/delete/"+id,
 		type :'DELETE',
 		success : function(data){
 			console.log(data);
-			showData();
+			window.location = "produkasuransi";
 		}
 	});
 }
@@ -334,7 +311,7 @@ function update(){
 		success : function(data, a, xhr) {
 			console.log(a);
 			console.log(xhr.status);
-			showData();
+			
 		}
 	});
 }
@@ -355,5 +332,5 @@ function clearColumn(){
 }
 
 </script>
-
+<script type="text/javascript" src="/resources/assets/datatable/jquery.dataTables.min.js"></script>
 </html>

@@ -17,4 +17,5 @@ public interface ClassAsuransiService {
 	
 	public ClassAsuransi getClassAsuransiById(int id);
 
+
 }

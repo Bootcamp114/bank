@@ -29,10 +29,6 @@
 					save();
 				}
 			});
-
-			$("#check").on("click", function(){
-				validateForm();
-			});
 			
 			function validateForm() {
 			    var x = document.forms["myForm"]["email"].value;
@@ -44,7 +40,6 @@
 			        return false;
 			    }
 			    else {
-			    	alert("This email is valid.");
 			    	return true;
 			    }
 			}
@@ -141,12 +136,11 @@
 	               		</div>
 	               		<div class = "form-group">
 		                	<label>No Hp : </label>
-		               		<input class = "form-control" name = "no_hp">
+		               		<input type="number" class = "form-control" name = "no_hp">
 	               		</div>
 	               		<div class = "form-group">
 		                	<label>Email : </label>
 		               		<input class = "form-control" name = "email">
-		               		<button type="button" id = "check" class="btn btn-info">Check</button>
 	               		</div>
 	                <button type="submit" id = "submit" class="btn btn-success">Submit Button</button>
 					<button type="reset" class="btn btn-warning">Reset Button</button>

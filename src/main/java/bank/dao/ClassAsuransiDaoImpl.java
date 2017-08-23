@@ -43,8 +43,7 @@ public class ClassAsuransiDaoImpl implements ClassAsuransiDao {
 		Session session = sessionFactory.getCurrentSession();
 		session.update(classAsuransi);
 		session.flush();
-		
-		
+
 	}
 
 	@Override
@@ -61,6 +60,18 @@ public class ClassAsuransiDaoImpl implements ClassAsuransiDao {
 		Session session = sessionFactory.getCurrentSession();
 		ClassAsuransi classAsuransi = session.get(ClassAsuransi.class, id);
 		return classAsuransi;
+	}
+
+	@Override
+	public List<ClassAsuransi> serchClassAsuransiByType(ClassAsuransi classAsuransi) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ClassAsuransi getClassAsuransiByType(String Type) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

@@ -11,25 +11,23 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>Insert title here</title>
+<title>Asuransi</title>
 
-<link
-	href="./../resources/assets/vendor/bootstrap/css/bootstrap.min.css"
-	rel="stylesheet">
-<link href="./../resources/assets/vendor/metisMenu/metisMenu.min.css"
-	rel="stylesheet">
-<link href="./../resources/assets/css/sb-admin-2.css" rel="stylesheet">
-<link href="./../resources/assets/vendor/morrisjs/morris.css"
-	rel="stylesheet">
-<link
-	href="./../resources/assets/vendor/font-awesome/css/font-awesome.min.css"
-	rel="stylesheet" type="text/css">
-<script type="text/javascript"
-	src="/resources/assets/jquery-3.2.1.min.js"></script>
+	<link href="./../../resources/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link href="./../../resources/assets/vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
+	<link href="./../../resources/assets/css/sb-admin-2.css" rel="stylesheet">
+	<link href="./../../resources/assets/vendor/morrisjs/morris.css" rel="stylesheet">
+	<link href="./../../resources/assets/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<link href="./../../resources/assets/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css">
+
+
 
 </head>
-
+<script type="text/javascript"src="/resources/assets/jquery-3.2.1.min.js"></script>
 <script type="text/javascript">
+
+
+
 	$(document).ready(function() {
 		$(document).on('click', '.delete', function() {
 			var conf = confirm("Apakah anda yakin menghapus data ini ?");
@@ -51,6 +49,10 @@
 			});
 		});
 		
+		$("#table").DataTable();
+		
+		
+		
 	});
 		
 		
@@ -67,8 +69,8 @@
 		</div>
 		<!-- /.navbar-header -->
 
-		<ul class="nav navbar-top-links navbar-right">
-			<!-- /.dropdown -->
+		<!-- <ul class="nav navbar-top-links navbar-right">
+			/.dropdown
 			<li class="dropdown"><a class="dropdown-toggle"
 				data-toggle="dropdown" href="#"> <i class="fa fa-user fa-fw"></i>
 					<i class="fa fa-caret-down"></i>
@@ -76,9 +78,9 @@
 				<ul class="dropdown-menu dropdown-user">
 					<li><a href="#"><i class="fa fa-sign-out fa-fw"></i>
 							Logout</a></li>
-				</ul> <!-- /.dropdown-user --></li>
-			<!-- /.dropdown -->
-		</ul>
+				</ul> /.dropdown-user</li>
+			/.dropdown
+		</ul> -->
 		<!-- /.navbar-top-links -->
 
 		<div class="navbar-default sidebar" role="navigation">
@@ -131,8 +133,8 @@
 					<br />
 					<table width="100%"
 						class="table table-striped table-bordered table-hover"
-						id="dataTables-example">
-						<thead>
+						 id="table" name="table">
+						<thead class="">
 							<tr>
 								<th><center>No polis</center></th>
 								<th><center>Penanggung</center></th>
@@ -142,11 +144,10 @@
 								<th><center>Storan</center></th>
 								<th><center>Tanggal Dibuat</center></th>
 								<th><center>Customer Service</center></th>
-								<th colspan="2"><center>Action</center></th>
+								<th><center>Action</center></th>
 							</tr>
 						</thead>
 						<tbody>
-
 							<c:forEach var="polis" items="${polis}">
 								<tr>
 									<td class="text-center">${polis.noPolis}</td>
@@ -157,11 +158,11 @@
 									<td class="text-center">${polis.jumlahStoran}</td>
 									<td class="text-center">${polis.tanggalDibuat}</td>
 									<td class="text-center">${polis.employee.nama}</td>
-									<td class="text-center"><a href="#" id_delete="${polis.id}" class = "delete btn btn-danger btn-sm"><span class = "fa fa-fw fa-times"></span>Delete</a></td>
-									<td class="text-center"><a id_edit="${polis.id }" type="button" class="btn btn-sm btn-primary btn-lg" data-toggle="modal" data-target="#myModal"><span class = "fa fa-fw fa-info"></span>Detail</a></td>
+									<td class="text-center">
+										<a id_delete="${polis.id}" class = "delete btn btn-danger btn-sm"><span class = "fa fa-fw fa-times"></span>Delete</a>
+									</td>
 								</tr>
 							</c:forEach>
-
 						</tbody>
 					</table>
 					
@@ -288,4 +289,5 @@
 	
 	
 </script>
+<script type="text/javascript" src="/resources/assets/datatable/jquery.dataTables.min.js"></script>
 </html>

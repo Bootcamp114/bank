@@ -32,7 +32,9 @@
 $(document).ready(function(){
 	$("input[name='submit']").on('click', function(e){
 		e.preventDefault();
+		if(validateForm() == true){
 		save();
+		}
 	});
 	$("#nasabah").on('change', function(){
 		showData3();
@@ -43,9 +45,9 @@ $(document).ready(function(){
 	$("#classAsuransi").on('change', function(){
 		showData2();
 	});
-	$("#check").on("click", function(){
-		validateForm();
-	});
+	/* $("#check").on("click", function(){
+		
+	}); */
 	
 	function validateForm() {
 	    var x = document.forms["myForm"]["email"].value;
@@ -57,7 +59,6 @@ $(document).ready(function(){
 	        return false;
 	    }
 	    else {
-	    	alert("This email is valid.");
 	    	return true;
 	    }
 	}
@@ -243,12 +244,12 @@ $(document).ready(function(){
 		             	</div>
 		             	<div class = "form-group">
 		                	<label>No Hp : </label>
-		               		<input class = "form-control" name = "no_hp">
+		               		<input type="number" class = "form-control" name = "no_hp">
 		             	</div>
 		             	<div class = "form-group">
 		                	<label>Email : </label>
 		               		<input class = "form-control" name = "email"><br>
-		               		<button type="button" id = "check" class="btn btn-info">Check</button>
+		               		<!-- <button type="button" id = "check" class="btn btn-info">Check</button> -->
 		             	</div>
 		             	<div class = "form-group">
 		                	<label>Tanggal Lahir : </label>
@@ -302,7 +303,7 @@ $(document).ready(function(){
 	                			</select>
 	                	</div>
 	                	<div class = "form-group">
-		                	<label>No Identitas : </label> <input class="form-control" name="no_identitas">
+		                	<label>No Identitas : </label> <input type="number" class="form-control" name="no_identitas">
 						<br>
 						<input type="submit" name="submit" class="btn btn-success">
 					</div> 	

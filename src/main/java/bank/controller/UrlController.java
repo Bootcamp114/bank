@@ -197,13 +197,16 @@ public class UrlController {
 	}
 
 	@RequestMapping("/classasuransi")
-	public String classasuransi() {
-
+	public String classasuransi(Model model) {
+		List<ClassAsuransi> classAsuransi = classAsuransiService.getAllClassAsuransi();
+		model.addAttribute("classAsuransi", classAsuransi);
 		return "ClassAsuransi";
 	}
 	
 	@RequestMapping("produkasuransi")
-	public String produkAsuransi(){
+	public String produkAsuransi(Model model){
+		List<ProdukAsuransi> produkAsuransi= produkAsuransiService.getAllProdkAsuransi();
+		model.addAttribute("produkAsuransi", produkAsuransi);
 		return "ProdukAsuransi";
 				
 	}

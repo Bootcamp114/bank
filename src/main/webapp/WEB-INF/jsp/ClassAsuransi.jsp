@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page isELIgnored="false" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -20,28 +22,19 @@
 <link href="./../../resources/assets/vendor/morrisjs/morris.css"
 	rel="stylesheet">
 <link
-	href="./../../resources/assets/css/jquery.dataTables.min.css"
-	rel="stylesheet" type="text/css">
-<link
 	href="./../../resources/assets/vendor/font-awesome/css/font-awesome.min.css"
 	rel="stylesheet" type="text/css">
+<link href="./../../resources/assets/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css">
 
 <script type="text/javascript"src="/resources/assets/jquery-3.2.1.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
-	
-	$('#dataTables').DataTable( {
-        "pagingType": "full_numbers"
-    } );
-	
+	$("#dataTables").DataTable();
 	//save data
 	$("input[name='submit']").on('click' ,function(){
 		save();
 		clearColumn();
 	});
-	
-	//show data
-	showData();
 	
 	//delete
 	$(document).on("click",'.delete', function(){
@@ -80,7 +73,7 @@ $(document).ready(function(){
 		contentType : 'application/json',
 		data : JSON.stringify(class_asuransi),
 		success: function(data){
-			showData();
+			window.location = "classasuransi";
 			clearColumn();
 		}
 		
@@ -234,11 +227,25 @@ $(document).ready(function(){
                                          <th><center>Harga Kart</center></th>
                                           <th><center>Kelipatan</center></th>
                                         <th><center>Deskripsi</center></th>
-                                        <th colspan="2"><center>Action</center></th>
+                                        <th><center>Action</center></th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    
+                                    <c:forEach var = "classAsuransi" items = "${classAsuransi}">
+							<tr>
+								<td class="text-center">${classAsuransi.type}</td>
+								<td class="text-center">${classAsuransi.jenisPelayanan}</td>
+								<td class="text-center">${classAsuransi.hargaKartu}</td>
+								<td class="text-center">${classAsuransi.jenisObat}</td>
+								<td class="text-center">${classAsuransi.hargaKartu}</td>
+								<td class="text-center">${classAsuransi.kelipatan}</td>
+								<td class="text-center">${classAsuransi.diskripsiClass}</td>
+								<td class="text-center">
+									<a href="#" id_delete="${classAsuransi.id}" class = "delete btn btn-danger btn-sm"><span class = "fa fa-fw fa-times"></span>Delete</a>
+									<a href="#" id_edit="${classAsuransi.id}" class = "edit btn btn-primary btn-sm"><span class = "fa fa-fw fa-info"></span>Edit</a>
+							    </td>
+							</tr>
+						</c:forEach>
                                 </tbody>
                             </table>			
 				</div>			
@@ -261,61 +268,7 @@ $(document).ready(function(){
 	<script src="./../../resources/assets/vendor/raphael/raphael.min.js"></script>
 	<script src="./../../resources/assets/vendor/morrisjs/morris.min.js"></script>
 </body>
-<script>
-	function showData(){
-		$.ajax({
-			url : '/classasuransicontroller/getall',
-			type : 'POST',
-			dataType : 'json',
-			success : function(data, x, xhr) {
-				console.log("data is loaded");
-				fillData(data);
-			}
-		});
-	}
-	
-	function fillData(data){
-		var dt = $('#dataTables');
-		var tbody = dt.find('tbody');
-		var child = tbody.find('tr').remove();
-		
-		//xtrack data json
-		$.each(data,function(index, class_asuransi){
-			var trString = "<tr>";
-			trString += "<td>";
-			trString += class_asuransi.type;
-			trString += "</td>"
-			trString += "<td>";
-			trString += class_asuransi.jenisPelayanan;
-			trString += "</td>"
-			trString += "<td>";
-			trString += class_asuransi.hargaKartu;
-			trString += "</td>"
-			trString += "<td>";
-			trString += class_asuransi.jenisObat;
-			trString += "</td>"
-			trString += "<td>";
-			trString += class_asuransi.hargaKartu;
-			trString += "</td>"
-			trString += "<td>";
-			trString += class_asuransi.kelipatan;
-			trString += "</td>"
-			trString += "<td>";
-			trString += class_asuransi.diskripsiClass;
-			trString += "</td>"
-			trString += "<td>";
-			trString += "<a id_delete = '"+class_asuransi.id+"' href='#' class = 'delete' >Delete</a>";
-			trString += "</td>"
-			trString += "<td>";
-			trString += "<a id_edit='"+class_asuransi.id+"' href='#' class='edit'>Edit</a>"
-			trString += "</td>"
-			trString += "</tr>"
-			
-			tbody.append(trString)
-			
-		});
-	}
-	
+<script>	
 	function save(){
 		var type = $('input[name="type"]').val();
 		var jenis_pelayanan = $('input[name="jenis_pelayanan"]').val();
@@ -342,7 +295,7 @@ $(document).ready(function(){
 				console.log(data);
 				console.log(a);
 				console.log(xhr.status);
-				showData();
+				window.location = "classasuransi";
 			}
 		});
 	}
@@ -355,7 +308,7 @@ $(document).ready(function(){
 			type :'DELETE',
 			success : function(data) {
 				console.log(data);
-				showData();
+				window.location = "classasuransi";
 			}
 		});
 		
@@ -385,7 +338,7 @@ $(document).ready(function(){
 			success : function(data, a, xhr) {
 				console.log(a);
 				console.log(xhr.status);
-				showData();
+				window.location = "classasuransi";
 			}
 		});
 		
@@ -411,5 +364,5 @@ $(document).ready(function(){
 	}
 
 </script>
-
+<script type="text/javascript" src="/resources/assets/datatable/jquery.dataTables.min.js"></script>
 </html>
