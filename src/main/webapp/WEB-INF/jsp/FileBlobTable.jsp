@@ -25,9 +25,10 @@
 			$(document).on('click', '.view', function(){
 				var id = $(this).attr("id_view");
 				$.ajax({
-					url : "/getmyfilesbyid/"+id,
+					url : "/bank/getmyfilesbyid/"+id,
 					type : "GET",
 					success: function(){
+						console.log();
 						document.location = "./viewfileblob";
 					}
 				});
@@ -116,9 +117,6 @@
             <!-- /.row -->
             <div class="row">
 				<div class = "col-lg-12">
-					<div class="col-lg-6" align="right">
-						
-					</div>
 					<br><br>
 					<table class = "table table-striped table-bordered table-hover dataTable no-footer dtr-inline" id = "dataTables-example" role = "grid" aria-describedby="dataTables-example_info">
 						<thead class = "kolom">
