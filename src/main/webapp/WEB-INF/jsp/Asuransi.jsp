@@ -144,7 +144,8 @@
 								<th><center>Storan</center></th>
 								<th><center>Tanggal Dibuat</center></th>
 								<th><center>Customer Service</center></th>
-								<th><center>Action</center></th>
+								<th><center>Delete</center></th>
+								<th><center>Detail</center></th>
 							</tr>
 						</thead>
 						<tbody>
@@ -159,7 +160,10 @@
 									<td class="text-center">${polis.tanggalDibuat}</td>
 									<td class="text-center">${polis.employee.nama}</td>
 									<td class="text-center">
-										<a id_delete="${polis.id}" class = "delete btn btn-danger btn-sm"><span class = "fa fa-fw fa-times"></span>Delete</a>
+										<a id_delete="${polis.id}" class = "delete btn btn-danger btn-sm"><span class = "fa fa-fw fa-times"></span>Delete</a><br>	
+									</td>
+									<td>
+									<a type="button" id_edit="${polis.id}" class = "btn btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal"><span class = "fa fa-fw fa-times"></span>Detail</a>
 									</td>
 								</tr>
 							</c:forEach>
