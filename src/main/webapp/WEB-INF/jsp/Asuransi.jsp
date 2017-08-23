@@ -163,7 +163,7 @@
 										<a id_delete="${polis.id}" class = "delete btn btn-danger btn-sm"><span class = "fa fa-fw fa-times"></span>Delete</a><br>	
 									</td>
 									<td>
-									<a type="button" id_edit="${polis.id}" class = "btn btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal"><span class = "fa fa-fw fa-times"></span>Detail</a>
+									<a type="button" id_edit="${polis.id}" class = "btn btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal"><span class = "fa fa-fw fa-info"></span>Detail</a>
 									</td>
 								</tr>
 							</c:forEach>
