@@ -10,7 +10,6 @@ public interface ClassAsuransiService {
 	
 	public void delete(int id);
 	
-	
 	public void update(ClassAsuransi classAsuransi);
 	
 	public List<ClassAsuransi> getAllClassAsuransi();

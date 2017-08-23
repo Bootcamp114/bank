@@ -16,9 +16,5 @@ public interface ClassAsuransiDao {
 	public List<ClassAsuransi> getAllClassAsuransi();
 	
 	public ClassAsuransi getCLassAsuransiById(int id);
-	
-	List<ClassAsuransi> serchClassAsuransiByType(ClassAsuransi classAsuransi);
-	
-	ClassAsuransi getClassAsuransiByType(String Type);
 
 }

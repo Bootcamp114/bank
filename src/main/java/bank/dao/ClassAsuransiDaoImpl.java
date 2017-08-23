@@ -62,16 +62,4 @@ public class ClassAsuransiDaoImpl implements ClassAsuransiDao {
 		return classAsuransi;
 	}
 
-	@Override
-	public List<ClassAsuransi> serchClassAsuransiByType(ClassAsuransi classAsuransi) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public ClassAsuransi getClassAsuransiByType(String Type) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 }
