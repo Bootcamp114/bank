@@ -1,5 +1,7 @@
 package bank.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -18,6 +20,18 @@ public class MyFileServiceImple implements MyFileService {
 	public void save(MyFiles myFiles) {
 		// TODO Auto-generated method stub
 		myFileDao.save(myFiles);
+	}
+
+	@Override
+	public List<MyFiles> listMyFiles() {
+		// TODO Auto-generated method stub
+		return myFileDao.listMyFiles();
+	}
+
+	@Override
+	public MyFiles getMyFilesById(int id) {
+		// TODO Auto-generated method stub
+		return myFileDao.getMyFilesById(id);
 	}
 
 }

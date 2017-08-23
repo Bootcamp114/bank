@@ -22,11 +22,15 @@
 	<script type="text/javascript" src="/resources/assets/jquery-3.2.1.min.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function(){
-			$(document).on("click", ".delete", function(){
-				var conf = confirm("Apakah Ada Yang Salah???");
-				if (conf == true){
-					doDelete(this);
-				}
+			$(document).on('click', '.view', function(){
+				var id = $(this).attr("id_view");
+				$.ajax({
+					url : "/getmyfilesbyid/"+id,
+					type : "GET",
+					success: function(){
+						document.location = "./viewfileblob";
+					}
+				});
 			});
 		});
 	</script>
@@ -105,43 +109,31 @@
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Peminjaman Dana</h1>
+                    <h1 class="page-header">Table File Jaminan</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
             <!-- /.row -->
             <div class="row">
 				<div class = "col-lg-12">
-					<div class = "col-lg-6">
-						<a href="peminjamandana/add" class = "btn btn-success btn-md"><span class = "fa fa-fw fa-plus"></span>Tambah Peminjaman Dana</a>
-						<a href="peminjamandana" class = "btn btn-primary btn-md"><span class = "fa fa-fw fa-refresh fa-spin"></span>Refresh</a>
-					</div>
 					<div class="col-lg-6" align="right">
-						<a href="fileblobtable" class="btn btn-warning btn-md"><span class = "fa fa-fw fa-trello"></span>View</a>
+						
 					</div>
 					<br><br>
 					<table class = "table table-striped table-bordered table-hover dataTable no-footer dtr-inline" id = "dataTables-example" role = "grid" aria-describedby="dataTables-example_info">
 						<thead class = "kolom">
 							<tr>
-								<th class="text-center">Nasabah</th>
-								<th class="text-center">Jaminan</th>
-								<th class="text-center">Jumlah Pinjam</th>
-								<th class="text-center">Angsuran (/Bln)</th>
-								<th class="text-center">Tanggal Pinjam</th>
-								<th class="text-center">Jatuh Tempo</th>
+								<th class="text-center">Nama</th>
+								<th class="text-center">File</th>
 								<th class="text-center">Aksi</th>
 							</tr>
 						</thead>
 						<tbody>
-						<c:forEach var = "peminjamanDana" items = "${peminjamanDana}">
+						<c:forEach var = "myFiles" items = "${myFiles}">
 							<tr>
-								<td class="text-center">${peminjamanDana.nasabah.nama}</td>
-								<td class="text-center">${peminjamanDana.namaJaminan}</td>
-								<td class="text-center">${peminjamanDana.jumlahPinjam}</td>
-								<td class="text-center">${peminjamanDana.totalAngsuran}</td>
-								<td class="text-center">${peminjamanDana.tanggalPinjam}</td>
-								<td class="text-center">${peminjamanDana.jatuhTempo}</td>
-								<td class="text-center"><a href="#" id_delete="${peminjamanDana.id}" class="delete btn btn-danger btn-sm"><span class = "fa fa-fw fa-times"></span>Delete</a></td>	
+								<td class="text-center">${myFiles.name}</td>
+								<td class="text-center">${myFiles.file}</td>
+								<td class="text-center"><a href="#" id_view="${myFiles.id}" class="view btn btn-warning btn-sm"><span class = "fa fa-fw fa-trello"></span>View</a></td>	
 							</tr>
 						</c:forEach>
 						</tbody>
@@ -164,17 +156,4 @@
     
     <script src="./../../resources/assets/js/sb-admin-2.js"></script>
 </body>
-<script>
-	function doDelete(del){
-		var id = $(del).attr("id_delete");
-		$.ajax({
-			url : "/pinjamdana/delete/"+id,
-			type : "DELETE",
-			success : function(data){
-				console.log(data);
-				window.location = "peminjamandana";
-			}
-		});
-	}
-</script>
 </html>

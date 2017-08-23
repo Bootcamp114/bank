@@ -19,6 +19,7 @@ import org.springframework.web.servlet.ModelAndView;
 import bank.model.ClassAsuransi;
 import bank.model.Employee;
 import bank.model.KeluargaNasabah;
+import bank.model.MyFiles;
 import bank.model.Nasabah;
 import bank.model.PeminjamanDana;
 import bank.model.Polis;
@@ -28,6 +29,7 @@ import bank.model.Rekening;
 import bank.service.ClassAsuransiService;
 import bank.service.EmployeeService;
 import bank.service.KeluargaNasabahService;
+import bank.service.MyFileService;
 import bank.service.NasabahService;
 import bank.service.PeminjamanDanaService;
 import bank.service.PolisService;
@@ -60,6 +62,8 @@ public class UrlController {
 	ProdukAsuransiService produkAsuransiService;
 	@Autowired
 	PolisService polisService; 
+	@Autowired
+	MyFileService myFileService;
 	
 
 	@RequestMapping("/login")
@@ -216,5 +220,23 @@ public class UrlController {
 	public Nasabah getNasabahById(@PathVariable int id){
 		return nasabahService.getNasbahById(id);
 	}
-
+	
+	@RequestMapping("/fileblobtable")
+	public String tableFile(Model model) {
+		List<MyFiles> myFiles = myFileService.listMyFiles();
+		model.addAttribute("myFiles", myFiles);
+		return "FileBlobTable";
+	}
+	
+	@RequestMapping("/viewfileblob")
+	public String viewfile() {
+		return "FileBlob";
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="/getmyfilesbyid/{id}", method=RequestMethod.GET)
+	@ResponseStatus(value=HttpStatus.OK)
+	public MyFiles getMyFilesById(@PathVariable int id) {
+		return myFileService.getMyFilesById(id);
+	}
 }
